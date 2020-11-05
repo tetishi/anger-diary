@@ -31,6 +31,16 @@
     <%= form.text_area :body %>
   </div>
 
+  <div class="field">
+    <%= form.label :changeable %>
+    <%= form.radio_button :changeable, "Yes" %>Yes <%= form.radio_button :changeable, "No"%>No
+  </div>
+
+  <div class="field">
+    <%= form.label :important %>
+    <%= form.radio_button :important, "Yes" %>Yes <%= form.radio_button :important, "No" %>No
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

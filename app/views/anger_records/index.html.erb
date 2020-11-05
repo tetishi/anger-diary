@@ -9,6 +9,8 @@
       <th>Got Angry at</th>
       <th>Place</th>
       <th>Body</th>
+      <th>Is it changeable?</th>
+      <th>Is it important?</th>
       <th colspan="5"></th>
     </tr>
   </thead>
@@ -20,6 +22,8 @@
         <td><%= anger_record.got_angry_at %></td>
         <td><%= anger_record.place %></td>
         <td><%= anger_record.body %></td>
+        <td><%= anger_record.changeable %></td>
+        <td><%= anger_record.important %></td>
         <td><%= link_to 'Show', anger_record %></td>
         <td><%= link_to 'Edit', edit_anger_record_path(anger_record) %></td>
         <td><%= link_to 'Destroy', anger_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>

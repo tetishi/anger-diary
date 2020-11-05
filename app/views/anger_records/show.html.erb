@@ -20,5 +20,15 @@
   <%= @anger_record.body %>
 </p>
 
+<p>
+  <strong>Changeable:</strong>
+  <%= @anger_record.changeable %>
+</p>
+
+<p>
+  <strong>Important:</strong>
+  <%= @anger_record.important %>
+</p>
+
 <%= link_to 'Edit', edit_anger_record_path(@anger_record) %> |
 <%= link_to 'Back', anger_records_path %>

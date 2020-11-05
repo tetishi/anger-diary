@@ -69,6 +69,6 @@ class AngerRecordsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def anger_record_params
-      params.require(:anger_record).permit(:level, :got_angry_at, :place, :body)
+      params.require(:anger_record).permit(:level, :got_angry_at, :place, :body, :changeable, :important)
     end
 end
