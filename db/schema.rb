@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_11_04_224816) do
   enable_extension "plpgsql"
 
   create_table "anger_records", force: :cascade do |t|
+    t.integer "level"
     t.string "place"
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
