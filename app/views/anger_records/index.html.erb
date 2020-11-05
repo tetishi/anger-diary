@@ -6,9 +6,10 @@
   <thead>
     <tr>
       <th>Level</th>
+      <th>Got Angry at</th>
       <th>Place</th>
       <th>Body</th>
-      <th colspan="4"></th>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
@@ -16,6 +17,7 @@
     <% @anger_records.each do |anger_record| %>
       <tr>
         <td><%= anger_record.level %></td>
+        <td><%= anger_record.got_angry_at %></td>
         <td><%= anger_record.place %></td>
         <td><%= anger_record.body %></td>
         <td><%= link_to 'Show', anger_record %></td>

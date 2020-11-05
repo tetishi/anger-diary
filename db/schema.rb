@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2020_11_04_224816) do
 
   create_table "anger_records", force: :cascade do |t|
     t.integer "level"
+    t.datetime "got_angry_at"
     t.string "place"
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
