@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Anger Records</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Place</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @anger_records.each do |anger_record| %>
+      <tr>
+        <td><%= anger_record.place %></td>
+        <td><%= anger_record.body %></td>
+        <td><%= link_to 'Show', anger_record %></td>
+        <td><%= link_to 'Edit', edit_anger_record_path(anger_record) %></td>
+        <td><%= link_to 'Destroy', anger_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Anger Record', new_anger_record_path %>

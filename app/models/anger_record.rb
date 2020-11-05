@@ -1,0 +1,2 @@
+class AngerRecord < ApplicationRecord
+end

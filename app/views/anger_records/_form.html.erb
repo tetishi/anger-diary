@@ -1,0 +1,27 @@
+<%= form_with(model: anger_record, local: true) do |form| %>
+  <% if anger_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(anger_record.errors.count, "error") %> prohibited this anger_record from being saved:</h2>
+
+      <ul>
+        <% anger_record.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :place %>
+    <%= form.text_field :place %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

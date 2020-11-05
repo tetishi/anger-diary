@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @anger_record.place %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @anger_record.body %>
+</p>
+
+<%= link_to 'Edit', edit_anger_record_path(@anger_record) %> |
+<%= link_to 'Back', anger_records_path %>
