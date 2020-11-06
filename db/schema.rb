@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 2020_11_04_224816) do
     t.datetime "got_angry_at"
     t.string "place"
     t.text "body"
-    t.boolean "changeable"
-    t.boolean "important"
+    t.string "changeable"
+    t.string "important"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
