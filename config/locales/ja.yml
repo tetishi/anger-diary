@@ -1,0 +1,25 @@
+ja:
+  date:
+    formats:
+      default: '%Y年%m月%d日'
+  time:
+    formats:
+  activerecord:
+    models:
+      anger_record: 怒りの記録
+    attributes:
+      anger_record:
+        level: 怒りのレベル
+        got_angry_on: 怒った日付
+        got_angry_at: 怒った時間
+        place: 場所
+        body: 内容
+        changeable: 変えられる内容か
+        important: 重要な内容か
+    helpers:
+      select:
+        prompt: 選択してください
+      submit:
+        create: 登録する
+        submit: 保存する
+        update: 更新する

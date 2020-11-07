@@ -25,7 +25,7 @@ class AngerRecordsController < ApplicationController
 
     respond_to do |format|
       if @anger_record.save
-        format.html { redirect_to @anger_record, notice: 'Anger record was successfully created.' }
+        format.html { redirect_to @anger_record, notice: '怒りが記録されました。' }
       else
         format.html { render :new }
       end
@@ -36,7 +36,7 @@ class AngerRecordsController < ApplicationController
   def update
     respond_to do |format|
       if @anger_record.update(anger_record_params)
-        format.html { redirect_to @anger_record, notice: 'Anger record was successfully updated.' }
+        format.html { redirect_to @anger_record, notice: '怒りの記録が編集されました。' }
       else
         format.html { render :edit }
       end
@@ -47,7 +47,7 @@ class AngerRecordsController < ApplicationController
   def destroy
     @anger_record.destroy
     respond_to do |format|
-      format.html { redirect_to anger_records_url, notice: 'Anger record was successfully destroyed.' }
+      format.html { redirect_to anger_records_url, notice: '怒りの記録が削除されました。' }
     end
   end
 

@@ -1,35 +1,35 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Level:</strong>
+  <strong>怒りのレベル:</strong>
   <%= @anger_record.level %>
 </p>
 
 <p>
-  <strong>Got Angry at:</strong>
+  <strong>怒った日時:</strong>
   <%= @anger_record.got_angry_on %>
   <%= @anger_record.got_angry_at.strftime("%I") %>時ごろ
 </p>
 
 <p>
-  <strong>Place:</strong>
+  <strong>場所:</strong>
   <%= @anger_record.place %>
 </p>
 
 <p>
-  <strong>Body:</strong>
+  <strong>内容:</strong>
   <%= @anger_record.body %>
 </p>
 
 <p>
-  <strong>Changeable:</strong>
+  <strong>変えらる内容か:</strong>
   <%= @anger_record.changeable %>
 </p>
 
 <p>
-  <strong>Important:</strong>
+  <strong>重要な内容か:</strong>
   <%= @anger_record.important %>
 </p>
 
-<%= link_to 'Edit', edit_anger_record_path(@anger_record) %> |
-<%= link_to 'Back', anger_records_path %>
+<%= link_to '編集', edit_anger_record_path(@anger_record) %> |
+<%= link_to '戻る', anger_records_path %>

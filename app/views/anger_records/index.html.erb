@@ -1,16 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Anger Records</h1>
+<h1>怒りの記録</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Level</th>
-      <th>Got Angry at</th>
-      <th>Place</th>
-      <th>Body</th>
-      <th>Is it changeable?</th>
-      <th>Is it important?</th>
+      <th>レベル</th>
+      <th>怒った日時</th>
+      <th>場所</th>
+      <th>内応</th>
+      <th>変えられる内容か</th>
+      <th>重要な内容か</th>
       <th colspan="5"></th>
     </tr>
   </thead>
@@ -24,9 +24,9 @@
         <td><%= anger_record.body %></td>
         <td><%= anger_record.changeable %></td>
         <td><%= anger_record.important %></td>
-        <td><%= link_to 'Show', anger_record %></td>
-        <td><%= link_to 'Edit', edit_anger_record_path(anger_record) %></td>
-        <td><%= link_to 'Destroy', anger_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '表示', anger_record %></td>
+        <td><%= link_to '編集', edit_anger_record_path(anger_record) %></td>
+        <td><%= link_to '削除', anger_record, method: :delete, data: { confirm: '本当によろしいですか？' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Anger Record', new_anger_record_path %>
+<%= link_to '怒りを記録する', new_anger_record_path %>
