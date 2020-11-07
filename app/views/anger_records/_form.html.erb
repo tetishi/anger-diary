@@ -17,14 +17,9 @@
   </div>
 
   <div class="field">
-    <div class="form-inline text-left" >
-      <div class="form-group">
-        <%= form.label :got_angry_at %>
-        <%= form.datetime_field :got_angry_at %>
-      </div>
-
-      
-    </div>
+    <%= form.label :got_angry_at %>
+    <p><%= form.date_field :got_angry_on %>
+    <%= form.time_select :got_angry_at, discard_minute: true, prompt: true %>時ごろ</p>
   </div>
 
   <div class="field">

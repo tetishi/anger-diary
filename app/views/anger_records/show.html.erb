@@ -7,7 +7,8 @@
 
 <p>
   <strong>Got Angry at:</strong>
-  <%= @anger_record.got_angry_at %>
+  <%= @anger_record.got_angry_on %>
+  <%= @anger_record.got_angry_at.strftime("%I") %>時ごろ
 </p>
 
 <p>

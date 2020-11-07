@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'AngerRecords', type: :system do
+describe 'AngerRecords', type: :system do
   before do
     @anger_record = create(:anger_record)
   end
