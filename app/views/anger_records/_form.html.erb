@@ -17,9 +17,9 @@
   </div>
 
   <div class="field">
-    <%= form.label :got_angry_at %>
+    <%= form.label :got_angry_on %>
     <p><%= form.date_field :got_angry_on %>
-    <%= form.time_select :got_angry_at, discard_minute: true, prompt: true %>時ごろ</p>
+    <span id="anger_hour"><%= form.time_select :got_angry_at, discard_minute: true, prompt: true %></span>時ごろ</p>
   </div>
 
   <div class="field">
@@ -34,12 +34,12 @@
 
   <div class="field">
     <%= form.label :changeable %>
-    <%= form.radio_button :changeable, "はい" %>はい <%= form.radio_button :changeable, "いいえ"%>いいえ
+    <%= form.radio_button :changeable, "Yes" %>はい <%= form.radio_button :changeable, "No"%>いいえ
   </div>
 
   <div class="field">
     <%= form.label :important %>
-    <%= form.radio_button :important, "はい" %>はい <%= form.radio_button :important, "いいえ" %>いいえ
+    <%= form.radio_button :important, "Yes" %>はい <%= form.radio_button :important, "No" %>いいえ
   </div>
 
   <div class="actions">

@@ -25,7 +25,7 @@ class AngerRecordsController < ApplicationController
 
     respond_to do |format|
       if @anger_record.save
-        format.html { redirect_to @anger_record, notice: '怒りが記録されました。' }
+        format.html { redirect_to @anger_record, notice: '怒りの記録が作成されました。' }
       else
         format.html { render :new }
       end

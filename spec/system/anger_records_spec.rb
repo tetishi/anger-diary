@@ -1,28 +1,59 @@
 require 'rails_helper'
 
-describe 'AngerRecords', type: :system do
-  before do
+feature 'AngerRecords', js: true, type: :feature do
+  background do
     @anger_record = create(:anger_record)
   end
 
-  it 'visits the index' do
+  scenario 'visiting the index' do
     visit anger_records_path
-    expect(page).to have_selector 'h1', text: 'Anger Records'
+    save_and_open_page
+    expect(page).to have_selector 'h1', text: '怒りの記録'
   end
 
-  it 'creats an anger record' do
+  scenario 'creatting an anger record' do
     visit anger_records_path
-    click_on 'New Anger Record'
+    click_on '怒りを記録する'
+    select '1', from: "怒りのレベル"
+    fill_in '怒った日時', with: '2020-10-22'
+    within '#anger_hour' do
+      select "13"
+    end
+    fill_in "場所", with: @anger_record.place
+    fill_in "内容", with: @anger_record.body
+    find("input[name='anger_record[changeable]'][value='Yes']").set(true)
+    find("input[name='anger_record[important]'][value='Yes']").set(true)
+    click_on "登録する"
 
-    select_option "Level", with: @anger_record.level
-    fill_in "Got Angry at", with: @anger_record.got_angry_at
-    fill_in "Place", with: @anger_record.place
-    fill_in "Body", with: @anger_record.body
-    choose 'Is it changeable?', with: @anger_record.changeable
-    choose 'Is it important?', with: @anger_record.important
-    click_on "Create Anger record"
+    assert_text "怒りの記録が作成されました。"
+    click_on "戻る"
+  end
 
-    assert_text "Anger record was successfully created"
-    click_on "Back"
+  scenario "updating an anger record" do
+    visit anger_records_path
+    click_on "編集", match: :first
+
+    select '6', from: "怒りのレベル"
+    fill_in '怒った日時', with: '2019-12-22'
+    within '#anger_hour' do
+      select "13"
+    end
+    fill_in "場所", with: @anger_record.place
+    fill_in "内容", with: @anger_record.body
+    find("input[name='anger_record[changeable]'][value='Yes']").set(true)
+    find("input[name='anger_record[important]'][value='Yes']").set(true)
+    click_on "更新する"
+
+    assert_text "怒りの記録が編集されました。"
+    click_on "戻る"
+  end
+
+  scenario "destroying an anger record" do
+    visit anger_records_path
+    page.accept_confirm do
+      click_on "削除", match: :first
+    end
+
+    assert_text "怒りの記録が削除されました。"
   end
 end

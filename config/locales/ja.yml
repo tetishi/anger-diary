@@ -10,8 +10,8 @@ ja:
     attributes:
       anger_record:
         level: 怒りのレベル
-        got_angry_on: 怒った日付
-        got_angry_at: 怒った時間
+        got_angry_on: 怒った日時
+        got_angry_at: 時ごろ
         place: 場所
         body: 内容
         changeable: 変えられる内容か
