@@ -1,0 +1,48 @@
+<%= form_with(model: anger_record, local: true) do |form| %>
+  <% if anger_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(anger_record.errors.count, "error") %> prohibited this anger_record from being saved:</h2>
+
+      <ul>
+        <% anger_record.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :level %>
+    <%= form.select :level, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :got_angry_on %>
+    <p><%= form.date_field :got_angry_on %>
+    <span id="anger_hour"><%= form.time_select :got_angry_at, discard_minute: true, prompt: true %></span>時ごろ</p>
+  </div>
+
+  <div class="field">
+    <%= form.label :place %>
+    <%= form.text_field :place %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :changeable %>
+    <%= form.radio_button :changeable, "Yes" %>はい <%= form.radio_button :changeable, "No"%>いいえ
+  </div>
+
+  <div class="field">
+    <%= form.label :important %>
+    <%= form.radio_button :important, "Yes" %>はい <%= form.radio_button :important, "No" %>いいえ
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
