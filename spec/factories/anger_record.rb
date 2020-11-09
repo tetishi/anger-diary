@@ -1,5 +1,7 @@
-require 'faker'
-require 'forgery_ja'
+# frozen_string_literal: true
+
+require "faker"
+require "forgery_ja"
 
 FactoryBot.define do
   factory :anger_record, class: AngerRecord do

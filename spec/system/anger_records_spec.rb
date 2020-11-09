@@ -1,21 +1,23 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
-feature 'AngerRecords', js: true, type: :feature do
+require "rails_helper"
+
+feature "AngerRecords", js: true, type: :feature do
   background do
     @anger_record = create(:anger_record)
   end
 
-  scenario 'visiting the index' do
+  scenario "visiting the index" do
     visit anger_records_path
-    expect(page).to have_selector 'h1', text: '怒りの記録'
+    expect(page).to have_selector "h1", text: "怒りの記録"
   end
 
-  scenario 'creatting an anger record' do
+  scenario "creatting an anger record" do
     visit anger_records_path
-    click_on '怒りを記録する'
-    select '1', from: "怒りのレベル"
-    fill_in '怒った日時', with: '2020-10-22'
-    within '#anger_hour' do
+    click_on "怒りを記録する"
+    select "1", from: "怒りのレベル"
+    fill_in "怒った日時", with: "2020-10-22"
+    within "#anger_hour" do
       select "13"
     end
     fill_in "場所", with: @anger_record.place
@@ -32,9 +34,9 @@ feature 'AngerRecords', js: true, type: :feature do
     visit anger_records_path
     click_on "編集", match: :first
 
-    select '6', from: "怒りのレベル"
-    fill_in '怒った日時', with: '2019-12-22'
-    within '#anger_hour' do
+    select "6", from: "怒りのレベル"
+    fill_in "怒った日時", with: "2019-12-22"
+    within "#anger_hour" do
       select "13"
     end
     fill_in "場所", with: @anger_record.place

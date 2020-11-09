@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateAngerRecords < ActiveRecord::Migration[6.0]
   def change
     create_table :anger_records do |t|
