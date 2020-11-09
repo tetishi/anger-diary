@@ -7,7 +7,6 @@ feature 'AngerRecords', js: true, type: :feature do
 
   scenario 'visiting the index' do
     visit anger_records_path
-    save_and_open_page
     expect(page).to have_selector 'h1', text: '怒りの記録'
   end
 
