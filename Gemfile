@@ -37,6 +37,7 @@ group :development, :test do
   gem "factory_bot_rails"
   gem "faker", git: "https://github.com/faker-ruby/faker.git", branch: "master"
   gem "forgery_ja"
+  gem "pry-rails"
 end
 
 group :development do
@@ -47,7 +48,6 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "spring-commands-rspec"
-  gem "pry-rails"
 end
 
 group :test do
@@ -57,7 +57,6 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem "webdrivers"
   gem "launchy", "~> 2.4.3"
-  gem "pry-rails"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

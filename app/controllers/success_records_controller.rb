@@ -61,6 +61,6 @@ class SuccessRecordsController < ApplicationController
 
       # Only allow a list of trusted parameters through.
       def success_record_params
-        params.require(:success_record).permit()
+        params.require(:success_record).permit(:body, :succeed_at)
       end
 end
