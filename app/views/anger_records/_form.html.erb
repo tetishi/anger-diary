@@ -13,13 +13,26 @@
 
   <div class="field">
     <%= form.label :level %>
-    <%= form.select :level, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]] %>
+    <div class="control">
+      <div class="select">
+        <%= form.select :level, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]] %>
+      </div>
+    </div>
   </div>
 
   <div class="field">
     <%= form.label :got_angry_on %>
-    <p><%= form.date_field :got_angry_on %>
-    <span id="anger_hour"><%= form.time_select :got_angry_at, discard_minute: true, prompt: true %></span>時ごろ</p>
+    <div class="field is-horizontal">
+      <%= form.date_field :got_angry_on %>
+      <div class="control">
+        <div class="select" id="anger_hour">
+          <%= form.time_select :got_angry_at, discard_minute: true, prompt: true %>
+        </div>
+      </div>
+      <div class="columns is-vcentered">
+        <p class="column">時ごろ</p>
+      </div>
+    </div>
   </div>
 
   <div class="field">
@@ -32,7 +45,7 @@
     <%= form.text_area :body, class: "textarea" %>
   </div>
 
-  <div class="columns is-mobile">
+  <div class="field columns is-mobile">
     <div class="column is-4">
       <%= form.label :changeable %>
     </div>
@@ -41,7 +54,7 @@
     </div>
   </div>
 
-  <div class="columns is-mobile">
+  <div class="field columns is-mobile">
     <div class="column is-4">
       <%= form.label :important %>
     </div>
@@ -50,7 +63,7 @@
     </div>
   </div>
 
-  <div>
+  <div class=field>
     <%= form.button type: "submit", class: "button is-success is-size-5" %>
   </div>
 <% end %>
