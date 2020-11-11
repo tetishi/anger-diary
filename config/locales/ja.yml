@@ -14,8 +14,10 @@ ja:
         got_angry_at: 時ごろ
         place: 場所
         body: 内容
-        changeable: 変えられる内容か
-        important: 重要な内容か
+        changeable: 自分で変えられる内容ですか？
+        important: 自分にとって重要な内容ですか？
+        Yes: はい
+        No: いいえ
     helpers:
       select:
         prompt: 選択してください
