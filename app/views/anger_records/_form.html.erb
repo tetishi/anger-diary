@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :level %>
-    <%= form.select :level, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]] %>
+    <%= form.select :level, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]], class: "button is-large" %>
   </div>
 
   <div class="field">
@@ -24,22 +24,22 @@
 
   <div class="field">
     <%= form.label :place %>
-    <%= form.text_field :place %>
+    <%= form.text_field :place, class: "input" %>
   </div>
 
   <div class="field">
     <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, class: "textarea" %>
   </div>
 
   <div class="field">
     <%= form.label :changeable %>
-    <%= form.radio_button :changeable, "Yes" %>はい <%= form.radio_button :changeable, "No"%>いいえ
+    <%= form.radio_button :changeable, "Yes", class: "radio" %>はい <%= form.radio_button :changeable, "No", class: "radio"%>いいえ
   </div>
 
   <div class="field">
     <%= form.label :important %>
-    <%= form.radio_button :important, "Yes" %>はい <%= form.radio_button :important, "No" %>いいえ
+    <%= form.radio_button :important, "Yes", class: "radio" %>はい <%= form.radio_button :important, "No", class: "radio" %>いいえ
   </div>
 
   <div class="actions">

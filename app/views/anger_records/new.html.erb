@@ -1,5 +1,18 @@
-<h1>怒りの記録を作成</h1>
+<section class="hero is-success is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">怒りの記録を作成</h1>
+      <h2 class="subtitle"></h2>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    
+    <%= render 'form', anger_record: @anger_record %>
 
-<%= render 'form', anger_record: @anger_record %>
+    <%= link_to '戻る', anger_records_path %>
+    
+  </div>
+</section>
 
-<%= link_to '戻る', anger_records_path %>
