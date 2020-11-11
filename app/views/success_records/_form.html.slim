@@ -1,0 +1,15 @@
+= form_with(model: success_record, local: true) do |form|
+  - if success_record.errors.any?
+    #error_explanation
+      h2
+        = pluralize(success_record.errors.count, "error")
+        |  prohibited this anger_record from being saved:
+      ul
+        - success_record.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = form.label :body
+    = form.text_area :body, class: "textarea"
+  .field
+    = form.button type: "submit", class: "button is-success is-size-5"

@@ -17,7 +17,7 @@ table
         | 自分で変えられる内容
       th
         | 自分にとって重要な内容
-      th[colspan="5"]
+      th[colspan="6"]
   tbody
     - @anger_records.each do |anger_record|
       tr
@@ -43,4 +43,3 @@ table
           = link_to '削除', anger_record, method: :delete, data: { confirm: '本当によろしいですか？' }
 br
 = link_to '怒りを記録する', new_anger_record_path
-= link_to '今日出来たことを記録する', new_success_record_path
