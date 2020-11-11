@@ -1,0 +1,31 @@
+p#notice
+  = notice
+p
+  strong
+    | 怒りのレベル:
+  = @anger_record.level
+p
+  strong
+    | 怒った日時:
+  = @anger_record.got_angry_on
+  = @anger_record.got_angry_at.strftime("%I")
+  | 時ごろ 
+p
+  strong
+    | 場所:
+  = @anger_record.place
+p
+  strong
+    | 内容:
+  = @anger_record.body
+p
+  strong
+    | 変えらる内容か:
+  = @anger_record.changeable
+p
+  strong
+    | 重要な内容か:
+  = @anger_record.important
+= link_to '編集', edit_anger_record_path(@anger_record)
+|  | 
+= link_to '戻る', anger_records_path
