@@ -1,0 +1,9 @@
+p#notice
+  = notice
+p
+  strong
+    | 内容:
+  = @success_record.body
+= link_to '編集', edit_success_record_path(@success_record)
+|  | 
+= link_to '戻る', success_records_path
