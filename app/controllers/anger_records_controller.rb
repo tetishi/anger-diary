@@ -25,32 +25,26 @@ class AngerRecordsController < ApplicationController
   def create
     @anger_record = AngerRecord.new(anger_record_params)
 
-    respond_to do |format|
-      if @anger_record.save
-        format.html { redirect_to @anger_record, notice: "怒りの記録が作成されました。" }
-      else
-        format.html { render :new }
-      end
+    if @anger_record.save
+      redirect_to @anger_record, notice: "怒りの記録が作成されました。"
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /anger_records/1
   def update
-    respond_to do |format|
-      if @anger_record.update(anger_record_params)
-        format.html { redirect_to @anger_record, notice: "怒りの記録が編集されました。" }
-      else
-        format.html { render :edit }
-      end
+    if @anger_record.update(anger_record_params)
+      redirect_to @anger_record, notice: "怒りの記録が編集されました。"
+    else
+      render :edit
     end
   end
 
   # DELETE /anger_records/1
   def destroy
     @anger_record.destroy
-    respond_to do |format|
-      format.html { redirect_to anger_records_url, notice: "怒りの記録が削除されました。" }
-    end
+    redirect_to anger_records_url, notice: "怒りの記録が削除されました。"
   end
 
   private
