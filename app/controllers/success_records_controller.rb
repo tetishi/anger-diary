@@ -25,32 +25,26 @@ class SuccessRecordsController < ApplicationController
   def create
     @success_record = SuccessRecord.new(success_record_params)
 
-    respond_to do |format|
-      if @success_record.save
-        format.html { redirect_to @success_record, notice: "今日出来たことが作成されました。" }
-      else
-        format.html { render :new }
-      end
+    if @success_record.save
+      redirect_to @success_record, notice: "今日出来たことが作成されました。"
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /success_records/1
   def update
-    respond_to do |format|
-      if @success_record.update(success_record_params)
-        format.html { redirect_to @success_record, notice: "今日出来たことが編集されました。" }
-      else
-        format.html { render :edit }
-      end
+    if @success_record.update(success_record_params)
+      redirect_to @success_record, notice: "今日出来たことが編集されました。"
+    else
+      render :edit
     end
   end
 
   # DELETE /success_records/1
   def destroy
     @success_record.destroy
-    respond_to do |format|
-      format.html { redirect_to success_records_url, notice: "今日出来たことが削除されました。" }
-    end
+    redirect_to success_records_url, notice: "今日出来たことが削除されました。"
   end
 
     private
