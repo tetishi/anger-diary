@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2020_11_11_134239) do
 
   create_table "success_records", force: :cascade do |t|
     t.text "body"
-    t.date "succeed_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

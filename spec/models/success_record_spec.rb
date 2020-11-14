@@ -2,6 +2,16 @@
 
 require "rails_helper"
 
-RSpec.describe SuccessRecord, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe SuccessRecord, type: :model do
+  before do
+    @success_record = create(:success_record)
+  end
+
+  describe "#create" do
+    it "is valid with body" do
+      success_record = @success_record
+      success_record.valid?
+      expect(success_record).to be_valid
+    end
+  end
 end
