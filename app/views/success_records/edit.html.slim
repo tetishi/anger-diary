@@ -1,6 +1,8 @@
-h1
-  | 今日出来たことの編集
-= render 'form', success_record: @success_record
-= link_to '表示', @success_record
-|  | 
-= link_to '戻る', success_records_path
+section.hero.is-primary
+  .hero-body
+    .container
+      h1.title
+        | 今日出来たことの編集
+section.section
+  .container.is-size-5.is-size-6-touch
+    = render 'form', success_record: @success_record
