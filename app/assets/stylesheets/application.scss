@@ -13,6 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+// Set your brand colors
+$viridian-green: #069A8E;
+$crystal: #A1E3D8;
+$beige-lighter: #EFF0EB;
+
+// Update Bulma's global variables
+$primary: $viridian-green;
+$link: $crystal;
+
+// Update some of Bulma's component variables
+$body-background-color: $beige-lighter;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
  @import "bulma";
  @import "font-awesome-sprockets";
  @import "font-awesome";
