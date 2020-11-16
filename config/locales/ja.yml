@@ -20,6 +20,9 @@ ja:
         No: いいえ
       success_record:
         body: 今日出来たこと
+      simple_calendar:
+        previous: 前の月
+        next: 次の月
     helpers:
       select:
         prompt: 選択してください
