@@ -2,6 +2,6 @@
 
 class CalendarsController < ApplicationController
   def index
-    @calendars = Calendar.all
+    @calendars = AngerRecord.all
   end
 end
