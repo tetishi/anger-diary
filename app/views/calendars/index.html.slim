@@ -1,4 +1,4 @@
 p#notice
   = notice
 = month_calendar do |date|
-  = date.day
+  = link_to date.day, calendar_path(@calendar)
