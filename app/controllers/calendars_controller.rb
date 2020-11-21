@@ -10,7 +10,7 @@ class CalendarsController < ApplicationController
 
   def show
     @anger_date = AngerRecord.includes(:level, :got_angry_on).where(got_angry_on: Date.today)
-    @success_date = SuccessRecord.where(created_at: now.all_day)
+    @success_date = SuccessRecord.where(created_at: Time.current.all_day)
     # redirect_to calendar_path(id: :got_angry_on)
   end
 end
