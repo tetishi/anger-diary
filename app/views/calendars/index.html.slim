@@ -1,4 +1,5 @@
 p#notice
   = notice
 = month_calendar do |date|
+  / - binding.pry
   = link_to date.day, calendar_path(@record_date)

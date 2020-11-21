@@ -2,10 +2,10 @@
 
 class CalendarsController < ApplicationController
   def index
-    binding.pry
+    # binding.pry
     # @calendars = AngerRecord.all
-    @anger_records = AngerRecord.all
-    @success_records = SuccessRecord.all
+    @record_dates = AngerRecord.all
+    @record_dates = SuccessRecord.all
   end
 
   def show
