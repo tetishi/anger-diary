@@ -9,9 +9,8 @@ class CalendarsController < ApplicationController
   end
 
   def show
-    # @got_angry_on = AngerRecord.find(params[:got_angry_on])
-    # @record_date = AngerRecord.where(got_angry_on: @got_angry_on)
-    @record_date = AngerRecord.where(got_angry_on: Date.today)
+    @anger_date = AngerRecord.includes(:level, :got_angry_on).where(got_angry_on: Date.today)
+    @success_date = SuccessRecord.where(created_at: now.all_day)
     # redirect_to calendar_path(id: :got_angry_on)
   end
 end

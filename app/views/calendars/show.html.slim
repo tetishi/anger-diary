@@ -1,34 +1,34 @@
 p#notice
   = notice
 - binding.pry
-= @record_date
+= @anger_date
 p
   strong
     | 怒りのレベル:
-  = @record_date.level
+  = @anger_date.level
 p
   strong
     | 怒った日時:
-  = @record_date.got_angry_on
-  = @record_date.got_angry_at.strftime("%I")
+  = @anger_date.got_angry_on
+  = @anger_date.got_angry_at.strftime("%I")
   | 時ごろ 
 p
   strong
     | 場所:
-  = @record_date.place
+  = @anger_date.place
 p
   strong
     | 内容:
-  = @record_date.body
+  = @anger_date.body
 p
   strong
     | 変えらる内容か:
-  = @record_date.changeable
+  = @anger_date.changeable
 p
   strong
     | 重要な内容か:
-  = @record_date.important
+  = @anger_date.important
 p
   strong
     | 出来たこと:
-  = @record_date.body
+  = @success_date.body
