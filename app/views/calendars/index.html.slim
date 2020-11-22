@@ -1,5 +1,8 @@
 p#notice
   = notice
+  / - binding.pry
 = month_calendar do |date|
   / - binding.pry
-  = link_to date.day, 'calendars/:date'
+  = link_to date.day, calendar_path(date)
+  / = link_to date.day, calendar_path(@anger_date)
+  / = link_to date.day, 'calendars/2020-11-10'

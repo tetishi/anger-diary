@@ -1,11 +1,11 @@
 p#notice
   = notice
-- binding.pry
+/ - binding.pry
 = @anger_date
 p
   strong
     | 怒りのレベル:
-  = @anger_date.level
+  = @anger_date.last.level
 p
   strong
     | 怒った日時:
