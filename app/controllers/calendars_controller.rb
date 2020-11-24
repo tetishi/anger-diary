@@ -2,7 +2,7 @@
 
 class CalendarsController < ApplicationController
   def index
-    binding.pry
+    # binding.pry
     @anger_records = AngerRecord.all
     # @anger_records = AngerRecord.where(got_angry_on: AngerRecord.all.pluck(:got_angry_on).map(&:to_date))
     @anger_dates = @anger_records.pluck(:got_angry_on).map {|date| date.to_s}
