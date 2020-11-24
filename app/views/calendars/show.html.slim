@@ -1,8 +1,8 @@
 p#notice
   = notice
 / - binding.pry
-- if @anger_dates
-  = @record_dates
+- if @anger_record
+  = @anger_record.got_angry_on.to_s
   p
     strong
       | 怒りのレベル:
@@ -10,7 +10,7 @@ p#notice
   p 
     strong
       | 怒った日時:
-    = @anger_record.got_angry_on.to_s
+    ==> @anger_record.got_angry_on.to_s
     = @anger_record.got_angry_at.strftime("%I")
     | 時ごろ 
   p
@@ -30,7 +30,10 @@ p#notice
       | 重要な内容か:
     = @anger_record.important
 
-- if @success_dates
+- if @success_record && @anger_record.nil?
+  = @success_record.succeeded_on
+
+- if @success_record
   p
     strong
       | 出来たこと:
