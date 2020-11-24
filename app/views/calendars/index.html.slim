@@ -1,11 +1,7 @@
 p#notice
   = notice
 = month_calendar do |date|
-  / - binding.pry
-  / - if AngerRecord.where(got_angry_on: date).exists? || SuccessRecord.where("created_at between ? and ?", date.beginning_of_day, date.end_of_day).exists?
-  - @record_dates.each do |record|
-    / - binding.pry
-    - if record.to_date == date
-      = link_to date.day, calendar_path(date)
-    - else
-      = date.day
+  - if @record_dates.include?(date.to_s)
+    = link_to date.day, calendar_path(date)
+  - else
+    = date.day

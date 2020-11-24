@@ -1,34 +1,37 @@
 p#notice
   = notice
 / - binding.pry
-= @record_dates
-p
-  strong
-    | 怒りのレベル:
-  = @anger_records.level
-p
-  strong
-    | 怒った日時:
-  = @anger_records.got_angry_on
-  = @anger_records.got_angry_at.strftime("%I")
-  | 時ごろ 
-p
-  strong
-    | 場所:
-  = @anger_records.place
-p
-  strong
-    | 内容:
-  = @anger_records.body
-p
-  strong
-    | 変えらる内容か:
-  = @anger_records.changeable
-p
-  strong
-    | 重要な内容か:
-  = @anger_records.important
-p
-  strong
-    | 出来たこと:
-  = @success_records.body
+- if @anger_dates
+  = @record_dates
+  p
+    strong
+      | 怒りのレベル:
+    = @anger_record.level
+  p 
+    strong
+      | 怒った日時:
+    = @anger_record.got_angry_on.to_s
+    = @anger_record.got_angry_at.strftime("%I")
+    | 時ごろ 
+  p
+    strong
+      | 場所:
+    = @anger_record.place
+  p
+    strong
+      | 内容:
+    = @anger_record.body
+  p
+    strong
+      | 変えらる内容か:
+    = @anger_record.changeable
+  p
+    strong
+      | 重要な内容か:
+    = @anger_record.important
+
+- if @success_dates
+  p
+    strong
+      | 出来たこと:
+    = @success_record.body
