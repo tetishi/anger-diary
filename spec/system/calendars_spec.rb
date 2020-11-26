@@ -19,9 +19,9 @@ feature "Calendars", js: true, type: :feature do
       click_on "怒りを記録する"
       select @anger_record.level, from: "怒りのレベル"
       fill_in "怒った日時", with: @anger_record.got_angry_on
-      binding.pry
+      # binding.pry
       within "#anger_hour" do
-        select @anger_record.got_angry_at.strftime("%k")
+        select @anger_record.got_angry_at.strftime("%H")
       end
       fill_in "場所", with: @anger_record.place
       fill_in "内容", with: @anger_record.body
@@ -30,9 +30,9 @@ feature "Calendars", js: true, type: :feature do
       click_on "登録する"
 
       assert_text "怒りの記録が作成されました。"
-      binding.pry
+      # binding.pry
       click_on "戻る"
-      binding.pry
+      # binding.pry
     # end
     # # binding.pry
     # scenario "seeing an anger record on a calendar" do
@@ -45,7 +45,7 @@ feature "Calendars", js: true, type: :feature do
       expect(page).to have_text @anger_record.got_angry_on.to_s
       expect(page).to have_selector "p", text: @anger_record.level
       expect(page).to have_selector "p", text: @anger_record.got_angry_on
-      binding.pry
+      # binding.pry
       expect(page).to have_selector "p", text: @anger_record.got_angry_at.strftime("%k")
       expect(page).to have_selector "p", text: @anger_record.place
       expect(page).to have_selector "p", text: @anger_record.body
@@ -74,12 +74,12 @@ feature "Calendars", js: true, type: :feature do
       assert_text "今日出来たことが作成されました。"
       click_on "戻る"
   # end
-
+# 　    binding.pry
   # scenario "seeing a success record on a calendar" do
-      visit calendar_path(@success_record.created_at.to_date)
+      visit calendar_path(Date.today.to_s)
     # expect(page).to have_text "11月"
     # click_on "25"
-      expect(page).to have_selector "body", text: @success_record.created_at.to_date
+      expect(page).to have_selector "body", text: Date.today.to_s
       expect(page).to_not have_selector "p", text: "怒りのレベル"
       expect(page).to_not have_selector "p", text: "怒った日時"
       expect(page).to_not have_selector "p", text: "場所"
@@ -106,7 +106,7 @@ feature "Calendars", js: true, type: :feature do
       select @anger_record.level, from: "怒りのレベル"
       fill_in "怒った日時", with: Date.today
       within "#anger_hour" do
-        select @anger_record.got_angry_at.strftime("%k")
+        select @anger_record.got_angry_at.strftime("%H")
       end
       fill_in "場所", with: @anger_record.place
       fill_in "内容", with: @anger_record.body
