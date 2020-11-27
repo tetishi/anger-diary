@@ -4,7 +4,7 @@ section.section
   .container.is-size-4.is-size-5-touch
     - if @anger_record
       div.is-size-2.is-size-3-touch.is-bold.media
-        = @anger_record.got_angry_on.to_s
+        = "#{@anger_record.got_angry_on}"
       p.media
         strong.media-left
           | 怒りのレベル:
@@ -14,7 +14,7 @@ section.section
         strong.media-left
           | 怒った日時:
         spam.media-left
-        ==> @anger_record.got_angry_on.to_s
+        ==> "#{@anger_record.got_angry_on}"
         = @anger_record.got_angry_at.strftime("%k")
         | 時ごろ 
       p.media

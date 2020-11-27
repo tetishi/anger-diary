@@ -3,8 +3,7 @@
 class CalendarsController < ApplicationController
   def index
     @anger_dates = AngerRecord.all.pluck(:got_angry_on).map { |date| date.to_s }
-    @success_dates = SuccessRecord.all.pluck(:created_at).map(&:to_date)
-    @success_dates = @success_dates.uniq.map { |date| date.to_s }
+    @success_dates = SuccessRecord.all.pluck(:succeeded_on).map { |date| date.to_s }
 
     @record_dates = (@anger_dates | @success_dates).map { |date| date.to_s }.uniq
   end
