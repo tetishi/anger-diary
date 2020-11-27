@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root "home#index"
   resources :anger_records
   resources :success_records
   resources :calendars, only: [:index, :show], param: :date
