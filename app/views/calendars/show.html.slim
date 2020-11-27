@@ -39,7 +39,8 @@ section.section
         = @anger_record.important
 
     - if @success_record && @anger_record.nil?
-      = @success_record.succeeded_on
+      div.is-size-2.is-size-3-touch.is-bold.media
+        = @success_record.succeeded_on
 
     - if @success_record
       p.media
