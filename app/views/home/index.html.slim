@@ -1,2 +1,26 @@
-h1 Home#index
-p Find me in app/views/home/index.html.slim
+p#notice
+  = notice
+section
+  .container
+    h1.title
+      | アンガーダイアリー
+    p
+      | アンガーダイアリーの目的はイラッとした時にそのイラッと
+        した内容を書くことによって、日々の怒りの内容を記録し怒
+        るときの傾向を知ることです。そうすることでその場で起き
+        た自分の感情や物事を客観的に見つめ直すことが出来、冷静
+        さを取り戻し、怒りの裏にある自分の本当の気持ち、例えば
+        寂しさや困惑といった感情に気づくことができます。そして、
+        日々の怒りの記録をみることで自分の怒りに対して具体的な
+        対策を立てられるようになります。また、自分の怒りを振り
+        返ることによって、誰かに理不尽な怒りの感情をぶつけられ
+        たとき逆ギレしてしまうなど消耗なやりとりを減らせます。
+        そして自分の怒りに対して意識するようになり同じことに
+        怒ってしまうことの繰り返しの防止になります。
+    button.button.is-primary.is-size-5
+      = link_to '怒りを記録する', new_anger_record_path
+    div.field.is-grouped
+      button.button.is-primary.is-light
+        = link_to '今日出来たことを記録する', new_success_record_path
+      button.button.is-primary.is-light
+        = link_to '記録カレンダーを見る', calendars_path
