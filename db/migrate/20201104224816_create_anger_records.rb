@@ -10,6 +10,7 @@ class CreateAngerRecords < ActiveRecord::Migration[6.0]
       t.text :body
       t.string :changeable
       t.string :important
+
       t.timestamps
     end
   end

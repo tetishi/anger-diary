@@ -13,21 +13,7 @@ feature "AngerRecords", js: true, type: :feature do
   end
 
   scenario "creatting an anger record" do
-    visit anger_records_path
-    click_on "怒りを記録する"
-    select "1", from: "怒りのレベル"
-    fill_in "怒った日時", with: "2020-10-22"
-    within "#anger_hour" do
-      select "13"
-    end
-    fill_in "場所", with: @anger_record.place
-    fill_in "内容", with: @anger_record.body
-    find("input[name='anger_record[changeable]'][value='Yes']").set(true)
-    find("input[name='anger_record[important]'][value='Yes']").set(true)
-    click_on "登録する"
-
-    assert_text "怒りの記録が作成されました。"
-    click_on "戻る"
+    create_anger_record
   end
 
   scenario "updating an anger record" do

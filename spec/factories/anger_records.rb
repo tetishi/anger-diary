@@ -10,7 +10,7 @@ FactoryBot.define do
     got_angry_at { Faker::Time.forward(days: 11, period: :morning) }
     place { Faker::Lorem.words }
     body { Faker::Lorem.sentence }
-    changeable { "はい" }
-    important { "いいえ" }
+    changeable { "Yes" }
+    important { "Yes" }
   end
 end

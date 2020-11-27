@@ -13,13 +13,7 @@ feature "SuccessRecords", js: true, type: :feature do
   end
 
   scenario "creatting a success record" do
-    visit success_records_path
-    click_on "今日出来たことを記録する"
-    fill_in "今日出来たこと", with: @success_record.body
-    click_on "登録する"
-
-    assert_text "今日出来たことが作成されました。"
-    click_on "戻る"
+    create_success_record
   end
 
   scenario "updating a success record" do
