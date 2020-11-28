@@ -19,26 +19,15 @@ section.hero
                 たとき逆ギレしてしまうなど消耗なやりとりを減らせます。
                 そして自分の怒りに対して意識するようになり同じことに
                 怒ってしまうことの繰り返しの防止になります。
-        / .column.is-10.is-offset-1
-        /   .container.has-text-centered.is-fluid
-        /     button.button.is-primary.is-size-5
-        /       = link_to '怒りを記録する', new_anger_record_path
-        /     div.field.is-grouped.column.is-6.is-offset-3
-        /       button.button.is-primary.is-light
-        /         = link_to '今日出来たことを記録する', new_success_record_path
-        /       button.button.is-primary.is-light
-        /         = link_to '記録カレンダーを見る', calendars_path
-
-            /  section.section
   .columns
     .column.is-10.is-offset-1
       .container.has-text-centered.is-fluid
-        / .hero
-        /   .hero-body
-        button.button.is-primary.is-size-5
+        button.button.is-primary.is-size-4.px-6
           = link_to '怒りを記録する', new_anger_record_path
-        div.field.is-grouped.column.is-6.is-offset-3
-          button.button.is-primary.is-light
-            = link_to '今日出来たことを記録する', new_success_record_path
-          button.button.is-primary.is-light
-            = link_to '記録カレンダーを見る', calendars_path
+        div.field.is-grouped.column.is-7.is-offset-3
+          div.control
+            button.button.is-primary.is-light.is-size-5
+              = link_to '今日出来たことを記録する', new_success_record_path
+          div.control
+            button.button.is-primary.is-light.is-size-5
+              = link_to '記録カレンダーを見る', calendars_path
