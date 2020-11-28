@@ -4,9 +4,9 @@ class SuccessRecordsController < ApplicationController
   before_action :set_success_record, only: [:show, :edit, :update, :destroy]
 
   # GET /success_records
-  def index
-    @success_records = SuccessRecord.all
-  end
+  # def index
+  #   @success_records = SuccessRecord.all
+  # end
 
   # GET /success_records/1
   def show

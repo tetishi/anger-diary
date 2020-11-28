@@ -1,5 +1,5 @@
-p#notice
-  = notice
+/ p#notice
+/   = notice
 section.section
   .container.is-size-4.is-size-5-touch
     - if @anger_record
@@ -37,6 +37,9 @@ section.section
           | 重要な内容か:
         spam.media-left
         = @anger_record.important
+      / - binding.pry
+      = link_to '編集', edit_calendar_path(@anger_record)
+      = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }
 
     - if @success_record && @anger_record.nil?
       div.is-size-2.is-size-3-touch.is-bold.media
@@ -48,3 +51,5 @@ section.section
           | 出来たこと:
         spam.media-left
         = @success_record.body
+      = link_to '編集', edit_calendar_path(@success_record)
+      = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }

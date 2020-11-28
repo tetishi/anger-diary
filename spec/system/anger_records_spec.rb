@@ -7,10 +7,10 @@ feature "AngerRecords", js: true, type: :feature do
     @anger_record = create(:anger_record)
   end
 
-  scenario "visiting the index" do
-    visit anger_records_path
-    expect(page).to have_selector "h1", text: "怒りの記録"
-  end
+  # scenario "visiting the index" do
+  #   visit anger_records_path
+  #   expect(page).to have_selector "h1", text: "怒りの記録"
+  # end
 
   scenario "creatting an anger record" do
     create_anger_record

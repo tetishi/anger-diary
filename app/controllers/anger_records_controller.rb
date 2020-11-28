@@ -4,9 +4,9 @@ class AngerRecordsController < ApplicationController
   before_action :set_anger_record, only: [:show, :edit, :update, :destroy]
 
   # GET /anger_records
-  def index
-    @anger_records = AngerRecord.all
-  end
+  # def index
+  #   @anger_records = AngerRecord.all
+  # end
 
   # GET /anger_records/1
   def show
