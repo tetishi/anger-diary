@@ -2,10 +2,11 @@
 
 class CalendarsController < ApplicationController
   def index
-    @anger_dates = AngerRecord.all.pluck(:got_angry_on).map { |date| date.to_s }
-    @success_dates = SuccessRecord.all.pluck(:succeeded_on).map { |date| date.to_s }
+    @anger_dates = AngerRecord.all.pluck(:got_angry_on).map(&:to_s)
+    @success_dates = SuccessRecord.all.pluck(:succeeded_on).map(&:to_s)
 
-    @record_dates = (@anger_dates | @success_dates).map { |date| date.to_s }.uniq
+    # stringにもうなってるから
+    @record_dates = (@anger_dates | @success_dates).uniq
   end
 
   def show
@@ -14,14 +15,8 @@ class CalendarsController < ApplicationController
   end
 
   def edit
-    binding.pry
-    @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
-    @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
-    if @anger_record.edit
-      @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
-    elsif @success_record.edit
-      @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
-    end
+    @anger_record = AngerRecord.find_by(got_angry_on: params[:date]) # dateからidにかえる
+    @success_record = SuccessRecord.find_by(succeeded_on: params[:date]) # dateじゃなくてidになってるから
   end
 
   def update
@@ -37,7 +32,6 @@ class CalendarsController < ApplicationController
   end
 
   def destroy
-    # binding.pry
     @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
     @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
     if @anger_record.destroy

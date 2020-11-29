@@ -5,7 +5,9 @@ require "rails_helper"
 feature "Calendars", js: true, type: :feature do
   background do
     @anger_record = build(:anger_record)
+    # @anger_record = build(:anger_record, got_angry_on: Date.today)
     @success_record = build(:success_record)
+    # createで省略できるかも
   end
 
   scenario "visiting the index" do
