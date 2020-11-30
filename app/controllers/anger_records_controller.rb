@@ -51,8 +51,8 @@ class AngerRecordsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_anger_record
-      # @anger_record = AngerRecord.find(params[:id])
-      @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
+      @anger_record = AngerRecord.find(params[:id])
+      # @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
     end
 
     # Only allow a list of trusted parameters through.

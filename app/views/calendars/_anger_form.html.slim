@@ -1,49 +1,49 @@
-/ = form_with(model: anger_record, local: true) do |form|
-/   - if anger_record.errors.any?
-/     #error_explanation
-/       h2
-/         = pluralize(anger_record.errors.count, "error")
-/         |  prohibited this anger_record from being saved:
-/       ul
-/         - anger_record.errors.full_messages.each do |message|
-/           li
-/             = message
-/   .field
-/     = form.label :level
-/     .control
-/       .select
-/         = form.select :level, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]]
-/   .field
-/     = form.label :got_angry_on
-/     .field.is-horizontal
-/       = form.date_field :got_angry_on
-/       .control
-/         #anger_hour.select
-/           = form.time_select :got_angry_at, discard_minute: true, default: {hour: 0}
-/       .columns.is-vcentered
-/         p.column
-/           | 時ごろ
-/   .field
-/     = form.label :place
-/     = form.text_field :place, class: "input"
-/   .field
-/     = form.label :body
-/     = form.text_area :body, class: "textarea"
-/   .field.columns.is-mobile
-/     .column.is-4
-/       = form.label :changeable
-/     .column
-/       = form.radio_button :changeable, "Yes", class: "radio"
-/       | はい 
-/       = form.radio_button :changeable, "No", class: "radio"
-/       | いいえ 
-/   .field.columns.is-mobile
-/     .column.is-4
-/       = form.label :important
-/     .column
-/       = form.radio_button :important, "Yes", class: "radio"
-/       | はい 
-/       = form.radio_button :important, "No", class: "radio"
-/       | いいえ 
-/   .field
-/     = form.button type: "submit", class: "button is-primary is-size-5"
+= form_with(model: anger_record, url: calendar_path, local: true) do |form|
+  - if anger_record.errors.any?
+    #error_explanation
+      h2
+        = pluralize(anger_record.errors.count, "error")
+        |  prohibited this anger_record from being saved:
+      ul
+        - anger_record.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = form.label :level
+    .control
+      .select
+        = form.select :level, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]]
+  .field
+    = form.label :got_angry_on
+    .field.is-horizontal
+      = form.date_field :got_angry_on
+      .control
+        #anger_hour.select
+          = form.time_select :got_angry_at, discard_minute: true, default: {hour: 0}
+      .columns.is-vcentered
+        p.column
+          | 時ごろ
+  .field
+    = form.label :place
+    = form.text_field :place, class: "input"
+  .field
+    = form.label :body
+    = form.text_area :body, class: "textarea"
+  .field.columns.is-mobile
+    .column.is-4
+      = form.label :changeable
+    .column
+      = form.radio_button :changeable, "Yes", class: "radio"
+      | はい 
+      = form.radio_button :changeable, "No", class: "radio"
+      | いいえ 
+  .field.columns.is-mobile
+    .column.is-4
+      = form.label :important
+    .column
+      = form.radio_button :important, "Yes", class: "radio"
+      | はい 
+      = form.radio_button :important, "No", class: "radio"
+      | いいえ 
+  .field
+    = form.button type: "submit", class: "button is-primary is-size-5"

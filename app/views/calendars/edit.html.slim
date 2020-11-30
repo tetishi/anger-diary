@@ -1,9 +1,9 @@
-/ section.section
-/   .container.is-size-4.is-size-5-touch
-/     - if edit_anger_record_path(date: @anger_record.got_angry_on)
-/       = render 'anger_records/form', anger_record: @anger_record
-/     - if edit_success_record_path(date: @success_record.succeeded_on)
-/       = render 'anger_records/form', anger_record: @anger_record
+section.section
+  .container.is-size-4.is-size-5-touch
+    - if edit_anger_record_path(date: @anger_record.got_angry_on)
+      = render 'anger_records/form', anger_record: @anger_record
+    - if edit_success_record_path(date: @success_record.succeeded_on)
+      = render 'anger_records/form', anger_record: @anger_record
     
     
     

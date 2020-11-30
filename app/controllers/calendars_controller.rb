@@ -22,10 +22,10 @@ class CalendarsController < ApplicationController
   def update
     @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
     @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
-    if anger_record_params
+    if @anger_record
       @anger_record.update(anger_record_params)
       redirect_to @anger_record, notice: "怒りの記録が編集されました。"
-    elsif success_record_params
+    elsif @success_record
       @success_record.update(success_record_params)
       redirect_to @success_record, notice: "今日出来たことが編集されました。"
     else
@@ -36,9 +36,11 @@ class CalendarsController < ApplicationController
   def destroy
     @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
     @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
-    if @anger_record.destroy
+    if @anger_record
+      @anger_record.destroy
       redirect_to calendars_url, notice: "怒りの記録が削除されました。"
-    elsif @success_record.destroy
+    elsif @success_record
+      @success_record.destroy
       redirect_to calendars_url, notice: "今日出来たことが削除されました。"
     end
   end

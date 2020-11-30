@@ -1,4 +1,5 @@
-= form_with(model: success_record, url: calendar_path, local: true) do |form|
+/ = form_with(model: success_record, url: calendar_path, local: true) do |form|
+= form_with(model: success_record, local: true) do |form|
   - if success_record.errors.any?
     #error_explanation
       h2
