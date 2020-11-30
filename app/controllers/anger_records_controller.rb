@@ -34,6 +34,7 @@ class AngerRecordsController < ApplicationController
 
   # PATCH/PUT /anger_records/1
   def update
+    # - binding.pry
     if @anger_record.update(anger_record_params)
       redirect_to @anger_record, notice: "怒りの記録が編集されました。"
     else
@@ -50,7 +51,8 @@ class AngerRecordsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_anger_record
-      @anger_record = AngerRecord.find(params[:id])
+      # @anger_record = AngerRecord.find(params[:id])
+      @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
     end
 
     # Only allow a list of trusted parameters through.

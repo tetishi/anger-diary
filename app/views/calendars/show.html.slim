@@ -42,7 +42,8 @@ section.section
       / = link_to '編集', edit_calendar_path(date: Date.today)
       / - 過去の日付の記録も編集するからtodayじゃない
 
-      = link_to '編集', edit_calendar_path(date: @anger_record.got_angry_on)
+      = link_to '編集', edit_anger_record_path(date: @anger_record.got_angry_on)
+      / = link_to '編集', edit_calendar_path(date: @anger_record.got_angry_on)
       = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }
 
     - if @success_record && @anger_record.nil?
@@ -56,5 +57,6 @@ section.section
         spam.media-left
         = @success_record.body
       / = link_to '編集', edit_calendar_path(date: Date.today.to_s)
-      = link_to '編集', edit_calendar_path(date: @success_record.succeeded_on)
+      = link_to '編集', edit_success_record_path(date: @success_record.succeeded_on)
+      / = link_to '編集', edit_calendar_path(date: @success_record.succeeded_on)
       = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }
