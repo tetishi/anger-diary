@@ -1,6 +1,3 @@
-/ = form_with url: calendar_path(date: @anger_record.got_angry_on) do |form|
-/ - binding.pry
-/ = form_with(model: anger_record, url: calendar_path(date: @anger_record.got_angry_on), local: true) do |form|
 = form_with(model: anger_record, local: true) do |form|
   - if anger_record.errors.any?
     #error_explanation

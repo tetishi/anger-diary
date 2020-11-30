@@ -1,21 +1,6 @@
 section.section
   .container.is-size-4.is-size-5-touch
-    - if edit_anger_record_path(date: @anger_record.got_angry_on)
+    - if @anger_record
       = render 'anger_records/form', anger_record: @anger_record
-    - if edit_success_record_path(date: @success_record.succeeded_on)
+    - if @success_record
       = render 'anger_records/form', anger_record: @anger_record
-    
-    
-    
-    
-    
-    / -if @anger_record
-    /   = render 'anger_records/form', anger_record: @anger_record
-    / - elsif @success_record
-    /   = render 'success_records/form', success_record: @success_record
-    / - elsif @anger_record && @success_record
-    /   - if edit_calendar_path(date: @anger_record.got_angry_on)
-    /     = render 'anger_records/form', anger_record: @anger_record
-    /   - elsif edit_calendar_path(date: @success_record.succeeded_on)
-    /     = render 'anger_records/form', anger_record: @anger_record
-      

@@ -1,10 +1,7 @@
-/ p#notice
-/   = notice Viewは全部文字列だから
 section.section
   .container.is-size-4.is-size-5-touch
     - if @anger_record
       div.is-size-2.is-size-3-touch.is-bold.media
-        / = "#{@anger_record.got_angry_on}"
         | #{@anger_record.got_angry_on}
       p.media
         strong.media-left
