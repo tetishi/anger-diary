@@ -1,6 +1,6 @@
 section.section
   .container.is-size-4.is-size-5-touch
-    - if @anger_record
+    - if @anger_record && @success_record
       div.is-size-2.is-size-3-touch.is-bold.media
         | #{@anger_record.got_angry_on}
       p.media
@@ -24,7 +24,51 @@ section.section
         strong.media-left
           | 内容:
         spam.media-left
-        = @anger_record.body
+        = @anger_record.anger_body
+      p.media
+        strong.media-left
+          | 変えらる内容か:
+        spam.media-left
+        = @anger_record.changeable
+      p.media
+        strong.media-left
+          | 重要な内容か:
+        spam.media-left
+        = @anger_record.important
+      p.media
+        strong.media-left
+          | 出来たこと:
+        spam.media-left
+        = @success_record.success_body
+
+      = link_to '編集', edit_calendar_path
+      = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }
+    
+    - elsif @anger_record
+      div.is-size-2.is-size-3-touch.is-bold.media
+        | #{@anger_record.got_angry_on}
+      p.media
+        strong.media-left
+          | 怒りのレベル:
+        spam.media-left
+        = @anger_record.level
+      p.media
+        strong.media-left
+          | 怒った日時:
+        spam.media-left
+        ==> "#{@anger_record.got_angry_on}"
+        = @anger_record.got_angry_at.strftime("%k")
+        | 時ごろ 
+      p.media
+        strong.media-left
+          | 場所:
+        spam.media-left
+        = @anger_record.place
+      p.media
+        strong.media-left
+          | 内容:
+        spam.media-left
+        = @anger_record.anger_body
       p.media
         strong.media-left
           | 変えらる内容か:
@@ -39,16 +83,18 @@ section.section
       = link_to '編集', edit_calendar_path(date: @anger_record.got_angry_on)
       = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }
 
-    - if @success_record && @anger_record.nil?
+    / - elsif @success_record && @anger_record.nil?
+    /   div.is-size-2.is-size-3-touch.is-bold.media
+    /     = @success_record.succeeded_on
+
+    - elsif @success_record
       div.is-size-2.is-size-3-touch.is-bold.media
         = @success_record.succeeded_on
-
-    - if @success_record
       p.media
         strong.media-left
           | 出来たこと:
         spam.media-left
-        = @success_record.body
+        = @success_record.success_body
 
       = link_to '編集', edit_calendar_path(date: @success_record.succeeded_on)
       = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }

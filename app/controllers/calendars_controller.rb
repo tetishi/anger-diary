@@ -14,8 +14,8 @@ class CalendarsController < ApplicationController
   end
 
   def edit
-    @anger_record = AngerRecord.find_by(got_angry_on: params[:date]) # dateからidにかえる
-    @success_record = SuccessRecord.find_by(succeeded_on: params[:date]) # dateじゃなくてidになってるから
+    @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
+    @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
   end
 
   def update
@@ -49,10 +49,10 @@ class CalendarsController < ApplicationController
     private
 
       def anger_record_params
-        params.require(:anger_record).permit(:level, :got_angry_on, :got_angry_at, :place, :body, :changeable, :important)
+        params.require(:anger_record).permit(:level, :got_angry_on, :got_angry_at, :place, :anger_body, :changeable, :important)
       end
 
       def success_record_params
-        params.require(:success_record).permit(:body)
+        params.require(:success_record).permit(:success_body)
       end
 end

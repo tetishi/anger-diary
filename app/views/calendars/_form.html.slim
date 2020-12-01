@@ -1,13 +1,13 @@
-= form_with(model: anger_record, url: calendar_path, local: true) do |form|
-  - if anger_record.errors.any?
-    #error_explanation
-      h2
-        = pluralize(anger_record.errors.count, "error")
-        |  prohibited this anger_record from being saved:
-      ul
-        - anger_record.errors.full_messages.each do |message|
-          li
-            = message
+= form_with(url: calendar_path, local: true) do |form|
+  / - if anger_record.errors.any?
+  /   #error_explanation
+  /     h2
+  /       = pluralize(anger_record.errors.count, "error")
+  /       |  prohibited this anger_record from being saved:
+  /     ul
+  /       - anger_record.errors.full_messages.each do |message|
+  /         li
+  /           = message
   .field
     = form.label :level
     .control
@@ -27,8 +27,8 @@
     = form.label :place
     = form.text_field :place, class: "input"
   .field
-    = form.label :body
-    = form.text_area :body, class: "textarea"
+    = form.label :anger_body
+    = form.text_area :anger_body, class: "textarea"
   .field.columns.is-mobile
     .column.is-4
       = form.label :changeable
@@ -44,6 +44,9 @@
       = form.radio_button :important, "Yes", class: "radio"
       | はい 
       = form.radio_button :important, "No", class: "radio"
-      | いいえ 
+      | いいえ
+  .field
+    = form.label :success_body
+    = form.text_area :success_body, class: "textarea"
   .field
     = form.button type: "submit", class: "button is-primary is-size-5"

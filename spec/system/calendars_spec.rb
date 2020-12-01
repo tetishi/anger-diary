@@ -27,7 +27,7 @@ feature "Calendars", js: true, type: :feature do
         @anger_record.got_angry_on,
         @anger_record.got_angry_at.strftime("%k"),
         @anger_record.place,
-        @anger_record.body,
+        @anger_record.anger_body,
         @anger_record.changeable,
         @anger_record.important
       ]
@@ -63,7 +63,7 @@ feature "Calendars", js: true, type: :feature do
       selectors.each do |selector|
         expect(page).to_not have_selector "p", text: selector
       end
-      expect(page).to have_selector "p", text: @success_record.body
+      expect(page).to have_selector "p", text: @success_record.success_body
 
       visit success_records_path
       page.accept_confirm do
@@ -84,7 +84,7 @@ feature "Calendars", js: true, type: :feature do
         select @anger_record.got_angry_at.strftime("%H")
       end
       fill_in "場所", with: @anger_record.place
-      fill_in "内容", with: @anger_record.body
+      fill_in "内容", with: @anger_record.anger_body
       find("input[name='anger_record[changeable]'][value='Yes']").set(@anger_record.changeable)
       find("input[name='anger_record[important]'][value='Yes']").set(@anger_record.important)
       click_on "登録する"
@@ -101,10 +101,10 @@ feature "Calendars", js: true, type: :feature do
         Date.today.to_s,
         @anger_record.got_angry_at.strftime("%k"),
         @anger_record.place,
-        @anger_record.body,
+        @anger_record.anger_body,
         @anger_record.changeable,
         @anger_record.important,
-        @success_record.body
+        @success_record.success_body
       ]
       selectors.each do |selector|
         expect(page).to have_selector "p", text: selector

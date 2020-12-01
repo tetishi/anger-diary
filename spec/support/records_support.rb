@@ -4,7 +4,7 @@ module RecordsSupport
   def create_success_record
     visit success_records_path
     click_on "今日出来たことを記録する"
-    fill_in "今日出来たこと", with: @success_record.body
+    fill_in "今日出来たこと", with: @success_record.success_body
     click_on "登録する"
 
     assert_text "今日出来たことが作成されました。"
@@ -20,7 +20,7 @@ module RecordsSupport
       select @anger_record.got_angry_at.strftime("%H")
     end
     fill_in "場所", with: @anger_record.place
-    fill_in "内容", with: @anger_record.body
+    fill_in "内容", with: @anger_record.anger_body
     find("input[name='anger_record[changeable]'][value='Yes']").set(@anger_record.changeable)
     find("input[name='anger_record[important]'][value='Yes']").set(@anger_record.important)
     click_on "登録する"

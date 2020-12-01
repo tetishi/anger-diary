@@ -20,7 +20,7 @@ feature "SuccessRecords", js: true, type: :feature do
     visit success_records_path
     click_on "編集", match: :first
 
-    fill_in "今日出来たこと", with: @success_record.body
+    fill_in "今日出来たこと", with: @success_record.success_body
     click_on "更新する"
 
     assert_text "今日出来たことが編集されました。"

@@ -26,7 +26,7 @@ feature "AngerRecords", js: true, type: :feature do
       select "13"
     end
     fill_in "場所", with: @anger_record.place
-    fill_in "内容", with: @anger_record.body
+    fill_in "内容", with: @anger_record.anger_body
     find("input[name='anger_record[changeable]'][value='Yes']").set(true)
     find("input[name='anger_record[important]'][value='Yes']").set(true)
     click_on "更新する"

@@ -9,7 +9,7 @@ FactoryBot.define do
     got_angry_on { Faker::Date.in_date_period }
     got_angry_at { Faker::Time.forward(days: 11, period: :morning) }
     place { Faker::Lorem.words }
-    body { Faker::Lorem.sentence }
+    anger_body { Faker::Lorem.sentence }
     changeable { "Yes" }
     important { "Yes" }
   end

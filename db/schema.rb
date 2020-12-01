@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_15_044242) do
+ActiveRecord::Schema.define(version: 2020_11_11_134239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,20 +20,15 @@ ActiveRecord::Schema.define(version: 2020_11_15_044242) do
     t.date "got_angry_on"
     t.time "got_angry_at"
     t.string "place"
-    t.text "body"
+    t.text "anger_body"
     t.string "changeable"
     t.string "important"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "calendars", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "success_records", force: :cascade do |t|
-    t.text "body"
+    t.text "success_body"
     t.date "succeeded_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
