@@ -1,13 +1,4 @@
-= form_with(url: calendar_path, local: true) do |form|
-  / - if anger_record.errors.any?
-  /   #error_explanation
-  /     h2
-  /       = pluralize(anger_record.errors.count, "error")
-  /       |  prohibited this anger_record from being saved:
-  /     ul
-  /       - anger_record.errors.full_messages.each do |message|
-  /         li
-  /           = message
+= form_with(scope: :post, url: calendar_path, method: :patch, local: true) do |form|
   .field
     = form.label :level
     .control

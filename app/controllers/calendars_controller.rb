@@ -22,7 +22,10 @@ class CalendarsController < ApplicationController
     @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
     @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
 
-    if @anger_record
+    if @anger_record && @success_record
+      @anger_record.update(anger_record_params)
+      @success_record.update(success_record_params)
+    elsif @anger_record
       @anger_record.update(anger_record_params)
       redirect_to @anger_record, notice: "怒りの記録が編集されました。"
     elsif @success_record

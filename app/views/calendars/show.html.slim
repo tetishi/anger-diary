@@ -80,12 +80,8 @@ section.section
         spam.media-left
         = @anger_record.important
 
-      = link_to '編集', edit_calendar_path(date: @anger_record.got_angry_on)
+      = link_to '編集', edit_calendar_path
       = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }
-
-    / - elsif @success_record && @anger_record.nil?
-    /   div.is-size-2.is-size-3-touch.is-bold.media
-    /     = @success_record.succeeded_on
 
     - elsif @success_record
       div.is-size-2.is-size-3-touch.is-bold.media
