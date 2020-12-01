@@ -1,43 +1,43 @@
-= form_with(scope: :post, url: calendar_path, method: :patch, local: true) do |form|
+= form_with(scope: :post, url: edit_calendar_path(date: @record_date), method: :patch, local: true) do |form|
   .field
-    = form.label :level
+    = form.label :level, value: @anger_record&.level
     .control
       .select
-        = form.select :level, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]]
+        = form.select :level, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]], value: @anger_record&.level
   .field
-    = form.label :got_angry_on
+    = form.label :got_angry_on, value: @anger_record&.got_angry_on
     .field.is-horizontal
-      = form.date_field :got_angry_on
+      = form.date_field :got_angry_on, value: @anger_record&.got_angry_on
       .control
         #anger_hour.select
-          = form.time_select :got_angry_at, discard_minute: true, default: {hour: 0}
+          = form.time_select :got_angry_at, discard_minute: true, default: {hour: 0}, value: @anger_record&.got_angry_at
       .columns.is-vcentered
         p.column
           | 時ごろ
   .field
-    = form.label :place
-    = form.text_field :place, class: "input"
+    = form.label :place, value: @anger_record&.place
+    = form.text_field :place, class: "input", value: @anger_record&.place 
   .field
-    = form.label :anger_body
-    = form.text_area :anger_body, class: "textarea"
+    = form.label :anger_body, value: @anger_record&.anger_body
+    = form.text_area :anger_body, class: "textarea", value: @anger_record&.anger_body
   .field.columns.is-mobile
     .column.is-4
-      = form.label :changeable
+      = form.label :changeable, value: @anger_record&.changeable
     .column
-      = form.radio_button :changeable, "Yes", class: "radio"
+      = form.radio_button :changeable, "Yes", class: "radio", value: @anger_record&.changeable
       | はい 
-      = form.radio_button :changeable, "No", class: "radio"
+      = form.radio_button :changeable, "No", class: "radio", value: @anger_record&.changeable
       | いいえ 
   .field.columns.is-mobile
     .column.is-4
-      = form.label :important
+      = form.label :important, value: @anger_record&.important
     .column
-      = form.radio_button :important, "Yes", class: "radio"
+      = form.radio_button :important, "Yes", class: "radio", value: @anger_record&.important
       | はい 
-      = form.radio_button :important, "No", class: "radio"
+      = form.radio_button :important, "No", class: "radio", value: @anger_record&.important
       | いいえ
   .field
-    = form.label :success_body
-    = form.text_area :success_body, class: "textarea"
+    = form.label :success_body, value: @success_record&.success_body
+    = form.text_area :success_body, class: "textarea", value: @success_record&.success_body
   .field
     = form.button type: "submit", class: "button is-primary is-size-5"

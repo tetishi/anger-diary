@@ -16,6 +16,8 @@ class CalendarsController < ApplicationController
   def edit
     @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
     @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
+    @record_date = @anger_record.try(:got_angry_on) || @success_record.try(:succeeded_on)
+    # try(:method_name)
   end
 
   def update
@@ -25,14 +27,15 @@ class CalendarsController < ApplicationController
     if @anger_record && @success_record
       @anger_record.update(anger_record_params)
       @success_record.update(success_record_params)
+      returen redirect_to @anger_record, notice: "怒りの記録と今日出来たことが編集されました。"
     elsif @anger_record
       @anger_record.update(anger_record_params)
-      redirect_to @anger_record, notice: "怒りの記録が編集されました。"
+      returen redirect_to @anger_record, notice: "怒りの記録が編集されました。"
     elsif @success_record
       @success_record.update(success_record_params)
-      redirect_to @success_record, notice: "今日出来たことが編集されました。"
+      returen redirect_to @success_record, notice: "今日出来たことが編集されました。"
     else
-      render :edit
+      redirect_to :edit
     end
   end
 

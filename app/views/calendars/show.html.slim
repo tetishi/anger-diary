@@ -41,7 +41,7 @@ section.section
         spam.media-left
         = @success_record.success_body
 
-      = link_to '編集', edit_calendar_path
+      = link_to '編集', edit_calendar_path(date: @success_record.succeeded_on)
       = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }
     
     - elsif @anger_record
