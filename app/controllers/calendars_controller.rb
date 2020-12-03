@@ -54,10 +54,10 @@ class CalendarsController < ApplicationController
     private
 
       def anger_record_params
-        params.permit(:level, :got_angry_on, :got_angry_at, :place, :anger_body, :changeable, :important)
+        params.require(:anger_record).permit(:level, :got_angry_on, :got_angry_at, :place, :anger_body, :changeable, :important)
       end
 
       def success_record_params
-        params.permit(:success_body)
+        params.require(:success_record).permit(:success_body)
       end
 end
