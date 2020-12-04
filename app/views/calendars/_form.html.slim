@@ -24,34 +24,18 @@
     .column.is-4
       = form.label :changeable
     .column
-      - if @anger_record.changeable == "Yes"
-        = form.radio_button :changeable, "Yes", class: "radio", checked: "checked"
-        | はい 
-      - else
-        = form.radio_button :changeable, "Yes", class: "radio"
-        | はい 
-      - if @anger_record.changeable == "No"
-        = form.radio_button :changeable, "No", class: "radio", checked: "checked"
-        | いいえ
-      - else
-        = form.radio_button :changeable, "No", class: "radio"
-        | いいえ
+      = form.radio_button :changeable, "Yes", class: "radio", checked: @anger_record.changeable == "Yes" ? "checked" : false
+      | はい 
+      = form.radio_button :changeable, "Yes", class: "radio", checked: @anger_record.changeable == "No" ? "checked" : false
+      | いいえ
   .field.columns.is-mobile
     .column.is-4
       = form.label :important
     .column
-      - if @anger_record.important == "Yes"
-        = form.radio_button :important, "Yes", class: "radio", checked: "checked"
-        | はい 
-      - else
-        = form.radio_button :important, "Yes", class: "radio"
-        | はい 
-      - if @anger_record.important == "No"
-        = form.radio_button :important, "No", class: "radio", checked: "checked"
-        | いいえ
-      - else
-        = form.radio_button :important, "No", class: "radio"
-        | いいえ
+      = form.radio_button :important, "Yes", class: "radio", checked: @anger_record.important == "Yes" ? "checked" : false
+      | はい 
+      = form.radio_button :important, "Yes", class: "radio", checked: @anger_record.important == "No" ? "checked" : false
+      | いいえ
   .field
     = form.label :success_body
     = form.text_area :success_body, class: "textarea", value: @success_record.success_body
