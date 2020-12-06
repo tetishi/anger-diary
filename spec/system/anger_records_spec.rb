@@ -35,12 +35,12 @@ feature "AngerRecords", js: true, type: :feature do
     click_on "戻る"
   end
 
-  scenario "destroying an anger record" do
-    visit anger_records_path
-    page.accept_confirm do
-      click_on "削除", match: :first
-    end
+  # scenario "destroying an anger record" do
+  #   visit anger_records_path
+  #   page.accept_confirm do
+  #     click_on "削除", match: :first
+  #   end
 
-    assert_text "怒りの記録が削除されました。"
-  end
+  #   assert_text "怒りの記録が削除されました。"
+  # end
 end

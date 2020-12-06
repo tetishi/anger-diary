@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
 module RecordsSupport
-  def create_success_record
-    visit success_records_path
-    click_on "今日出来たことを記録する"
-    fill_in "今日出来たこと", with: @success_record.success_body
-    click_on "登録する"
+  # def create_success_record
+  #   visit success_records_path
+  #   click_on "今日出来たことを記録する"
+  #   fill_in "今日出来たこと", with: @success_record.success_body
+  #   click_on "登録する"
 
-    assert_text "今日出来たことが作成されました。"
-    click_on "戻る"
-  end
+  #   assert_text "今日出来たことが作成されました。"
+  #   click_on "戻る"
+  # end
 
   def create_anger_record
     visit anger_records_path

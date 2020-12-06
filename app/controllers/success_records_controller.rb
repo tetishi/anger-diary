@@ -42,7 +42,6 @@ class SuccessRecordsController < ApplicationController
       # Use callbacks to share common setup or constraints between actions.
       def set_success_record
         @success_record = SuccessRecord.find(params[:id])
-        # @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
       end
 
       # Only allow a list of trusted parameters through.

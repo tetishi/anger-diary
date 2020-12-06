@@ -43,6 +43,7 @@ section.section
 
       = link_to '編集', edit_calendar_path(date: @success_record.succeeded_on)
       = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }
+      = link_to '戻る', calendars_path
     
     - elsif @anger_record
       div.is-size-2.is-size-3-touch.is-bold.media
@@ -82,6 +83,7 @@ section.section
 
       = link_to '編集', edit_calendar_path(date: @anger_record.got_angry_on)
       = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }
+      = link_to '戻る', calendars_path
 
     - elsif @success_record
       div.is-size-2.is-size-3-touch.is-bold.media
@@ -94,3 +96,4 @@ section.section
 
       = link_to '編集', edit_calendar_path(date: @success_record.succeeded_on)
       = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }
+      = link_to '戻る', calendars_path

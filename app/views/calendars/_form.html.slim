@@ -1,11 +1,11 @@
 = form_with(scope: :anger_or_success_data, url: calendar_path(date: @record_date), method: :patch, local: true) do |form|
   .field
-    = form.label :level
+    = form.label I18n.t(:level)
     .control
       .select
         = form.select :level, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]], selected: @anger_record.level
   .field
-    = form.label :got_angry_on
+    = form.label I18n.t(:got_angry_on)
     .field.is-horizontal
       = form.date_field :got_angry_on, value: @anger_record.got_angry_on
       .control
@@ -15,14 +15,14 @@
         p.column
           | 時ごろ
   .field
-    = form.label :place
+    = form.label I18n.t(:place)
     = form.text_field :place, class: "input", value: @anger_record.place 
   .field
-    = form.label :anger_body
+    = form.label I18n.t(:anger_body)
     = form.text_area :anger_body, class: "textarea", value: @anger_record.anger_body
   .field.columns.is-mobile
     .column.is-4
-      = form.label :changeable
+      = form.label I18n.t(:changeable)
     .column
       = form.radio_button :changeable, "Yes", class: "radio", checked: @anger_record.changeable == "Yes" ? "checked" : false
       | はい 
@@ -30,14 +30,14 @@
       | いいえ
   .field.columns.is-mobile
     .column.is-4
-      = form.label :important
+      = form.label I18n.t(:important)
     .column
       = form.radio_button :important, "Yes", class: "radio", checked: @anger_record.important == "Yes" ? "checked" : false
       | はい 
       = form.radio_button :important, "No", class: "radio", checked: @anger_record.important == "No" ? "checked" : false
       | いいえ
   .field
-    = form.label :success_body
+    = form.label I18n.t(:success_body)
     = form.text_area :success_body, class: "textarea", value: @success_record.success_body
   .field
     = form.button type: "submit", class: "button is-primary is-size-5"

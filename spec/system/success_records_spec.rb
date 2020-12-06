@@ -27,12 +27,12 @@ feature "SuccessRecords", js: true, type: :feature do
     click_on "戻る"
   end
 
-  scenario "destroying a success record" do
-    visit success_records_path
-    page.accept_confirm do
-      click_on "削除", match: :first
-    end
+  # scenario "destroying a success record" do
+  #   visit success_records_path
+  #   page.accept_confirm do
+  #     click_on "削除", match: :first
+  #   end
 
-    assert_text "今日出来たことが削除されました。"
-  end
+  #   assert_text "今日出来たことが削除されました。"
+  # end
 end
