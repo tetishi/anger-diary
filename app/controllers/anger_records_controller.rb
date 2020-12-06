@@ -34,7 +34,6 @@ class AngerRecordsController < ApplicationController
 
   # PATCH/PUT /anger_records/1
   def update
-    # - binding.pry
     if @anger_record.update(anger_record_params)
       redirect_to @anger_record, notice: "怒りの記録が編集されました。"
     else

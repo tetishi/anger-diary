@@ -16,7 +16,7 @@ class CalendarsController < ApplicationController
   def edit
     @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
     @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
-    @record_date = @anger_record.try(:got_angry_on) || @success_record.try(:succeeded_on)
+    @anger_success_record = @anger_record.try(:got_angry_on) || @success_record.try(:succeeded_on)
   end
 
   def update
