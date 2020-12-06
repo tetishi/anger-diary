@@ -34,11 +34,14 @@ class CalendarsController < ApplicationController
     @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
     @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
 
-    if @anger_record.destroy && @success_record.destroy
+    if @anger_record && @success_record
+      @anger_record.destroy && @success_record.destroy
       redirect_to calendars_url, notice: "怒りと今日出来たことの記録が削除されました。"
-    elsif @anger_record.destroy
+    elsif @anger_record
+      @anger_record.destroy
       redirect_to calendars_url, notice: "怒りの記録が削除されました。"
-    elsif @success_record.destroy
+    elsif @success_record
+      @success_record.destroy
       redirect_to calendars_url, notice: "今日出来たことの記録が削除されました。"
     end
   end
