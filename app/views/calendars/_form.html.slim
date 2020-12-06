@@ -1,4 +1,4 @@
-= form_with(scope: :post, url: calendar_path(date: @anger_success_record), method: :patch, local: true) do |form|
+= form_with(scope: :anger_or_success_data, url: calendar_path(date: @record_date), method: :patch, local: true) do |form|
   .field
     = form.label :level
     .control
