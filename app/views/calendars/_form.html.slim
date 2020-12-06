@@ -26,7 +26,7 @@
     .column
       = form.radio_button :changeable, "Yes", class: "radio", checked: @anger_record.changeable == "Yes" ? "checked" : false
       | はい 
-      = form.radio_button :changeable, "Yes", class: "radio", checked: @anger_record.changeable == "No" ? "checked" : false
+      = form.radio_button :changeable, "No", class: "radio", checked: @anger_record.changeable == "No" ? "checked" : false
       | いいえ
   .field.columns.is-mobile
     .column.is-4
@@ -34,7 +34,7 @@
     .column
       = form.radio_button :important, "Yes", class: "radio", checked: @anger_record.important == "Yes" ? "checked" : false
       | はい 
-      = form.radio_button :important, "Yes", class: "radio", checked: @anger_record.important == "No" ? "checked" : false
+      = form.radio_button :important, "No", class: "radio", checked: @anger_record.important == "No" ? "checked" : false
       | いいえ
   .field
     = form.label :success_body

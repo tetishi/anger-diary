@@ -23,18 +23,8 @@ class CalendarsController < ApplicationController
     @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
     @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
 
-    if @anger_record && @success_record
-      # binding.pry
-      # paramsを見る
-      @anger_record.update(anger_record_params)
-      @success_record.update(success_record_params)
-      return redirect_to calendar_url, notice: "怒りの記録と今日出来たことが編集されました。"
-    # elsif @anger_record
-    #   @anger_record.update(anger_record_params)
-    #   return redirect_to calendar_url, notice: "怒りの記録が編集されました。"
-    # elsif @success_record
-    #   @success_record.update(success_record_params)
-    #   return redirect_to calendar_url, notice: "今日出来たことが編集されました。"
+    if @anger_record.update(anger_record_params) && @success_record.update(success_record_params)
+      return redirect_to calendar_url, notice: "怒りと今日出来たことの記録が編集されました。"
     else
       redirect_to :edit
     end
@@ -44,24 +34,22 @@ class CalendarsController < ApplicationController
     @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
     @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
 
-    if @anger_record
-      @anger_record.destroy
+    if @anger_record.destroy && @success_record.destroy
+      redirect_to calendars_url, notice: "怒りと今日出来たことの記録が削除されました。"
+    elsif @anger_record.destroy
       redirect_to calendars_url, notice: "怒りの記録が削除されました。"
-    elsif @success_record
-      @success_record.destroy
-      redirect_to calendars_url, notice: "今日出来たことが削除されました。"
+    elsif @success_record.destroy
+      redirect_to calendars_url, notice: "今日出来たことの記録が削除されました。"
     end
   end
 
     private
 
       def anger_record_params
-        # params.require(:anger_record).permit(:level, :got_angry_on, :got_angry_at, :place, :anger_body, :changeable, :important)
         params.require(:anger_or_success_data).permit(:level, :got_angry_on, :got_angry_at, :place, :anger_body, :changeable, :important)
       end
 
       def success_record_params
-        # params.require(:success_record).permit(:success_body)
         params.require(:anger_or_success_data).permit(:success_body)
       end
 end
