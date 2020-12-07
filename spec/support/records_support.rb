@@ -12,8 +12,9 @@ module RecordsSupport
   # end
 
   def create_anger_record
-    visit anger_records_path
-    click_on "怒りを記録する"
+    visit root_path
+    # binding.pry
+    click_on "怒りを記録する", match: :first
     select @anger_record.level, from: "怒りのレベル"
     fill_in "怒った日時", with: @anger_record.got_angry_on
     within "#anger_hour" do
@@ -26,7 +27,7 @@ module RecordsSupport
     click_on "登録する"
 
     assert_text "怒りの記録が作成されました。"
-    click_on "戻る"
+    click_on "OK"
   end
 end
 

@@ -17,8 +17,9 @@ feature "AngerRecords", js: true, type: :feature do
   end
 
   scenario "updating an anger record" do
-    visit anger_records_path
-    click_on "編集", match: :first
+    # binding.pry
+    visit calendar_path(@anger_record.got_angry_on)
+    click_on "編集"
 
     select "6", from: "怒りのレベル"
     fill_in "怒った日時", with: "2019-12-22"
