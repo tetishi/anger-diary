@@ -18,7 +18,7 @@ feature "SuccessRecords", js: true, type: :feature do
   end
 
   scenario "updating a success record" do
-    visit calendar_path(Date.today.to_s)
+    visit calendar_path(Date.today)
     click_on "編集"
 
     fill_in "今日出来たこと", with: "test test"

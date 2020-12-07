@@ -30,7 +30,7 @@ feature "Calendars", js: true, type: :feature do
     end
 
     scenario "destroying a success record" do
-      visit calendar_path(Date.today.to_s)
+      visit calendar_path(Date.today)
       page.accept_confirm do
         click_on "削除", match: :first
       end
@@ -46,7 +46,7 @@ feature "Calendars", js: true, type: :feature do
     end
 
     scenario "updating an anger record and a success record" do
-      visit calendar_path(Date.today.to_s)
+      visit calendar_path(Date.today)
 
       click_on "編集"
 
@@ -81,7 +81,7 @@ feature "Calendars", js: true, type: :feature do
     end
 
     scenario "destroying an anger record and a success record" do
-      visit calendar_path(Date.today.to_s)
+      visit calendar_path(Date.today)
       page.accept_confirm do
         click_on "削除"
       end

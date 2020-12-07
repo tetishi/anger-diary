@@ -19,8 +19,7 @@ class SuccessRecordsController < ApplicationController
   # POST /success_records
   def create
     @success_record = SuccessRecord.new(success_record_params)
-    @success_record.succeeded_on = Date.today.to_s
-    # @success_record.succeeded_on = Date.today　でもいいかも
+    @success_record.succeeded_on = Date.today
 
     if @success_record.save
       redirect_to @success_record, notice: "今日出来たことが作成されました。"
