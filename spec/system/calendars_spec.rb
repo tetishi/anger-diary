@@ -12,8 +12,6 @@ feature "Calendars", js: true, type: :feature do
     background do
       @anger_record = create(:anger_record)
     end
-    # scenario "seeing an anger" do
-    # 代わりにmodelでvalidationをテストする。記録は全部の項目を入れないと作れないことになっているか上記のテストはなくて大丈夫
 
     scenario "destroying an anger record" do
       visit calendar_path(@anger_record.got_angry_on)

@@ -24,7 +24,7 @@ class CalendarsController < ApplicationController
     @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
 
     if @anger_record.update(anger_record_params) && @success_record.update(success_record_params)
-      return redirect_to calendar_url, notice: "怒りと今日出来たことの記録が編集されました。"
+      redirect_to calendar_url, notice: "怒りと今日出来たことの記録が編集されました。"
     else
       redirect_to :edit
     end
