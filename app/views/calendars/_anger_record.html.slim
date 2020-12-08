@@ -1,0 +1,34 @@
+div.is-size-2.is-size-3-touch.is-bold.media
+  | #{anger_record.got_angry_on}
+p.media
+  strong.media-left
+    | 怒りのレベル:
+  spam.media-left
+  = anger_record.level
+p.media
+  strong.media-left
+    | 怒った日時:
+  spam.media-left
+  ==> "#{anger_record.got_angry_on}"
+  = anger_record.got_angry_at.strftime('%k')
+  | 時ごろ 
+p.media
+  strong.media-left
+    | 場所:
+  spam.media-left
+  = anger_record.place
+p.media
+  strong.media-left
+    | 内容:
+  spam.media-left
+  = anger_record.anger_body
+p.media
+  strong.media-left
+    | 変えらる内容か:
+  spam.media-left
+  = anger_record.changeable
+p.media
+  strong.media-left
+    | 重要な内容か:
+  spam.media-left
+  = anger_record.important
