@@ -1,0 +1,8 @@
+section.section
+  .container.is-size-4.is-size-5-touch
+    - if @anger_record && @success_record
+      = render 'form', anger_record: @anger_record, success_record: @success_record, record_date: @record_date
+    - elsif @anger_record 
+      = render 'anger_records/form', anger_record: @anger_record
+    - elsif @success_record
+      = render 'success_records/form', success_record: @success_record

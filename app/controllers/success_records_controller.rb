@@ -3,11 +3,6 @@
 class SuccessRecordsController < ApplicationController
   before_action :set_success_record, only: [:show, :edit, :update, :destroy]
 
-  # GET /success_records
-  def index
-    @success_records = SuccessRecord.all
-  end
-
   # GET /success_records/1
   def show
   end
@@ -24,7 +19,7 @@ class SuccessRecordsController < ApplicationController
   # POST /success_records
   def create
     @success_record = SuccessRecord.new(success_record_params)
-    @success_record.succeeded_on = Date.today.to_s
+    @success_record.succeeded_on = Date.today
 
     if @success_record.save
       redirect_to @success_record, notice: "今日出来たことが作成されました。"
@@ -36,16 +31,10 @@ class SuccessRecordsController < ApplicationController
   # PATCH/PUT /success_records/1
   def update
     if @success_record.update(success_record_params)
-      redirect_to @success_record, notice: "今日出来たことが編集されました。"
+      redirect_to calendar_url(date: @success_record.succeeded_on), notice: "今日出来たことが編集されました。"
     else
       render :edit
     end
-  end
-
-  # DELETE /success_records/1
-  def destroy
-    @success_record.destroy
-    redirect_to success_records_url, notice: "今日出来たことが削除されました。"
   end
 
     private
@@ -56,6 +45,6 @@ class SuccessRecordsController < ApplicationController
 
       # Only allow a list of trusted parameters through.
       def success_record_params
-        params.require(:success_record).permit(:body)
+        params.require(:success_record).permit(:success_body)
       end
 end

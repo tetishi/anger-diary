@@ -5,6 +5,7 @@ require "forgery_ja"
 
 FactoryBot.define do
   factory :success_record do
-    body { Faker::Lorem.sentence }
+    success_body { Faker::Lorem.sentence }
+    succeeded_on { Date.today }
   end
 end

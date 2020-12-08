@@ -8,7 +8,7 @@ p
   strong
     | 怒った日時:
   = @anger_record.got_angry_on
-  = @anger_record.got_angry_at.strftime("%k")
+  = @anger_record.got_angry_at.strftime('%k')
   | 時ごろ 
 p
   strong
@@ -17,7 +17,7 @@ p
 p
   strong
     | 内容:
-  = @anger_record.body
+  = @anger_record.anger_body
 p
   strong
     | 変えらる内容か:
@@ -28,4 +28,4 @@ p
   = @anger_record.important
 = link_to '編集', edit_anger_record_path(@anger_record)
 |  | 
-= link_to '戻る', anger_records_path
+= link_to 'OK', calendars_path

@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_11_11_134239) do
     t.date "got_angry_on"
     t.time "got_angry_at"
     t.string "place"
-    t.text "body"
+    t.text "anger_body"
     t.string "changeable"
     t.string "important"
     t.datetime "created_at", precision: 6, null: false
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_11_11_134239) do
   end
 
   create_table "success_records", force: :cascade do |t|
-    t.text "body"
+    t.text "success_body"
     t.date "succeeded_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -1,0 +1,29 @@
+section.hero
+  div.hero-body
+    div.container
+      div.columns
+        div.column.is-8.is-offset-2
+          div.content.is-medium
+            h1.title.has-text-centered
+              |  アンガーダイアリー
+            p.subtitle
+              |  アンガーダイアリーで無駄な怒りをなくそう。
+                 日々の怒りを記録につけることで自分が何に対して
+                 怒りを感じやすいのかを知ることが出来ます。
+                 自分が何に対して怒りやすいかを認識し、その怒りに対して対策を立てましょう。
+  .columns
+    .column.is-10.is-offset-1
+      .container.has-text-centered.is-fluid
+        button.button.is-primary.is-size-4.px-6
+          = link_to '怒りを記録する', new_anger_record_path
+        div.field.is-grouped.column.is-7.is-offset-3
+          div.control
+            button.button.is-primary.is-light.is-size-5
+              = link_to '今日出来たことを記録する', new_success_record_path
+          div.control
+            button.button.is-primary.is-light.is-size-5
+              = link_to '記録カレンダーを見る', calendars_path
+footer.footer
+  div.content.has-text-centered
+    p
+      |  Copyright @ 2020 AngerDiary. All rights reserved.

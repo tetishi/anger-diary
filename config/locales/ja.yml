@@ -1,4 +1,4 @@
-ja:
+ja:  
   date:
     formats:
       default: '%Y年%m月%d日'
@@ -7,19 +7,21 @@ ja:
   activerecord:
     models:
       anger_record: 怒りの記録
+      success_record: 今日出来たこと
+      calendar: カレンダー
     attributes:
       anger_record:
         level: 怒りのレベル
         got_angry_on: 怒った日時
         got_angry_at: 時ごろ
         place: 場所
-        body: 内容
+        anger_body: 内容
         changeable: 自分で変えられる内容ですか？
         important: 自分にとって重要な内容ですか？
         Yes: はい
         No: いいえ
       success_record:
-        body: 今日出来たこと
+        success_body: 今日出来たこと
       simple_calendar:
         previous: 前の月
         next: 次の月
@@ -30,3 +32,16 @@ ja:
         create: 記録する
         submit: 保存する
         update: 更新する
+  level: 怒りのレベル
+  got_angry_on: 怒った日時
+  got_angry_at: 時ごろ
+  place: 場所
+  anger_body: 内容
+  changeable: 自分で変えられる内容ですか？
+  important: 自分にとって重要な内容ですか？
+  Yes: はい
+  No: いいえ
+  success_body: 今日出来たこと
+  helpers:
+    submit:
+      submit: 更新する

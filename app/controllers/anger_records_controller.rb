@@ -3,11 +3,6 @@
 class AngerRecordsController < ApplicationController
   before_action :set_anger_record, only: [:show, :edit, :update, :destroy]
 
-  # GET /anger_records
-  def index
-    @anger_records = AngerRecord.all
-  end
-
   # GET /anger_records/1
   def show
   end
@@ -35,16 +30,10 @@ class AngerRecordsController < ApplicationController
   # PATCH/PUT /anger_records/1
   def update
     if @anger_record.update(anger_record_params)
-      redirect_to @anger_record, notice: "怒りの記録が編集されました。"
+      redirect_to calendar_url(date: @anger_record.got_angry_on), notice: "怒りの記録が編集されました。"
     else
       render :edit
     end
-  end
-
-  # DELETE /anger_records/1
-  def destroy
-    @anger_record.destroy
-    redirect_to anger_records_url, notice: "怒りの記録が削除されました。"
   end
 
   private
@@ -55,6 +44,6 @@ class AngerRecordsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def anger_record_params
-      params.require(:anger_record).permit(:level, :got_angry_on, :got_angry_at, :place, :body, :changeable, :important)
+      params.require(:anger_record).permit(:level, :got_angry_on, :got_angry_at, :place, :anger_body, :changeable, :important)
     end
 end

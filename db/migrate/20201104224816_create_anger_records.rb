@@ -7,7 +7,7 @@ class CreateAngerRecords < ActiveRecord::Migration[6.0]
       t.date :got_angry_on
       t.time :got_angry_at
       t.string :place
-      t.text :body
+      t.text :anger_body
       t.string :changeable
       t.string :important
 
