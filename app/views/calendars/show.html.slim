@@ -6,22 +6,34 @@ section.section
       = render partial: 'anger_record', locals: { anger_record: @anger_record }
       = render partial: 'success_record', locals: { success_record: @success_record }
 
-      = link_to '編集', edit_calendar_path(date: @success_record.succeeded_on)
-      = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }
-      = link_to '戻る', calendars_path
+      .field.is-grouped
+        .control
+          = link_to '編集', edit_calendar_path(date: @success_record.succeeded_on), class: 'button is-primary is-size-5'
+        .control
+          = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'button is-danger is-size-5'
+      div
+        = link_to '戻る', calendars_path, class: 'button is-size-5'
     
     - elsif @anger_record
       = render partial: 'anger_record', locals: { anger_record: @anger_record }
 
-      = link_to '編集', edit_calendar_path(date: @anger_record.got_angry_on)
-      = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }
-      = link_to '戻る', calendars_path
+      .field.is-grouped
+        .control
+          = link_to '編集', edit_calendar_path(date: @anger_record.got_angry_on), class: 'button is-primary is-size-5'
+        .control
+          = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'button is-danger is-size-5'
+      div
+        = link_to '戻る', calendars_path, class: 'button is-size-5'
 
     - elsif @success_record
       div.is-size-2.is-size-3-touch.is-bold.media
         = @success_record.succeeded_on
       = render partial: 'success_record', locals: { success_record: @success_record }
 
-      = link_to '編集', edit_calendar_path(date: @success_record.succeeded_on)
-      = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }
-      = link_to '戻る', calendars_path
+      .field.is-grouped
+        .control
+          = link_to '編集', edit_calendar_path(date: @success_record.succeeded_on), class: 'button is-primary is-size-5'
+        .control
+          = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'button is-danger is-size-5'
+      div
+        = link_to '戻る', calendars_path, class: 'button is-size-5'
