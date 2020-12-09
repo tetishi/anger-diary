@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "users/registrations",
+    confirmations: "users/confirmations"
+  }
   root "home#index"
   resources :anger_records, except: [:index, :delete]
   resources :success_records, except: [:index, :delete]
