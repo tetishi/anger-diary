@@ -19,6 +19,7 @@ class AngerRecordsController < ApplicationController
   # POST /anger_records
   def create
     @anger_record = AngerRecord.new(anger_record_params)
+    @anger_record.user = current_user
 
     if @anger_record.save
       redirect_to @anger_record, notice: "怒りの記録が作成されました。"

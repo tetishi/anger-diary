@@ -20,6 +20,8 @@ class SuccessRecordsController < ApplicationController
   def create
     @success_record = SuccessRecord.new(success_record_params)
     @success_record.succeeded_on = Date.today
+    @success_record.user = current_user
+    # binding.pry
 
     if @success_record.save
       redirect_to @success_record, notice: "今日出来たことが作成されました。"
