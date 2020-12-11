@@ -2,6 +2,13 @@ p#notice
   = notice
 = month_calendar do |date|
   - if @record_dates.include?(date.to_s)
-    = link_to date.day, calendar_path(date)
+    / - if その記録がそのユーザーの記録なら
+    - binding.pry
+    / - if @anger_user.pluck(:user_id).uniq == current_user.id 配列と配列じゃないやつだからむり
+    / - if @anger_user == current_user || @success_user == current_user
+    - if @anger_user.pluck(:user_id).uniq == current_user.id
+      = link_to date.day, calendar_path(date)
+    - else 
+      = date.day
   - else
     = date.day

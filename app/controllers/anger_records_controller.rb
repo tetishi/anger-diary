@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AngerRecordsController < ApplicationController
+class AngerRecordsController < Users::ApplicationController
   before_action :set_anger_record, only: [:show, :edit, :update, :destroy]
 
   # GET /anger_records/1

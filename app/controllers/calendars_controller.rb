@@ -1,14 +1,26 @@
 # frozen_string_literal: true
 
-class CalendarsController < ApplicationController
+class CalendarsController < Users::ApplicationController
   def index
     @anger_dates = AngerRecord.all.pluck(:got_angry_on).map(&:to_s)
     @success_dates = SuccessRecord.all.pluck(:succeeded_on).map(&:to_s)
 
     @record_dates = (@anger_dates | @success_dates).uniq
+
+    @anger_user = AngerRecord.where(user: current_user)
+    @success_user = SuccessRecord.where(user: current_user)
+
+    # @anger_user = current_user
+    # @success_user = current_user
+    # binding.pry
+
+    # find_byメソッドは一件しか取得できないので、whereメソッドを用いる。
+    # @anger_user = AngerRecord.find_by(user_id: params[:id])
+    # @success_user = SuccessRecord.find_by(user_id: params[:id])
   end
 
   def show
+    # binding.pry
     @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
     @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
   end
