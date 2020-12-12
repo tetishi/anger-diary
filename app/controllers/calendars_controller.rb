@@ -6,9 +6,12 @@ class CalendarsController < Users::ApplicationController
     @success_dates = SuccessRecord.all.pluck(:succeeded_on).map(&:to_s)
 
     @record_dates = (@anger_dates | @success_dates).uniq
-
-    @anger_user = AngerRecord.where(user: current_user)
-    @success_user = SuccessRecord.where(user: current_user)
+    # binding.pry
+    # @anger_user = AngerRecord.where(user: current_user)
+    @anger_user = AngerRecord.find_by(user: current_user).id
+    # @anger_user = AngerRecord.where(user_id: current_user.id).user
+    # @success_user = SuccessRecord.where(user: current_user)
+    @success_user = SuccessRecord.find_by(user: current_user).id
 
     # @anger_user = current_user
     # @success_user = current_user
