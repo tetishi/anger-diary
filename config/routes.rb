@@ -1,11 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
-    registrations: "users/registrations",
-    confirmations: "users/confirmations"
-  }
   root "home#index"
+  devise_for :users
   resources :anger_records, except: [:index, :delete]
   resources :success_records, except: [:index, :delete]
   resources :calendars, except: [:new, :create], param: :date
