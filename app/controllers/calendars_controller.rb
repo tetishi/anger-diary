@@ -2,56 +2,27 @@
 
 class CalendarsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :show]
-  
-  def index
-    # binding.pry
-    # @anger_dates = AngerRecord.all.pluck(:got_angry_on).map(&:to_s)
-    # @success_dates = SuccessRecord.all.pluck(:succeeded_on).map(&:to_s)
 
+  def index
     @anger_dates = current_user.anger_records.pluck(:got_angry_on).map(&:to_s)
     @success_dates = current_user.success_records.pluck(:succeeded_on).map(&:to_s)
-
-
     @record_dates = (@anger_dates | @success_dates).uniq
-    # binding.pry
-    # @anger_user = AngerRecord.where(user: current_user)
-    # @anger_user = AngerRecord.find_by(user: current_user).id
-    # @anger_user = AngerRecord.where(user_id: current_user.id).user
-    # @success_user = SuccessRecord.where(user: current_user)
-    # @success_user = SuccessRecord.find_by(user: current_user).id
-
-    # @anger_user = current_user
-    # @success_user = current_user
-    # binding.pry
-
-    # find_byメソッドは一件しか取得できないので、whereメソッドを用いる。
-    # @anger_user = AngerRecord.find_by(user_id: params[:id])
-    # @success_user = SuccessRecord.find_by(user_id: params[:id])
   end
 
   def show
-    # binding.pry
-    # こちらの方がruby的
-    # current_user.anger_records.find_by(got_angry_on: params[:date])
-
-    # AngerRecord.find_by(got_angry_on: params[:date], user_id: current_user.id)
-
     @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
     @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
-
-    # @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
-    # @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
   end
 
   def edit
-    @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
-    @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
+    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
+    @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
     @record_date = @anger_record.try(:got_angry_on) || @success_record.try(:succeeded_on)
   end
 
   def update
-    @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
-    @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
+    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
+    @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
 
     if @anger_record.update(anger_record_params) && @success_record.update(success_record_params)
       redirect_to calendar_url, notice: "怒りと今日出来たことの記録が編集されました。"
@@ -61,8 +32,8 @@ class CalendarsController < ApplicationController
   end
 
   def destroy
-    @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
-    @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
+    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
+    @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
 
     if @anger_record && @success_record
       @anger_record.destroy && @success_record.destroy
