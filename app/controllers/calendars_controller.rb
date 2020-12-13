@@ -1,17 +1,24 @@
 # frozen_string_literal: true
 
-class CalendarsController < Users::ApplicationController
+class CalendarsController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :show]
+  
   def index
-    @anger_dates = AngerRecord.all.pluck(:got_angry_on).map(&:to_s)
-    @success_dates = SuccessRecord.all.pluck(:succeeded_on).map(&:to_s)
+    # binding.pry
+    # @anger_dates = AngerRecord.all.pluck(:got_angry_on).map(&:to_s)
+    # @success_dates = SuccessRecord.all.pluck(:succeeded_on).map(&:to_s)
+
+    @anger_dates = current_user.anger_records.pluck(:got_angry_on).map(&:to_s)
+    @success_dates = current_user.success_records.pluck(:succeeded_on).map(&:to_s)
+
 
     @record_dates = (@anger_dates | @success_dates).uniq
     # binding.pry
     # @anger_user = AngerRecord.where(user: current_user)
-    @anger_user = AngerRecord.find_by(user: current_user).id
+    # @anger_user = AngerRecord.find_by(user: current_user).id
     # @anger_user = AngerRecord.where(user_id: current_user.id).user
     # @success_user = SuccessRecord.where(user: current_user)
-    @success_user = SuccessRecord.find_by(user: current_user).id
+    # @success_user = SuccessRecord.find_by(user: current_user).id
 
     # @anger_user = current_user
     # @success_user = current_user
@@ -24,8 +31,16 @@ class CalendarsController < Users::ApplicationController
 
   def show
     # binding.pry
-    @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
-    @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
+    # こちらの方がruby的
+    # current_user.anger_records.find_by(got_angry_on: params[:date])
+
+    # AngerRecord.find_by(got_angry_on: params[:date], user_id: current_user.id)
+
+    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
+    @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
+
+    # @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
+    # @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
   end
 
   def edit

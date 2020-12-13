@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-class SuccessRecordsController < Users::ApplicationController
+class SuccessRecordsController < ApplicationController
   before_action :set_success_record, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create]
 
   # GET /success_records/1
   def show

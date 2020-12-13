@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_10_051358) do
+ActiveRecord::Schema.define(version: 2020_12_13_021903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,8 +25,7 @@ ActiveRecord::Schema.define(version: 2020_12_10_051358) do
     t.string "important"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_anger_records_on_user_id"
+    t.integer "user_id"
   end
 
   create_table "success_records", force: :cascade do |t|
@@ -34,8 +33,7 @@ ActiveRecord::Schema.define(version: 2020_12_10_051358) do
     t.date "succeeded_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_success_records_on_user_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,6 +54,4 @@ ActiveRecord::Schema.define(version: 2020_12_10_051358) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "anger_records", "users"
-  add_foreign_key "success_records", "users"
 end

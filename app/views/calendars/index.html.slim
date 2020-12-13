@@ -9,7 +9,7 @@ p#notice
     / @anger_user.where(user_id: current_user.id) == current_user.id
     / - if @anger_user.pluck(:user_id).uniq == current_user.id.to_a
     / - if @anger_user == current_user.id || @success_user == current_user.id
-    = link_to date.day, calendar_path(date) if @anger_user == current_user.id || @success_user == current_user.id
+    = link_to date.day, calendar_path(date)
     / - else
     /   = date.day
   - else
