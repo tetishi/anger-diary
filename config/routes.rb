@@ -3,6 +3,9 @@
 Rails.application.routes.draw do
   root "home#index"
   devise_for :users
+  authenticated do
+    root "secret#index", as: :authenticated_root
+  end
   resources :anger_records, except: [:index, :delete]
   resources :success_records, except: [:index, :delete]
   resources :calendars, except: [:new, :create], param: :date
