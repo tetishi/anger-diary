@@ -4,7 +4,6 @@ require "rails_helper"
 
 describe "Sessions", type: :request do
   let(:user) { create(:user) }
-  # let(:user_params) { attributes_for(:user) }
   let(:invalid_user_params) { attributes_for(:user, email: "") }
 
   describe "POST #create" do
@@ -13,7 +12,13 @@ describe "Sessions", type: :request do
     end
 
     context "with valid user params" do
-      it "signs user in and out" do
+      it "signs user in" do
+        sign_in user
+        get authenticated_root_path
+        expect(controller.current_user).to eq(user)
+      end
+
+      it "signs user out" do
         sign_in user
         get authenticated_root_path
         expect(controller.current_user).to eq(user)
@@ -31,9 +36,9 @@ describe "Sessions", type: :request do
       end
 
       it "fails to create a user" do
-        expect do
+        expect {
           post user_registration_path, params: { user: invalid_user_params }
-        end.to_not change(User, :count)
+        }.to_not change(User, :count)
       end
     end
   end
