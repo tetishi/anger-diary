@@ -9,4 +9,6 @@ class User < ApplicationRecord
 
   has_many :anger_records, dependent: :destroy
   has_many :success_records, dependent: :destroy
+
+  validates :username, presence: true
 end

@@ -26,13 +26,6 @@ ja:
       simple_calendar:
         previous: 前の月
         next: 次の月
-      user:
-        current_password: "現在のパスワード"
-        username: ユーザー名
-        email: "メールアドレス"
-        password: "パスワード"
-        password_confirmation: "確認用パスワード"
-        remember_me: "次回から自動的にログイン"
     helpers:
       select:
         prompt: 選択してください

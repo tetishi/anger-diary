@@ -4,7 +4,9 @@ require "rails_helper"
 
 describe SuccessRecord, type: :model do
   before do
-    @success_record = create(:success_record)
+    user = create(:user)
+    login_as(user, scope: :user)
+    @success_record = create(:success_record, user: user)
   end
 
   describe "#create" do

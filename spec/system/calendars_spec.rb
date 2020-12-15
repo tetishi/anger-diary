@@ -3,6 +3,11 @@
 require "rails_helper"
 
 feature "Calendars", js: true, type: :feature do
+  background do
+    @user = create(:user)
+    login_as(@user, scope: :user)
+  end
+
   scenario "visiting the index" do
     visit calendars_path
     expect(page).to have_selector "th", text: "日"
@@ -10,7 +15,7 @@ feature "Calendars", js: true, type: :feature do
 
   context "with only an anger record" do
     background do
-      @anger_record = create(:anger_record)
+      @anger_record = create(:anger_record, user: @user)
     end
 
     scenario "destroying an anger record" do
@@ -26,7 +31,7 @@ feature "Calendars", js: true, type: :feature do
 
   context "with only a success record" do
     background do
-      @success_record = create(:success_record)
+      @success_record = create(:success_record, user: @user)
     end
 
     scenario "destroying a success record" do
@@ -41,8 +46,8 @@ feature "Calendars", js: true, type: :feature do
 
   context "with both an anger record and a success record" do
     background do
-      @anger_record = create(:anger_record, got_angry_on: Date.today)
-      @success_record = create(:success_record)
+      @anger_record = create(:anger_record, got_angry_on: Date.today, user: @user)
+      @success_record = create(:success_record, user: @user)
     end
 
     scenario "updating an anger record and a success record" do
