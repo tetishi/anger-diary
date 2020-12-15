@@ -1,5 +1,3 @@
-p#notice
-  = notice
 = month_calendar do |date|
   - if @record_dates.include?(date.to_s)
     = link_to date.day, calendar_path(date)
