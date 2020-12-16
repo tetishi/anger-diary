@@ -4,10 +4,13 @@ require "rails_helper"
 
 feature "AngerRecords", js: true, type: :feature do
   background do
-    @anger_record = create(:anger_record)
+    @user = create(:user)
+    login_as(@user, scope: :user)
   end
 
   scenario "creatting an anger record" do
+    @anger_record = build(:anger_record, user: @user)
+
     visit root_path
     click_on "怒りを記録する", match: :first
     select @anger_record.level, from: "怒りのレベル"
@@ -26,6 +29,8 @@ feature "AngerRecords", js: true, type: :feature do
   end
 
   scenario "updating an anger record" do
+    @anger_record = create(:anger_record, user: @user)
+
     visit calendar_path(@anger_record.got_angry_on)
     click_on "編集"
 

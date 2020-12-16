@@ -1,27 +1,28 @@
 # frozen_string_literal: true
 
 class CalendarsController < ApplicationController
-  def index
-    @anger_dates = AngerRecord.all.pluck(:got_angry_on).map(&:to_s)
-    @success_dates = SuccessRecord.all.pluck(:succeeded_on).map(&:to_s)
+  before_action :authenticate_user!, only: [:index, :show]
 
+  def index
+    @anger_dates = current_user.anger_records.pluck(:got_angry_on).map(&:to_s)
+    @success_dates = current_user.success_records.pluck(:succeeded_on).map(&:to_s)
     @record_dates = (@anger_dates | @success_dates).uniq
   end
 
   def show
-    @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
-    @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
+    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
+    @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
   end
 
   def edit
-    @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
-    @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
+    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
+    @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
     @record_date = @anger_record.try(:got_angry_on) || @success_record.try(:succeeded_on)
   end
 
   def update
-    @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
-    @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
+    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
+    @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
 
     if @anger_record.update(anger_record_params) && @success_record.update(success_record_params)
       redirect_to calendar_url, notice: "怒りと今日出来たことの記録が編集されました。"
@@ -31,8 +32,8 @@ class CalendarsController < ApplicationController
   end
 
   def destroy
-    @anger_record = AngerRecord.find_by(got_angry_on: params[:date])
-    @success_record = SuccessRecord.find_by(succeeded_on: params[:date])
+    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
+    @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
 
     if @anger_record && @success_record
       @anger_record.destroy && @success_record.destroy

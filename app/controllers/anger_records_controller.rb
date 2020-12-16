@@ -2,6 +2,7 @@
 
 class AngerRecordsController < ApplicationController
   before_action :set_anger_record, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create]
 
   # GET /anger_records/1
   def show
@@ -19,6 +20,7 @@ class AngerRecordsController < ApplicationController
   # POST /anger_records
   def create
     @anger_record = AngerRecord.new(anger_record_params)
+    @anger_record.user = current_user
 
     if @anger_record.save
       redirect_to @anger_record, notice: "怒りの記録が作成されました。"

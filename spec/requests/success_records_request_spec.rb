@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-RSpec.describe "SuccessRecords", type: :request do
+describe "SuccessRecords", type: :request do
 end

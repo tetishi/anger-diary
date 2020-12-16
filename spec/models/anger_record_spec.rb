@@ -4,7 +4,9 @@ require "rails_helper"
 
 describe AngerRecord, type: :model do
   before do
-    @anger_record = create(:anger_record)
+    user = create(:user)
+    login_as(user, scope: :user)
+    @anger_record = create(:anger_record, user: user)
   end
 
   it "is valid with valid attributes" do

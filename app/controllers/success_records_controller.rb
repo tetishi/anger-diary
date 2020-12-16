@@ -2,6 +2,7 @@
 
 class SuccessRecordsController < ApplicationController
   before_action :set_success_record, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create]
 
   # GET /success_records/1
   def show
@@ -20,6 +21,7 @@ class SuccessRecordsController < ApplicationController
   def create
     @success_record = SuccessRecord.new(success_record_params)
     @success_record.succeeded_on = Date.today
+    @success_record.user = current_user
 
     if @success_record.save
       redirect_to @success_record, notice: "今日出来たことが作成されました。"

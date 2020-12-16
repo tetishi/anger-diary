@@ -9,6 +9,7 @@ ja:
       anger_record: 怒りの記録
       success_record: 今日出来たこと
       calendar: カレンダー
+      user: ユーザー
     attributes:
       anger_record:
         level: 怒りのレベル
