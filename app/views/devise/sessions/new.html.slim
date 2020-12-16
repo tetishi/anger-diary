@@ -1,18 +1,29 @@
-h2
-  = t('.sign_in')
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    br
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit t('.sign_in')
-= render "devise/shared/links"
+section.hero.is-primary
+  .hero-body
+    .container
+      h2.title
+        = t('.sign_in')
+section.section
+  .container.is-size-5.is-size-6-touch
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field
+        = f.label :email
+        br
+        .control.has-icons-left
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "input"
+          span.icon.is-small.is-left
+            i.fas.fa-envelope
+      .field
+        = f.label :password
+        br
+        .control.has-icons-left
+          = f.password_field :password, autocomplete: "current-password", class: "input"
+          span.icon.is-small.is-left
+            i.fas.fa-lock
+      - if devise_mapping.rememberable?
+        .field
+          = f.check_box :remember_me, class: "checkbox"
+          = f.label :remember_me
+      .actions
+        = f.submit t('.sign_in'), class: "button is-primary is-size-5"
+    = render "devise/shared/links"
