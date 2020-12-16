@@ -38,3 +38,12 @@ html
     .alert
       = alert
     = yield
+  javascript:
+    for (const burger of document.getElementsByClassName('navbar-burger')) {
+      const menuId = burger.dataset.target;
+      const menu = document.getElementById(menuId);
+      burger.addEventListener('click', e => {
+        burger.classList.toggle('is-active');
+        menu.classList.toggle('is-active');
+      });
+    }

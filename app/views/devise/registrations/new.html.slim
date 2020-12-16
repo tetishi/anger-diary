@@ -27,13 +27,17 @@ section.section
           em
             = t('devise.shared.minimum_password_length', count: @minimum_password_length)
         br
-        .control
+        .control.has-icons-left
           = f.password_field :password, autocomplete: "new-password", class: "input"
+          span.icon.is-small.is-left
+            i.fas.fa-lock
       .field
         = f.label :password_confirmation
         br
-        .control
+        .control.has-icons-left
           = f.password_field :password_confirmation, autocomplete: "new-password", class: "input"
+          span.icon.is-small.is-left
+            i.fas.fa-lock
       .actions
         = f.submit t('.sign_up'), class: "button is-primary is-size-5"
     = render "devise/shared/links"
