@@ -16,8 +16,10 @@ section.section
         = render partial: 'anger_record', locals: { anger_record: anger_record }
         .field.is-grouped
           .control
-            / - calendars/:date/:id/edit    anger_record.got_angry_on.id
-            = link_to '編集', edit_calendar_path(date: anger_record.got_angry_on), class: 'button is-primary is-size-5'
+            / - binding.pry
+            / - calendars/:calendar_date/anger_records/:id/edit      edit_calendar_anger_record_path       anger_record.got_angry_on, anger_record.id
+            / = link_to '編集', edit_calendar_anger_record_path(date: anger_record.got_angry_on, anger_record.id), class: 'button is-primary is-size-5'
+            = link_to '編集', edit_calendar_anger_record_path(anger_record.got_angry_on, anger_record.id), class: 'button is-primary is-size-5'
           .control
             = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'button is-danger is-size-5'
         div
