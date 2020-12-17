@@ -10,7 +10,10 @@ class CalendarsController < ApplicationController
   end
 
   def show
-    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
+    # binding.pry
+    # @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
+    @anger_records = current_user.anger_records.where(got_angry_on: params[:date])
+
     @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
   end
 
