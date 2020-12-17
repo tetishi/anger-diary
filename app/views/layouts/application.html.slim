@@ -15,14 +15,35 @@ html
           a href='/'
             i.fas.fa-book
               |  アンガーダイアリー
-      - if user_signed_in?
-        = link_to 'プロフィール変更', edit_user_registration_path
-        = link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { confirm: '本当によろしいですか？' }
-      - else
-        = link_to '新規登録', new_user_registration_path
-        = link_to 'ログイン', new_user_session_path
+        a.navbar-burger aria-expanded="false" aria-label="menu" data-target="navbarHome" role="button"
+          span aria-hidden="true"
+          span aria-hidden="true"
+          span aria-hidden="true"
+      #navbarHome.navbar-menu
+        .navbar-end
+          span.navbar-item
+            .buttons
+              - if user_signed_in?
+                .button
+                  = link_to 'プロフィール変更', edit_user_registration_path
+                .button
+                  = link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { confirm: '本当によろしいですか？' }
+              - else
+                .button
+                  = link_to '新規登録', new_user_registration_path
+                .button
+                  = link_to 'ログイン', new_user_session_path
     .notice
       = notice
     .alert
       = alert
     = yield
+  javascript:
+    for (const burger of document.getElementsByClassName('navbar-burger')) {
+      const menuId = burger.dataset.target;
+      const menu = document.getElementById(menuId);
+      burger.addEventListener('click', e => {
+        burger.classList.toggle('is-active');
+        menu.classList.toggle('is-active');
+      });
+    }

@@ -1,20 +1,31 @@
-h2
-  = t('.change_your_password')
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  = f.hidden_field :reset_password_token
-  .field
-    = f.label :password, t('.new_password')
-    br
-    - if @minimum_password_length
-      em
-        = t('devise.shared.minimum_password_length', count: @minimum_password_length)
-      br
-    = f.password_field :password, autofocus: true, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation, t('.confirm_new_password')
-    br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit t('.change_my_password')
-= render "devise/shared/links"
+section.hero.is-primary
+  .hero-body
+    .container
+      h2.title
+        = t('.change_your_password')
+section.section
+  .container.is-size-5.is-size-6-touch
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      = f.hidden_field :reset_password_token
+      .field
+        = f.label :password, t('.new_password')
+        br
+        - if @minimum_password_length
+          em
+            = t('devise.shared.minimum_password_length', count: @minimum_password_length)
+          br
+        .control.has-icons-left
+          = f.password_field :password, autofocus: true, autocomplete: "new-password", class: "input"
+          span.icon.is-small.is-left
+            i.fas.fa-lock
+      .field
+        = f.label :password_confirmation, t('.confirm_new_password')
+        br
+        .control.has-icons-left
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: "input"
+          span.icon.is-small.is-left
+            i.fas.fa-lock
+      .actions
+        = f.submit t('.change_my_password'), class: "button is-primary is-size-5"
+    = render "devise/shared/links"
