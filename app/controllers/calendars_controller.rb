@@ -24,17 +24,6 @@ class CalendarsController < ApplicationController
     @record_date = @anger_record.try(:got_angry_on) || @success_record.try(:succeeded_on)
   end
 
-  def update
-    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
-    @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
-
-    if @anger_record.update(anger_record_params) && @success_record.update(success_record_params)
-      redirect_to calendar_url, notice: "怒りと今日出来たことの記録が編集されました。"
-    else
-      redirect_to :edit
-    end
-  end
-
   def destroy
     @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
     @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
