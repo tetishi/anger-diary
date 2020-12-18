@@ -12,6 +12,8 @@ section.section
         = link_to '戻る', calendars_path, class: 'button is-size-5'
 
     - elsif @anger_records
+      div.is-size-2.is-size-3-touch.is-bold.media
+        | #{@anger_record.got_angry_on}
       - @anger_records.each do |anger_record|
         = render partial: 'anger_record', locals: { anger_record: anger_record }
         .field.is-grouped

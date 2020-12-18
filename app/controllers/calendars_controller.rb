@@ -12,9 +12,10 @@ class CalendarsController < ApplicationController
   def show
     # binding.pry
     # @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
-    @anger_records = current_user.anger_records.where(got_angry_on: params[:date])
-
+    @anger_records = current_user.anger_records.where(got_angry_on: params[:date]).order(got_angry_at: "DESC")
+    #  got_angry_at: Sun, 02 Jan 2000 05:20:00 JST +09:00, 時間は大丈夫だけど年とかが違うから年を合わせないと比べられない　got_angry_at.strftime('%k')　それか時間だけくり抜くか　最終 idで代用
     @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
+    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
   end
 
   def edit
