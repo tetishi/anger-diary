@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   authenticated do
     root "secret#index", as: :authenticated_root
   end
-  resources :anger_records, except: [:index, :delete]
-  resources :success_records, except: [:index, :delete]
+  resources :anger_records, except: :index
+  resources :success_records, except: :index
   resources :calendars, except: [:new, :create], param: :date do
     resources :anger_records, only: :edit
   end
