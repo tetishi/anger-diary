@@ -19,24 +19,46 @@ class CalendarsController < ApplicationController
 
   def edit
     @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
+    # @anger_records = current_user.anger_records.where(got_angry_on: params[:date]).sort_by do |anger_record|
+    #   anger_record.got_angry_at.strftime("%k")
+    # end
     @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
-    @record_date = @anger_record.try(:got_angry_on) || @success_record.try(:succeeded_on)
+    # binding.pry
+    # @record_date = @anger_record.try(:got_angry_on) || @success_record.try(:succeeded_on)
+  end
+
+  def update
+    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
+    @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
   end
 
   def destroy
+    @anger_records = current_user.anger_records.where(got_angry_on: params[:date]).sort_by do |anger_record|
+      anger_record.got_angry_at.strftime("%k")
+    end
     @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
     @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
 
-    if @anger_record && @success_record
-      @anger_record.destroy && @success_record.destroy
-      redirect_to calendars_url, notice: "怒りと今日出来たことの記録が削除されました。"
-    elsif @anger_record
+    if @anger_records && @success_record
+      if @anger_record.destroy
+        redirect_to calendars_url, notice: "怒りの記録が削除されました。"
+      elsif @success_record.destroy
+        redirect_to calendars_url, notice: "今日出来たことの記録が削除されました。"
+      end
+    elsif @anger_records
       @anger_record.destroy
       redirect_to calendars_url, notice: "怒りの記録が削除されました。"
     elsif @success_record
       @success_record.destroy
       redirect_to calendars_url, notice: "今日出来たことの記録が削除されました。"
     end
+
+    # if @anger_record.destroy
+    #   redirect_to calendars_url, notice: "怒りの記録が削除されました。"
+    # end
+    # if @success_record.destroy
+    #   redirect_to calendars_url, notice: "今日出来たことの記録が削除されました。"
+    # end
   end
 
     private
