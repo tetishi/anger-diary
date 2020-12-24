@@ -32,7 +32,6 @@ class SuccessRecordsController < ApplicationController
 
   # PATCH/PUT /success_records/1
   def update
-    # binding.pry
     if @success_record.update(success_record_params)
       redirect_to calendar_url(date: @success_record.succeeded_on), notice: "今日出来たことが編集されました。"
     else
@@ -43,15 +42,11 @@ class SuccessRecordsController < ApplicationController
   def destroy
     @success_record.destroy
     redirect_to calendars_url, notice: "今日出来たことを削除しました。"
-    # render = head 200
-    # render json: {ok: 200}
   end
 
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_success_record
-        # binding.pry
-        # @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
         @success_record = SuccessRecord.find(params[:id])
       end
 
