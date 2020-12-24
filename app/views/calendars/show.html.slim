@@ -7,9 +7,10 @@ section.section
         = render partial: 'anger_record', locals: { anger_record: anger_record }
         .field.is-grouped.my-5
           .control
+            / = link_to '編集', edit_anger_record_path(date: anger_record.got_angry_on), class: 'button is-primary is-size-5' 
             = link_to '編集', edit_calendar_anger_record_path(anger_record.got_angry_on, anger_record.id), class: 'button is-primary is-size-5'
           .control
-            = link_to '削除', anger_record_path(@anger_record), method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'button is-danger is-size-5'
+            = link_to '削除', anger_record_path(anger_record), method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'button is-danger is-size-5'
 
     - if @success_record
       div.is-size-2.is-size-3-touch.is-bold.media
