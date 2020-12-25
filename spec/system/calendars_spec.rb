@@ -13,7 +13,7 @@ feature "Calendars", js: true, type: :feature do
     expect(page).to have_selector "th", text: "日"
   end
 
-  context "with only an anger record" do
+  context "with an anger record" do
     background do
       @anger_record = create(:anger_record, user: @user)
     end
@@ -29,7 +29,7 @@ feature "Calendars", js: true, type: :feature do
     end
   end
 
-  context "with only a success record" do
+  context "with a success record" do
     background do
       @success_record = create(:success_record, user: @user)
     end
@@ -40,58 +40,7 @@ feature "Calendars", js: true, type: :feature do
         click_on "削除", match: :first
       end
 
-      assert_text "今日出来たことの記録が削除されました。"
-    end
-  end
-
-  context "with both an anger record and a success record" do
-    background do
-      @anger_record = create(:anger_record, got_angry_on: Date.today, user: @user)
-      @success_record = create(:success_record, user: @user)
-    end
-
-    scenario "updating an anger record and a success record" do
-      visit calendar_path(Date.today)
-
-      click_on "編集"
-
-      within "#anger_level" do
-        select "6"
-      end
-      within "#anger_date" do
-        fill_in with: "2019-12-22"
-      end
-      within "#anger_hour" do
-        select "13"
-      end
-      within "#anger_place" do
-        fill_in with: "test test"
-      end
-      within "#anger_body" do
-        fill_in with: "test test test"
-      end
-      within "#anger_changeable" do
-        find("input[value='Yes']").set(true)
-      end
-      within "#anger_important" do
-        find("input[value='Yes']").set(true)
-      end
-      within "#success_body" do
-        fill_in with: "test test test"
-      end
-      click_on "更新する"
-
-      assert_text "怒りと今日出来たことの記録が編集されました。"
-      click_on "戻る"
-    end
-
-    scenario "destroying an anger record and a success record" do
-      visit calendar_path(Date.today)
-      page.accept_confirm do
-        click_on "削除"
-      end
-
-      assert_text "怒りと今日出来たことの記録が削除されました。"
+      assert_text "今日出来たことを削除しました。"
     end
   end
 end

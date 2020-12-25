@@ -1,6 +1,6 @@
 section.section
   .container.is-size-4.is-size-5-touch
-    - if @anger_record
+    - if @anger_record.present?
       div.is-size-2.is-size-3-touch.is-bold.media
         | #{@anger_record.got_angry_on}
       - @anger_records.each do |anger_record|
@@ -11,7 +11,7 @@ section.section
           .control
             = link_to '削除', anger_record_path(anger_record), method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'button is-danger is-size-5'
 
-    - if @success_record
+    - if @success_record.present?
       div.is-size-2.is-size-3-touch.is-bold.media
         = @success_record.succeeded_on
       = render partial: 'success_record', locals: { success_record: @success_record }
@@ -23,6 +23,6 @@ section.section
       div
         = link_to '戻る', calendars_path, class: 'button is-size-5'
 
-    - if @anger_record && @success_record.nil?
+    - if @anger_record.present? && @success_record.nil?
       div
         = link_to '戻る', calendars_path, class: 'button is-size-5'
