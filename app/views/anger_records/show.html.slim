@@ -1,29 +1,33 @@
-p
-  strong
-    | 怒りのレベル:
-  = @anger_record.level
-p
-  strong
-    | 怒った日時:
-  = @anger_record.got_angry_on
-  = @anger_record.got_angry_at.strftime('%k')
-  | 時ごろ 
-p
-  strong
-    | 場所:
-  = @anger_record.place
-p
-  strong
-    | 内容:
-  = @anger_record.anger_body
-p
-  strong
-    | 変えらる内容か:
-  = @anger_record.changeable
-p
-  strong
-    | 重要な内容か:
-  = @anger_record.important
-= link_to '編集', edit_anger_record_path(@anger_record)
-|  | 
-= link_to 'OK', calendars_path
+section.section
+  .container.is-size-4.is-size-5-touch
+    p.media
+      strong.media-left
+        | 怒りのレベル:
+      = @anger_record.level
+    p.media
+      strong.media-left
+        | 怒った日時:
+      = @anger_record.got_angry_on
+      = @anger_record.got_angry_at.strftime('%k')
+      | 時ごろ 
+    p.media
+      strong.media-left
+        | 場所:
+      = @anger_record.place
+    p.media
+      strong.media-left
+        | 内容:
+      = @anger_record.anger_body
+    p.media
+      strong.media-left
+        | 変えらる内容か:
+      = @anger_record.changeable
+    p.media
+      strong.media-left
+        | 重要な内容か:
+      = @anger_record.important
+    .field.is-grouped.mt-4
+      .control
+        = link_to '編集', edit_anger_record_path(@anger_record), class: 'button is-size-5'
+      .control
+        = link_to 'OK', calendars_path, class: 'button is-primary is-size-5'

@@ -1,7 +1,11 @@
-p
-  strong
-    | 内容:
-  = @success_record.success_body
-= link_to '編集', edit_success_record_path(@success_record)
-|  | 
-= link_to 'OK', calendars_path
+section.section
+  .container.is-size-4.is-size-5-touch
+    p.media
+      strong.media-left
+        | 内容:
+      = @success_record.success_body
+    .field.is-grouped.mt-4
+      .control
+        = link_to '編集', edit_success_record_path(@success_record), class: 'button is-size-5'
+      .control
+        = link_to 'OK', calendars_path, class: 'button is-primary is-size-5'
