@@ -18,7 +18,7 @@ section.hero
           = link_to '怒りを記録する', new_anger_record_path
         div.field.is-grouped.column.is-7.is-offset-3
           div.control
-            - if current_user.success_records.where(succeeded_on: Date.today).empty?
+            - if SuccessRecord.find_by(succeeded_on: Date.today, user_id: current_user).nil?
               button.button.is-primary.is-light.is-size-5
                 = link_to '今日出来たことを記録する', new_success_record_path
             - else
