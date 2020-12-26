@@ -18,8 +18,12 @@ section.hero
           = link_to '怒りを記録する', new_anger_record_path
         div.field.is-grouped.column.is-7.is-offset-3
           div.control
-            button.button.is-primary.is-light.is-size-5
-              = link_to '今日出来たことを記録する', new_success_record_path
+            - if current_user.success_records.where(succeeded_on: Date.today).empty?
+              button.button.is-primary.is-light.is-size-5
+                = link_to '今日出来たことを記録する', new_success_record_path
+            - else
+              button.button.is-primary.is-light.is-size-5 type="button" onclick="alert('すでに今日出来たことが登録されています。')"
+                = link_to '今日出来たことを記録する', root_path
           div.control
             button.button.is-primary.is-light.is-size-5
               = link_to '記録カレンダーを見る', calendars_path
