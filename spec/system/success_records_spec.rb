@@ -36,7 +36,7 @@ feature "SuccessRecords", js: true, type: :feature do
       click_on "戻る"
     end
 
-    scenario "displayin an alert when a success record is already created" do
+    scenario "displaying an alert when a success record is already created" do
       visit root_path
 
       page.accept_confirm("すでに今日出来たことが登録されています。") do
