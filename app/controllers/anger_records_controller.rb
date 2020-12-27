@@ -40,7 +40,9 @@ class AngerRecordsController < ApplicationController
 
   def destroy
     @anger_record.destroy
-    redirect_to calendars_url, notice: "怒りの記録が削除されました。"
+    render json: { status: 200, message: "怒りの記録が削除されました。" }
+    # render status: 200, json: { status: 200, message: "怒りの記録が削除されました。" }
+    # redirect_to calendars_url, notice: "怒りの記録が削除されました。"
   end
 
   private
