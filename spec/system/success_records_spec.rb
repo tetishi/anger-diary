@@ -20,16 +20,28 @@ feature "SuccessRecords", js: true, type: :feature do
     click_on "OK"
   end
 
-  scenario "updating a success record" do
-    @success_record = create(:success_record, user: @user)
+  context "with a success record" do
+    background do
+      @success_record = create(:success_record, user: @user)
+    end
 
-    visit calendar_path(Date.today)
-    click_on "編集"
+    scenario "updating a success record" do
+      visit calendar_path(Date.today)
+      click_on "編集"
 
-    fill_in "今日出来たこと", with: "test test"
-    click_on "更新する"
+      fill_in "今日出来たこと", with: "test test"
+      click_on "更新する"
 
-    assert_text "今日出来たことが編集されました。"
-    click_on "戻る"
+      assert_text "今日出来たことが編集されました。"
+      click_on "戻る"
+    end
+
+    scenario "displaying an alert when a success record is already created" do
+      visit root_path
+
+      page.accept_confirm("すでに今日出来たことが登録されています。") do
+        click_on "今日出来たことを記録する", match: :first
+      end
+    end
   end
 end
