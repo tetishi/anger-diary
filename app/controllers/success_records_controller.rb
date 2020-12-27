@@ -39,6 +39,11 @@ class SuccessRecordsController < ApplicationController
     end
   end
 
+  def destroy
+    @success_record.destroy
+    redirect_to calendars_url, notice: "今日出来たことを削除しました。"
+  end
+
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_success_record

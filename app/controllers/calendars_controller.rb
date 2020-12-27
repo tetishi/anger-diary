@@ -10,41 +10,11 @@ class CalendarsController < ApplicationController
   end
 
   def show
-    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
-    @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
-  end
-
-  def edit
-    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
-    @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
-    @record_date = @anger_record.try(:got_angry_on) || @success_record.try(:succeeded_on)
-  end
-
-  def update
-    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
-    @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
-
-    if @anger_record.update(anger_record_params) && @success_record.update(success_record_params)
-      redirect_to calendar_url, notice: "怒りと今日出来たことの記録が編集されました。"
-    else
-      redirect_to :edit
+    @anger_records = current_user.anger_records.where(got_angry_on: params[:date]).sort_by do |anger_record|
+      anger_record.got_angry_at.strftime("%k")
     end
-  end
-
-  def destroy
     @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
     @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
-
-    if @anger_record && @success_record
-      @anger_record.destroy && @success_record.destroy
-      redirect_to calendars_url, notice: "怒りと今日出来たことの記録が削除されました。"
-    elsif @anger_record
-      @anger_record.destroy
-      redirect_to calendars_url, notice: "怒りの記録が削除されました。"
-    elsif @success_record
-      @success_record.destroy
-      redirect_to calendars_url, notice: "今日出来たことの記録が削除されました。"
-    end
   end
 
     private

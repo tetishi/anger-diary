@@ -1,34 +1,28 @@
 section.section
   .container.is-size-4.is-size-5-touch
-    - if @anger_record && @success_record
-      = render partial: 'anger_record', locals: { anger_record: @anger_record }
-      = render partial: 'success_record', locals: { success_record: @success_record }
-      .field.is-grouped
-        .control
-          = link_to '編集', edit_calendar_path(date: @success_record.succeeded_on), class: 'button is-primary is-size-5'
-        .control
-          = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'button is-danger is-size-5'
-      div
-        = link_to '戻る', calendars_path, class: 'button is-size-5'
+    - if @anger_record.present?
+      div.is-size-2.is-size-3-touch.is-bold.media
+        | #{@anger_record.got_angry_on}
+      - @anger_records.each do |anger_record|
+        = render partial: 'anger_record', locals: { anger_record: anger_record }
+        .field.is-grouped.my-5
+          .control
+            = link_to '編集', edit_calendar_anger_record_path(anger_record.got_angry_on, anger_record.id), class: 'button is-primary is-size-5'
+          .control
+            = link_to '削除', anger_record_path(anger_record), method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'button is-danger is-size-5'
 
-    - elsif @anger_record
-      = render partial: 'anger_record', locals: { anger_record: @anger_record }
-      .field.is-grouped
-        .control
-          = link_to '編集', edit_calendar_path(date: @anger_record.got_angry_on), class: 'button is-primary is-size-5'
-        .control
-          = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'button is-danger is-size-5'
-      div
-        = link_to '戻る', calendars_path, class: 'button is-size-5'
-
-    - elsif @success_record
+    - if @success_record.present?
       div.is-size-2.is-size-3-touch.is-bold.media
         = @success_record.succeeded_on
       = render partial: 'success_record', locals: { success_record: @success_record }
-      .field.is-grouped
+      .field.is-grouped.mt-5
         .control
-          = link_to '編集', edit_calendar_path(date: @success_record.succeeded_on), class: 'button is-primary is-size-5'
+          = link_to '編集', edit_success_record_path(@success_record.id), class: 'button is-primary is-size-5'
         .control
-          = link_to '削除', calendar_path, method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'button is-danger is-size-5'
+          = link_to '削除', success_record_path(@success_record), method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'button is-danger is-size-5'
+      div
+        = link_to '戻る', calendars_path, class: 'button is-size-5'
+
+    - if @anger_record.present? && @success_record.nil?
       div
         = link_to '戻る', calendars_path, class: 'button is-size-5'

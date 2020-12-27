@@ -38,6 +38,11 @@ class AngerRecordsController < ApplicationController
     end
   end
 
+  def destroy
+    @anger_record.destroy
+    redirect_to calendars_url, notice: "怒りの記録が削除されました。"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_anger_record
