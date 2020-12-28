@@ -8,7 +8,8 @@ section.section
         .field.is-grouped.my-5
           .control
             = link_to '編集', edit_calendar_anger_record_path(anger_record.got_angry_on, anger_record.id), class: 'button is-primary is-size-5'
-          .control
+          / - binding.pry
+          .control id='anger_record-#{anger_record.id}'
             = link_to '削除', anger_record_path(anger_record), method: :delete, data: { confirm: '本当によろしいですか？' }, remote: true, class: 'button is-danger is-size-5'
 
     - if @success_record.present?

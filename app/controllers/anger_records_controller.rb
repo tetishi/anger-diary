@@ -40,9 +40,24 @@ class AngerRecordsController < ApplicationController
 
   def destroy
     @anger_record.destroy
-    render json: { status: 200, message: "怒りの記録が削除されました。" }
+    render head :ok
+    # render json: { status: 200, message: "怒りの記録が削除されました。" }
     # render status: 200, json: { status: 200, message: "怒りの記録が削除されました。" }
     # redirect_to calendars_url, notice: "怒りの記録が削除されました。"
+    # render = head 200
+    # render json: {ok: 200}
+
+    # (function(){
+    #   document.querySelector('#anger_record-<%= anger_record %>').remove()
+    # })();
+
+    # window.addEventListener('load', () => {
+    #   const angerRecord = document.querySelector('.delete');
+    #   angerRecord.addEventListener('ajax:success', () => {
+    #     alert('怒りの記録が削除されました。');
+    #   });
+    # });
+    
   end
 
   private
