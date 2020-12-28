@@ -11,7 +11,6 @@ section.section
   .container.is-size-4.is-size-5-touch
     - if @anger_record.present?
       - @anger_records.each do |anger_record|
-<<<<<<< HEAD
         div id='anger_record-#{anger_record.id}'
           = render partial: 'anger_record', locals: { anger_record: anger_record }
           .field.is-horizontal
@@ -27,14 +26,6 @@ section.section
         .field-label
         .field-body
           = link_to '戻る', calendars_path, class: 'button is-size-5'
-=======
-        = render partial: 'anger_record', locals: { anger_record: anger_record }
-        .field.is-grouped.my-5
-          .control
-            = link_to '編集', edit_calendar_anger_record_path(anger_record.got_angry_on, anger_record.id), class: 'button is-primary is-size-5'
-          .control
-            = link_to '削除', anger_record_path(anger_record), method: :delete, data: { confirm: '本当によろしいですか？' }, remote: true, class: 'button is-danger is-size-5'
->>>>>>> Use ajax for anger record's destroy action
 
     - if @success_record.present?
       div id='success_record-#{@success_record.id}'
