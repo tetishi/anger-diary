@@ -1,2 +1,2 @@
-document.querySelector('#anger_record-<%= @anger_record.id %>').style.display = 'none';
-<%# .remove() %>
+document.querySelector('#anger_record-<%= @anger_record.id %>').remove();
+document.querySelector('.notice').innerHTML = "<div>怒りの記録が削除されました。</div>"
