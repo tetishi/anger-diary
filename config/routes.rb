@@ -11,5 +11,14 @@ Rails.application.routes.draw do
   resources :calendars, only: [:index, :show], param: :date do
     resources :anger_records, only: :edit
   end
+
+  # namespace :api, format: "json" do
+  #   namespace :v1 do
+  #     resources :calendars, only: [:index, :show], param: :date do
+  #       resources :anger_records, only: :edit
+  #     end
+  #   end
+  # end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
