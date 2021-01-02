@@ -1,11 +1,11 @@
 // console.log("test");
 // alert("test");
 
-const btn = document.querySelector("records");
+const links = document.getElementById("records");
 
-btn.addEventListener("click", () => {
+links.addEventListener("click", function(anger_records) {
   fetch("http://localhost:3000/calendars")
-    .then(response => response.json())
+    .then(response => response.text())
     .then(anger_records => {
       for (const anger_record of anger_records) {
         return anger_record
