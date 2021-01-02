@@ -1,5 +1,6 @@
 = month_calendar do |date|
   - if @record_dates.include?(date.to_s)
-    = link_to date.day, calendar_path(date), remote: true, class: "records"
+    div id='records'
+      = link_to date.day, calendar_path(date), remote: true
   - else
     = date.day
