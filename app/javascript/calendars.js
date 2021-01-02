@@ -3,15 +3,17 @@
 
 const links = document.getElementById("records");
 
-links.addEventListener("click", function(anger_records) {
-  fetch("http://localhost:3000/calendars")
-    .then(response => response.text())
-    .then(anger_records => {
-      for (const anger_record of anger_records) {
-        return anger_record
-      }
-    })
-    .catch(error => alert(error));
+document.addEventListener("DOMContentLoaded", function() {
+  links.addEventListener("click", function() {
+    fetch("http://localhost:3000/calendars")
+      .then(response => response.text())
+      .then(anger_records => {
+        for (const anger_record of anger_records) {
+          return anger_record
+        }
+      })
+      .catch(error => alert(error));
+  });
 });
 
 
