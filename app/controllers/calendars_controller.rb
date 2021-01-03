@@ -11,11 +11,20 @@ class CalendarsController < ApplicationController
     @anger_records = current_user.anger_records.where(got_angry_on: params[:date]).sort_by do |anger_record|
       anger_record.got_angry_at.strftime("%k")
     end
-    # @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
-    # @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
 
-    # render json: @anger_records, @success_record
+    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
+    @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
+
+    binding.pry
+    respond_to do |format|
+      format.html
+      format.json {render :json => {hello: "World"}.to_json}
+      # format.json {render :json => @anger_record}
+    end
   end
+
+  # def indexjosn
+  # end
 
   def show
     @anger_records = current_user.anger_records.where(got_angry_on: params[:date]).sort_by do |anger_record|
