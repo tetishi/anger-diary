@@ -1,13 +1,25 @@
 // console.log("test");
 // alert("test");
 
-const links = document.getElementById("records");
 
-document.addEventListener("DOMContentLoaded", function() {
-  links.addEventListener("click", function() {
-    fetch("http://localhost:3000/calendars")
-      .then(response => response.text())
+// ele.addEventListener("click", function(e)
+// {e.preventDefault();console.log("hi")});
+
+document.addEventListener('DOMContentLoaded', function(){
+  const links = document.querySelectorAll(".records");
+
+  // anger_record.got_angry_onのリソースをとってくる
+  console.log(links);
+  links.addEventListener("click", function(e) {
+    e.preventDefault();
+    console.log("hi");
+    fetch("http://localhost:3000/calendars.json?hoge=20201030")
+    // fetch(`http://localhost:3000/calendars.json?record=${anger_record.got_angry_on}`)
+    // それぞれの日付のanger_record.got_angry_onを渡す
+      .then(response => response.json())
       .then(anger_records => {
+        console.log("test");
+        console.log(anger_records)
         for (const anger_record of anger_records) {
           return anger_record
         }
