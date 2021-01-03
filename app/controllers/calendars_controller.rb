@@ -15,11 +15,11 @@ class CalendarsController < ApplicationController
     @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
     @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
 
-    binding.pry
+    # binding.pry
     respond_to do |format|
       format.html
-      format.json {render :json => {hello: "World"}.to_json}
-      # format.json {render :json => @anger_record}
+      # format.json {render :json => {hello: "World"}.to_json}
+      format.json {render :json => @anger_records}
     end
   end
 
