@@ -8,7 +8,7 @@
 document.addEventListener('DOMContentLoaded', function(){
   const links = document.querySelector(".records");
   const calendarURL = "http://localhost:3000/calendars.json"
-  let recordDate = this.anger_record.got_angry_on
+  // let recordDate = this.anger_record.got_angry_on
 
   // anger_record.got_angry_onのリソースをとってくる
   console.log(links);
@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', function(){
     console.log("hi");
     // fetch("http://localhost:3000/calendars.json?hoge=20201030")
     // fetch(`http://localhost:3000/calendars.json?record=${record_date}`)
-    fetch(calendarURL + "/" + recordDate)
+    // fetch(calendarURL + "/" + recordDate)
+    fetch(calendarURL)
     // それぞれの日付のanger_record.got_angry_onを渡す
       .then(response => response.json())
       .then(anger_records => {
