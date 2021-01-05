@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function(){
   // let recordDate = this.anger_record.got_angry_on
 
   // anger_record.got_angry_onのリソースをとってくる
-  console.log(links);
+  // console.log(links);
   links.addEventListener("click", function(e) {
     e.preventDefault();
     console.log("hi");
@@ -23,11 +23,15 @@ document.addEventListener('DOMContentLoaded', function(){
       .then(response => response.json())
       .then(anger_records => {
         console.log("test");
-        console.log(anger_records);
+        console.log(anger_records); // anger_recordsがjsonデータ
 
-        const record = document.createElement("li");
-        const parent = document.querySelector(".records");
-        parent.appendChild(record);
+        var addRecord = function(data) {
+          const record = document.createElement("li");
+          record.innerText = data["body"]
+          document.querySelector(".records").appendChild(record);
+        }
+
+        anger_records.forEach(function(data){addRecord(data)})
 
         // for (const anger_record of anger_records) {
         //   return anger_record
