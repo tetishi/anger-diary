@@ -6,7 +6,7 @@
 // {e.preventDefault();console.log("hi")});
 
 document.addEventListener('DOMContentLoaded', function(){
-  const links = document.querySelector(".records");
+  const links = document.querySelector(".dates");
   const calendarURL = "http://localhost:3000/calendars.json"
   // let recordDate = this.anger_record.got_angry_on
 
@@ -24,10 +24,14 @@ document.addEventListener('DOMContentLoaded', function(){
       .then(anger_records => {
         console.log("test");
         console.log(anger_records);
-        for (const anger_record of anger_records) {
-          return anger_record
-          // データをとってきてArrayにいれる
-        }
+
+        const record = document.createElement("li");
+        const parent = document.querySelector(".records");
+        parent.appendChild(record);
+
+        // for (const anger_record of anger_records) {
+        //   return anger_record
+        // }
       })
       .catch(error => alert(error));
   });
