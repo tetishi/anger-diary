@@ -30,50 +30,57 @@ document.addEventListener('DOMContentLoaded', function(){
           var level = document.createElement("p");
           level.className = "media"
           var record1 = document.createElement("li");
+          record1.className = "media-left"
 
           var got_angry_on = document.createElement("p");
           got_angry_on.className = "media"
           var record2 = document.createElement("li");
+          record2.className = "media-left"
 
           var got_angry_at = document.createElement("p");
           var record3 = document.createElement("li");
+          record3.className = "media-left"
 
           var place = document.createElement("p");
           place.className = "media"
           var record4 = document.createElement("li");
+          record4.className = "media-left"
   
           var anger_body = document.createElement("p");
           anger_body.className = "media"
           var record5 = document.createElement("li");
+          record5.className = "media-left"
 
           var changeable = document.createElement("p");
           changeable.className = "media"
           var record6 = document.createElement("li");
+          record6.className = "media-left"
 
           var important = document.createElement("p");
           important.className = "media"
           var record7 = document.createElement("li");
+          record7.className = "media-left"
           // console.log(record);
 
-          level.innerText = "怒りのレベル:"
+          level.innerHTML = "<strong class='media-left'>怒りのレベル:</strong>"
           record1.innerText = anger_record["level"]
 
-          got_angry_on.innerText = "怒った日時:"
+          got_angry_on.innerHTML = "<strong class='media-left'>怒った日時:</strong>"
           record2.innerText = anger_record["got_angry_on"]
 
-          got_angry_at.innerText = "時ごろ"
+          got_angry_at.innerHTML = "時ごろ"
           record3.innerText = anger_record["got_angry_at"]
 
-          place.innerText = "場所:"
+          place.innerHTML = "<strong class='media-left'>場所:</strong>"
           record4.innerText = anger_record["place"]
 
-          anger_body.innerText = "内容:"
+          anger_body.innerHTML = "<strong class='media-left'>内容:</strong>"
           record5.innerText = anger_record["anger_body"]
 
-          changeable.innerText = "変えらる内容か:"
+          changeable.innerHTML = "<strong class='media-left'>変えらる内容か:</strong>"
           record6.innerText = anger_record["changeable"]
 
-          important.innerText = "重要な内容か:"
+          important.innerHTML = "<strong class='media-left'>重要な内容か:</strong>"
           record7.innerText = anger_record["important"]
           // console.log(record.innerText);
           document.querySelector(".records").appendChild(level);
