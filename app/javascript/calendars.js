@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function(){
     // fetch(`http://localhost:3000/calendars.json?record=${record_date}`)
     // fetch(calendarURL + "/" + recordDate)
     fetch(calendarURL)
-    // それぞれの日付のanger_record.got_angry_onを渡す
       .then(response => response.json())
       .then(anger_records => {
         console.log("test");
@@ -69,7 +68,8 @@ document.addEventListener('DOMContentLoaded', function(){
           record2.innerText = anger_record["got_angry_on"]
 
           got_angry_at.innerHTML = "時ごろ"
-          record3.innerText = anger_record["got_angry_at"]
+          // record3.innerHTML = "<time datetime='hh'>anger_record['got_angry_at']</time>"
+          record3.innerHTML = anger_record["got_angry_at"]
 
           place.innerHTML = "<strong class='media-left'>場所:</strong>"
           record4.innerText = anger_record["place"]
@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
           document.querySelector(".records").appendChild(got_angry_at);
           document.querySelector(".records").appendChild(record3);
+          // document.querySelector(".records").appendChild(moment(record3).format('HH'));
 
           document.querySelector(".records").appendChild(place);
           document.querySelector(".records").appendChild(record4);
