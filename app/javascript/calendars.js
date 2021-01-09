@@ -59,15 +59,16 @@ document.addEventListener('DOMContentLoaded', function(){
           important.className = "media"
           var record7 = document.createElement("li");
           record7.className = "media-left"
-          // console.log(record);
-
+         
           level.innerHTML = "<strong class='media-left'>怒りのレベル:</strong>"
           record1.innerText = anger_record["level"]
+          // record1.innerText = anger_record.sort()
 
           got_angry_on.innerHTML = "<strong class='media-left'>怒った日時:</strong>"
           record2.innerText = anger_record["got_angry_on"]
 
           got_angry_at.innerHTML = "時ごろ"
+          // record3.innerHTML = "<time datetime='hh'></time>"
           // record3.innerHTML = "<time datetime='hh'>anger_record['got_angry_at']</time>"
           record3.innerHTML = anger_record["got_angry_at"]
 
@@ -84,26 +85,25 @@ document.addEventListener('DOMContentLoaded', function(){
           record7.innerText = anger_record["important"]
           // console.log(record.innerText);
           document.querySelector(".records").appendChild(level);
-          document.querySelector(".records").appendChild(record1);
+          level.appendChild(record1);
 
           document.querySelector(".records").appendChild(got_angry_on);
-          document.querySelector(".records").appendChild(record2);
-
+          got_angry_on.appendChild(record2);
+          got_angry_on.appendChild(record3);
           document.querySelector(".records").appendChild(got_angry_at);
-          document.querySelector(".records").appendChild(record3);
           // document.querySelector(".records").appendChild(moment(record3).format('HH'));
 
           document.querySelector(".records").appendChild(place);
-          document.querySelector(".records").appendChild(record4);
+          place.appendChild(record4);
 
           document.querySelector(".records").appendChild(anger_body);
-          document.querySelector(".records").appendChild(record5);
+          anger_body.appendChild(record5);
 
           document.querySelector(".records").appendChild(changeable);
-          document.querySelector(".records").appendChild(record6);
+          changeable.appendChild(record6);
 
           document.querySelector(".records").appendChild(important);
-          document.querySelector(".records").appendChild(record7);
+          important.appendChild(record7);
         }
         anger_records.forEach(function(anger_record){addRecord(anger_record)})
       })
