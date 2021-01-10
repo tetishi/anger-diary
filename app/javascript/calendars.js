@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function(){
           record2.className = "media-left"
 
           var got_angry_at = document.createElement("p");
-          var record3 = document.createElement("li");
+          var record3 = document.createElement("p");
           record3.className = "media-left"
 
           var place = document.createElement("p");
@@ -59,6 +59,15 @@ document.addEventListener('DOMContentLoaded', function(){
           important.className = "media"
           var record7 = document.createElement("li");
           record7.className = "media-left"
+
+          var buttons = document.createElement("div");
+          buttons.className = "field is-grouped my-5"
+          var editButton = document.createElement("div");
+          editButton.className = "control"
+          var deleteButton = document.createElement("div");
+          deleteButton.className = "control"
+
+          editButton.innerHTML = ""
          
           level.innerHTML = "<strong class='media-left'>怒りのレベル:</strong>"
           record1.innerText = anger_record["level"]
@@ -71,6 +80,9 @@ document.addEventListener('DOMContentLoaded', function(){
           // record3.innerHTML = "<time datetime='hh'></time>"
           // record3.innerHTML = "<time datetime='hh'>anger_record['got_angry_at']</time>"
           record3.innerHTML = anger_record["got_angry_at"]
+          record3 = new Date(anger_record["got_angry_at"]);
+          record3 = record3.getHours();
+          // debugger;
 
           place.innerHTML = "<strong class='media-left'>場所:</strong>"
           record4.innerText = anger_record["place"]
@@ -87,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function(){
           document.querySelector(".records").appendChild(level);
           level.appendChild(record1);
 
+          // debugger;
           document.querySelector(".records").appendChild(got_angry_on);
           got_angry_on.appendChild(record2);
           got_angry_on.appendChild(record3);
