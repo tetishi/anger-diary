@@ -101,6 +101,7 @@ document.addEventListener('DOMContentLoaded', function(){
                                  "</a>" +
                                  "</div>" +
                                  "</div>"
+                                 //  edit_calendar_anger_record_path(anger_record.got_angry_on, anger_record.id)
 
           document.querySelector(".records").appendChild(level);
 
@@ -119,5 +120,5 @@ document.addEventListener('DOMContentLoaded', function(){
         anger_records.forEach(function(anger_record){addRecord(anger_record)})
       })
       .catch(error => alert(error));
-  });
+  }, { once: true });
 });
