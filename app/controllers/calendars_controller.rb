@@ -16,11 +16,13 @@ class CalendarsController < ApplicationController
     @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
 
     @records = current_user.anger_records
-    # binding.pry
+    # if params[:date].exist? pryが発動すればparams[:date]は存在している
+    #   binding.pry
+    # end
     respond_to do |format|
       format.html
       # format.json {render :json => {hello: "World"}.to_json}
-      format.json {render :json => @records.to_json}
+      format.json {render :json => @anger_record.to_json}
     end
   end
 

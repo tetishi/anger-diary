@@ -5,12 +5,15 @@ document.addEventListener('DOMContentLoaded', function(){
 
   document.querySelectorAll(".dates").forEach(function (links) {
     links.addEventListener("click", function(e) {
-      e.preventDefault();
+      // e.preventDefault();
       console.log("hi");
     // fetch("http://localhost:3000/calendars.json?hoge=20201030")
     // fetch(`http://localhost:3000/calendars.json?record=${record_date}`)
     // fetch(calendarURL + "/" + recordDate)
-      fetch("http://localhost:3000/calendars.json")
+    // thisをつかう(date=のところ　thisはクリックしたエレメント
+    // debugger; でthisが何か調べる
+    // debugger;
+      fetch("http://localhost:3000/calendars.json?date=2021-01-01")
         .then(response => response.json())
         .then(anger_records => {
           console.log("test");
