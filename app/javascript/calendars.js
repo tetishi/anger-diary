@@ -7,20 +7,21 @@ document.addEventListener('DOMContentLoaded', function(){
     links.addEventListener("click", function(e) {
       // e.preventDefault();
       console.log("hi");
+      // var angerDate = JSON.parse(document.querySelector(".date").dataset.json);
     // fetch("http://localhost:3000/calendars.json?hoge=20201030")
     // fetch(`http://localhost:3000/calendars.json?record=${record_date}`)
     // fetch(calendarURL + "/" + recordDate)
     // thisをつかう(date=のところ　thisはクリックしたエレメント
     // debugger; でthisが何か調べる
-    // debugger;
-      fetch("http://localhost:3000/calendars.json?date=2021-01-01")
+      // debugger;
+      fetch(`http://localhost:3000/calendars.json?date=${this.innerText}`)
         .then(response => response.json())
         .then(anger_records => {
           console.log("test");
           console.log(anger_records); // anger_recordsがjsonデータ
           // debugger;
 
-          var addRecord = function(anger_record) {
+          var getRecord = function(anger_record) {
             var level = document.createElement("div");
             var got_angry_on = document.createElement("div");
             var place = document.createElement("div");
@@ -110,7 +111,10 @@ document.addEventListener('DOMContentLoaded', function(){
             document.querySelector(".records").appendChild(buttons);
           }
           // debugger;
-          anger_records.forEach(function(anger_record){addRecord(anger_record)})
+          // if anger_records <= 2
+          // Array.from(anger_records).forEach(function(anger_record){getRecord(anger_record)})
+          anger_records.forEach(function(anger_record){getRecord(anger_record)})
+          // getRecord(anger_record);
         })
         .catch(error => alert(error));
     }, { once: true });

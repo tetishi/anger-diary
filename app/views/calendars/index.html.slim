@@ -1,8 +1,10 @@
 = month_calendar do |date|
   - if @record_dates.include?(date.to_s)
-    / = link_to date.day, calendar_path(date), class: "dates"
+    / = link_to date.day, calendar_path(date), class: "dates"　クエリパラメータのURLへのリンクを書くのかも
+    / .dates.is-italic.has-text-weight-bold, data-json="<%= @record_dates.to_json %>"
+    /   = date.day
     .dates.is-italic.has-text-weight-bold
-      = date.day
+      = date
   - else
     = date.day
 
