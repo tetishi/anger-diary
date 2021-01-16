@@ -1,9 +1,10 @@
 = month_calendar do |date|
   - if @record_dates.include?(date.to_s)
     / = link_to date.day, calendar_path(date), class: "dates"　クエリパラメータのURLへのリンクを書くのかも
-    / .dates.is-italic.has-text-weight-bold, data-json="<%= @record_dates.to_json %>"
-    /   = date.day
-    .dates.is-italic.has-text-weight-bold
+    / .is-italic.has-text-weight-bold.data-json data-json="<%= date.to_json %>"
+    .is-italic.has-text-weight-bold.data-json
+      = date.day
+    .dates.has-text-light
       = date
   - else
     = date.day
@@ -12,27 +13,3 @@ section.section
   .container.is-size-4.is-size-5-touch
     div.is-size-2.is-size-3-touch.is-bold.media
       div.records
-
-
-      / - if @anger_record.present?
-      /   div.is-size-2.is-size-3-touch.is-bold.media
-      /     | #{@anger_record.got_angry_on}
-      /   - @anger_records.each do |anger_record|
-      /     div.notice id='anger_record-#{anger_record.id}'
-      /       = render partial: 'anger_record', locals: { anger_record: anger_record }
-      /       .field.is-grouped.my-5
-      /         .control
-      /           = link_to '編集', edit_calendar_anger_record_path(anger_record.got_angry_on, anger_record.id), class: 'button is-primary is-size-5'
-      /         .control
-      /           = link_to '削除', anger_record_path(anger_record), method: :delete, data: { confirm: '本当によろしいですか？' }, remote: true, class: 'button is-danger is-size-5'
-
-      / - if @success_record.present?
-      /   div.is-size-2.is-size-3-touch.is-bold.media
-      /     = @success_record.succeeded_on
-      /   div.notice id='success_record-#{@success_record.id}'
-      /     = render partial: 'success_record', locals: { success_record: @success_record }
-      /     .field.is-grouped.mt-5
-      /       .control
-      /         = link_to '編集', edit_success_record_path(@success_record.id), class: 'button is-primary is-size-5'
-      /       .control
-      /         = link_to '削除', success_record_path(@success_record), method: :delete, data: { confirm: '本当によろしいですか？' }, remote: true, class: 'button is-danger is-size-5'

@@ -1,16 +1,19 @@
 document.addEventListener('DOMContentLoaded', function(){
+  // var click_count = 0;
 
-  // var links = document.querySelectorAll(".dates");
-  // var calendarURL = "http://localhost:3000/calendars.json"
+  // function myClick(event) {
+  //   click_count++;
+  //   if(click_count == 1) {
+  //     links.removeEventListener('"click', myClick);
+  //   }
+  // }
 
   document.querySelectorAll(".dates").forEach(function (links) {
-    links.addEventListener("click", function(e) {
+    links.addEventListener("click", function foo() {
       // e.preventDefault();
       console.log("hi");
-      // var angerDate = JSON.parse(document.querySelector(".date").dataset.json);
-    // fetch("http://localhost:3000/calendars.json?hoge=20201030")
-    // fetch(`http://localhost:3000/calendars.json?record=${record_date}`)
-    // fetch(calendarURL + "/" + recordDate)
+      // var angerDate = document.querySelector(".data-json").getAttribute("data-json");
+    // // fetch("http://localhost:3000/calendars.json?hoge=20201030")
     // thisをつかう(date=のところ　thisはクリックしたエレメント
     // debugger; でthisが何か調べる
       // debugger;
@@ -115,8 +118,14 @@ document.addEventListener('DOMContentLoaded', function(){
           // Array.from(anger_records).forEach(function(anger_record){getRecord(anger_record)})
           anger_records.forEach(function(anger_record){getRecord(anger_record)})
           // getRecord(anger_record);
+          // debugger;
+          this.removeEventListener("click", foo)
         })
         .catch(error => alert(error));
-    }, { once: true });
+    });
+    // debugger;
+    // }, { once: true });
+    // links.removeEventListener("click");
+    // this.removeEventListener("click", foo)
   });
 });
