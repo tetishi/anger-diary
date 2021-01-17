@@ -9,26 +9,53 @@ document.addEventListener('DOMContentLoaded', function(){
   // }
 
   document.querySelectorAll(".dates").forEach(function (links) {
+    // this.removeEventListener("click", foo)
     links.addEventListener("click", function foo() {
+      // this.removeEventListener("click", foo)
       // e.preventDefault();
       // var angerDate = document.querySelector(".data-json").getAttribute("data-json");
     // // fetch("http://localhost:3000/calendars.json?hoge=20201030")
       // debugger;
+
+      // var calendarRecords = document.querySelector(".records");
+      var calendarRecord = document.querySelectorAll(".test");
+      if (calendarRecord) {
+        // calendarRecords.removeChild(calendarRecord);
+
+        for (const elem of calendarRecord) {
+          elem.remove();
+        }
+        // forで回す
+        // calendarRecord.remove();
+      }
+      // if 記録がすでに表示されていれば records.exists?的な
+      //   その記録を非表示にする
+      // end
+
+      // removeEventListenerはイベントリスナーの削除であって追加した要素の削除ではない
       fetch(`http://localhost:3000/calendars.json?date=${this.title}`)
         .then(response => response.json())
         .then(anger_records => {
           console.log("test");
           console.log(anger_records); // anger_recordsがjsonデータ
           // debugger;
+          // this.removeEventListener("click", foo)
 
           var getRecord = function(anger_record) {
             var level = document.createElement("div");
+            level.className = "test"
             var got_angry_on = document.createElement("div");
+            got_angry_on.className = "test"
             var place = document.createElement("div");
+            place.className = "test"
             var anger_body = document.createElement("div");
+            anger_body.className = "test"
             var changeable = document.createElement("div");
+            changeable.className = "test"
             var important = document.createElement("div");
+            important.className = "test"
             var buttons = document.createElement("div");
+            buttons.className = "test"
          
             level.innerHTML = "<p class='media'>" +
                             "<strong class='media-left'>" +
@@ -110,13 +137,14 @@ document.addEventListener('DOMContentLoaded', function(){
             document.querySelector(".records").appendChild(important);
             document.querySelector(".records").appendChild(buttons);
           }
+          // this.removeEventListener("click", foo)
           // debugger;
           // if anger_records <= 2
           // Array.from(anger_records).forEach(function(anger_record){getRecord(anger_record)})
           anger_records.forEach(function(anger_record){getRecord(anger_record)})
           // getRecord(anger_record);
           // debugger;
-          this.removeEventListener("click", foo)
+          // this.removeEventListener("click", foo)
         })
         .catch(error => alert(error));
     });
