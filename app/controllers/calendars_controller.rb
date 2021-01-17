@@ -30,22 +30,4 @@ class CalendarsController < ApplicationController
 
   # def indexjosn
   # end
-
-  def show
-    @anger_records = current_user.anger_records.where(got_angry_on: params[:date]).sort_by do |anger_record|
-      anger_record.got_angry_at.strftime("%k")
-    end
-    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
-    @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
-  end
-
-    # private
-
-      # def anger_record_params
-      #   params.require(:anger_or_success_data).permit(:level, :got_angry_on, :got_angry_at, :place, :anger_body, :changeable, :important)
-      # end
-
-      # def success_record_params
-      #   params.require(:anger_or_success_data).permit(:success_body)
-      # end
 end

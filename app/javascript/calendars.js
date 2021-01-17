@@ -11,13 +11,10 @@ document.addEventListener('DOMContentLoaded', function(){
   document.querySelectorAll(".dates").forEach(function (links) {
     links.addEventListener("click", function foo() {
       // e.preventDefault();
-      console.log("hi");
       // var angerDate = document.querySelector(".data-json").getAttribute("data-json");
     // // fetch("http://localhost:3000/calendars.json?hoge=20201030")
-    // thisをつかう(date=のところ　thisはクリックしたエレメント
-    // debugger; でthisが何か調べる
       // debugger;
-      fetch(`http://localhost:3000/calendars.json?date=${this.innerText}`)
+      fetch(`http://localhost:3000/calendars.json?date=${this.title}`)
         .then(response => response.json())
         .then(anger_records => {
           console.log("test");
