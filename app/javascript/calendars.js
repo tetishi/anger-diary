@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function(){
       if (calendarRecord) {
         // calendarRecords.removeChild(calendarRecord);
 
-        for (const elem of calendarRecord) {
+        for (var elem of calendarRecord) {
           elem.remove();
         }
         // forで回す
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
             buttons.innerHTML = "<div class='field is-grouped my-5'>" +
                                  "<div class='control'>" +
-                                 "<a class='button is-primary is-size-5' href='/calendars/2021-01-07/anger_records/5/edit'>" +
+                                 "<a class='edit-button button is-primary is-size-5' href=''>" +
                                  "編集" +
                                  "</a>" +
                                  "</div>" +
@@ -136,12 +136,40 @@ document.addEventListener('DOMContentLoaded', function(){
             document.querySelector(".records").appendChild(changeable);
             document.querySelector(".records").appendChild(important);
             document.querySelector(".records").appendChild(buttons);
+            
+
+            // debugger;
           }
           // this.removeEventListener("click", foo)
           // debugger;
           // if anger_records <= 2
           // Array.from(anger_records).forEach(function(anger_record){getRecord(anger_record)})
-          anger_records.forEach(function(anger_record){getRecord(anger_record)})
+          anger_records.forEach(function(anger){
+            getRecord(anger)
+            // var target = document.querySelectorAll(".edit-button");
+            //   for(const elem of target) {
+            //     elem.href = `/anger_records/${anger_records["id"]}/edit`
+            //   }
+          })
+
+          // document.querySelectorAll(".edit-button").forEach(function (target) {
+          //   for (var anger_record of anger_records) {
+          //     target.href = `/anger_records/${anger_record["id"]}/edit`
+          //   }
+          // })
+
+          var target = document.querySelectorAll(".edit-button");
+          for (let [elem, anger_record] of (target, anger_records)) {
+            elem.href = `/anger_records/${anger_record["id"]}/edit`
+          }
+          
+
+          
+
+
+          
+          
+          
           // getRecord(anger_record);
           // debugger;
           // this.removeEventListener("click", foo)
