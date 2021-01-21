@@ -140,32 +140,41 @@ document.addEventListener('DOMContentLoaded', function(){
 
             // debugger;
           }
+
+          var getURL = function(anger_record) {
+            document.querySelectorAll(".edit-button").forEach(function (target) {
+              target.href = `/anger_records/${anger_record["id"]}/edit`
+            })
+          }
           // this.removeEventListener("click", foo)
           // debugger;
           // if anger_records <= 2
           // Array.from(anger_records).forEach(function(anger_record){getRecord(anger_record)})
           anger_records.forEach(function(anger){
             getRecord(anger)
+            getURL(anger)
             // var target = document.querySelectorAll(".edit-button");
             //   for(const elem of target) {
             //     elem.href = `/anger_records/${anger_records["id"]}/edit`
             //   }
           })
 
-          // document.querySelectorAll(".edit-button").forEach(function (target) {
-          //   for (var anger_record of anger_records) {
-          //     target.href = `/anger_records/${anger_record["id"]}/edit`
-          //   }
-          // })
+          // for (var anger_record of anger_records) {
+          //   var recordId = anger_record["id"]
+          //   document.querySelectorAll(".edit-button").forEach(function (target) {
+          //     target.href = `/anger_records/${recordId}/edit`
+          //   })
+          // }
 
-          var target = document.querySelectorAll(".edit-button");
-          for (let [elem, anger_record] of (target, anger_records)) {
-            elem.href = `/anger_records/${anger_record["id"]}/edit`
-          }
+          // var editButtons = [...document.querySelectorAll(".edit-button")];
+          // for (let [editButton, anger_record] of (editButtons, anger_records)) {
+          //   editButton.href = `/anger_records/${anger_record["id"]}/edit`
+          // }
           
 
-          
-
+          // for (var anger_record of anger_records) {
+          //   console.log(anger_record["id"]);
+          // }
 
           
           
