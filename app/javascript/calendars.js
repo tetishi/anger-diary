@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
             buttons.innerHTML = "<div class='field is-grouped my-5'>" +
                                  "<div class='control'>" +
-                                 "<a class='edit-button button is-primary is-size-5' href=''>" +
+                                 `<a class='edit-button button is-primary is-size-5' href='/anger_records/${anger_record['id']}/edit'>` +
                                  "編集" +
                                  "</a>" +
                                  "</div>" +
@@ -133,22 +133,30 @@ document.addEventListener('DOMContentLoaded', function(){
             // debugger;
           }
 
-          var getURL = function(anger_record) {
-            document.querySelectorAll(".edit-button").forEach(function (target) {
-              target.href = `/anger_records/${anger_record["id"]}/edit`
-            })
+          // var getURL = function(anger_record) {
+            
+
+            // document.querySelectorAll(".edit-button").forEach(function (target) {
+            //   var angerId = document.querySelector(".edit-button").getAttribute("data-json");
+            //   target.href = `/anger_records/${angerId}/edit`
+            // })
+
+
+            // var angerId = document.querySelector(".edit-button").getAttribute("data-json");
+            // var target = document.querySelector(".edit-button")
+            // target.href = `/anger_records/${angerId}/edit`
 
             // document.querySelectorAll(".delete-button").forEach(function (target) {
             //   target.href = `/anger_records/${anger_record["id"]}`
             // })
-          }
+          // }
           // this.removeEventListener("click", foo)
           // debugger;
           // if anger_records <= 2
           // Array.from(anger_records).forEach(function(anger_record){getRecord(anger_record)})
           anger_records.forEach(function(anger){
             getRecord(anger)
-            getURL(anger)
+            // getURL(anger)
             // var target = document.querySelectorAll(".edit-button");
             //   for(const elem of target) {
             //     elem.href = `/anger_records/${anger_records["id"]}/edit`
