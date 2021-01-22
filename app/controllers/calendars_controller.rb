@@ -12,7 +12,9 @@ class CalendarsController < ApplicationController
       anger_record.got_angry_at.strftime("%k")
     end
 
-    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
+    # @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
+    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:id])
+
     # nilなのはparams[:date]がないから
     @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
 
@@ -21,10 +23,13 @@ class CalendarsController < ApplicationController
     #   binding.pry
     # end
     # pryが発動すればparams[:date]は存在している
+    # binding.pry
     respond_to do |format|
       format.html
       # format.json {render :json => {hello: "World"}.to_json}
-      format.json {render :json => @anger_records.to_json}
+      format.json {render json: @anger_records.to_json}
+      # format.json {render :json => {:anger_records => @anger_records.to_json,
+      #                               :anger_record => @anger_record.to_json}}
     end
   end
 
