@@ -1,13 +1,4 @@
 document.addEventListener('DOMContentLoaded', function(){
-  // var click_count = 0;
-
-  // function myClick(event) {
-  //   click_count++;
-  //   if(click_count == 1) {
-  //     links.removeEventListener('"click', myClick);
-  //   }
-  // }
-
   document.querySelectorAll(".dates").forEach(function (links) {
     // this.removeEventListener("click", foo)
     links.addEventListener("click", function foo() {
@@ -122,7 +113,8 @@ document.addEventListener('DOMContentLoaded', function(){
                                  "</a>" +
                                  "</div>" +
                                  "<div class='control'>" +
-                                 "<a data-confirm='本当によろしいですか？' class='button is-danger is-size-5' rel='nofollow' data-method='delete' href='/anger_records/:id'>" +
+                                 `<div class='delete-button button is-danger is-size-5' data-json=${anger_record['id']}>` +
+                                //  "<a data-confirm='本当によろしいですか？' class='delete-button button is-danger is-size-5' rel='nofollow' data-method='delete' href=''>" +
                                  "削除" +
                                  "</a>" +
                                  "</div>" +
@@ -145,6 +137,10 @@ document.addEventListener('DOMContentLoaded', function(){
             document.querySelectorAll(".edit-button").forEach(function (target) {
               target.href = `/anger_records/${anger_record["id"]}/edit`
             })
+
+            // document.querySelectorAll(".delete-button").forEach(function (target) {
+            //   target.href = `/anger_records/${anger_record["id"]}`
+            // })
           }
           // this.removeEventListener("click", foo)
           // debugger;
@@ -178,10 +174,24 @@ document.addEventListener('DOMContentLoaded', function(){
 
           
           
-          
-          // getRecord(anger_record);
-          // debugger;
-          // this.removeEventListener("click", foo)
+
+
+          // var angerDate = document.querySelector(".data-json").getAttribute("data-json");
+          document.querySelectorAll(".delete-button").forEach(function (deleteButton) {
+            console.log("testteste")
+            deleteButton.addEventListener("click", function() {
+              console.log("testteste")
+              // debugger;
+              // fetch(`http://localhost:3000/calendars.json?id=${this.dataset.json}`, {
+              fetch(`http://localhost:3000/anger_records/${this.dataset.json}`, {
+                method: "DELETE"
+              })
+              .then(response => response.json())
+              .then(anger_records => {
+                console.log(anger_records)
+              })
+            })
+          })
         })
         .catch(error => alert(error));
     });
