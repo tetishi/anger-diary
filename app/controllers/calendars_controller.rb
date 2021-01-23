@@ -12,8 +12,8 @@ class CalendarsController < ApplicationController
       anger_record.got_angry_at.strftime("%k")
     end
 
-    # @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
-    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:id])
+    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
+    # @anger_record = current_user.anger_records.find_by(got_angry_on: params[:id])
 
     # nilなのはparams[:date]がないから
     @success_record = current_user.success_records.find_by(succeeded_on: params[:date])

@@ -33,6 +33,9 @@ document.addEventListener('DOMContentLoaded', function(){
           // this.removeEventListener("click", foo)
 
           var getRecord = function(anger_record) {
+            // var anger_record_id = document.querySelector(".notice");
+            // anger_record_id.id = `anger_record-${anger_record['id']}`
+
             var level = document.createElement("div");
             level.className = "test"
             var got_angry_on = document.createElement("div");
@@ -47,6 +50,8 @@ document.addEventListener('DOMContentLoaded', function(){
             important.className = "test"
             var buttons = document.createElement("div");
             buttons.className = "test"
+
+            
          
             level.innerHTML = "<p class='media'>" +
                             "<strong class='media-left'>" +
@@ -186,17 +191,29 @@ document.addEventListener('DOMContentLoaded', function(){
 
           // var angerDate = document.querySelector(".data-json").getAttribute("data-json");
           document.querySelectorAll(".delete-button").forEach(function (deleteButton) {
-            console.log("testteste")
+            // console.log("testteste")
             deleteButton.addEventListener("click", function() {
-              console.log("testteste")
+
+              // document.querySelector('#anger_record-<%= @anger_record.id %>').remove();
+              // document.querySelector(`#anger_record-${this.dataset.json}`).remove();
+              // console.log("testteste")
               // debugger;
               // fetch(`http://localhost:3000/calendars.json?id=${this.dataset.json}`, {
-              fetch(`http://localhost:3000/anger_records/${this.dataset.json}`, {
-                method: "DELETE"
+              // fetch(`http://localhost:3000/anger_records/${this.dataset.json}`, {
+              fetch(`http://localhost:3000/anger_records/${this.dataset.json}.json`, {
+                method: "DELETE",
+                headers: {
+                  "Content-Type": "application/json"
+                },
+                body: null
               })
               .then(response => response.json())
-              .then(anger_records => {
-                console.log(anger_records)
+              .then(data => {
+                console.log(data)
+                document.querySelector('.notice').innerHTML = "<div>怒りの記録が削除されました。</div>"
+                // document.querySelector('#anger_record-<%= @anger_record.id %>').remove();
+                // document.querySelector('.notice').innerHTML = "<div>怒りの記録が削除されました。</div>"
+
               })
             })
           })
