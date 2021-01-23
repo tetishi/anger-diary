@@ -39,8 +39,15 @@ class AngerRecordsController < ApplicationController
   end
 
   def destroy
+    # 以下の２行は必要じゃないかも？
     @anger_record.destroy
-    render status: 200, action: "destroy"
+    # render status: 200, action: "destroy"
+
+    binding.pry
+    respond_to do |format|
+      format.html
+      format.json {render json: @anger_record.to_json}
+    end
   end
 
   private
