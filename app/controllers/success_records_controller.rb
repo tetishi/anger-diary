@@ -41,7 +41,7 @@ class SuccessRecordsController < ApplicationController
 
   def destroy
     @success_record.destroy
-    redirect_to calendars_url, notice: "今日出来たことを削除しました。"
+    render status: 200, action: "destroy"
   end
 
     private
