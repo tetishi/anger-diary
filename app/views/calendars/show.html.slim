@@ -4,25 +4,27 @@ section.section
       div.is-size-2.is-size-3-touch.is-bold.media
         | #{@anger_record.got_angry_on}
       - @anger_records.each do |anger_record|
-        = render partial: 'anger_record', locals: { anger_record: anger_record }
-        .field.is-grouped.my-5
-          .control
-            = link_to '編集', edit_calendar_anger_record_path(anger_record.got_angry_on, anger_record.id), class: 'button is-primary is-size-5'
-          .control
-            = link_to '削除', anger_record_path(anger_record), method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'button is-danger is-size-5'
-
-    - if @success_record.present?
-      div.is-size-2.is-size-3-touch.is-bold.media
-        = @success_record.succeeded_on
-      = render partial: 'success_record', locals: { success_record: @success_record }
-      .field.is-grouped.mt-5
-        .control
-          = link_to '編集', edit_success_record_path(@success_record.id), class: 'button is-primary is-size-5'
-        .control
-          = link_to '削除', success_record_path(@success_record), method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'button is-danger is-size-5'
+        .notice id='anger_record-#{anger_record.id}'
+          = render partial: 'anger_record', locals: { anger_record: anger_record }
+          .field.is-grouped.my-5
+            .control
+              = link_to '編集', edit_calendar_anger_record_path(anger_record.got_angry_on, anger_record.id), class: 'button is-primary is-size-5'
+            .control
+              = link_to '削除', anger_record_path(anger_record), method: :delete, data: { confirm: '本当によろしいですか？' }, remote: true, class: 'button is-danger is-size-5'
+    - if @anger_record.present? && @success_record.nil?
       div
         = link_to '戻る', calendars_path, class: 'button is-size-5'
 
-    - if @anger_record.present? && @success_record.nil?
-      div
+    - if @success_record.present? && @success_record.nil?
+      div.is-size-2.is-size-3-touch.is-bold.media
+        = @success_record.succeeded_on
+    - if @success_record.present?
+      .notice id='success_record-#{@success_record.id}'
+        = render partial: 'success_record', locals: { success_record: @success_record }
+        .field.is-grouped.mt-5
+          .control
+            = link_to '編集', edit_success_record_path(@success_record.id), class: 'button is-primary is-size-5'
+          .control
+            = link_to '削除', success_record_path(@success_record), method: :delete, data: { confirm: '本当によろしいですか？' }, remote: true, class: 'button is-danger is-size-5'
+      div.my-4
         = link_to '戻る', calendars_path, class: 'button is-size-5'

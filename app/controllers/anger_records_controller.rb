@@ -40,7 +40,7 @@ class AngerRecordsController < ApplicationController
 
   def destroy
     @anger_record.destroy
-    redirect_to calendars_url, notice: "怒りの記録が削除されました。"
+    render status: 200, actions: "destroy"
   end
 
   private
