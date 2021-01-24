@@ -20,7 +20,6 @@ feature "Calendars", js: true, type: :feature do
 
     scenario "destroying an anger record" do
       visit calendar_path(@anger_record.got_angry_on)
-
       page.accept_confirm do
         click_on "削除", match: :first
       end
