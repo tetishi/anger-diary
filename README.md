@@ -1,24 +1,30 @@
-# README
+# アンガーダイアリー
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+# サイトリンク
+https://anger-diary.herokuapp.com
 
-* System dependencies
+# 使用技術
+* Ruby 2.6.5
+* Ruby on Rails 6.0.3.4
+* PostgreSQL 12.2
+* JavaScript
+* Bluma
+* Slim
+* Heroku
+* GitHub
 
-* Configuration
+# インストール
+```
+```
 
-* Database creation
+# テスト
+```
+$ bin/rspec
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Lint
+```
+$ rubocop -a
+```
