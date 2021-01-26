@@ -1,6 +1,5 @@
 # アンガーダイアリー
-
-
+アンガーダイアリーとはイラッとした内容を記録することで、自分の怒りの傾向を知り、感情を制御できるようになり、精神を安定させる助けになるアプリです。
 
 # サイトリンク
 https://anger-diary.herokuapp.com
@@ -17,6 +16,8 @@ https://anger-diary.herokuapp.com
 
 # インストール
 ```
+$ bin/setup
+$ rails server
 ```
 
 # テスト
