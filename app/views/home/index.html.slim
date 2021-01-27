@@ -4,9 +4,9 @@ section.hero
       div.columns
         div.column.is-8.is-offset-2
           div.content.is-medium
-            h1.title.has-text-centered
+            h1.title.has-text-centered.is-size-3-mobile
               |  アンガーダイアリー
-            p.subtitle
+            p.subtitle.is-size-6-mobile
               |  アンガーダイアリーで無駄な怒りをなくそう。
                  日々の怒りを記録につけることで自分が何に対して
                  怒りを感じやすいのかを知ることが出来ます。
@@ -16,17 +16,34 @@ section.hero
       .container.has-text-centered.is-fluid
         button.button.is-primary.is-size-4.px-6
           = link_to '怒りを記録する', new_anger_record_path
-        div.field.is-grouped.column.is-7.is-offset-3
-          div.control
+        div.columns.is-centered.mt-1
+          div.column.is-narrow
             - if current_user.present? && current_user.success_records.where(succeeded_on: Date.today).present?
               button.button.is-primary.is-light.is-size-5 type="button" onclick="alert('すでに今日出来たことが登録されています。')"
                 = link_to '今日出来たことを記録する', root_path
             - else
               button.button.is-primary.is-light.is-size-5
                 = link_to '今日出来たことを記録する', new_success_record_path
-          div.control
+          div.column.is-narrow
             button.button.is-primary.is-light.is-size-5
               = link_to '記録カレンダーを見る', calendars_path
+
+section.section
+  .container
+    .level
+      .level-item
+        div
+          i.fas.fa-book
+          |  怒りを記録
+      .level-item
+        div
+          i.fas.fa-book
+          |  今日できたことを記録
+      .level-item
+        div
+          i.fas.fa-book
+          |  記録カレンダーで確認
+    
 footer.footer
   div.content.has-text-centered
     p
