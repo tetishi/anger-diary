@@ -28,22 +28,39 @@ section.hero
             button.button.is-primary.is-light.is-size-5
               = link_to '記録カレンダーを見る', calendars_path
 
-section.section
-  .container
-    .level
-      .level-item
-        div
-          i.fas.fa-book
-          |  怒りを記録
-      .level-item
-        div
-          i.fas.fa-book
-          |  今日できたことを記録
-      .level-item
-        div
-          i.fas.fa-book
-          |  記録カレンダーで確認
-    
+section.hero.is-medium
+  .hero-body
+    .container
+      .columns
+        .column
+          div.has-text-centered
+            figure.image
+              img src="/assets/s0113_2_1.svg"
+            h1.title.is-4
+              |  怒りを記録
+          div.mt-5
+            p
+              |  日々の怒りを記録につけることで自分が何に対して
+                 怒りを感じやすいのかを知ることが出来ます。
+        .column
+          div.has-text-centered
+            figure.image
+              img src="/assets/s0079_15_0.svg"
+            h1.title.is-4
+              |  出来たことを記録
+          div.mt-5
+            p
+              |  1日の終わりにその日出来たことを記録することで
+        .column
+          div.has-text-centered
+            figure.image
+              img src="/assets/calendar.svg"
+            h1.title.is-4
+              |  カレンダーで確認
+          div.mt-5
+            p
+              |  カレンダーで日々の記録を確認することが出来ます。
+
 footer.footer
   div.content.has-text-centered
     p
