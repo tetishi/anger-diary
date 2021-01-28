@@ -1,33 +1,63 @@
-section.hero
+section.hero.is-medium
   div.hero-body
     div.container
       div.columns
         div.column.is-8.is-offset-2
-          div.content.is-medium
-            h1.title.has-text-centered
+          div.content.is-medium.has-text-centered
+            h1.is-size-4-mobile.is-family-monospace.is-size-1
               |  アンガーダイアリー
-            p.subtitle
-              |  アンガーダイアリーで無駄な怒りをなくそう。
-                 日々の怒りを記録につけることで自分が何に対して
-                 怒りを感じやすいのかを知ることが出来ます。
-                 自分が何に対して怒りやすいかを認識し、その怒りに対して対策を立てましょう。
-  .columns
-    .column.is-10.is-offset-1
-      .container.has-text-centered.is-fluid
-        button.button.is-primary.is-size-4.px-6
-          = link_to '怒りを記録する', new_anger_record_path
-        div.field.is-grouped.column.is-7.is-offset-3
-          div.control
-            - if current_user.present? && current_user.success_records.where(succeeded_on: Date.today).present?
-              button.button.is-primary.is-light.is-size-5 type="button" onclick="alert('すでに今日出来たことが登録されています。')"
-                = link_to '今日出来たことを記録する', root_path
-            - else
-              button.button.is-primary.is-light.is-size-5
-                = link_to '今日出来たことを記録する', new_success_record_path
-          div.control
-            button.button.is-primary.is-light.is-size-5
-              = link_to '記録カレンダーを見る', calendars_path
+            h2.subtitle.is-size-6-mobile.is-size-3.mt-1
+              |  怒りをコントロールしよう
+      div
+        div
+          .container.has-text-centered
+            button.button.is-primary.is-size-4.px-6 style="width: 265px"
+              = link_to '怒りを記録する', new_anger_record_path
+            div.columns.is-centered.mt-1
+              div.column.is-narrow
+                - if current_user.present? && current_user.success_records.where(succeeded_on: Date.today).present?
+                  button.button.is-primary.is-light.is-size-5.is-fullwidth type="button" onclick="alert('すでに今日出来たことが登録されています。')"
+                    = link_to '今日出来たことを記録する', root_path
+                - else
+                  button.button.is-primary.is-light.is-size-5
+                    = link_to '今日出来たことを記録する', new_success_record_path
+              div.column.is-narrow
+                button.button.is-primary.is-light.is-size-5 style="width: 265px"
+                  = link_to '記録カレンダーを見る', calendars_path
+
+section.hero.is-medium.is-white
+  .hero-body
+    .container
+      .columns
+        .column
+          div.has-text-centered
+            figure.image
+              img src="/assets/anger_record.svg"
+            h1.title.is-4.mt-4
+              |  怒りを記録
+          div.mt-3
+            p
+              |  怒ったときに記録をつけることで思考が整理され、冷静になることができます。
+        .column
+          div.has-text-centered
+            figure.image
+              img src="/assets/success_record.svg"
+            h1.title.is-4.mt-4
+              |  出来たことを記録
+          div.mt-3
+            p
+              |  1日の終わりに出来たことを記録することで自己肯定感を高め、つい怒ってしまうことを抑制することができます。
+        .column
+          div.has-text-centered
+            figure.image
+              img src="/assets/calendar.svg"
+            h1.title.is-4
+              |  カレンダーで確認
+          div.mt-3
+            p
+              |  カレンダーで日々の記録を確認することで自分が何に対して怒りを感じやすいのかを知ることが出来ます。
+
 footer.footer
   div.content.has-text-centered
     p
-      |  Copyright @ 2020 AngerDiary. All rights reserved.
+      |  Copyright @ 2021 AngerDiary. All rights reserved.
