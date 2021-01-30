@@ -40,4 +40,5 @@ section.section
             i.fas.fa-lock
       .actions
         = f.submit t('.sign_up'), class: "button is-primary is-size-5"
+    = link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, method: :post
     = render "devise/shared/links"

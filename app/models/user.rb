@@ -10,19 +10,25 @@ class User < ApplicationRecord
   has_many :anger_records, dependent: :destroy
   has_many :success_records, dependent: :destroy
 
-  validates :username, presence: true
+  # validates :username, presence: true
 
   def self.from_omniauth(access_token)
-    data = access_token.info
-    user = User.where(email: data["email"]).first
+    # data = access_token.info
+    # user = User.where(email: data["email"]).first
 
-    # Uncomment the section below if you want users to be created if they don't exist
+    # # Uncomment the section below if you want users to be created if they don't exist
     # unless user
-    #     user = User.create(name: data['name'],
+    #     user = User.create(username: data['username'],
     #        email: data['email'],
     #        password: Devise.friendly_token[0,20]
     #     )
     # end
-    user
+    # user
+
+    where(provider: access_token.provider, uid: access_token.uid).first_or_create do |user|
+      user.email = access_token.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.username = access_token.info.username   # assuming the user model has a name
+   end
   end
 end
