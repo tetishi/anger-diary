@@ -29,5 +29,7 @@
     - resource_class.omniauth_providers.each do |provider|
       .control
         .button
-          = link_to t('.sign_in_with_provider', provider: OmniAuth::Utils.camelize(provider)), user_google_oauth2_omniauth_authorize_path, method: :post
+          span.icon
+            img src="https://img.icons8.com/fluent/23/000000/google-logo.png"
+          = link_to t('.sign_in_with_google'), user_google_oauth2_omniauth_authorize_path, method: :post
           br
