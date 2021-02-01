@@ -71,6 +71,5 @@ gem "devise", github: "heartcombo/devise", branch: "ca-omniauth-2"
 gem "devise-i18n"
 gem "dotenv-rails"
 gem "omniauth"
-# gem 'omniauth-oauth2', '~> 1.3.1'
 gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection"
