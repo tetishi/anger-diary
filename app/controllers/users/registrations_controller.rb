@@ -41,9 +41,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
     def update_resource(resource, params)
-      binding.pry
       if resource.provider.present?
-      # if resource_class.omniauth_providers.present?
         resource.update_without_password(params)
       else
         resource.update_with_password(params)

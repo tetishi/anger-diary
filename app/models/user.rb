@@ -13,28 +13,13 @@ class User < ApplicationRecord
   # validates :username, presence: true
   attr_accessor :current_password
 
-  # binding.pry
   def self.from_omniauth(access_token)
-    data = access_token.info
-    user = User.where(email: data["email"]).first
-
-    # Uncomment the section below if you want users to be created if they don't exist
-    unless user
-      user = User.create(provider: access_token.provider,
-                         uid: access_token.uid,
-                         username: data["name"],
-                         email: data["email"],
-                         password: Devise.friendly_token[0, 20]
-      )
+    where(provider: access_token.provider, uid: access_token.uid).first_or_create do |user|
+      user.username = access_token.info.name
+      user.email = access_token.info.email
+      user.password = Devise.friendly_token[0, 20]
       user.skip_confirmation!
-      user.save
+      # user.save
     end
-    user
-
-    #   where(provider: access_token.provider, uid: access_token.uid).first_or_initialize do |user|
-    #     user.email = access_token.info.email
-    #     user.password = Devise.friendly_token[0,20]
-    #     user.username = access_token.info.username   # assuming the user model has a name
-    #  end
   end
 end
