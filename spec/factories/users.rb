@@ -9,7 +9,5 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { Faker::Internet.password(min_length: 6) }
     confirmed_at { Faker::Date.in_date_period }
-    # uid { "100000000000000000000" }
-    # provider { "google_oauth2" }
   end
 end
