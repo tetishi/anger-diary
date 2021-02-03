@@ -68,4 +68,7 @@ RSpec.configure do |config|
 
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.include Warden::Test::Helpers
+
+  OmniAuth.config.test_mode = true
+  config.include OmniauthMocks
 end
