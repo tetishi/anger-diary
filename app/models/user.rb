@@ -10,7 +10,6 @@ class User < ApplicationRecord
   has_many :anger_records, dependent: :destroy
   has_many :success_records, dependent: :destroy
 
-  # validates :username, presence: true
   attr_accessor :current_password
 
   def self.from_omniauth(access_token)
@@ -19,7 +18,6 @@ class User < ApplicationRecord
       user.email = access_token.info.email
       user.password = Devise.friendly_token[0, 20]
       user.skip_confirmation!
-      # user.save
     end
   end
 end

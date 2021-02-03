@@ -12,11 +12,6 @@ describe User, type: :model do
       expect(@user).to be_valid
     end
 
-    # it "is invalid without a username" do
-    #   @user.username = nil
-    #   expect(@user).to_not be_valid
-    # end
-
     it "is invalid with a wrong format email" do
       @user.email = "aoeo232.com"
       expect(@user).to_not be_valid
