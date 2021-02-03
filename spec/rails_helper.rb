@@ -26,8 +26,6 @@ require "support/factory_bot"
 #
 Dir[Rails.root.join("spec", "support", "**", "*.rb")].sort.each { |f| require f }
 
-OmniAuth.config.test_mode = true
-
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
 begin
@@ -70,5 +68,7 @@ RSpec.configure do |config|
 
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.include Warden::Test::Helpers
+
+  OmniAuth.config.test_mode = true
   config.include OmniauthMocks
 end
