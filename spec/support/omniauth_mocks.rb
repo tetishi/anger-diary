@@ -47,4 +47,8 @@ module OmniauthMocks
       }
     })
   end
+
+  def google_oauth2_invalid_mock
+    OmniAuth.config.mock_auth[:google_oauth2] = :invalid_credentials
+  end
 end
