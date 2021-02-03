@@ -14,7 +14,6 @@ section.section
           = f.text_field :username, autofocus: true, autocomplete: "username", class: "input"
           span.icon.is-small.is-left
             i.fas.fa-user
-      / - if user_signed_in? && resource_class.omniauth_providers.empty?
       .field
         = f.label :email
         br
