@@ -6,6 +6,10 @@ document.addEventListener("DOMContentLoaded", function() {
       const successRecordId = document.getElementById('success-record').getAttribute('data-record');
       // debugger;
       console.log(successRecordId);
+      // debugger;
+      const successRecordLabelArea = document.getElementById('success-record-label');
+
+      successRecordLabelArea.style.display = 'none';
 
       // debugger;
       // fetch(`http://localhost3000/anger_records/${this.id}/edit`, {
