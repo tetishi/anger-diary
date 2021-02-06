@@ -1,15 +1,16 @@
 document.addEventListener("DOMContentLoaded", function() {
+  // debugger;
+  // const successRecordForm = document.getElementById('success-record-form');
+  // successRecordForm.style.display = 'none';
   document.querySelectorAll(".edit-button").forEach(function (editButton) {
     editButton.addEventListener("click", function() {
-      // debugger;
-      // const successRecordId = this.dataset('success-record-id');
       const successRecordId = document.getElementById('success-record').getAttribute('data-record');
-      // debugger;
-      console.log(successRecordId);
-      // debugger;
       const successRecordLabelArea = document.getElementById('success-record-label');
+      const successRecordForm = document.getElementById('success-record-form');
 
+      console.log(successRecordId);
       successRecordLabelArea.style.display = 'none';
+      successRecordForm.style.display = 'block';
 
       // debugger;
       // fetch(`http://localhost3000/anger_records/${this.id}/edit`, {
