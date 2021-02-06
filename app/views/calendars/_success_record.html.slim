@@ -3,3 +3,21 @@ p.media
     | 出来たこと:
   spam.media-left
   = success_record.success_body
+  
+
+= form_with(model: success_record, local: true) do |form|
+  - if success_record.errors.any?
+    #error_explanation
+      h2
+        = pluralize(success_record.errors.count, "error")
+        |  prohibited this anger_record from being saved:
+      ul
+        - success_record.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    / = form.label :success_body
+    = form.text_area :success_body, class: "textarea"
+  .field
+    = form.button type: "submit", class: "button is-primary is-size-5"
+    button.button.is-light type="button" キャンセル
