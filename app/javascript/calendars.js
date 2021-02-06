@@ -6,10 +6,12 @@ document.addEventListener("DOMContentLoaded", function() {
     editButton.addEventListener("click", function() {
       const successRecordId = document.getElementById('success-record').getAttribute('data-record');
       const successRecordLabelArea = document.getElementById('success-record-label');
+      const successRecordButton = document.getElementById('success-record-button');
       const successRecordForm = document.getElementById('success-record-form');
 
       console.log(successRecordId);
       successRecordLabelArea.style.display = 'none';
+      successRecordButton.style.display = 'none';
       successRecordForm.style.display = 'block';
 
       // debugger;

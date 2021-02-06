@@ -21,7 +21,7 @@ section.section
     - if @success_record.present?
       .notice id='success_record-#{@success_record.id}'
         = render partial: 'success_record', locals: { success_record: @success_record }
-        .field.is-grouped.mt-5
+        .field.is-grouped.mt-5#success-record-button
           / .control data-success-record-id='success_record-#{@success_record.id}'
           .control id="success-record" data-record='#{@success_record.id}'
             button.edit-button.button.is-primary.is-size-5 type='button' 編集
