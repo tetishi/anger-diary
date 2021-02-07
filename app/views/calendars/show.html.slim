@@ -23,7 +23,7 @@ section.section
         = render partial: 'success_record', locals: { success_record: @success_record }
         .field.is-grouped.mt-5#success-record-button
           / .control data-success-record-id='success_record-#{@success_record.id}'
-          .control id="success-record" data-record='#{@success_record.id}'
+          .control#success-record data-record='#{@success_record.succeeded_on}'
             button.edit-button.button.is-primary.is-size-5 type='button' 編集
             / = link_to '編集', edit_success_record_path(@success_record.id), class: 'edit-button button is-primary is-size-5'
           .control

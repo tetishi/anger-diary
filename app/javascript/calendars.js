@@ -13,21 +13,6 @@ document.addEventListener("DOMContentLoaded", function() {
       successRecordLabelArea.style.display = 'none';
       successRecordButton.style.display = 'none';
       successRecordForm.style.display = '';
-
-      // debugger;
-      // fetch(`http://localhost3000/anger_records/${this.id}/edit`, {
-      //   method: "PATCH",
-      //   headers: {
-      //     "Content-Type": "application/json"
-      //   },
-      //   body: JSON.stringify()
-      // })
-      // .then(response => {
-      //   return response.json()
-      // })
-      // .then(data =>
-      //   console.log(data)
-      // );
     })
   })
 
@@ -39,5 +24,36 @@ document.addEventListener("DOMContentLoaded", function() {
     successRecordLabelArea.style.display = '';
     successRecordButton.style.display = '';
     successRecordForm.style.display = 'none';
+  })
+
+  document.querySelector(".submit-update-button").addEventListener("click", function() {
+    // debugger;
+    // const successRecordId = document.getElementById('success-record').getAttribute('data-record');
+    const successRecordDate = document.getElementById('success-record').getAttribute('data-record');
+    const textField = document.getElementById('textarea-body-' + successRecordDate);
+    // const body = textField.textContent;
+    const body = textField.value
+    console.log(successRecordDate);
+    console.log(body);
+    // console.log(textField);
+    // debugger;
+
+    let bodyData = {
+      'success_body': body
+    }
+    // debugger;
+    // fetch(`http://localhost3000/success_records/${successRecordId}`, {
+    fetch(`http://localhost:3000/calendars/${successRecordDate}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(bodyData)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+    .catch(error => console.log(error.message))
   })
 })

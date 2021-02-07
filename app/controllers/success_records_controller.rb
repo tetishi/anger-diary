@@ -32,11 +32,14 @@ class SuccessRecordsController < ApplicationController
 
   # PATCH/PUT /success_records/1
   def update
-    if @success_record.update(success_record_params)
-      redirect_to calendar_url(date: @success_record.succeeded_on), notice: "今日出来たことが編集されました。"
-    else
-      render :edit
-    end
+    # binding.pry
+    @success_record.update(success_record_params)
+    render json: @success_record
+    # if @success_record.update(success_record_params)
+    #   redirect_to calendar_url(date: @success_record.succeeded_on), notice: "今日出来たことが編集されました。"
+    # else
+    #   render :edit
+    # end
   end
 
   def destroy
