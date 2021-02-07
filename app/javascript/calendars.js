@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
       console.log(successRecordId);
       successRecordLabelArea.style.display = 'none';
       successRecordButton.style.display = 'none';
-      successRecordForm.style.display = 'block';
+      successRecordForm.style.display = '';
 
       // debugger;
       // fetch(`http://localhost3000/anger_records/${this.id}/edit`, {
@@ -29,5 +29,15 @@ document.addEventListener("DOMContentLoaded", function() {
       //   console.log(data)
       // );
     })
+  })
+
+  document.getElementById("cancel-button").addEventListener("click", function() {
+    const successRecordLabelArea = document.getElementById('success-record-label');
+    const successRecordButton = document.getElementById('success-record-button');
+    const successRecordForm = document.getElementById('success-record-form');
+
+    successRecordLabelArea.style.display = '';
+    successRecordButton.style.display = '';
+    successRecordForm.style.display = 'none';
   })
 })
