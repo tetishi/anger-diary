@@ -26,8 +26,11 @@ class CalendarsController < ApplicationController
   def update
     @success_record = current_user.success_records.find_by(succeeded_on: params[:date])
 
-    @success_record.update(success_record_params)
-    render json: @success_record
+    if @success_record.update(success_record_params)
+      render json: @success_record
+    else
+      head :bad_request
+    end
   end
 
     private

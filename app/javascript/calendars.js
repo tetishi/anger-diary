@@ -8,11 +8,12 @@ document.addEventListener("DOMContentLoaded", function() {
       const successRecordLabelArea = document.getElementById('success-record-label');
       const successRecordButton = document.getElementById('success-record-button');
       const successRecordForm = document.getElementById('success-record-form');
+      // const successRecordError = document.getElementById('js-success-record-post-error');
 
-      // console.log(successRecordId);
       successRecordLabelArea.style.display = 'none';
       successRecordButton.style.display = 'none';
       successRecordForm.style.display = '';
+      // successRecordError.style.display = 'none';
     })
   })
 
@@ -20,10 +21,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const successRecordLabelArea = document.getElementById('success-record-label');
     const successRecordButton = document.getElementById('success-record-button');
     const successRecordForm = document.getElementById('success-record-form');
+    const successRecordError = document.getElementById('js-success-record-post-error');
 
     successRecordLabelArea.style.display = '';
     successRecordButton.style.display = '';
     successRecordForm.style.display = 'none';
+    successRecordError.style.display = 'none';
   })
 
   document.querySelector(".submit-update-button").addEventListener("click", function() {
@@ -56,13 +59,18 @@ document.addEventListener("DOMContentLoaded", function() {
       const successRecordLabelArea = document.getElementById('success-record-label');
       const successRecordButton = document.getElementById('success-record-button');
       const successRecordForm = document.getElementById('success-record-form');
-      // const successRecordError = document.getElementById('')
+      const successRecordError = document.getElementById('js-success-record-post-error');
 
       successRecordLabelArea.style.display = '';
       successRecordLabelArea.textContent = data.success_body;
       successRecordButton.style.display = '';
       successRecordForm.style.display = 'none';
+      successRecordError.style.display = 'none';
     })
-    .catch(error => console.log(error.message))
+    .catch(error => {
+      console.log(error.message)
+      const successRecordError = document.getElementById('js-success-record-post-error');
+      successRecordError.textContent = '出来たことを入力してください'
+    })
   })
 })
