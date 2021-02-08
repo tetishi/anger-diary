@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", function() {
   // successRecordForm.style.display = 'none';
   document.querySelectorAll(".edit-button").forEach(function (editButton) {
     editButton.addEventListener("click", function() {
-      const successRecordId = document.getElementById('success-record').getAttribute('data-record');
+      // const successRecordId = document.getElementById('success-record').getAttribute('data-record');
       const successRecordLabelArea = document.getElementById('success-record-label');
       const successRecordButton = document.getElementById('success-record-button');
       const successRecordForm = document.getElementById('success-record-form');
 
-      console.log(successRecordId);
+      // console.log(successRecordId);
       successRecordLabelArea.style.display = 'none';
       successRecordButton.style.display = 'none';
       successRecordForm.style.display = '';
@@ -53,6 +53,15 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(response => response.json())
     .then(data => {
       console.log(data)
+      const successRecordLabelArea = document.getElementById('success-record-label');
+      const successRecordButton = document.getElementById('success-record-button');
+      const successRecordForm = document.getElementById('success-record-form');
+      // const successRecordError = document.getElementById('')
+
+      successRecordLabelArea.style.display = '';
+      successRecordLabelArea.textContent = data.success_body;
+      successRecordButton.style.display = '';
+      successRecordForm.style.display = 'none';
     })
     .catch(error => console.log(error.message))
   })
