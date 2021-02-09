@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const angerRecordBody = document.getElementById('js-anger-record-body-' + angerRecordId);
         const angerRecordChangeable = document.getElementById('js-anger-record-changeable-' + angerRecordId);
         const angerRecordImportant = document.getElementById('js-anger-record-important-' + angerRecordId);
+        const angerRecordButton = document.getElementById('anger-record-button-' + angerRecordId);
 
         console.log(angerRecordId);
         angerRecordLevel.style.display = 'none';
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
         angerRecordBody.style.display = 'none';
         angerRecordChangeable.style.display = 'none';
         angerRecordImportant.style.display = 'none';
+        angerRecordButton.style.display = 'none';
         
         
         
