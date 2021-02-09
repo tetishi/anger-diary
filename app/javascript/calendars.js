@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // debugger;
   // const successRecordForm = document.getElementById('success-record-form');
   // successRecordForm.style.display = 'none';
-  document.querySelectorAll(".edit-button").forEach(function (editButton) {
+  document.querySelectorAll(".success-edit-button").forEach(function (editButton) {
     editButton.addEventListener("click", function() {
       // const successRecordId = document.getElementById('success-record').getAttribute('data-record');
       const successRecordLabelArea = document.getElementById('success-record-label');
