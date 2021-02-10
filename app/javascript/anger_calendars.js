@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll(".anger-edit-button").forEach(function (editButton) {
       editButton.addEventListener("click", function() {
-        debugger;
+        // debugger;
         const angerRecordId = document.getElementById('anger-record').getAttribute('data-record');
         const angerRecordLevel = document.getElementById('js-anger-record-level-' + angerRecordId);
         const angerRecordDate = document.getElementById('js-anger-record-date-' + angerRecordId);
@@ -11,6 +11,13 @@ document.addEventListener("DOMContentLoaded", function() {
         const angerRecordImportant = document.getElementById('js-anger-record-important-' + angerRecordId);
         const angerRecordButton = document.getElementById('anger-record-button-' + angerRecordId);
 
+        const angerRecordFormLevel = document.getElementById('anger-record-form-level-' + angerRecordId);
+        const angerRecordFormDate = document.getElementById('anger-record-form-date-' + angerRecordId);
+        const angerRecordFormPlace = document.getElementById('anger-record-form-place-' + angerRecordId);
+        const angerRecordFormBody = document.getElementById('anger-record-form-body-' + angerRecordId);
+        const angerRecordFormChangeable = document.getElementById('anger-record-form-changeable-' + angerRecordId);
+        const angerRecordFormImportant = document.getElementById('anger-record-form-important-' + angerRecordId);
+
         console.log(angerRecordId);
         angerRecordLevel.style.display = 'none';
         angerRecordDate.style.display = 'none';
@@ -19,6 +26,12 @@ document.addEventListener("DOMContentLoaded", function() {
         angerRecordChangeable.style.display = 'none';
         angerRecordImportant.style.display = 'none';
         angerRecordButton.style.display = 'none';
+        angerRecordFormLevel.style.display = '';
+        angerRecordFormDate.style.display = '';
+        angerRecordFormPlace.style.display = '';
+        angerRecordFormBody.style.display = '';
+        angerRecordFormChangeable.style.display = '';
+        angerRecordFormImportant.style.display = '';
         
         
         
