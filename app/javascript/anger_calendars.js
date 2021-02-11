@@ -52,17 +52,48 @@ document.addEventListener("DOMContentLoaded", function() {
       })
     })
   
-    // document.getElementById("cancel-button").addEventListener("click", function() {
-    //   const successRecordLabelArea = document.getElementById('success-record-label');
-    //   const successRecordButton = document.getElementById('success-record-button');
-    //   const successRecordForm = document.getElementById('success-record-form');
-    //   const successRecordError = document.getElementById('js-success-record-post-error');
+    document.getElementById("anger-cancel-button").addEventListener("click", function() {
+      const angerRecordId = document.getElementById('anger-record').getAttribute('data-record');
+      const angerRecordLevel = document.getElementById('js-anger-record-level-' + angerRecordId);
+      const angerRecordDate = document.getElementById('js-anger-record-date-' + angerRecordId);
+      const angerRecordPlace = document.getElementById('js-anger-record-place-' + angerRecordId);
+      const angerRecordBody = document.getElementById('js-anger-record-body-' + angerRecordId);
+      const angerRecordChangeable = document.getElementById('js-anger-record-changeable-' + angerRecordId);
+      const angerRecordImportant = document.getElementById('js-anger-record-important-' + angerRecordId);
+      const angerRecordButton = document.getElementById('anger-record-button-' + angerRecordId);
+      const angerRecordFormLevel = document.getElementById('anger-record-form-level-' + angerRecordId);
+      const angerRecordFormDate = document.getElementById('anger-record-form-date-' + angerRecordId);
+      const angerRecordFormPlace = document.getElementById('anger-record-form-place-' + angerRecordId);
+      const angerRecordFormBody = document.getElementById('anger-record-form-body-' + angerRecordId);
+      const angerRecordFormChangeable = document.getElementById('anger-record-form-changeable-' + angerRecordId);
+      const angerRecordFormImportant = document.getElementById('anger-record-form-important-' + angerRecordId);
+      const angerRecordUpdateButton = document.getElementById('js-anger-record-button-' + angerRecordId);
+
+      angerRecordLevel.style.display = '';
+      angerRecordDate.style.display = '';
+      angerRecordPlace.style.display = '';
+      angerRecordBody.style.display = '';
+      angerRecordChangeable.style.display = '';
+      angerRecordImportant.style.display = '';
+      angerRecordButton.style.display = '';
+      angerRecordFormLevel.style.display = 'none';
+      angerRecordFormDate.style.display = 'none';
+      angerRecordFormPlace.style.display = 'none';
+      angerRecordFormBody.style.display = 'none';
+      angerRecordFormChangeable.style.display = 'none';
+      angerRecordFormImportant.style.display = 'none';
+      angerRecordUpdateButton.style.display = 'none';
+
+      // const successRecordLabelArea = document.getElementById('success-record-label');
+      // const successRecordButton = document.getElementById('success-record-button');
+      // const successRecordForm = document.getElementById('success-record-form');
+      // const successRecordError = document.getElementById('js-success-record-post-error');
   
-    //   successRecordLabelArea.style.display = '';
-    //   successRecordButton.style.display = '';
-    //   successRecordForm.style.display = 'none';
-    //   successRecordError.style.display = 'none';
-    // })
+      // successRecordLabelArea.style.display = '';
+      // successRecordButton.style.display = '';
+      // successRecordForm.style.display = 'none';
+      // successRecordError.style.display = 'none';
+    })
   
     // document.querySelector(".submit-update-button").addEventListener("click", function() {
     //   // debugger;
