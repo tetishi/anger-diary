@@ -4,17 +4,47 @@ p.media
   spam.media-left id='js-anger-record-level-#{anger_record.id}'
     = anger_record.level
   spam id='anger-record-form-level-#{anger_record.id}' style="display: none"
-    select.select selected="#{anger_record.level}"
-      option value="1" 1
-      option value="2" 2
-      option value="3" 3
-      option value="4" 4
-      option value="5" 5
-      option value="6" 6
-      option value="7" 7
-      option value="8" 8
-      option value="9" 9
-      option value="10" 10
+    select.select
+      - if anger_record.level == 1
+        option value="1" selected="selected" 1
+      - else
+        option value="1" 1
+      - if anger_record.level == 2
+        option value="2" selected="selected" 2
+      - else
+        option value="2" 2
+      - if anger_record.level == 3
+        option value="3" selected="selected" 3
+      - else
+        option value="3" 3
+      - if anger_record.level == 4
+        option value="4" selected="selected" 4
+      - else
+        option value="4" 4
+      - if anger_record.level == 5
+        option value="5" selected="selected" 5
+      - else
+        option value="5" 5
+      - if anger_record.level == 6
+        option value="6" selected="selected" 6
+      - else
+        option value="6" 6
+      - if anger_record.level == 7
+        option value="7" selected="selected" 7
+      - else
+        option value="7" 7
+      - if anger_record.level == 8
+        option value="8" selected="selected" 8
+      - else
+        option value="8" 8
+      - if anger_record.level == 9
+        option value="9" selected="selected" 9
+      - else
+        option value="9" 9
+      - if anger_record.level == 10
+        option value="10" selected="selected" 10
+      - else
+        option value="10" 10
 p.media
   strong.media-left
     | 怒った日時:
@@ -24,31 +54,103 @@ p.media
     | 時ごろ
   spam id='anger-record-form-date-#{anger_record.id}' style="display: none"
     input type="date" value="#{anger_record.got_angry_on}"
-    select.select selected="#{anger_record.got_angry_at}"
-      option 0
-      option 1
-      option 2
-      option 3
-      option 4
-      option 5
-      option 6
-      option 7
-      option 8
-      option 9
-      option 10
-      option 11
-      option 12
-      option 13
-      option 14
-      option 15
-      option 16
-      option 17
-      option 18
-      option 19
-      option 20
-      option 21
-      option 22
-      option 23
+    select.select
+      - if anger_record.got_angry_at.strftime("%k") == " 0"
+        option selected="selected" 0
+      - else
+        option 0
+      - if anger_record.got_angry_at.strftime("%k") == " 1"
+        option selected="selected" 1
+      - else
+        option 1
+      - if anger_record.got_angry_at.strftime("%k") == " 2"
+        option selected="selected" 2
+      - else
+        option 2
+      - if anger_record.got_angry_at.strftime("%k") == " 3"
+        option selected="selected" 3
+      - else
+        option 3
+      - if anger_record.got_angry_at.strftime("%k") == " 4"
+        option selected="selected" 4
+      - else
+        option 4
+      - if anger_record.got_angry_at.strftime("%k") == " 5"
+        option selected="selected" 5
+      - else
+        option 5
+      - if anger_record.got_angry_at.strftime("%k") == " 6"
+        option selected="selected" 6
+      - else
+        option 6
+      - if anger_record.got_angry_at.strftime("%k") == " 7"
+        option selected="selected" 7
+      - else
+        option 7
+      - if anger_record.got_angry_at.strftime("%k") == " 8"
+        option selected="selected" 8
+      - else
+        option 8
+      - if anger_record.got_angry_at.strftime("%k") == " 9"
+        option selected="selected" 9
+      - else
+        option 9
+      - if anger_record.got_angry_at.strftime("%k") == "10"
+        option selected="selected" 10
+      - else
+        option 10
+      - if anger_record.got_angry_at.strftime("%k") == "11"
+        option selected="selected" 11
+      - else
+        option 11
+      - if anger_record.got_angry_at.strftime("%k") == "12"
+        option selected="selected" 12
+      - else
+        option 12
+      - if anger_record.got_angry_at.strftime("%k") == "13"
+        option selected="selected" 13
+      - else
+        option 13
+      - if anger_record.got_angry_at.strftime("%k") == "14"
+        option selected="selected" 14
+      - else
+        option 14
+      - if anger_record.got_angry_at.strftime("%k") == "15"
+        option selected="selected" 15
+      - else
+        option 15
+      - if anger_record.got_angry_at.strftime("%k") == "16"
+        option selected="selected" 16
+      - else
+        option 16
+      - if anger_record.got_angry_at.strftime("%k") == "17"
+        option selected="selected" 17
+      - else
+        option 17
+      - if anger_record.got_angry_at.strftime("%k") == "18"
+        option selected="selected" 18
+      - else
+        option 18
+      - if anger_record.got_angry_at.strftime("%k") == "19"
+        option selected="selected" 19
+      - else
+        option 19
+      - if anger_record.got_angry_at.strftime("%k") == "20"
+        option selected="selected" 20
+      - else
+        option 20
+      - if anger_record.got_angry_at.strftime("%k") == "21"
+        option selected="selected" 21
+      - else
+        option 21
+      - if anger_record.got_angry_at.strftime("%k") == "22"
+        option selected="selected" 22
+      - else
+        option 22
+      - if anger_record.got_angry_at.strftime("%k") == "23"
+        option selected="selected" 23
+      - else
+        option 23
     | 時ごろ
 p.media
   strong.media-left
@@ -71,11 +173,22 @@ p.media
   spam.media-left id='js-anger-record-changeable-#{anger_record.id}'
     = anger_record.changeable
   spam id='anger-record-form-changeable-#{anger_record.id}' style="display: none"
-    / - binding.pry
-    input.radio#yes-changeable type="radio" value="Yes" checked=('#{anger_record.changeable}' == 'Yes' ? 'checked' : false)
-    label for="yes-changeable" はい
-    input.radio#no-changeable type="radio" value="No" checked=('#{anger_record.changeable}' == 'No' ? 'checked' : false)
-    label for="no-changeable" いいえ
+    - if anger_record.changeable == "Yes"
+      input.radio#yes-changeable type="radio" value="Yes" checked="checked"
+      label for="yes-changeable" はい
+    - else
+      input.radio#yes-changeable type="radio" value="Yes"
+      label for="yes-changeable" はい
+    - if anger_record.changeable == "No"
+      input.radio#no-changeable type="radio" value="No" checked="checked"
+      label for="no-changeable" いいえ
+    - else
+      input.radio#no-changeable type="radio" value="No"
+      label for="no-changeable" いいえ
+    / input.radio#yes-changeable type="radio" value="Yes" checked=('#{anger_record.changeable}' == 'Yes' ? 'checked' : false)
+    / label for="yes-changeable" はい
+    / input.radio#no-changeable type="radio" value="No" checked=('#{anger_record.changeable}' == 'No' ? 'checked' : false)
+    / label for="no-changeable" いいえ
 p.media
   strong.media-left
     | 重要な内容か:
