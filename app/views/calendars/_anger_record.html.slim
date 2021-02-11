@@ -174,16 +174,16 @@ p.media
     = anger_record.changeable
   spam id='anger-record-form-changeable-#{anger_record.id}' style="display: none"
     - if anger_record.changeable == "Yes"
-      input.radio#yes-changeable type="radio" value="Yes" checked="checked"
+      input.radio#yes-changeable type="radio" name="changeable" value="Yes" checked="checked"
       label for="yes-changeable" はい
     - else
-      input.radio#yes-changeable type="radio" value="Yes"
+      input.radio#yes-changeable type="radio" name="changeable" value="Yes"
       label for="yes-changeable" はい
     - if anger_record.changeable == "No"
-      input.radio#no-changeable type="radio" value="No" checked="checked"
+      input.radio#no-changeable type="radio" name="changeable" value="No" checked="checked"
       label for="no-changeable" いいえ
     - else
-      input.radio#no-changeable type="radio" value="No"
+      input.radio#no-changeable type="radio" name="changeable" value="No"
       label for="no-changeable" いいえ
     / input.radio#yes-changeable type="radio" value="Yes" checked=('#{anger_record.changeable}' == 'Yes' ? 'checked' : false)
     / label for="yes-changeable" はい
@@ -196,16 +196,16 @@ p.media
     = anger_record.important
   spam id='anger-record-form-important-#{anger_record.id}' style="display: none"
     - if anger_record.important == "Yes"
-      input.radio#yes-important type="radio" value="はい" checked="checked"
+      input.radio#yes-important type="radio" name="important" value="はい" checked="checked"
       label for="yes-important" はい
     - else
-      input.radio#yes-important type="radio" value="はい"
+      input.radio#yes-important type="radio" name="important" value="はい"
       label for="yes-important" はい
     - if anger_record.important == "No"
-      input.radio#no-important type="radio" value="いいえ" checked="checked"
+      input.radio#no-important type="radio" name="important" value="いいえ" checked="checked"
       label for="no-important" いいえ
     - else 
-      input.radio#no-important type="radio" value="いいえ"
+      input.radio#no-important type="radio" name="important" value="いいえ"
       label for="no-important" いいえ
 .field id='js-anger-record-button-#{anger_record.id}' style="display: none"
   button.button.anger-update-button.is-primary.is-size-5 type="button" 更新
