@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const angerRecordFormChangeable = document.getElementById('anger-record-form-changeable-' + angerRecordId);
         const angerRecordFormImportant = document.getElementById('anger-record-form-important-' + angerRecordId);
 
+        const angerRecordUpdateButton = document.getElementById('js-anger-record-button-' + angerRecordId);
+
         console.log(angerRecordId);
         angerRecordLevel.style.display = 'none';
         angerRecordDate.style.display = 'none';
@@ -32,6 +34,8 @@ document.addEventListener("DOMContentLoaded", function() {
         angerRecordFormBody.style.display = '';
         angerRecordFormChangeable.style.display = '';
         angerRecordFormImportant.style.display = '';
+
+        angerRecordUpdateButton.style.display = '';
         
         
         
