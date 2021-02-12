@@ -54,7 +54,7 @@ p.media
     | 時ごろ
   spam id='anger-record-form-date-#{anger_record.id}' style="display: none"
     input type="date" value="#{anger_record.got_angry_on}"
-    select.select
+    select.select id='anger-record-form-hour-#{anger_record.id}'
       - if anger_record.got_angry_at.strftime("%k") == " 0"
         option selected="selected" 0
       - else
@@ -207,6 +207,7 @@ p.media
     - else 
       input.radio#no-important type="radio" name="important" value="いいえ"
       label for="no-important" いいえ
-.field id='js-anger-record-button-#{anger_record.id}' style="display: none"
+.field#js-anger-update-button data-record='#{anger_record.got_angry_on}' style="display: none"
   button.button.anger-update-button.is-primary.is-size-5 type="button" 更新
+.field id='js-anger-record-button-#{anger_record.id}' style="display: none"
   button.button.is-light#anger-cancel-button type="button" キャンセル

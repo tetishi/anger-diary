@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const angerRecordImportant = document.getElementById('js-anger-record-important-' + angerRecordId);
         const angerRecordButton = document.getElementById('anger-record-button-' + angerRecordId);
 
+        // const angerUpdateButton = document.getElementById('js-anger-update-button-' + angerRecordId); ここおこここ
+
         const angerRecordFormLevel = document.getElementById('anger-record-form-level-' + angerRecordId);
         const angerRecordFormDate = document.getElementById('anger-record-form-date-' + angerRecordId);
         const angerRecordFormPlace = document.getElementById('anger-record-form-place-' + angerRecordId);
@@ -97,6 +99,15 @@ document.addEventListener("DOMContentLoaded", function() {
   
     document.querySelector(".anger-update-button").addEventListener("click", function() {
       const angerRecordId = document.getElementById('anger-record').getAttribute('data-record');
+      const angerRecordDate = document.getElementById('js-anger-update-button').getAttribute('data-record');
+
+      const level = document.getElementById('anger-record-form-level-' + angerRecordId).value;
+      const gotAngryOn = document.getElementById('anger-record-form-date-' + angerRecordId).value;
+      const gotAngryAt = document.getElementById('anger-record-form-hour-' + angerRecordId).value;
+      const place = document.getElementById('anger-record-form-place-' + angerRecordId).value;
+      const angerBody = document.getElementById('anger-record-form-body-' + angerRecordId).value;
+      const changeable = document.getElementById('anger-record-form-changeable-' + angerRecordId).value;
+      const important = document.getElementById('anger-record-form-important-' + angerRecordId).value;
 
       // // const successRecordId = document.getElementById('success-record').getAttribute('data-record');
       // const successRecordDate = document.getElementById('success-record').getAttribute('data-record');
@@ -108,21 +119,27 @@ document.addEventListener("DOMContentLoaded", function() {
       // // console.log(textField);
       // // debugger;
   
-      // let bodyData = {
-      //   'success_body': body
-      // }
+      let bodyData = {
+        'level': level,
+        'got_anger_on': gotAngryOn,
+        'got_angry_at': gotAngryAt,
+        'place': place,
+        'anger_body': angerBody,
+        'changeable': changeable,
+        'important': important
+      }
       // // debugger;
       // // fetch(`http://localhost3000/success_records/${successRecordId}`, {
-      // fetch(`http://localhost:3000/calendars/${successRecordDate}`, {
-      //   method: "PATCH",
-      //   headers: {
-      //     "Content-Type": "application/json"
-      //   },
-      //   body: JSON.stringify(bodyData)
-      // })
-      // .then(response => response.json())
-      // .then(data => {
-      //   console.log(data)
+      fetch(`http://localhost:3000/calendars/${angerRecordDate}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(bodyData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
       //   const successRecordLabelArea = document.getElementById('success-record-label');
       //   const successRecordButton = document.getElementById('success-record-button');
       //   const successRecordForm = document.getElementById('success-record-form');
@@ -133,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function() {
       //   successRecordButton.style.display = '';
       //   successRecordForm.style.display = 'none';
       //   successRecordError.style.display = 'none';
-      // })
+      })
       // .catch(error => {
       //   console.log(error.message)
       //   const successRecordError = document.getElementById('js-success-record-post-error');
