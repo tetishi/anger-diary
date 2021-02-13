@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("turbolinks:load", function() {
   document.querySelectorAll(".success-edit-button").forEach(function (editButton) {
     editButton.addEventListener("click", function() {
       // const successRecordId = document.getElementById('success-record').getAttribute('data-record');
@@ -29,22 +29,18 @@ document.addEventListener("DOMContentLoaded", function() {
   })
 
   document.querySelector(".submit-update-button").addEventListener("click", function() {
-    // debugger;
     // const successRecordId = document.getElementById('success-record').getAttribute('data-record');
     const successRecordDate = document.getElementById('success-record').getAttribute('data-record');
     const textField = document.getElementById('textarea-body-' + successRecordDate);
-    // const body = textField.textContent;
     const body = textField.value
-    console.log(successRecordDate);
+    // console.log(successRecordDate);
     console.log(body);
     // console.log(textField);
-    // debugger;
 
     let bodyData = {
       'success_body': body
     }
     // debugger;
-    // fetch(`http://localhost3000/success_records/${successRecordId}`, {
     fetch(`http://localhost:3000/calendars/${successRecordDate}`, {
       method: "PATCH",
       headers: {
@@ -71,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
     .catch(error => {
       console.log(error.message)
       const successRecordError = document.getElementById('js-success-record-post-error');
-      successRecordError.textContent = '出来たことを入力してください'
+      successRecordError.style.display = '';
     })
   })
 })
