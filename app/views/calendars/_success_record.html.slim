@@ -1,29 +1,15 @@
-p.media
+.field.is-grouped
   p.has-text-danger#js-success-record-post-error
-  strong.media-left
+  strong.control
     | 出来たこと:
-  spam.media-left#success-record-label
+  spam.control#success-record-label
     = success_record.success_body
-
-#success-record-form style="display: none"
-  / = form_with(scope: :anger_or_success_data, url: calendar_path(date: @success_record.succeeded_on), method: :patch, local: true) do |form|
-  /   - if success_record.errors.any?
-  /     #error_explanation
-  /       h2
-  /         = pluralize(success_record.errors.count, "error")
-  /         |  prohibited this anger_record from being saved:
-  /       ul
-  /         - success_record.errors.full_messages.each do |message|
-  /           li
-  /             = message
-  .field
-    / = form.label :success_body
-    textarea.textarea id='textarea-body-#{@success_record.succeeded_on}'
-      = success_record.success_body
-    / textarea.textarea name="success_record[success_body]" id="success_record_success_body"
-    / = form.text_area :success_body, class: "textarea"
-  .field
-    / #data-button-id
-    button.button.submit-update-button.is-primary.is-size-5 type="button" 更新
-    / = form.button type: "submit", class: "submit-update-button button is-primary is-size-5"
-    button.button.is-light#cancel-button type="button" キャンセル
+  .control#success-record-form style="display: none"
+    .field
+      textarea.textarea id='textarea-body-#{@success_record.succeeded_on}'
+        = success_record.success_body
+    .field.is-grouped
+      .control
+        button.button.submit-update-button.is-primary.is-size-5 type="button" 更新
+      .control
+        button.button.is-light.is-size-5#cancel-button type="button" キャンセル

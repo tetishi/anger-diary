@@ -36,11 +36,11 @@ class CalendarsController < ApplicationController
       head :bad_request
     end
 
-    if @anger_record.update(anger_record_params)
-      render json: @anger_record
-    else
-      head :bad_request
-    end
+    # if @anger_record.update(anger_record_params)
+    #   render json: @anger_record
+    # else
+    #   head :bad_request
+    # end
   end
 
     private
