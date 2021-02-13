@@ -1,15 +1,14 @@
+p.has-text-danger#js-success-record-post-error
 .field.is-grouped
-  p.has-text-danger#js-success-record-post-error
-  strong.control
+  strong.control.is-size-4
     | 出来たこと:
-  spam.control#success-record-label
+  spam.control.is-size-4#success-record-label
     = success_record.success_body
-  .control#success-record-form style="display: none"
-    .field
-      textarea.textarea id='textarea-body-#{@success_record.succeeded_on}'
-        = success_record.success_body
-    .field.is-grouped
-      .control
-        button.button.submit-update-button.is-primary.is-size-5 type="button" 更新
-      .control
-        button.button.is-light.is-size-5#cancel-button type="button" キャンセル
+  .field#success-record-textarea style="display: none; flex-grow: 1"
+    textarea.textarea.is-size-4 id='textarea-body-#{@success_record.succeeded_on}'
+      = success_record.success_body
+.field.is-grouped#success-update-cancel-button style="display: none"
+  .control
+    button.button.submit-update-button.is-primary.is-size-5 type="button" 更新
+  .control
+    button.button.is-light.is-size-5#cancel-button type="button" キャンセル

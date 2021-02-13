@@ -1,31 +1,30 @@
 document.addEventListener("DOMContentLoaded", function() {
-  // debugger;
-  // const successRecordForm = document.getElementById('success-record-form');
-  // successRecordForm.style.display = 'none';
   document.querySelectorAll(".success-edit-button").forEach(function (editButton) {
     editButton.addEventListener("click", function() {
       // const successRecordId = document.getElementById('success-record').getAttribute('data-record');
       const successRecordLabelArea = document.getElementById('success-record-label');
       const successRecordButton = document.getElementById('success-record-button');
-      const successRecordForm = document.getElementById('success-record-form');
-      // const successRecordError = document.getElementById('js-success-record-post-error');
+      const successRecordTextArea = document.getElementById('success-record-textarea');
+      const successUpdateCancelButton = document.getElementById('success-update-cancel-button');
 
       successRecordLabelArea.style.display = 'none';
       successRecordButton.style.display = 'none';
-      successRecordForm.style.display = '';
-      // successRecordError.style.display = 'none';
+      successRecordTextArea.style.display = '';
+      successUpdateCancelButton.style.display = '';
     })
   })
 
   document.getElementById("cancel-button").addEventListener("click", function() {
     const successRecordLabelArea = document.getElementById('success-record-label');
     const successRecordButton = document.getElementById('success-record-button');
-    const successRecordForm = document.getElementById('success-record-form');
+    const successRecordTextArea = document.getElementById('success-record-textarea');
+    const successUpdateCancelButton = document.getElementById('success-update-cancel-button');
     const successRecordError = document.getElementById('js-success-record-post-error');
 
     successRecordLabelArea.style.display = '';
     successRecordButton.style.display = '';
-    successRecordForm.style.display = 'none';
+    successRecordTextArea.style.display = 'none';
+    successUpdateCancelButton.style.display = 'none';
     successRecordError.style.display = 'none';
   })
 
@@ -58,13 +57,15 @@ document.addEventListener("DOMContentLoaded", function() {
       console.log(data)
       const successRecordLabelArea = document.getElementById('success-record-label');
       const successRecordButton = document.getElementById('success-record-button');
-      const successRecordForm = document.getElementById('success-record-form');
+      const successRecordTextArea = document.getElementById('success-record-textarea');
+      const successUpdateCancelButton = document.getElementById('success-update-cancel-button');
       const successRecordError = document.getElementById('js-success-record-post-error');
 
       successRecordLabelArea.style.display = '';
       successRecordLabelArea.textContent = data.success_body;
       successRecordButton.style.display = '';
-      successRecordForm.style.display = 'none';
+      successRecordTextArea.style.display = 'none';
+      successUpdateCancelButton.style.display = 'none';
       successRecordError.style.display = 'none';
     })
     .catch(error => {
