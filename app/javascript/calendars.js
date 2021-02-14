@@ -1,7 +1,6 @@
 document.addEventListener("turbolinks:load", function() {
   document.querySelectorAll(".success-edit-button").forEach(function (editButton) {
     editButton.addEventListener("click", function() {
-      // const successRecordId = document.getElementById('success-record').getAttribute('data-record');
       const successRecordLabelArea = document.getElementById('success-record-label');
       const successRecordButton = document.getElementById('success-record-button');
       const successRecordTextArea = document.getElementById('success-record-textarea');
@@ -29,18 +28,14 @@ document.addEventListener("turbolinks:load", function() {
   })
 
   document.querySelector(".submit-update-button").addEventListener("click", function() {
-    // const successRecordId = document.getElementById('success-record').getAttribute('data-record');
     const successRecordDate = document.getElementById('success-record').getAttribute('data-record');
     const textField = document.getElementById('textarea-body-' + successRecordDate);
     const body = textField.value
-    // console.log(successRecordDate);
-    console.log(body);
-    // console.log(textField);
 
     let bodyData = {
       'success_body': body
     }
-    // debugger;
+
     fetch(`http://localhost:3000/calendars/${successRecordDate}`, {
       method: "PATCH",
       headers: {
@@ -50,7 +45,7 @@ document.addEventListener("turbolinks:load", function() {
     })
     .then(response => response.json())
     .then(data => {
-      console.log(data)
+      // console.log(data)
       const successRecordLabelArea = document.getElementById('success-record-label');
       const successRecordButton = document.getElementById('success-record-button');
       const successRecordTextArea = document.getElementById('success-record-textarea');

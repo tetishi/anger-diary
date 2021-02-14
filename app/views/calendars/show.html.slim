@@ -24,10 +24,8 @@ section.section
       .notice id='success_record-#{@success_record.id}'
         = render partial: 'success_record', locals: { success_record: @success_record }
         .field.is-grouped.mt-5#success-record-button
-          / .control data-success-record-id='success_record-#{@success_record.id}'
           .control#success-record data-record='#{@success_record.succeeded_on}'
             button.success-edit-button.button.is-primary.is-size-5 type='button' 編集
-            / = link_to '編集', edit_success_record_path(@success_record.id), class: 'edit-button button is-primary is-size-5'
           .control
             = link_to '削除', success_record_path(@success_record), method: :delete, data: { confirm: '本当によろしいですか？' }, remote: true, class: 'button is-danger is-size-5'
       div.my-4
