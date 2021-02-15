@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class SuccessRecordsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_success_record, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create]
 
@@ -33,8 +34,11 @@ class SuccessRecordsController < ApplicationController
   # PATCH/PUT /success_records/1
   def update
     # binding.pry
-    @success_record.update(success_record_params)
-    render json: @success_record
+    if @success_record.update(success_record_params)
+      render json: @success_record
+    else
+      head :bad_request
+    end
     # if @success_record.update(success_record_params)
     #   redirect_to calendar_url(date: @success_record.succeeded_on), notice: "今日出来たことが編集されました。"
     # else

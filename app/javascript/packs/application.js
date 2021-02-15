@@ -15,5 +15,5 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-require("../calendars.js")
+require("../success_records.js")
 require("../anger_calendars.js")

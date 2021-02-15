@@ -1,11 +1,23 @@
 section.section
   .container.is-size-4.is-size-5-touch
-    p.media
-      strong.media-left
+    p.has-text-danger#js-success-record-post-error style="display: none"
+      | 内容を入力してください
+    .field.is-grouped
+      strong.control.is-size-4
         | 内容:
-      = @success_record.success_body
-    .field.is-grouped.mt-4
+      spam.control.is-size-4#success-record-label
+        = @success_record.success_body
+      .field#success-record-textarea style="display: none; flex-grow: 1"
+        textarea.textarea.is-size-4 id='textarea-body-#{@success_record.id}'
+          = @success_record.success_body
+    .field.is-grouped#success-update-cancel-button style="display: none"
       .control
-        = link_to '編集', edit_success_record_path(@success_record), class: 'button is-size-5'
+        button.button.id-submit-update-button.is-primary.is-size-5 type="button" 更新
+      .control
+        button.button.is-light.is-size-5#cancel-button type="button" キャンセル
+    .field.is-grouped.mt-4#success-record-button
+      .control#id-success-record data-record='#{@success_record.id}'
+        button.success-edit-button.button.is-size-5 type='button' 編集
+        / = link_to '編集', edit_success_record_path(@success_record), class: 'button is-size-5'
       .control
         = link_to 'OK', calendars_path, class: 'button is-primary is-size-5'
