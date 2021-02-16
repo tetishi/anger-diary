@@ -6,13 +6,11 @@ document.addEventListener("turbolinks:load", function() {
       const successRecordButton = document.getElementById('success-record-button');
       const successRecordTextArea = document.getElementById('success-record-textarea');
       const successUpdateCancelButton = document.getElementById('success-update-cancel-button');
-      // const successNotice = document.querySelector('.notice');
   
       successRecordLabelArea.style.display = 'none';
       successRecordButton.style.display = 'none';
       successRecordTextArea.style.display = '';
       successUpdateCancelButton.style.display = '';
-      // successNotice.style.display = 'none';
     })
   }
   
@@ -53,7 +51,6 @@ document.addEventListener("turbolinks:load", function() {
       })
       .then(response => response.json())
       .then(data => {
-        // console.log(data)
         const successRecordLabelArea = document.getElementById('success-record-label');
         const successRecordButton = document.getElementById('success-record-button');
         const successRecordTextArea = document.getElementById('success-record-textarea');
@@ -86,8 +83,6 @@ document.addEventListener("turbolinks:load", function() {
         'success_body': body
       }
 
-      // console.log(process.env.TEST)
-      // http://127.0.0.1:49980/calendars/2021-02-16
       fetch(`/calendars/${successRecordDate}`, {
         method: "PATCH",
         headers: {
@@ -97,7 +92,6 @@ document.addEventListener("turbolinks:load", function() {
       })
       .then(response => response.json())
       .then(data => {
-        // console.log(data)
         const successRecordLabelArea = document.getElementById('success-record-label');
         const successRecordButton = document.getElementById('success-record-button');
         const successRecordTextArea = document.getElementById('success-record-textarea');

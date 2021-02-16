@@ -18,6 +18,5 @@ section.section
     .field.is-grouped.mt-4#success-record-button
       .control#id-success-record data-record='#{@success_record.id}'
         button.success-edit-button.button.is-size-5 type='button' 編集
-        / = link_to '編集', edit_success_record_path(@success_record), class: 'button is-size-5'
       .control
         = link_to 'OK', calendars_path, class: 'button is-primary is-size-5'
