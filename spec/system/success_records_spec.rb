@@ -29,10 +29,11 @@ feature "SuccessRecords", js: true, type: :feature do
       visit calendar_path(Date.today)
       click_on "編集"
 
-      fill_in "今日出来たこと", with: "test test"
-      click_on "更新する"
+      fill_in "出来たこと", with: "test test"
+      click_on "更新"
 
-      assert_text "今日出来たことが編集されました。"
+      binding.pry
+      assert_text "出来たことが編集されました。"
       click_on "戻る"
     end
 

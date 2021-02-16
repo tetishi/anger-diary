@@ -1,7 +1,7 @@
 p.has-text-danger#js-success-record-post-error style="display: none"
   | 出来たことを入力してください
 .field.is-grouped
-  strong.control.is-size-4
+  label.control.is-size-4.has-text-weight-bold for='textarea-body-#{@success_record.succeeded_on}'
     | 出来たこと:
   spam.control.is-size-4#success-record-label
     = success_record.success_body

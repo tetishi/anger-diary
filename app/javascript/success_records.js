@@ -83,8 +83,10 @@ document.addEventListener("turbolinks:load", function() {
       let bodyData = {
         'success_body': body
       }
-  
-      fetch(`http://localhost:3000/calendars/${successRecordDate}`, {
+
+      // console.log(process.env.TEST)
+      // http://127.0.0.1:49980/calendars/2021-02-16
+      fetch(`/calendars/${successRecordDate}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json"

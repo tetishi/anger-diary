@@ -3,7 +3,7 @@ section.section
     p.has-text-danger#js-success-record-post-error style="display: none"
       | 内容を入力してください
     .field.is-grouped
-      strong.control.is-size-4
+      label.control.is-size-4.has-text-weight-bold for='textarea-body-#{@success_record.id}'
         | 内容:
       spam.control.is-size-4#success-record-label
         = @success_record.success_body
