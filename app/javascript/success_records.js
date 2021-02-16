@@ -1,31 +1,31 @@
 document.addEventListener("turbolinks:load", function() {
-  const successEditButton = document.querySelector(".success-edit-button");
+  const successEditButton = document.querySelector(".js-success-edit-button");
   if(successEditButton) {
     successEditButton.addEventListener("click", function() {
-      const successRecordLabelArea = document.getElementById('success-record-label');
-      const successRecordButton = document.getElementById('success-record-button');
-      const successRecordTextArea = document.getElementById('success-record-textarea');
-      const successUpdateCancelButton = document.getElementById('success-update-cancel-button');
+      const successLabelArea = document.getElementById('js-success-label');
+      const twoSuccessButton = document.getElementById('js-two-success-button');
+      const successTextArea = document.getElementById('js-success-textarea');
+      const successUpdateCancelButton = document.getElementById('js-success-update-cancel-button');
   
-      successRecordLabelArea.style.display = 'none';
-      successRecordButton.style.display = 'none';
-      successRecordTextArea.style.display = '';
+      successLabelArea.style.display = 'none';
+      twoSuccessButton.style.display = 'none';
+      successTextArea.style.display = '';
       successUpdateCancelButton.style.display = '';
     })
   }
   
-  const cancelButton = document.getElementById("cancel-button");
-  if(cancelButton) {
-    cancelButton.addEventListener("click", function() {
-      const successRecordLabelArea = document.getElementById('success-record-label');
-      const successRecordButton = document.getElementById('success-record-button');
-      const successRecordTextArea = document.getElementById('success-record-textarea');
-      const successUpdateCancelButton = document.getElementById('success-update-cancel-button');
+  const successCancelButton = document.getElementById("success-cancel-button");
+  if(successCancelButton) {
+    successCancelButton.addEventListener("click", function() {
+      const successLabelArea = document.getElementById('js-success-label');
+      const twoSuccessButton = document.getElementById('js-two-success-button');
+      const successTextArea = document.getElementById('js-success-textarea');
+      const successUpdateCancelButton = document.getElementById('js-success-update-cancel-button');
       const successRecordError = document.getElementById('js-success-record-post-error');
   
-      successRecordLabelArea.style.display = '';
-      successRecordButton.style.display = '';
-      successRecordTextArea.style.display = 'none';
+      successLabelArea.style.display = '';
+      twoSuccessButton.style.display = '';
+      successTextArea.style.display = 'none';
       successUpdateCancelButton.style.display = 'none';
       successRecordError.style.display = 'none';
     })
@@ -35,7 +35,7 @@ document.addEventListener("turbolinks:load", function() {
   if(idSubmitUpdateButton) {
     idSubmitUpdateButton.addEventListener("click", function() {
       const successRecordId = document.getElementById('id-success-record').getAttribute('data-record');
-      const textField = document.getElementById('textarea-body-' + successRecordId);
+      const textField = document.getElementById('js-textarea-body-' + successRecordId);
       const body = textField.value
   
       let bodyData = {
@@ -51,16 +51,16 @@ document.addEventListener("turbolinks:load", function() {
       })
       .then(response => response.json())
       .then(data => {
-        const successRecordLabelArea = document.getElementById('success-record-label');
-        const successRecordButton = document.getElementById('success-record-button');
-        const successRecordTextArea = document.getElementById('success-record-textarea');
-        const successUpdateCancelButton = document.getElementById('success-update-cancel-button');
+        const successLabelArea = document.getElementById('js-success-label');
+        const twoSuccessButton = document.getElementById('js-two-success-button');
+        const successTextArea = document.getElementById('js-success-textarea');
+        const successUpdateCancelButton = document.getElementById('js-success-update-cancel-button');
         const successRecordError = document.getElementById('js-success-record-post-error');
   
-        successRecordLabelArea.style.display = '';
-        successRecordLabelArea.textContent = data.success_body;
-        successRecordButton.style.display = '';
-        successRecordTextArea.style.display = 'none';
+        successLabelArea.style.display = '';
+        successLabelArea.textContent = data.success_body;
+        twoSuccessButton.style.display = '';
+        successTextArea.style.display = 'none';
         successUpdateCancelButton.style.display = 'none';
         successRecordError.style.display = 'none';
       })
@@ -76,7 +76,7 @@ document.addEventListener("turbolinks:load", function() {
   if(submitUpdateButton) {
     submitUpdateButton.addEventListener("click", function() {
       const successRecordDate = document.getElementById('success-record').getAttribute('data-record');
-      const textField = document.getElementById('textarea-body-' + successRecordDate);
+      const textField = document.getElementById('js-textarea-body-' + successRecordDate);
       const body = textField.value
   
       let bodyData = {
@@ -92,17 +92,17 @@ document.addEventListener("turbolinks:load", function() {
       })
       .then(response => response.json())
       .then(data => {
-        const successRecordLabelArea = document.getElementById('success-record-label');
-        const successRecordButton = document.getElementById('success-record-button');
-        const successRecordTextArea = document.getElementById('success-record-textarea');
-        const successUpdateCancelButton = document.getElementById('success-update-cancel-button');
+        const successLabelArea = document.getElementById('js-success-label');
+        const twoSuccessButton = document.getElementById('js-two-success-button');
+        const successTextArea = document.getElementById('js-success-textarea');
+        const successUpdateCancelButton = document.getElementById('js-success-update-cancel-button');
         const successRecordError = document.getElementById('js-success-record-post-error');
         const successNotice = document.querySelector('.notice');
   
-        successRecordLabelArea.style.display = '';
-        successRecordLabelArea.textContent = data.success_body;
-        successRecordButton.style.display = '';
-        successRecordTextArea.style.display = 'none';
+        successLabelArea.style.display = '';
+        successLabelArea.textContent = data.success_body;
+        twoSuccessButton.style.display = '';
+        successTextArea.style.display = 'none';
         successUpdateCancelButton.style.display = 'none';
         successRecordError.style.display = 'none';
         successNotice.innerHTML = "<div>出来たことが編集されました。</div>"

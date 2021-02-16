@@ -36,14 +36,6 @@ feature "SuccessRecords", js: true, type: :feature do
       click_on "戻る"
     end
 
-    scenario "canceling updating a success record" do
-      visit calendar_path(Date.today)
-      click_on "編集"
-      click_on "キャンセル"
-
-      click_on "戻る"
-    end
-
     scenario "displaying an error message" do
       visit calendar_path(Date.today)
       click_on "編集"
