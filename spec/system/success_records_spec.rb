@@ -32,8 +32,26 @@ feature "SuccessRecords", js: true, type: :feature do
       fill_in "出来たこと", with: "test test"
       click_on "更新"
 
-      binding.pry
       assert_text "出来たことが編集されました。"
+      click_on "戻る"
+    end
+
+    scenario "canceling updating a success record" do
+      visit calendar_path(Date.today)
+      click_on "編集"
+      click_on "キャンセル"
+
+      click_on "戻る"
+    end
+
+    scenario "displaying an error message" do
+      visit calendar_path(Date.today)
+      click_on "編集"
+
+      fill_in "出来たこと", with: ""
+      click_on "更新"
+
+      assert_text "出来たことを入力してください"
       click_on "戻る"
     end
 

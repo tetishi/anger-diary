@@ -6,11 +6,13 @@ document.addEventListener("turbolinks:load", function() {
       const successRecordButton = document.getElementById('success-record-button');
       const successRecordTextArea = document.getElementById('success-record-textarea');
       const successUpdateCancelButton = document.getElementById('success-update-cancel-button');
+      // const successNotice = document.querySelector('.notice');
   
       successRecordLabelArea.style.display = 'none';
       successRecordButton.style.display = 'none';
       successRecordTextArea.style.display = '';
       successUpdateCancelButton.style.display = '';
+      // successNotice.style.display = 'none';
     })
   }
   
@@ -101,6 +103,7 @@ document.addEventListener("turbolinks:load", function() {
         const successRecordTextArea = document.getElementById('success-record-textarea');
         const successUpdateCancelButton = document.getElementById('success-update-cancel-button');
         const successRecordError = document.getElementById('js-success-record-post-error');
+        const successNotice = document.querySelector('.notice');
   
         successRecordLabelArea.style.display = '';
         successRecordLabelArea.textContent = data.success_body;
@@ -108,6 +111,7 @@ document.addEventListener("turbolinks:load", function() {
         successRecordTextArea.style.display = 'none';
         successUpdateCancelButton.style.display = 'none';
         successRecordError.style.display = 'none';
+        successNotice.innerHTML = "<div>出来たことが編集されました。</div>"
       })
       .catch(error => {
         console.log(error.message)
