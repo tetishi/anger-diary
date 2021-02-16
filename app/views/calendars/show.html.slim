@@ -6,11 +6,9 @@ section.section
       - @anger_records.each do |anger_record|
         .notice id='anger_record-#{anger_record.id}'
           = render partial: 'anger_record', locals: { anger_record: anger_record }
-          .field.is-grouped.my-5 id='anger-record-button-#{anger_record.id}'
-            /  data-record='#{anger_record.got_angry_on}'
-            .control#anger-record data-record='#{anger_record.id}'
-              button.button.anger-edit-button.is-primary.is-size-5 type='button' 編集
-              / = link_to '編集', edit_calendar_anger_record_path(anger_record.got_angry_on, anger_record.id), class: 'anger-edit-button button is-primary is-size-5'
+          .field.is-grouped.my-5
+            .control
+              = link_to '編集', edit_calendar_anger_record_path(anger_record.got_angry_on, anger_record.id), class: 'anger-edit-button button is-primary is-size-5'
             .control
               = link_to '削除', anger_record_path(anger_record), method: :delete, data: { confirm: '本当によろしいですか？' }, remote: true, class: 'button is-danger is-size-5'
     - if @anger_record.present? && @success_record.nil?
