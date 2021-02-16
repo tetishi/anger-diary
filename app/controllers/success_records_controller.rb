@@ -2,7 +2,7 @@
 
 class SuccessRecordsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_success_record, only: [:show, :edit, :update, :destroy]
+  before_action :set_success_record, only: [:show, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create]
 
   # GET /success_records/1
@@ -12,10 +12,6 @@ class SuccessRecordsController < ApplicationController
   # GET /success_records/new
   def new
     @success_record = SuccessRecord.new
-  end
-
-  # GET /success_records/1/edit
-  def edit
   end
 
   # POST /success_records
@@ -33,17 +29,11 @@ class SuccessRecordsController < ApplicationController
 
   # PATCH/PUT /success_records/1
   def update
-    # binding.pry
     if @success_record.update(success_record_params)
       render json: @success_record
     else
       head :bad_request
     end
-    # if @success_record.update(success_record_params)
-    #   redirect_to calendar_url(date: @success_record.succeeded_on), notice: "今日出来たことが編集されました。"
-    # else
-    #   render :edit
-    # end
   end
 
   def destroy

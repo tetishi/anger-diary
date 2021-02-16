@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     root "secret#index", as: :authenticated_root
   end
   resources :anger_records, except: :index
-  resources :success_records, except: :index
+  resources :success_records, except: [:index, :edit]
   resources :calendars, only: [:index, :show, :update], param: :date do
     resources :anger_records, only: :edit
   end
