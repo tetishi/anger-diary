@@ -1,5 +1,15 @@
-p.media
-  strong.media-left
+p.has-text-danger#js-success-record-post-error style="display: none"
+  | 出来たことを入力してください
+.field.is-grouped
+  label.control.is-size-4.has-text-weight-bold for='js-textarea-body-#{@success_record.succeeded_on}'
     | 出来たこと:
-  spam.media-left
-  = success_record.success_body
+  spam.control.is-size-4#js-success-label
+    = success_record.success_body
+  .field#js-success-textarea style="display: none; flex-grow: 1"
+    textarea.textarea.is-size-4 id='js-textarea-body-#{@success_record.succeeded_on}'
+      = success_record.success_body
+.field.is-grouped#js-success-update-cancel-button style="display: none"
+  .control
+    button.button.submit-update-button.is-primary.is-size-5 type="button" 更新
+  .control
+    button.button.is-light.is-size-5#success-cancel-button type="button" キャンセル
