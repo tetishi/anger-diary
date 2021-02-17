@@ -42,7 +42,7 @@ document.addEventListener("turbolinks:load", function() {
         'success_body': body
       }
   
-      fetch(`http://localhost:3000/success_records/${successRecordId}`, {
+      fetch(`/success_records/${successRecordId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json"
