@@ -152,6 +152,8 @@ p.media
       - else
         option 23
     | 時ごろ
+p.has-text-danger#js-anger-place-error style="display: none"
+  | 場所を入力してください
 p.media
   strong.media-left
     | 場所:
@@ -159,6 +161,9 @@ p.media
     = anger_record.place
   spam id='anger-record-form-place-#{anger_record.id}' style="display: none; flex-grow: 1"
     input.input value="#{anger_record.place}"
+p.has-text-danger#js-anger-body-error style="display: none"
+  | 出来たことを入力してください
+/ .field.is-grouped
 p.media
   strong.media-left
     | 内容:

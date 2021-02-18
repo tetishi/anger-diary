@@ -61,6 +61,9 @@ document.addEventListener("turbolinks:load", function() {
       const angerRecordFormImportant = document.getElementById('anger-record-form-important-' + angerId);
       const angerUpdateCancelButton = document.getElementById('js-anger-update-cancel-button-' + angerId);
 
+      const angerPlaceError = document.getElementById('js-anger-place-error');
+      const angerBodyError = document.getElementById('js-anger-body-error');
+
       angerLevel.style.display = '';
       angerDate.style.display = '';
       angerPlace.style.display = '';
@@ -75,6 +78,9 @@ document.addEventListener("turbolinks:load", function() {
       angerRecordFormChangeable.style.display = 'none';
       angerRecordFormImportant.style.display = 'none';
       angerUpdateCancelButton.style.display = 'none';
+
+      angerPlaceError.style.display = 'none';
+      angerBodyError.style.display = 'none';
     })
   }
 
@@ -129,6 +135,9 @@ document.addEventListener("turbolinks:load", function() {
         const angerRecordFormImportant = document.getElementById('anger-record-form-important-' + angerId);
         const angerUpdateCancelButton = document.getElementById('js-anger-update-cancel-button-' + angerId);
 
+        const angerPlaceError = document.getElementById('js-anger-place-error');
+        const angerBodyError = document.getElementById('js-anger-body-error');
+
         angerLevel.style.display = '';
         angerLevel.textContent = data.level;
         angerDate.style.display = '';
@@ -149,12 +158,18 @@ document.addEventListener("turbolinks:load", function() {
         angerRecordFormChangeable.style.display = 'none';
         angerRecordFormImportant.style.display = 'none';
         angerUpdateCancelButton.style.display = 'none';
+
+        angerPlaceError.style.display = 'none';
+        angerBodyError.style.display = 'none';
       })
-          // .catch(error => {
-          //   console.log(error.message)
-          //   const successRecordError = document.getElementById('js-success-record-post-error');
-          //   successRecordError.textContent = '出来たことを入力してください'
-          // })
+      .catch(error => {
+        console.log(error.message);
+        const angerPlaceError = document.getElementById('js-anger-place-error');
+        const angerBodyError = document.getElementById('js-anger-body-error');
+
+        angerPlaceError.style.display = '';
+        angerBodyError.style.display = '';
+      })
     })
   }
 })
