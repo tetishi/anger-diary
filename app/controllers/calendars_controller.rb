@@ -23,16 +23,17 @@ class CalendarsController < ApplicationController
     # @anger_records = current_user.anger_records.where(got_angry_on: params[:date]).sort_by do |anger_record|
     #   anger_record.got_angry_at.strftime("%k")
     # end
+    # binding.pry
     @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
 
-    if @success_record.update(success_record_params)
-      render json: @success_record
+    if @anger_record.update(anger_record_params)
+      render json: @anger_record
     else
       head :bad_request
     end
 
-    # if @anger_record.update(anger_record_params)
-    #   render json: @anger_record
+    # if @success_record.update(success_record_params)
+    #   render json: @success_record
     # else
     #   head :bad_request
     # end

@@ -92,16 +92,6 @@ document.addEventListener("turbolinks:load", function() {
       const changeable = document.getElementById('anger-record-form-changeable-' + angerId).value;
       const important = document.getElementById('anger-record-form-important-' + angerId).value;
 
-          // // const successRecordId = document.getElementById('success-record').getAttribute('data-record');
-          // const successRecordDate = document.getElementById('success-record').getAttribute('data-record');
-          // const textField = document.getElementById('textarea-body-' + successRecordDate);
-          // // const body = textField.textContent;
-          // const body = textField.value
-          // console.log(successRecordDate);
-          // console.log(body);
-          // // console.log(textField);
-          // // debugger;
-
       let bodyData = {
         'level': level,
         'got_anger_on': gotAngryOn,
@@ -123,16 +113,42 @@ document.addEventListener("turbolinks:load", function() {
       .then(response => response.json())
       .then(data => {
         console.log(data)
-        //   const successRecordLabelArea = document.getElementById('success-record-label');
-        //   const successRecordButton = document.getElementById('success-record-button');
-        //   const successRecordForm = document.getElementById('success-record-form');
-        //   const successRecordError = document.getElementById('js-success-record-post-error');
+        const angerId = document.getElementById('anger-record').getAttribute('data-record');
+        const angerLevel = document.getElementById('js-anger-level-' + angerId);
+        const angerDate = document.getElementById('js-anger-date-' + angerId);
+        const angerPlace = document.getElementById('js-anger-place-' + angerId);
+        const angerBody = document.getElementById('js-anger-body-' + angerId);
+        const angerChangeable = document.getElementById('js-anger-changeable-' + angerId);
+        const angerImportant = document.getElementById('js-anger-important-' + angerId);
+        const twoAngerButton = document.getElementById('js-two-anger-button-' + angerId);
+        const angerRecordFormLevel = document.getElementById('anger-record-form-level-' + angerId);
+        const angerRecordFormDate = document.getElementById('anger-record-form-date-' + angerId);
+        const angerRecordFormPlace = document.getElementById('anger-record-form-place-' + angerId);
+        const angerRecordFormBody = document.getElementById('anger-record-form-body-' + angerId);
+        const angerRecordFormChangeable = document.getElementById('anger-record-form-changeable-' + angerId);
+        const angerRecordFormImportant = document.getElementById('anger-record-form-important-' + angerId);
+        const angerUpdateCancelButton = document.getElementById('js-anger-update-cancel-button-' + angerId);
 
-        //   successRecordLabelArea.style.display = '';
-        //   successRecordLabelArea.textContent = data.success_body;
-        //   successRecordButton.style.display = '';
-        //   successRecordForm.style.display = 'none';
-        //   successRecordError.style.display = 'none';
+        angerLevel.style.display = '';
+        angerLevel.textContent = data.level;
+        angerDate.style.display = '';
+        angerDate.textContent = data.got_anger_on;
+        angerPlace.style.display = '';
+        angerPlace.textContent = data.place;
+        angerBody.style.display = '';
+        angerBody.textContent = data.anger_body;
+        angerChangeable.style.display = '';
+        angerChangeable.textContent = data.changeable;
+        angerImportant.style.display = '';
+        angerImportant.textContent = data.important;
+        twoAngerButton.style.display = '';
+        angerRecordFormLevel.style.display = 'none';
+        angerRecordFormDate.style.display = 'none';
+        angerRecordFormPlace.style.display = 'none';
+        angerRecordFormBody.style.display = 'none';
+        angerRecordFormChangeable.style.display = 'none';
+        angerRecordFormImportant.style.display = 'none';
+        angerUpdateCancelButton.style.display = 'none';
       })
           // .catch(error => {
           //   console.log(error.message)
