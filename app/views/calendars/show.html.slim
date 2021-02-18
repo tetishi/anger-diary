@@ -6,7 +6,7 @@ section.section
       - @anger_records.each do |anger_record|
         .notice id='anger_record-#{anger_record.id}'
           = render partial: 'anger_record', locals: { anger_record: anger_record }
-          .field.is-grouped.my-5 id='anger-record-button-#{anger_record.id}'
+          .field.is-grouped.my-5 id='js-two-anger-button-#{anger_record.id}'
             /  data-record='#{anger_record.got_angry_on}'
             .control#anger-record data-record='#{anger_record.id}'
               button.button.js-anger-edit-button.is-primary.is-size-5 type='button' 編集

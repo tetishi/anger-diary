@@ -4,34 +4,33 @@ document.addEventListener("turbolinks:load", function() {
     angerEditButtons.forEach(function (editButton) {
       editButton.addEventListener("click", function() {
             // debugger;
-        const angerRecordId = document.getElementById('anger-record').getAttribute('data-record');
-        const angerRecordLevel = document.getElementById('js-anger-record-level-' + angerRecordId);
-        const angerRecordDate = document.getElementById('js-anger-record-date-' + angerRecordId);
-        const angerRecordPlace = document.getElementById('js-anger-record-place-' + angerRecordId);
-        const angerRecordBody = document.getElementById('js-anger-record-body-' + angerRecordId);
-        const angerRecordChangeable = document.getElementById('js-anger-record-changeable-' + angerRecordId);
-        const angerRecordImportant = document.getElementById('js-anger-record-important-' + angerRecordId);
-        const angerRecordButton = document.getElementById('anger-record-button-' + angerRecordId);
+        const angerId = document.getElementById('anger-record').getAttribute('data-record');
+        const angerLevel = document.getElementById('js-anger-level-' + angerId);
+        const angerDate = document.getElementById('js-anger-date-' + angerId);
+        const angerPlace = document.getElementById('js-anger-place-' + angerId);
+        const angerBody = document.getElementById('js-anger-body-' + angerId);
+        const angerChangeable = document.getElementById('js-anger-changeable-' + angerId);
+        const angerImportant = document.getElementById('js-anger-important-' + angerId);
+        const twoAngerButton = document.getElementById('js-two-anger-button-' + angerId);
 
-            // const angerUpdateButton = document.getElementById('js-anger-update-button-' + angerRecordId); ここおこここ
+        const angerRecordFormLevel = document.getElementById('anger-record-form-level-' + angerId);
+        const angerRecordFormDate = document.getElementById('anger-record-form-date-' + angerId);
+        const angerRecordFormPlace = document.getElementById('anger-record-form-place-' + angerId);
+        const angerRecordFormBody = document.getElementById('anger-record-form-body-' + angerId);
+        const angerRecordFormChangeable = document.getElementById('anger-record-form-changeable-' + angerId);
+        const angerRecordFormImportant = document.getElementById('anger-record-form-important-' + angerId);
 
-        const angerRecordFormLevel = document.getElementById('anger-record-form-level-' + angerRecordId);
-        const angerRecordFormDate = document.getElementById('anger-record-form-date-' + angerRecordId);
-        const angerRecordFormPlace = document.getElementById('anger-record-form-place-' + angerRecordId);
-        const angerRecordFormBody = document.getElementById('anger-record-form-body-' + angerRecordId);
-        const angerRecordFormChangeable = document.getElementById('anger-record-form-changeable-' + angerRecordId);
-        const angerRecordFormImportant = document.getElementById('anger-record-form-important-' + angerRecordId);
+        const angerUpdateButton = document.getElementById('js-anger-update-button-' + angerId);
+        const angerCancelButton = document.getElementById('js-anger-cancel-button-' + angerId);
 
-        const angerRecordUpdateButton = document.getElementById('js-anger-record-button-' + angerRecordId);
-
-        console.log(angerRecordId);
-        angerRecordLevel.style.display = 'none';
-        angerRecordDate.style.display = 'none';
-        angerRecordPlace.style.display = 'none';
-        angerRecordBody.style.display = 'none';
-        angerRecordChangeable.style.display = 'none';
-        angerRecordImportant.style.display = 'none';
-        angerRecordButton.style.display = 'none';
+        console.log(angerId);
+        angerLevel.style.display = 'none';
+        angerDate.style.display = 'none';
+        angerPlace.style.display = 'none';
+        angerBody.style.display = 'none';
+        angerChangeable.style.display = 'none';
+        angerImportant.style.display = 'none';
+        twoAngerButton.style.display = 'none';
         angerRecordFormLevel.style.display = '';
         angerRecordFormDate.style.display = '';
         angerRecordFormPlace.style.display = '';
@@ -39,7 +38,8 @@ document.addEventListener("turbolinks:load", function() {
         angerRecordFormChangeable.style.display = '';
         angerRecordFormImportant.style.display = '';
 
-        angerRecordUpdateButton.style.display = '';
+        angerUpdateButton.style.display = '';
+        angerCancelButton.style.display = '';
       })
     })
   }
@@ -47,52 +47,54 @@ document.addEventListener("turbolinks:load", function() {
   const angerCancelButton = document.getElementById("anger-cancel-button");
   if(angerCancelButton) {
     angerCancelButton.addEventListener("click", function() {
-      const angerRecordId = document.getElementById('anger-record').getAttribute('data-record');
-      const angerRecordLevel = document.getElementById('js-anger-record-level-' + angerRecordId);
-      const angerRecordDate = document.getElementById('js-anger-record-date-' + angerRecordId);
-      const angerRecordPlace = document.getElementById('js-anger-record-place-' + angerRecordId);
-      const angerRecordBody = document.getElementById('js-anger-record-body-' + angerRecordId);
-      const angerRecordChangeable = document.getElementById('js-anger-record-changeable-' + angerRecordId);
-      const angerRecordImportant = document.getElementById('js-anger-record-important-' + angerRecordId);
-      const angerRecordButton = document.getElementById('anger-record-button-' + angerRecordId);
-      const angerRecordFormLevel = document.getElementById('anger-record-form-level-' + angerRecordId);
-      const angerRecordFormDate = document.getElementById('anger-record-form-date-' + angerRecordId);
-      const angerRecordFormPlace = document.getElementById('anger-record-form-place-' + angerRecordId);
-      const angerRecordFormBody = document.getElementById('anger-record-form-body-' + angerRecordId);
-      const angerRecordFormChangeable = document.getElementById('anger-record-form-changeable-' + angerRecordId);
-      const angerRecordFormImportant = document.getElementById('anger-record-form-important-' + angerRecordId);
-      const angerRecordUpdateButton = document.getElementById('js-anger-record-button-' + angerRecordId);
+      const angerId = document.getElementById('anger-record').getAttribute('data-record');
+      const angerLevel = document.getElementById('js-anger-level-' + angerId);
+      const angerDate = document.getElementById('js-anger-date-' + angerId);
+      const angerPlace = document.getElementById('js-anger-place-' + angerId);
+      const angerBody = document.getElementById('js-anger-body-' + angerId);
+      const angerChangeable = document.getElementById('js-anger-changeable-' + angerId);
+      const angerImportant = document.getElementById('js-anger-important-' + angerId);
+      const twoAngerButton = document.getElementById('js-two-anger-button-' + angerId);
+      const angerRecordFormLevel = document.getElementById('anger-record-form-level-' + angerId);
+      const angerRecordFormDate = document.getElementById('anger-record-form-date-' + angerId);
+      const angerRecordFormPlace = document.getElementById('anger-record-form-place-' + angerId);
+      const angerRecordFormBody = document.getElementById('anger-record-form-body-' + angerId);
+      const angerRecordFormChangeable = document.getElementById('anger-record-form-changeable-' + angerId);
+      const angerRecordFormImportant = document.getElementById('anger-record-form-important-' + angerId);
+      const angerUpdateButton = document.getElementById('js-anger-update-button-' + angerId);
+      const angerCancelButton = document.getElementById('js-anger-cancel-button-' + angerId);
 
-      angerRecordLevel.style.display = '';
-      angerRecordDate.style.display = '';
-      angerRecordPlace.style.display = '';
-      angerRecordBody.style.display = '';
-      angerRecordChangeable.style.display = '';
-      angerRecordImportant.style.display = '';
-      angerRecordButton.style.display = '';
+      angerLevel.style.display = '';
+      angerDate.style.display = '';
+      angerPlace.style.display = '';
+      angerBody.style.display = '';
+      angerChangeable.style.display = '';
+      angerImportant.style.display = '';
+      twoAngerButton.style.display = '';
       angerRecordFormLevel.style.display = 'none';
       angerRecordFormDate.style.display = 'none';
       angerRecordFormPlace.style.display = 'none';
       angerRecordFormBody.style.display = 'none';
       angerRecordFormChangeable.style.display = 'none';
       angerRecordFormImportant.style.display = 'none';
-      angerRecordUpdateButton.style.display = 'none';
+      angerUpdateButton.style.display = 'none';
+      angerCancelButton.style.display = 'none';
     })
   }
 
   const angerUpdateButton = document.querySelector(".anger-update-button");
   if(angerUpdateButton) {
     angerUpdateButton.addEventListener("click", function() {
-      const angerRecordId = document.getElementById('anger-record').getAttribute('data-record');
-      const angerRecordDate = document.getElementById('js-anger-update-button').getAttribute('data-record');
+      const angerId = document.getElementById('anger-record').getAttribute('data-record');
+      const angerDate = document.getElementById('js-anger-update-button').getAttribute('data-record');
 
-      const level = document.getElementById('anger-record-form-level-' + angerRecordId).value;
-      const gotAngryOn = document.getElementById('anger-record-form-date-' + angerRecordId).value;
-      const gotAngryAt = document.getElementById('anger-record-form-hour-' + angerRecordId).value;
-      const place = document.getElementById('anger-record-form-place-' + angerRecordId).value;
-      const angerBody = document.getElementById('anger-record-form-body-' + angerRecordId).value;
-      const changeable = document.getElementById('anger-record-form-changeable-' + angerRecordId).value;
-      const important = document.getElementById('anger-record-form-important-' + angerRecordId).value;
+      const level = document.getElementById('anger-record-form-level-' + angerId).value;
+      const gotAngryOn = document.getElementById('anger-record-form-date-' + angerId).value;
+      const gotAngryAt = document.getElementById('anger-record-form-hour-' + angerId).value;
+      const place = document.getElementById('anger-record-form-place-' + angerId).value;
+      const angerBody = document.getElementById('anger-record-form-body-' + angerId).value;
+      const changeable = document.getElementById('anger-record-form-changeable-' + angerId).value;
+      const important = document.getElementById('anger-record-form-important-' + angerId).value;
 
           // // const successRecordId = document.getElementById('success-record').getAttribute('data-record');
           // const successRecordDate = document.getElementById('success-record').getAttribute('data-record');
@@ -115,7 +117,7 @@ document.addEventListener("turbolinks:load", function() {
       }
           // // debugger;
           // // fetch(`http://localhost3000/success_records/${successRecordId}`, {
-      fetch(`http://localhost:3000/calendars/${angerRecordDate}`, {
+      fetch(`http://localhost:3000/calendars/${angerDate}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json"

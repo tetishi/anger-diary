@@ -1,7 +1,7 @@
 p.media
   strong.media-left
     | 怒りのレベル:
-  spam.media-left id='js-anger-record-level-#{anger_record.id}'
+  spam.media-left id='js-anger-level-#{anger_record.id}'
     = anger_record.level
   spam id='anger-record-form-level-#{anger_record.id}' style="display: none"
     select.select
@@ -48,7 +48,7 @@ p.media
 p.media
   strong.media-left
     | 怒った日時:
-  spam.media-left id='js-anger-record-date-#{anger_record.id}'
+  spam.media-left id='js-anger-date-#{anger_record.id}'
     ==> "#{anger_record.got_angry_on}"
     = anger_record.got_angry_at.strftime('%k')
     | 時ごろ
@@ -155,22 +155,22 @@ p.media
 p.media
   strong.media-left
     | 場所:
-  spam.media-left id='js-anger-record-place-#{anger_record.id}'
+  spam.media-left id='js-anger-place-#{anger_record.id}'
     = anger_record.place
-  spam id='anger-record-form-place-#{anger_record.id}' style="display: none"
+  spam id='anger-record-form-place-#{anger_record.id}' style="display: none; flex-grow: 1"
     input.input value="#{anger_record.place}"
 p.media
   strong.media-left
     | 内容:
-  spam.media-left id='js-anger-record-body-#{anger_record.id}'
+  spam.media-left id='js-anger-body-#{anger_record.id}'
     = anger_record.anger_body
-  spam id='anger-record-form-body-#{anger_record.id}' style="display: none"
+  spam id='anger-record-form-body-#{anger_record.id}' style="display: none; flex-grow: 1"
     textarea.textarea
       = anger_record.anger_body
 p.media
   strong.media-left
     | 変えらる内容か:
-  spam.media-left id='js-anger-record-changeable-#{anger_record.id}'
+  spam.media-left id='js-anger-changeable-#{anger_record.id}'
     = anger_record.changeable
   spam id='anger-record-form-changeable-#{anger_record.id}' style="display: none"
     - if anger_record.changeable == "Yes"
@@ -192,7 +192,7 @@ p.media
 p.media
   strong.media-left
     | 重要な内容か:
-  spam.media-left id='js-anger-record-important-#{anger_record.id}'
+  spam.media-left id='js-anger-important-#{anger_record.id}'
     = anger_record.important
   spam id='anger-record-form-important-#{anger_record.id}' style="display: none"
     - if anger_record.important == "Yes"
@@ -207,7 +207,7 @@ p.media
     - else
       input.radio#no-important type="radio" name="important" value="いいえ"
       label for="no-important" いいえ
-.field#js-anger-update-button data-record='#{anger_record.got_angry_on}' style="display: none"
-  button.button.anger-update-button.is-primary.is-size-5 type="button" 更新
-.field id='js-anger-record-button-#{anger_record.id}' style="display: none"
+.field id='js-anger-update-button-#{anger_record.id}' style="display: none"
+  button.button.is-primary.is-size-5#js-anger-update-button data-record='#{anger_record.got_angry_on}' type="button" 更新
+.field id='js-anger-cancel-button-#{anger_record.id}' style="display: none"
   button.button.is-light#anger-cancel-button type="button" キャンセル
