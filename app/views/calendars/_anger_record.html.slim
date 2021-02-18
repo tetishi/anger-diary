@@ -207,7 +207,8 @@ p.media
     - else
       input.radio#no-important type="radio" name="important" value="いいえ"
       label for="no-important" いいえ
-.field id='js-anger-update-button-#{anger_record.id}' style="display: none"
-  button.button.is-primary.is-size-5#js-anger-update-button data-record='#{anger_record.got_angry_on}' type="button" 更新
-.field id='js-anger-cancel-button-#{anger_record.id}' style="display: none"
-  button.button.is-light#anger-cancel-button type="button" キャンセル
+.field.is-grouped.mt-5 id='js-anger-update-cancel-button-#{anger_record.id}' style="display: none"
+  .control
+    button.button.is-primary.is-size-5#js-anger-update-button data-record='#{anger_record.got_angry_on}' type="button" 更新
+  .control
+    button.button.is-light.is-size-5#anger-cancel-button type="button" キャンセル

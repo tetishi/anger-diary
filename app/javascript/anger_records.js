@@ -20,8 +20,7 @@ document.addEventListener("turbolinks:load", function() {
         const angerRecordFormChangeable = document.getElementById('anger-record-form-changeable-' + angerId);
         const angerRecordFormImportant = document.getElementById('anger-record-form-important-' + angerId);
 
-        const angerUpdateButton = document.getElementById('js-anger-update-button-' + angerId);
-        const angerCancelButton = document.getElementById('js-anger-cancel-button-' + angerId);
+        const angerUpdateCancelButton = document.getElementById('js-anger-update-cancel-button-' + angerId);
 
         console.log(angerId);
         angerLevel.style.display = 'none';
@@ -38,8 +37,7 @@ document.addEventListener("turbolinks:load", function() {
         angerRecordFormChangeable.style.display = '';
         angerRecordFormImportant.style.display = '';
 
-        angerUpdateButton.style.display = '';
-        angerCancelButton.style.display = '';
+        angerUpdateCancelButton.style.display = '';
       })
     })
   }
@@ -61,8 +59,7 @@ document.addEventListener("turbolinks:load", function() {
       const angerRecordFormBody = document.getElementById('anger-record-form-body-' + angerId);
       const angerRecordFormChangeable = document.getElementById('anger-record-form-changeable-' + angerId);
       const angerRecordFormImportant = document.getElementById('anger-record-form-important-' + angerId);
-      const angerUpdateButton = document.getElementById('js-anger-update-button-' + angerId);
-      const angerCancelButton = document.getElementById('js-anger-cancel-button-' + angerId);
+      const angerUpdateCancelButton = document.getElementById('js-anger-update-cancel-button-' + angerId);
 
       angerLevel.style.display = '';
       angerDate.style.display = '';
@@ -77,8 +74,7 @@ document.addEventListener("turbolinks:load", function() {
       angerRecordFormBody.style.display = 'none';
       angerRecordFormChangeable.style.display = 'none';
       angerRecordFormImportant.style.display = 'none';
-      angerUpdateButton.style.display = 'none';
-      angerCancelButton.style.display = 'none';
+      angerUpdateCancelButton.style.display = 'none';
     })
   }
 
