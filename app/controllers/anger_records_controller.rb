@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class AngerRecordsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_anger_record, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create]
 

@@ -24,27 +24,30 @@ class CalendarsController < ApplicationController
     #   anger_record.got_angry_at.strftime("%k")
     # end
     # binding.pry
-    @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
 
-    if @anger_record.update(anger_record_params)
-      render json: @anger_record
-    else
-      head :bad_request
-    end
+    # @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
 
-    # if @success_record.update(success_record_params)
-    #   render json: @success_record
+    # binding.pry
+    # if @anger_record.update(anger_record_params)
+    #   render json: @anger_record and return
     # else
     #   head :bad_request
     # end
+
+    if @success_record.update(success_record_params)
+      render json: @success_record
+    else
+      head :bad_request
+    end
   end
 
     private
 
-      def anger_record_params
-        params.permit(:level, :got_angry_on, :got_angry_at, :place, :anger_body, :changeable, :important)
-        # params.require(:anger_or_success_data).permit(:level, :got_angry_on, :got_angry_at, :place, :anger_body, :changeable, :important)
-      end
+      # def anger_record_params
+      #   # require
+      #   params.permit(:level, :got_angry_on, :got_angry_at, :place, :anger_body, :changeable, :important)
+      #   # params.require(:anger_or_success_data).permit(:level, :got_angry_on, :got_angry_at, :place, :anger_body, :changeable, :important)
+      # end
 
       def success_record_params
         params.permit(:success_body)

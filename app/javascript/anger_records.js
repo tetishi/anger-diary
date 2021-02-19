@@ -109,7 +109,8 @@ document.addEventListener("turbolinks:load", function() {
       }
           // // debugger;
           // // fetch(`http://localhost3000/success_records/${successRecordId}`, {
-      fetch(`http://localhost:3000/calendars/${angerDate}`, {
+      // fetch(`/calendars/${angerDate}/anger_records/${angerId}`, {
+      fetch(`/calendars/${angerDate}/anger_records/${angerId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json"
