@@ -48,9 +48,11 @@
 .field.is-grouped
   label.control.is-size-4.has-text-weight-bold for='js-got-angry-on-#{anger_record.id}'
     | 怒った日時:
-  .field id='js-anger-date-#{anger_record.id}'
-    ==> "#{anger_record.got_angry_on}"
-    = anger_record.got_angry_at.strftime('%k')
+  .field.is-grouped id='js-anger-date-#{anger_record.id}'
+    .control id='js-anger-got-angry-on-#{anger_record.id}'
+      ==> "#{anger_record.got_angry_on}"
+    .control id='js-anger-got-angry-at-#{anger_record.id}'
+      = anger_record.got_angry_at.strftime('%k')
     | 時ごろ
   .field id='anger-record-form-date-#{anger_record.id}' style="display: none"
     input id='js-got-angry-on-#{anger_record.id}' type="date" value="#{anger_record.got_angry_on}"

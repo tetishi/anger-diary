@@ -119,13 +119,18 @@ document.addEventListener("turbolinks:load", function() {
       .then(data => {
         console.log(data)
         const angerId = document.getElementById('anger-record').getAttribute('data-record');
+
         const angerLevel = document.getElementById('js-anger-level-' + angerId);
         const angerDate = document.getElementById('js-anger-date-' + angerId);
+        const gotAngryOn = document.getElementById('js-anger-got-angry-on-' + angerId);
+        const gotAngryAt = document.getElementById('js-anger-got-angry-at-' + angerId);
         const angerPlace = document.getElementById('js-anger-place-' + angerId);
         const angerBody = document.getElementById('js-anger-body-' + angerId);
         const angerChangeable = document.getElementById('js-anger-changeable-' + angerId);
         const angerImportant = document.getElementById('js-anger-important-' + angerId);
+
         const twoAngerButton = document.getElementById('js-two-anger-button-' + angerId);
+
         const angerRecordFormLevel = document.getElementById('anger-record-form-level-' + angerId);
         const angerRecordFormDate = document.getElementById('anger-record-form-date-' + angerId);
         const angerRecordFormPlace = document.getElementById('anger-record-form-place-' + angerId);
@@ -140,7 +145,8 @@ document.addEventListener("turbolinks:load", function() {
         angerLevel.style.display = '';
         angerLevel.textContent = data.level;
         angerDate.style.display = '';
-        angerDate.textContent = data.got_anger_on;
+        gotAngryOn.textContent = data.got_angry_on;
+        gotAngryAt.textContent = new Date(data.got_angry_at).getHours();
         angerPlace.style.display = '';
         angerPlace.textContent = data.place;
         angerBody.style.display = '';
@@ -149,7 +155,9 @@ document.addEventListener("turbolinks:load", function() {
         angerChangeable.textContent = data.changeable;
         angerImportant.style.display = '';
         angerImportant.textContent = data.important;
+
         twoAngerButton.style.display = '';
+
         angerRecordFormLevel.style.display = 'none';
         angerRecordFormDate.style.display = 'none';
         angerRecordFormPlace.style.display = 'none';
