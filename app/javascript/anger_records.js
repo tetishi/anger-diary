@@ -90,11 +90,11 @@ document.addEventListener("turbolinks:load", function() {
       const angerId = document.getElementById('anger-record').getAttribute('data-record');
       const angerDate = document.getElementById('js-anger-update-button').getAttribute('data-record');
 
-      const level = document.getElementById('anger-record-form-level-' + angerId).value;
-      const gotAngryOn = document.getElementById('anger-record-form-date-' + angerId).value;
-      const gotAngryAt = document.getElementById('anger-record-form-hour-' + angerId).value;
-      const place = document.getElementById('anger-record-form-place-' + angerId).value;
-      const angerBody = document.getElementById('anger-record-form-body-' + angerId).value;
+      const level = document.getElementById('js-level-' + angerId).value;
+      const gotAngryOn = document.getElementById('js-got-angry-on-' + angerId).value;
+      const gotAngryAt = document.getElementById('js-got-angry-at-' + angerId).value;
+      const place = document.getElementById('js-place-' + angerId).value;
+      const angerBody = document.getElementById('js-anger-body-' + angerId).value;
       const changeable = document.getElementById('anger-record-form-changeable-' + angerId).value;
       const important = document.getElementById('anger-record-form-important-' + angerId).value;
 
@@ -107,9 +107,7 @@ document.addEventListener("turbolinks:load", function() {
         'changeable': changeable,
         'important': important
       }
-          // // debugger;
-          // // fetch(`http://localhost3000/success_records/${successRecordId}`, {
-      // fetch(`/calendars/${angerDate}/anger_records/${angerId}`, {
+
       fetch(`/calendars/${angerDate}/anger_records/${angerId}`, {
         method: "PATCH",
         headers: {

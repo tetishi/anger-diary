@@ -1,10 +1,10 @@
-p.media
-  strong.media-left
+.field.is-grouped
+  label.control.is-size-4.has-text-weight-bold for='js-level-#{anger_record.id}'
     | 怒りのレベル:
-  spam.media-left id='js-anger-level-#{anger_record.id}'
+  .field id='js-anger-level-#{anger_record.id}'
     = anger_record.level
-  spam id='anger-record-form-level-#{anger_record.id}' style="display: none"
-    select.select
+  .field id='anger-record-form-level-#{anger_record.id}' style="display: none"
+    select.select id='js-level-#{anger_record.id}'
       - if anger_record.level == 1
         option value="1" selected="selected" 1
       - else
@@ -45,16 +45,16 @@ p.media
         option value="10" selected="selected" 10
       - else
         option value="10" 10
-p.media
-  strong.media-left
+.field.is-grouped
+  label.control.is-size-4.has-text-weight-bold for='js-got-angry-on-#{anger_record.id}'
     | 怒った日時:
-  spam.media-left id='js-anger-date-#{anger_record.id}'
+  .field id='js-anger-date-#{anger_record.id}'
     ==> "#{anger_record.got_angry_on}"
     = anger_record.got_angry_at.strftime('%k')
     | 時ごろ
-  spam id='anger-record-form-date-#{anger_record.id}' style="display: none"
-    input type="date" value="#{anger_record.got_angry_on}"
-    select.select id='anger-record-form-hour-#{anger_record.id}'
+  .field id='anger-record-form-date-#{anger_record.id}' style="display: none"
+    input id='js-got-angry-on-#{anger_record.id}' type="date" value="#{anger_record.got_angry_on}"
+    select.select id='js-got-angry-at-#{anger_record.id}'
       - if anger_record.got_angry_at.strftime("%k") == " 0"
         option selected="selected" 0
       - else
@@ -154,30 +154,29 @@ p.media
     | 時ごろ
 p.has-text-danger#js-anger-place-error style="display: none"
   | 場所を入力してください
-p.media
-  strong.media-left
+.field.is-grouped
+  label.control.is-size-4.has-text-weight-bold for='js-place-#{anger_record.id}'
     | 場所:
-  spam.media-left id='js-anger-place-#{anger_record.id}'
+  .field id='js-anger-place-#{anger_record.id}'
     = anger_record.place
-  spam id='anger-record-form-place-#{anger_record.id}' style="display: none; flex-grow: 1"
-    input.input value="#{anger_record.place}"
+  .field id='anger-record-form-place-#{anger_record.id}' style="display: none; flex-grow: 1"
+    input.input id='js-place-#{anger_record.id}' value="#{anger_record.place}"
 p.has-text-danger#js-anger-body-error style="display: none"
   | 出来たことを入力してください
-/ .field.is-grouped
-p.media
-  strong.media-left
+.field.is-grouped
+  label.control.is-size-4.has-text-weight-bold for='js-anger-body-#{anger_record.id}'
     | 内容:
-  spam.media-left id='js-anger-body-#{anger_record.id}'
+  .field id='js-anger-body-#{anger_record.id}'
     = anger_record.anger_body
-  spam id='anger-record-form-body-#{anger_record.id}' style="display: none; flex-grow: 1"
-    textarea.textarea
+  .field id='anger-record-form-body-#{anger_record.id}' style="display: none; flex-grow: 1"
+    textarea.textarea id='js-anger-body-#{anger_record.id}'
       = anger_record.anger_body
-p.media
-  strong.media-left
+.field.is-grouped
+  label.control.is-size-4.has-text-weight-bold for='js-anger-changeable-#{anger_record.id}'
     | 変えらる内容か:
-  spam.media-left id='js-anger-changeable-#{anger_record.id}'
+  .field id='js-anger-changeable-#{anger_record.id}'
     = anger_record.changeable
-  spam id='anger-record-form-changeable-#{anger_record.id}' style="display: none"
+  .field id='anger-record-form-changeable-#{anger_record.id}' style="display: none"
     - if anger_record.changeable == "Yes"
       input.radio#yes-changeable type="radio" name="changeable" value="Yes" checked="checked"
       label for="yes-changeable" はい
@@ -194,12 +193,12 @@ p.media
     / label for="yes-changeable" はい
     / input.radio#no-changeable type="radio" value="No" checked=('#{anger_record.changeable}' == 'No' ? 'checked' : false)
     / label for="no-changeable" いいえ
-p.media
-  strong.media-left
+.field.is-grouped
+  label.control.is-size-4.has-text-weight-bold for='js-anger-important-#{anger_record.id}'
     | 重要な内容か:
-  spam.media-left id='js-anger-important-#{anger_record.id}'
+  .field id='js-anger-important-#{anger_record.id}'
     = anger_record.important
-  spam id='anger-record-form-important-#{anger_record.id}' style="display: none"
+  .field id='anger-record-form-important-#{anger_record.id}' style="display: none"
     - if anger_record.important == "Yes"
       input.radio#yes-important type="radio" name="important" value="はい" checked="checked"
       label for="yes-important" はい
