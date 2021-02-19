@@ -94,7 +94,7 @@ document.addEventListener("turbolinks:load", function() {
       const gotAngryOn = document.getElementById('js-got-angry-on-' + angerId).value;
       const gotAngryAt = document.getElementById('js-got-angry-at-' + angerId).value;
       const place = document.getElementById('js-place-' + angerId).value;
-      const angerBody = document.getElementById('js-anger-body-' + angerId).value;
+      const angerBody = document.getElementById('js-body-' + angerId).value;
       const changeable = document.getElementById('anger-record-form-changeable-' + angerId).value;
       const important = document.getElementById('anger-record-form-important-' + angerId).value;
 
