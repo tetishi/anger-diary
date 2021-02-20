@@ -179,13 +179,13 @@ p.has-text-danger#js-anger-body-error style="display: none"
   .field id='js-anger-changeable-#{anger_record.id}'
     = anger_record.changeable
   .field id='anger-record-form-changeable-#{anger_record.id}' style="display: none"
-    - if anger_record.changeable == "Yes"
+    - if anger_record.changeable == "はい"
       input.radio#yes-changeable type="radio" name="changeable" value="Yes" checked="checked"
       label for="yes-changeable" はい
     - else
       input.radio#yes-changeable type="radio" name="changeable" value="Yes"
       label for="yes-changeable" はい
-    - if anger_record.changeable == "No"
+    - if anger_record.changeable == "いいえ"
       input.radio#no-changeable type="radio" name="changeable" value="No" checked="checked"
       label for="no-changeable" いいえ
     - else
@@ -200,16 +200,16 @@ p.has-text-danger#js-anger-body-error style="display: none"
     | 重要な内容か:
   .field id='js-anger-important-#{anger_record.id}'
     = anger_record.important
-  .field id='anger-record-form-important-#{anger_record.id}' style="display: none"
-    - if anger_record.important == "Yes"
+  .field.is-grouped id='anger-record-form-important-#{anger_record.id}' style="display: none"
+    - if anger_record.important == "はい"
       input.radio#yes-important type="radio" name="important" value="はい" checked="checked"
-      label for="yes-important" はい
+      label id='js-important-#{anger_record.id}' for="yes-important" はい
     - else
       input.radio#yes-important type="radio" name="important" value="はい"
       label for="yes-important" はい
-    - if anger_record.important == "No"
+    - if anger_record.important == "いいえ"
       input.radio#no-important type="radio" name="important" value="いいえ" checked="checked"
-      label for="no-important" いいえ
+      label id='js-important-#{anger_record.id}' for="no-important" いいえ
     - else
       input.radio#no-important type="radio" name="important" value="いいえ"
       label for="no-important" いいえ

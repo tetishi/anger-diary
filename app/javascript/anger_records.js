@@ -96,8 +96,9 @@ document.addEventListener("turbolinks:load", function() {
       const place = document.getElementById('js-place-' + angerId).value;
       const angerBody = document.getElementById('js-body-' + angerId).value;
       const changeable = document.getElementById('anger-record-form-changeable-' + angerId).value;
-      const important = document.getElementById('anger-record-form-important-' + angerId).value;
+      const important = document.getElementById('js-important-' + angerId).innerText;
 
+      // debugger;
       let bodyData = {
         'level': level,
         'got_anger_on': gotAngryOn,
@@ -137,6 +138,7 @@ document.addEventListener("turbolinks:load", function() {
         const angerRecordFormBody = document.getElementById('anger-record-form-body-' + angerId);
         const angerRecordFormChangeable = document.getElementById('anger-record-form-changeable-' + angerId);
         const angerRecordFormImportant = document.getElementById('anger-record-form-important-' + angerId);
+
         const angerUpdateCancelButton = document.getElementById('js-anger-update-cancel-button-' + angerId);
 
         const angerPlaceError = document.getElementById('js-anger-place-error');
@@ -153,6 +155,8 @@ document.addEventListener("turbolinks:load", function() {
         angerBody.textContent = data.anger_body;
         angerChangeable.style.display = '';
         angerChangeable.textContent = data.changeable;
+
+        // debugger;
         angerImportant.style.display = '';
         angerImportant.textContent = data.important;
 
