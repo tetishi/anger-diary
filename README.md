@@ -31,5 +31,5 @@ $ bin/rspec
 
 # Lint
 ```
-$ rubocop -a
+$ ./bin/lint  
 ```
