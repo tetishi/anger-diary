@@ -4,7 +4,8 @@
     "browser": true
   },
   "plugins": [
-    "import"
+    "import",
+    "prettier"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -16,7 +17,16 @@
     "eslint:recommended",
     "plugin:prettier/recommended"
   ],
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "./config/webpack/development.js"
+      }
+    }
+  },
   "rules": {
+    "no-console": "off",
+    "func-names": "off",
     "semi": [
       "error",
       "never"
@@ -30,7 +40,7 @@
       {
         "printWidth": 120,
         "singleQuote": true,
-        "trailingComma": "es5",
+        "trailingComma": "none",
         "semi": false
       }
     ]
