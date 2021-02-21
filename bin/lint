@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rubocop -a
+bin/yarn run lint:javascript
