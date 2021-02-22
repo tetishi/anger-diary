@@ -55,7 +55,7 @@ jobs:
       - run:
           name: Lint
           command: |
-            bundle exec slim-lint app/views -c .slim_lint.yml
+            bundle exec slim-lint app/views -c .slim-lint.yml
             bin/yarn run lint:javascript
 
       - run:
