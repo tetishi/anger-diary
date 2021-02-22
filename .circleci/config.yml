@@ -14,8 +14,8 @@ jobs:
       - image: circleci/postgres:12.2
         environment:
           POSTGRES_USER: user
+          POSTGRES_HOST_AUTH_METHOD: trust
           POSTGRES_DB: user_test
-          POSTGRES_PASSWORD: ""
 
     steps:
       - checkout
