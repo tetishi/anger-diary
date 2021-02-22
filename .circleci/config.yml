@@ -30,11 +30,11 @@ jobs:
           command: gem install bundler
 
       - run:
-          name: set bundle config path
+          name: Set bundle config path
           command: bundle config set path "vendor/bundle"
 
       - run:
-          name: set bundle config clean
+          name: Set bundle config clean
           command: bundle config set clean "true"
 
       - run:
@@ -73,6 +73,10 @@ jobs:
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      - run:
+          name: Create DB
+          command: bin/rails db:create
 
       - run:
           name: Database setup
