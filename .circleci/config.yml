@@ -4,6 +4,18 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.6.5-node-browsers
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          RAILS_ENV: test
+          PGHOST: 127.0.0.1
+          PGUSER: user
+      - image: circleci/postgres:12.2-alpine
+        environment:
+          POSTGRES_USER: user
+          POSTGRES_DB: user_test
+          POSTGRES_PASSWORD: ""
 
     steps:
       - checkout
@@ -59,8 +71,12 @@ jobs:
             bin/yarn run lint:javascript
 
       - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      - run:
           name: Database setup
-          command: bundle exec rake db:schema:load
+          command: bin/rails db:schema:load --trace
 
       - run:
           name: Test
