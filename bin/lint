@@ -1,4 +1,5 @@
 #!/bin/bash
 
 bundle exec rubocop -a
+bundle exec slim-lint app/views
 bin/yarn run lint:javascript

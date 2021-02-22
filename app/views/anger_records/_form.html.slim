@@ -19,7 +19,7 @@
       = form.date_field :got_angry_on
       .control
         #anger_hour.select
-          = form.time_select :got_angry_at, discard_minute: true, default: {hour: 0}
+          = form.time_select :got_angry_at, discard_minute: true, default: { hour: 0 }
       .columns.is-vcentered
         p.column
           | 時ごろ
@@ -34,16 +34,16 @@
       = form.label :changeable
     .column
       = form.radio_button :changeable, "Yes", class: "radio"
-      | はい 
+      | はい
       = form.radio_button :changeable, "No", class: "radio"
-      | いいえ 
+      | いいえ
   .field.columns.is-mobile
     .column.is-4
       = form.label :important
     .column
       = form.radio_button :important, "Yes", class: "radio"
-      | はい 
+      | はい
       = form.radio_button :important, "No", class: "radio"
-      | いいえ 
+      | いいえ
   .field
     = form.button type: "submit", class: "button is-primary is-size-5"

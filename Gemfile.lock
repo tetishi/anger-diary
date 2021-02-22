@@ -301,6 +301,9 @@ GEM
       actionpack (>= 3.1)
       railties (>= 3.1)
       slim (>= 3.0, < 5.0)
+    slim_lint (0.20.2)
+      rubocop (>= 0.78.0)
+      slim (>= 3.0, < 5.0)
     spring (2.1.1)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
@@ -382,6 +385,7 @@ DEPENDENCIES
   selenium-webdriver
   simple_calendar (~> 2.0)
   slim-rails
+  slim_lint
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
