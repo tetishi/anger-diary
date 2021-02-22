@@ -1,4 +1,4 @@
 #!/bin/bash
 
-rubocop -a
+bundle exec rubocop -a
 bin/yarn run lint:javascript
