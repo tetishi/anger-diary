@@ -1,4 +1,4 @@
-= form_with(model: anger_record, local: true) do |form|
+= form_with(model: anger_record) do |form|
   - if anger_record.errors.any?
     #error_explanation
       h2
@@ -14,9 +14,8 @@
     .field id='js-anger-level-#{anger_record.id}'
       = anger_record.level
     .field id='anger-record-form-level-#{anger_record.id}' style="display: none"
-      = form.label :level
       .control
-        .select id='js-level-#{anger_record.id}'
+        .select
           = form.select :level, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]]
     / .field id='anger-record-form-level-#{anger_record.id}' style="display: none"
     /   select.select id='js-level-#{anger_record.id}'
@@ -193,37 +192,49 @@
       | 変えらる内容か:
     .field id='js-anger-changeable-#{anger_record.id}'
       = anger_record.changeable
-    .field id='anger-record-form-changeable-#{anger_record.id}' style="display: none"
-      - if anger_record.changeable == "はい"
-        input.radio#yes-changeable type="radio" name="changeable" value="Yes" checked="checked"
-        label for="yes-changeable" はい
-      - else
-        input.radio#yes-changeable type="radio" name="changeable" value="Yes"
-        label for="yes-changeable" はい
-      - if anger_record.changeable == "いいえ"
-        input.radio#no-changeable type="radio" name="changeable" value="No" checked="checked"
-        label for="no-changeable" いいえ
-      - else
-        input.radio#no-changeable type="radio" name="changeable" value="No"
-        label for="no-changeable" いいえ
+    .field.columns.is-mobile id='anger-record-form-changeable-#{anger_record.id}' style="display: none"
+      .column
+        = form.radio_button :changeable, "はい", class: "radio"
+        | はい
+        = form.radio_button :changeable, "いいえ", class: "radio"
+        | いいえ
+    / .field id='anger-record-form-changeable-#{anger_record.id}' style="display: none"
+    /   - if anger_record.changeable == "はい"
+    /     input.radio#yes-changeable type="radio" name="changeable" value="Yes" checked="checked"
+    /     label for="yes-changeable" はい
+    /   - else
+    /     input.radio#yes-changeable type="radio" name="changeable" value="Yes"
+    /     label for="yes-changeable" はい
+    /   - if anger_record.changeable == "いいえ"
+    /     input.radio#no-changeable type="radio" name="changeable" value="No" checked="checked"
+    /     label for="no-changeable" いいえ
+    /   - else
+    /     input.radio#no-changeable type="radio" name="changeable" value="No"
+    /     label for="no-changeable" いいえ
   .field.is-grouped
     label.control.is-size-4.has-text-weight-bold for='js-anger-important-#{anger_record.id}'
       | 重要な内容か:
     .field id='js-anger-important-#{anger_record.id}'
       = anger_record.important
-    .field.is-grouped id='anger-record-form-important-#{anger_record.id}' style="display: none"
-      - if anger_record.important == "はい"
-        input.radio#yes-important type="radio" name="important" value="はい" checked="checked"
-        label id='js-important-#{anger_record.id}' for="yes-important" はい
-      - else
-        input.radio#yes-important type="radio" name="important" value="はい"
-        label for="yes-important" はい
-      - if anger_record.important == "いいえ"
-        input.radio#no-important type="radio" name="important" value="いいえ" checked="checked"
-        label id='js-important-#{anger_record.id}' for="no-important" いいえ
-      - else
-        input.radio#no-important type="radio" name="important" value="いいえ"
-        label for="no-important" いいえ
+    .field.columns.is-mobile id='anger-record-form-important-#{anger_record.id}' style="display: none"
+      .column
+        = form.radio_button :important, "はい", class: "radio"
+        | はい
+        = form.radio_button :important, "いいえ", class: "radio"
+        | いいえ
+    / .field.is-grouped id='anger-record-form-important-#{anger_record.id}' style="display: none"
+    /   - if anger_record.important == "はい"
+    /     input.radio#yes-important type="radio" name="important" value="はい" checked="checked"
+    /     label id='js-important-#{anger_record.id}' for="yes-important" はい
+    /   - else
+    /     input.radio#yes-important type="radio" name="important" value="はい"
+    /     label for="yes-important" はい
+    /   - if anger_record.important == "いいえ"
+    /     input.radio#no-important type="radio" name="important" value="いいえ" checked="checked"
+    /     label id='js-important-#{anger_record.id}' for="no-important" いいえ
+    /   - else
+    /     input.radio#no-important type="radio" name="important" value="いいえ"
+    /     label for="no-important" いいえ
   .field.is-grouped.mt-5 id='js-anger-update-cancel-button-#{anger_record.id}' style="display: none"
     .control#js-anger-update-button data-record='#{anger_record.got_angry_on}'
       button.button.is-primary.is-size-5.anger-update-button type="button" 更新

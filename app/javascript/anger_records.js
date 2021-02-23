@@ -90,13 +90,16 @@ document.addEventListener('turbolinks:load', function () {
       const angerId = document.getElementById('anger-record').getAttribute('data-record')
       const angerDate = document.getElementById('js-anger-update-button').getAttribute('data-record')
 
-      const level = document.getElementById(`js-level-${angerId}`).value
+      // const level = document.getElementById(`js-level-${angerId}`)
+      // const strUser = level.options[level.selectedIndex].text
+      const level = document.getElementById('anger_record_level').value
       const gotAngryOn = document.getElementById(`js-got-angry-on-${angerId}`).value
       const gotAngryAt = document.getElementById(`js-got-angry-at-${angerId}`).value
       const place = document.getElementById(`js-place-${angerId}`).value
       const angerBody = document.getElementById(`js-body-${angerId}`).value
-      const changeable = document.getElementById(`anger-record-form-changeable-${angerId}`).value
-      const important = document.getElementById(`js-important-${angerId}`).innerText
+      // const changeable = document.getElementById(`anger-record-form-changeable-${angerId}`).value
+      const changeable = document.querySelector('input[name="anger_record[changeable]"]:checked').value
+      const important = document.querySelector('input[name="anger_record[important]"]:checked').value
 
       // debugger;
       const bodyData = {
