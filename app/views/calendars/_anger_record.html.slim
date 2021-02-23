@@ -1,223 +1,234 @@
-.field.is-grouped
-  label.control.is-size-4.has-text-weight-bold for='js-level-#{anger_record.id}'
-    | 怒りのレベル:
-  .field id='js-anger-level-#{anger_record.id}'
-    = anger_record.level
-  .field id='anger-record-form-level-#{anger_record.id}' style="display: none"
-    select.select id='js-level-#{anger_record.id}'
-      - if anger_record.level == 1
-        option value="1" selected="selected" 1
-      - else
-        option value="1" 1
-      - if anger_record.level == 2
-        option value="2" selected="selected" 2
-      - else
-        option value="2" 2
-      - if anger_record.level == 3
-        option value="3" selected="selected" 3
-      - else
-        option value="3" 3
-      - if anger_record.level == 4
-        option value="4" selected="selected" 4
-      - else
-        option value="4" 4
-      - if anger_record.level == 5
-        option value="5" selected="selected" 5
-      - else
-        option value="5" 5
-      - if anger_record.level == 6
-        option value="6" selected="selected" 6
-      - else
-        option value="6" 6
-      - if anger_record.level == 7
-        option value="7" selected="selected" 7
-      - else
-        option value="7" 7
-      - if anger_record.level == 8
-        option value="8" selected="selected" 8
-      - else
-        option value="8" 8
-      - if anger_record.level == 9
-        option value="9" selected="selected" 9
-      - else
-        option value="9" 9
-      - if anger_record.level == 10
-        option value="10" selected="selected" 10
-      - else
-        option value="10" 10
-.field.is-grouped
-  label.control.is-size-4.has-text-weight-bold for='js-got-angry-on-#{anger_record.id}'
-    | 怒った日時:
-  .field.is-grouped id='js-anger-date-#{anger_record.id}'
-    .control id='js-anger-got-angry-on-#{anger_record.id}'
-      ==> "#{anger_record.got_angry_on}"
-    .control id='js-anger-got-angry-at-#{anger_record.id}'
-      = anger_record.got_angry_at.strftime('%k')
-    | 時ごろ
-  .field id='anger-record-form-date-#{anger_record.id}' style="display: none"
-    input id='js-got-angry-on-#{anger_record.id}' type="date" value="#{anger_record.got_angry_on}"
-    select.select id='js-got-angry-at-#{anger_record.id}'
-      - if anger_record.got_angry_at.strftime("%k") == " 0"
-        option selected="selected" 0
-      - else
-        option 0
-      - if anger_record.got_angry_at.strftime("%k") == " 1"
-        option selected="selected" 1
-      - else
-        option 1
-      - if anger_record.got_angry_at.strftime("%k") == " 2"
-        option selected="selected" 2
-      - else
-        option 2
-      - if anger_record.got_angry_at.strftime("%k") == " 3"
-        option selected="selected" 3
-      - else
-        option 3
-      - if anger_record.got_angry_at.strftime("%k") == " 4"
-        option selected="selected" 4
-      - else
-        option 4
-      - if anger_record.got_angry_at.strftime("%k") == " 5"
-        option selected="selected" 5
-      - else
-        option 5
-      - if anger_record.got_angry_at.strftime("%k") == " 6"
-        option selected="selected" 6
-      - else
-        option 6
-      - if anger_record.got_angry_at.strftime("%k") == " 7"
-        option selected="selected" 7
-      - else
-        option 7
-      - if anger_record.got_angry_at.strftime("%k") == " 8"
-        option selected="selected" 8
-      - else
-        option 8
-      - if anger_record.got_angry_at.strftime("%k") == " 9"
-        option selected="selected" 9
-      - else
-        option 9
-      - if anger_record.got_angry_at.strftime("%k") == "10"
-        option selected="selected" 10
-      - else
-        option 10
-      - if anger_record.got_angry_at.strftime("%k") == "11"
-        option selected="selected" 11
-      - else
-        option 11
-      - if anger_record.got_angry_at.strftime("%k") == "12"
-        option selected="selected" 12
-      - else
-        option 12
-      - if anger_record.got_angry_at.strftime("%k") == "13"
-        option selected="selected" 13
-      - else
-        option 13
-      - if anger_record.got_angry_at.strftime("%k") == "14"
-        option selected="selected" 14
-      - else
-        option 14
-      - if anger_record.got_angry_at.strftime("%k") == "15"
-        option selected="selected" 15
-      - else
-        option 15
-      - if anger_record.got_angry_at.strftime("%k") == "16"
-        option selected="selected" 16
-      - else
-        option 16
-      - if anger_record.got_angry_at.strftime("%k") == "17"
-        option selected="selected" 17
-      - else
-        option 17
-      - if anger_record.got_angry_at.strftime("%k") == "18"
-        option selected="selected" 18
-      - else
-        option 18
-      - if anger_record.got_angry_at.strftime("%k") == "19"
-        option selected="selected" 19
-      - else
-        option 19
-      - if anger_record.got_angry_at.strftime("%k") == "20"
-        option selected="selected" 20
-      - else
-        option 20
-      - if anger_record.got_angry_at.strftime("%k") == "21"
-        option selected="selected" 21
-      - else
-        option 21
-      - if anger_record.got_angry_at.strftime("%k") == "22"
-        option selected="selected" 22
-      - else
-        option 22
-      - if anger_record.got_angry_at.strftime("%k") == "23"
-        option selected="selected" 23
-      - else
-        option 23
-    | 時ごろ
-p.has-text-danger#js-anger-place-error style="display: none"
-  | 場所を入力してください
-.field.is-grouped
-  label.control.is-size-4.has-text-weight-bold for='js-place-#{anger_record.id}'
-    | 場所:
-  .field id='js-anger-place-#{anger_record.id}'
-    = anger_record.place
-  .field id='anger-record-form-place-#{anger_record.id}' style="display: none; flex-grow: 1"
-    input.input id='js-place-#{anger_record.id}' value="#{anger_record.place}"
-p.has-text-danger#js-anger-body-error style="display: none"
-  | 出来たことを入力してください
-.field.is-grouped
-  label.control.is-size-4.has-text-weight-bold for='js-body-#{anger_record.id}'
-    | 内容:
-  .field id='js-anger-body-#{anger_record.id}'
-    = anger_record.anger_body
-  .field id='anger-record-form-body-#{anger_record.id}' style="display: none; flex-grow: 1"
-    textarea.textarea id='js-body-#{anger_record.id}'
+= form_with(model: anger_record, local: true) do |form|
+  - if anger_record.errors.any?
+    #error_explanation
+      h2
+        = pluralize(anger_record.errors.count, "error")
+        |  prohibited this anger_record from being saved:
+      ul
+        - anger_record.errors.full_messages.each do |message|
+          li
+            = message
+  .field.is-grouped
+    label.control.is-size-4.has-text-weight-bold for='js-level-#{anger_record.id}'
+      | 怒りのレベル:
+    .field id='js-anger-level-#{anger_record.id}'
+      = anger_record.level
+    .field id='anger-record-form-level-#{anger_record.id}' style="display: none"
+      = form.label :level
+      .control
+        .select id='js-level-#{anger_record.id}'
+          = form.select :level, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]]
+    / .field id='anger-record-form-level-#{anger_record.id}' style="display: none"
+    /   select.select id='js-level-#{anger_record.id}'
+    /     - if anger_record.level == 1
+    /       option value="1" selected="selected" 1
+    /     - else
+    /       option value="1" 1
+    /     - if anger_record.level == 2
+    /       option value="2" selected="selected" 2
+    /     - else
+    /       option value="2" 2
+    /     - if anger_record.level == 3
+    /       option value="3" selected="selected" 3
+    /     - else
+    /       option value="3" 3
+    /     - if anger_record.level == 4
+    /       option value="4" selected="selected" 4
+    /     - else
+    /       option value="4" 4
+    /     - if anger_record.level == 5
+    /       option value="5" selected="selected" 5
+    /     - else
+    /       option value="5" 5
+    /     - if anger_record.level == 6
+    /       option value="6" selected="selected" 6
+    /     - else
+    /       option value="6" 6
+    /     - if anger_record.level == 7
+    /       option value="7" selected="selected" 7
+    /     - else
+    /       option value="7" 7
+    /     - if anger_record.level == 8
+    /       option value="8" selected="selected" 8
+    /     - else
+    /       option value="8" 8
+    /     - if anger_record.level == 9
+    /       option value="9" selected="selected" 9
+    /     - else
+    /       option value="9" 9
+    /     - if anger_record.level == 10
+    /       option value="10" selected="selected" 10
+    /     - else
+    /       option value="10" 10
+  .field.is-grouped
+    label.control.is-size-4.has-text-weight-bold for='js-got-angry-on-#{anger_record.id}'
+      | 怒った日時:
+    .field.is-grouped id='js-anger-date-#{anger_record.id}'
+      .control id='js-anger-got-angry-on-#{anger_record.id}'
+        ==> "#{anger_record.got_angry_on}"
+      .control id='js-anger-got-angry-at-#{anger_record.id}'
+        = anger_record.got_angry_at.strftime('%k')
+      | 時ごろ
+    .field id='anger-record-form-date-#{anger_record.id}' style="display: none"
+      input id='js-got-angry-on-#{anger_record.id}' type="date" value="#{anger_record.got_angry_on}"
+      select.select id='js-got-angry-at-#{anger_record.id}'
+        - if anger_record.got_angry_at.strftime("%k") == " 0"
+          option selected="selected" 0
+        - else
+          option 0
+        - if anger_record.got_angry_at.strftime("%k") == " 1"
+          option selected="selected" 1
+        - else
+          option 1
+        - if anger_record.got_angry_at.strftime("%k") == " 2"
+          option selected="selected" 2
+        - else
+          option 2
+        - if anger_record.got_angry_at.strftime("%k") == " 3"
+          option selected="selected" 3
+        - else
+          option 3
+        - if anger_record.got_angry_at.strftime("%k") == " 4"
+          option selected="selected" 4
+        - else
+          option 4
+        - if anger_record.got_angry_at.strftime("%k") == " 5"
+          option selected="selected" 5
+        - else
+          option 5
+        - if anger_record.got_angry_at.strftime("%k") == " 6"
+          option selected="selected" 6
+        - else
+          option 6
+        - if anger_record.got_angry_at.strftime("%k") == " 7"
+          option selected="selected" 7
+        - else
+          option 7
+        - if anger_record.got_angry_at.strftime("%k") == " 8"
+          option selected="selected" 8
+        - else
+          option 8
+        - if anger_record.got_angry_at.strftime("%k") == " 9"
+          option selected="selected" 9
+        - else
+          option 9
+        - if anger_record.got_angry_at.strftime("%k") == "10"
+          option selected="selected" 10
+        - else
+          option 10
+        - if anger_record.got_angry_at.strftime("%k") == "11"
+          option selected="selected" 11
+        - else
+          option 11
+        - if anger_record.got_angry_at.strftime("%k") == "12"
+          option selected="selected" 12
+        - else
+          option 12
+        - if anger_record.got_angry_at.strftime("%k") == "13"
+          option selected="selected" 13
+        - else
+          option 13
+        - if anger_record.got_angry_at.strftime("%k") == "14"
+          option selected="selected" 14
+        - else
+          option 14
+        - if anger_record.got_angry_at.strftime("%k") == "15"
+          option selected="selected" 15
+        - else
+          option 15
+        - if anger_record.got_angry_at.strftime("%k") == "16"
+          option selected="selected" 16
+        - else
+          option 16
+        - if anger_record.got_angry_at.strftime("%k") == "17"
+          option selected="selected" 17
+        - else
+          option 17
+        - if anger_record.got_angry_at.strftime("%k") == "18"
+          option selected="selected" 18
+        - else
+          option 18
+        - if anger_record.got_angry_at.strftime("%k") == "19"
+          option selected="selected" 19
+        - else
+          option 19
+        - if anger_record.got_angry_at.strftime("%k") == "20"
+          option selected="selected" 20
+        - else
+          option 20
+        - if anger_record.got_angry_at.strftime("%k") == "21"
+          option selected="selected" 21
+        - else
+          option 21
+        - if anger_record.got_angry_at.strftime("%k") == "22"
+          option selected="selected" 22
+        - else
+          option 22
+        - if anger_record.got_angry_at.strftime("%k") == "23"
+          option selected="selected" 23
+        - else
+          option 23
+      | 時ごろ
+  p.has-text-danger#js-anger-place-error style="display: none"
+    | 場所を入力してください
+  .field.is-grouped
+    label.control.is-size-4.has-text-weight-bold for='js-place-#{anger_record.id}'
+      | 場所:
+    .field id='js-anger-place-#{anger_record.id}'
+      = anger_record.place
+    .field id='anger-record-form-place-#{anger_record.id}' style="display: none; flex-grow: 1"
+      input.input id='js-place-#{anger_record.id}' value="#{anger_record.place}"
+  p.has-text-danger#js-anger-body-error style="display: none"
+    | 出来たことを入力してください
+  .field.is-grouped
+    label.control.is-size-4.has-text-weight-bold for='js-body-#{anger_record.id}'
+      | 内容:
+    .field id='js-anger-body-#{anger_record.id}'
       = anger_record.anger_body
-.field.is-grouped
-  label.control.is-size-4.has-text-weight-bold for='js-anger-changeable-#{anger_record.id}'
-    | 変えらる内容か:
-  .field id='js-anger-changeable-#{anger_record.id}'
-    = anger_record.changeable
-  .field id='anger-record-form-changeable-#{anger_record.id}' style="display: none"
-    - if anger_record.changeable == "はい"
-      input.radio#yes-changeable type="radio" name="changeable" value="Yes" checked="checked"
-      label for="yes-changeable" はい
-    - else
-      input.radio#yes-changeable type="radio" name="changeable" value="Yes"
-      label for="yes-changeable" はい
-    - if anger_record.changeable == "いいえ"
-      input.radio#no-changeable type="radio" name="changeable" value="No" checked="checked"
-      label for="no-changeable" いいえ
-    - else
-      input.radio#no-changeable type="radio" name="changeable" value="No"
-      label for="no-changeable" いいえ
-    / input.radio#yes-changeable type="radio" value="Yes" checked=('#{anger_record.changeable}' == 'Yes' ? 'checked' : false)
-    / label for="yes-changeable" はい
-    / input.radio#no-changeable type="radio" value="No" checked=('#{anger_record.changeable}' == 'No' ? 'checked' : false)
-    / label for="no-changeable" いいえ
-.field.is-grouped
-  label.control.is-size-4.has-text-weight-bold for='js-anger-important-#{anger_record.id}'
-    | 重要な内容か:
-  .field id='js-anger-important-#{anger_record.id}'
-    = anger_record.important
-  .field.is-grouped id='anger-record-form-important-#{anger_record.id}' style="display: none"
-    - if anger_record.important == "はい"
-      input.radio#yes-important type="radio" name="important" value="はい" checked="checked"
-      label id='js-important-#{anger_record.id}' for="yes-important" はい
-    - else
-      input.radio#yes-important type="radio" name="important" value="はい"
-      label for="yes-important" はい
-    - if anger_record.important == "いいえ"
-      input.radio#no-important type="radio" name="important" value="いいえ" checked="checked"
-      label id='js-important-#{anger_record.id}' for="no-important" いいえ
-    - else
-      input.radio#no-important type="radio" name="important" value="いいえ"
-      label for="no-important" いいえ
-.field.is-grouped.mt-5 id='js-anger-update-cancel-button-#{anger_record.id}' style="display: none"
-  .control#js-anger-update-button data-record='#{anger_record.got_angry_on}'
-    button.button.is-primary.is-size-5.anger-update-button type="button" 更新
-  .control
-    button.button.is-light.is-size-5#anger-cancel-button type="button" キャンセル
+    .field id='anger-record-form-body-#{anger_record.id}' style="display: none; flex-grow: 1"
+      textarea.textarea id='js-body-#{anger_record.id}'
+        = anger_record.anger_body
+  .field.is-grouped
+    label.control.is-size-4.has-text-weight-bold for='js-anger-changeable-#{anger_record.id}'
+      | 変えらる内容か:
+    .field id='js-anger-changeable-#{anger_record.id}'
+      = anger_record.changeable
+    .field id='anger-record-form-changeable-#{anger_record.id}' style="display: none"
+      - if anger_record.changeable == "はい"
+        input.radio#yes-changeable type="radio" name="changeable" value="Yes" checked="checked"
+        label for="yes-changeable" はい
+      - else
+        input.radio#yes-changeable type="radio" name="changeable" value="Yes"
+        label for="yes-changeable" はい
+      - if anger_record.changeable == "いいえ"
+        input.radio#no-changeable type="radio" name="changeable" value="No" checked="checked"
+        label for="no-changeable" いいえ
+      - else
+        input.radio#no-changeable type="radio" name="changeable" value="No"
+        label for="no-changeable" いいえ
+  .field.is-grouped
+    label.control.is-size-4.has-text-weight-bold for='js-anger-important-#{anger_record.id}'
+      | 重要な内容か:
+    .field id='js-anger-important-#{anger_record.id}'
+      = anger_record.important
+    .field.is-grouped id='anger-record-form-important-#{anger_record.id}' style="display: none"
+      - if anger_record.important == "はい"
+        input.radio#yes-important type="radio" name="important" value="はい" checked="checked"
+        label id='js-important-#{anger_record.id}' for="yes-important" はい
+      - else
+        input.radio#yes-important type="radio" name="important" value="はい"
+        label for="yes-important" はい
+      - if anger_record.important == "いいえ"
+        input.radio#no-important type="radio" name="important" value="いいえ" checked="checked"
+        label id='js-important-#{anger_record.id}' for="no-important" いいえ
+      - else
+        input.radio#no-important type="radio" name="important" value="いいえ"
+        label for="no-important" いいえ
+  .field.is-grouped.mt-5 id='js-anger-update-cancel-button-#{anger_record.id}' style="display: none"
+    .control#js-anger-update-button data-record='#{anger_record.got_angry_on}'
+      button.button.is-primary.is-size-5.anger-update-button type="button" 更新
+    .control
+      button.button.is-light.is-size-5#anger-cancel-button type="button" キャンセル
 
 / = form_with(model: anger_record, local: true) do |form|
 /   - if anger_record.errors.any?
