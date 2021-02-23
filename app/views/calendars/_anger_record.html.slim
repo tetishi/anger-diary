@@ -237,9 +237,9 @@
     /     label for="no-important" いいえ
   .field.is-grouped.mt-5 id='js-anger-update-cancel-button-#{anger_record.id}' style="display: none"
     .control#js-anger-update-button data-record='#{anger_record.got_angry_on}'
-      button.button.is-primary.is-size-5.anger-update-button type="button" 更新
+      button.button.is-primary.is-size-5.anger-update-button id='#{anger_record.id}' type="button" 更新
     .control
-      button.button.is-light.is-size-5#anger-cancel-button type="button" キャンセル
+      button.button.is-light.is-size-5.anger-cancel-button id='#{anger_record.id}' type="button" キャンセル
 
 / = form_with(model: anger_record, local: true) do |form|
 /   - if anger_record.errors.any?
