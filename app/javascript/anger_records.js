@@ -100,7 +100,8 @@ document.addEventListener('turbolinks:load', function () {
 
         // const level = document.getElementById(`js-level-${angerId}`)
         // const strUser = level.options[level.selectedIndex].text
-        const level = document.getElementById('anger_record_level').value
+        // debugger;
+        const level = document.getElementById(`${angerId}_anger_record_level`).value
         const gotAngryOn = document.getElementById(`js-got-angry-on-${angerId}`).value
         const gotAngryAt = document.getElementById(`js-got-angry-at-${angerId}`).value
         const place = document.getElementById(`js-place-${angerId}`).value
