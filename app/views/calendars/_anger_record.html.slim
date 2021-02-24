@@ -92,22 +92,21 @@ div id='anger-record-form-#{anger_record.id}' style="display: none"
           - anger_record.errors.full_messages.each do |message|
             li
               = message
-    .field
-      = form.label :level
-      .control
-        .select
-          = form.select :level, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]]
-    .field
-      = form.label :got_angry_on
-      .field.is-horizontal
+    .field.is-grouped
+      .control.is-size-4.has-text-weight-bold
+        = form.label :level
+      .control.select
+        = form.select :level, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]]
+    .field.is-grouped
+      .control.is-size-4.has-text-weight-bold
+        = form.label :got_angry_on
+      .control.is-flex
         = form.date_field :got_angry_on
-        .control
-          #anger_hour.select
-            / - binding.pry
-            = form.time_select :got_angry_at, discard_minute: true, default: { hour: 0 }
-        .columns.is-vcentered
-          p.column
-            | 時ごろ
+      .control
+        #anger_hour.select
+          = form.time_select :got_angry_at, discard_minute: true, default: { hour: 0 }
+      .control.is-size-4
+        | 時ごろ
     p.has-text-danger#js-anger-place-error style="display: none"
       | 場所を入力してください
     .field.is-grouped
@@ -122,18 +121,18 @@ div id='anger-record-form-#{anger_record.id}' style="display: none"
         = form.label :anger_body
       .control style="flex-grow: 1"
         = form.text_area :anger_body, class: "textarea"
-    .field.columns.is-mobile
-      .column.is-4
+    .field.is-grouped.is-mobile
+      .control.is-size-4.has-text-weight-bold
         = form.label :changeable
-      .column
+      .control.is-size-4
         = form.radio_button :changeable, "はい", class: "radio"
         | はい
         = form.radio_button :changeable, "いいえ", class: "radio"
         | いいえ
-    .field.columns.is-mobile
-      .column.is-4
+    .field.is-grouped.is-mobile
+      .control.is-size-4.has-text-weight-bold
         = form.label :important
-      .column
+      .control.is-size-4
         = form.radio_button :important, "はい", class: "radio"
         | はい
         = form.radio_button :important, "いいえ", class: "radio"
