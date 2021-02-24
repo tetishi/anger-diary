@@ -35,8 +35,8 @@ div id='js-anger-record-#{anger_record.id}'
     /   .columns.is-vcentered
     /     p.column
     /       | 時ごろ
-  p.has-text-danger#js-anger-place-error style="display: none"
-    | 場所を入力してください
+  / p.has-text-danger#js-anger-place-error style="display: none"
+  /   | 場所を入力してください
   .field.is-grouped
     label.control.is-size-4.has-text-weight-bold for='js-place-#{anger_record.id}'
       | 場所:
@@ -44,8 +44,8 @@ div id='js-anger-record-#{anger_record.id}'
       = anger_record.place
     / .field id='anger-record-form-place-#{anger_record.id}' style="display: none; flex-grow: 1"
     /   input.input id='js-place-#{anger_record.id}' value="#{anger_record.place}"
-  p.has-text-danger#js-anger-body-error style="display: none"
-    | 出来たことを入力してください
+  / p.has-text-danger#js-anger-body-error style="display: none"
+  /   | 内容を入力してください
   .field.is-grouped
     label.control.is-size-4.has-text-weight-bold for='js-body-#{anger_record.id}'
       | 内容:
@@ -108,12 +108,20 @@ div id='anger-record-form-#{anger_record.id}' style="display: none"
         .columns.is-vcentered
           p.column
             | 時ごろ
-    .field
-      = form.label :place
-      = form.text_field :place, class: "input"
-    .field
-      = form.label :anger_body
-      = form.text_area :anger_body, class: "textarea"
+    p.has-text-danger#js-anger-place-error style="display: none"
+      | 場所を入力してください
+    .field.is-grouped
+      .control.is-size-4.has-text-weight-bold
+        = form.label :place
+      .control style="flex-grow: 1"
+        = form.text_field :place, class: "input"
+    p.has-text-danger#js-anger-body-error style="display: none"
+      | 内容を入力してください
+    .field.is-grouped
+      .control.is-size-4.has-text-weight-bold
+        = form.label :anger_body
+      .control style="flex-grow: 1"
+        = form.text_area :anger_body, class: "textarea"
     .field.columns.is-mobile
       .column.is-4
         = form.label :changeable

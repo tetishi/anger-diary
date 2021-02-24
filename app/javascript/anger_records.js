@@ -218,8 +218,12 @@ document.addEventListener('turbolinks:load', function () {
             const angerPlaceError = document.getElementById('js-anger-place-error')
             const angerBodyError = document.getElementById('js-anger-body-error')
 
-            angerPlaceError.style.display = ''
-            angerBodyError.style.display = ''
+            if (place === '') {
+              angerPlaceError.style.display = ''
+            }
+            if (angerBody === '') {
+              angerBodyError.style.display = ''
+            }
           })
       })
     })
