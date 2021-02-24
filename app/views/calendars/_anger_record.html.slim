@@ -12,7 +12,7 @@ div id='js-anger-record-#{anger_record.id}'
   .field.is-grouped
     label.control.is-size-4.has-text-weight-bold for='js-level-#{anger_record.id}'
       | 怒りのレベル:
-    .field id='js-anger-level-#{anger_record.id}'
+    .control.is-size-4 id='js-anger-level-#{anger_record.id}'
       = anger_record.level
     / .field id='anger-record-form-level-#{anger_record.id}' style="display: none"
     /   .control
@@ -22,11 +22,11 @@ div id='js-anger-record-#{anger_record.id}'
     label.control.is-size-4.has-text-weight-bold for='js-got-angry-on-#{anger_record.id}'
       | 怒った日時:
     .field.is-grouped id='js-anger-date-#{anger_record.id}'
-      .control id='js-anger-got-angry-on-#{anger_record.id}'
+      .control.is-size-4 id='js-anger-got-angry-on-#{anger_record.id}'
         ==> "#{anger_record.got_angry_on}"
-      .control id='js-anger-got-angry-at-#{anger_record.id}'
+      .control.is-size-4 id='js-anger-got-angry-at-#{anger_record.id}'
         = anger_record.got_angry_at.strftime('%k')
-      | 時ごろ
+        | 時ごろ
     / .field.is-horizontal id='anger-record-form-date-#{anger_record.id}' style="display: none"
     /   = form.date_field :got_angry_on
     /   .control
@@ -40,7 +40,7 @@ div id='js-anger-record-#{anger_record.id}'
   .field.is-grouped
     label.control.is-size-4.has-text-weight-bold for='js-place-#{anger_record.id}'
       | 場所:
-    .field id='js-anger-place-#{anger_record.id}'
+    .control.is-size-4 id='js-anger-place-#{anger_record.id}'
       = anger_record.place
     / .field id='anger-record-form-place-#{anger_record.id}' style="display: none; flex-grow: 1"
     /   input.input id='js-place-#{anger_record.id}' value="#{anger_record.place}"
@@ -49,7 +49,7 @@ div id='js-anger-record-#{anger_record.id}'
   .field.is-grouped
     label.control.is-size-4.has-text-weight-bold for='js-body-#{anger_record.id}'
       | 内容:
-    .field id='js-anger-body-#{anger_record.id}'
+    .control.is-size-4 id='js-anger-body-#{anger_record.id}'
       = anger_record.anger_body
     / .field id='anger-record-form-body-#{anger_record.id}' style="display: none; flex-grow: 1"
     /   textarea.textarea id='js-body-#{anger_record.id}'
@@ -57,7 +57,7 @@ div id='js-anger-record-#{anger_record.id}'
   .field.is-grouped
     label.control.is-size-4.has-text-weight-bold for='js-anger-changeable-#{anger_record.id}'
       | 変えらる内容か:
-    .field id='js-anger-changeable-#{anger_record.id}'
+    .control.is-size-4 id='js-anger-changeable-#{anger_record.id}'
       = anger_record.changeable
     / .field.columns.is-mobile id='anger-record-form-changeable-#{anger_record.id}' style="display: none"
     /   .column
@@ -68,7 +68,7 @@ div id='js-anger-record-#{anger_record.id}'
   .field.is-grouped
     label.control.is-size-4.has-text-weight-bold for='js-anger-important-#{anger_record.id}'
       | 重要な内容か:
-    .field id='js-anger-important-#{anger_record.id}'
+    .control.is-size-4 id='js-anger-important-#{anger_record.id}'
       = anger_record.important
     / .field.columns.is-mobile id='anger-record-form-important-#{anger_record.id}' style="display: none"
     /   .column
