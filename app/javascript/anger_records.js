@@ -106,9 +106,20 @@ document.addEventListener('turbolinks:load', function () {
         const gotAngryAt = document.getElementById(`js-got-angry-at-${angerId}`).value
         const place = document.getElementById(`js-place-${angerId}`).value
         const angerBody = document.getElementById(`js-body-${angerId}`).value
-        // const changeable = document.getElementById(`anger-record-form-changeable-${angerId}`).value
-        const changeable = document.querySelector('input[name="anger_record[changeable]"]:checked').value
-        const important = document.querySelector('input[name="anger_record[important]"]:checked').value
+        let changeable
+        if (document.getElementById(`${angerId}_anger_record_changeable_はい`).checked) {
+          changeable = document.getElementById(`${angerId}_anger_record_changeable_はい`).value
+        }
+        if (document.getElementById(`${angerId}_anger_record_changeable_いいえ`).checked) {
+          changeable = document.getElementById(`${angerId}_anger_record_changeable_いいえ`).value
+        }
+        let important
+        if (document.getElementById(`${angerId}_anger_record_important_はい`).checked) {
+          important = document.getElementById(`${angerId}_anger_record_important_はい`).value
+        }
+        if (document.getElementById(`${angerId}_anger_record_important_いいえ`).checked) {
+          important = document.getElementById(`${angerId}_anger_record_important_いいえ`).value
+        }
 
         // debugger;
         const bodyData = {
