@@ -48,6 +48,20 @@ document.addEventListener('turbolinks:load', function () {
         // angerRecordFormImportant.style.display = ''
 
         // angerUpdateCancelButton.style.display = ''
+
+
+
+        // const angerId = document.getElementById('anger-record').getAttribute('data-record')
+        // const gotAngryOn = document.getElementById(`${angerId}_anger_record_got_angry_on`)
+        // if (gotAngryOn && angerId) {
+        //   gotAngryOn.addEventListener('change', function () {
+        //     const submitButton = document.getElementById('submit-button')
+        //     const updateButton = document.getElementById('js-anger-update-button')
+      
+        //     submitButton.style.display = ''
+        //     updateButton.style.display = 'none'
+        //   })
+        // }
       })
     })
   }
@@ -105,6 +119,18 @@ document.addEventListener('turbolinks:load', function () {
     })
   }
 
+  const angerId = document.getElementById('anger-record').getAttribute('data-record')
+  const gotAngryOn = document.getElementById(`${angerId}_anger_record_got_angry_on`)
+  if (gotAngryOn && angerId) {
+    gotAngryOn.addEventListener('change', function () {
+      const submitButton = document.getElementById('submit-button')
+      const updateButton = document.getElementById('js-anger-update-button')
+
+      submitButton.style.display = ''
+      updateButton.style.display = 'none'
+    })
+  }
+
   const angerUpdateButton = document.querySelectorAll('.anger-update-button')
   if (angerUpdateButton) {
     angerUpdateButton.forEach(function (updateButton) {
@@ -113,7 +139,9 @@ document.addEventListener('turbolinks:load', function () {
         const angerDate = document.getElementById('js-anger-update-button').getAttribute('data-record')
 
         const level = document.getElementById(`${angerId}_anger_record_level`).value
+        // debugger;
         const gotAngryOn = document.getElementById(`${angerId}_anger_record_got_angry_on`).value
+        
         const gotAngryAt = document.getElementById(`${angerId}_anger_record_got_angry_at_4i`).value
         const place = document.getElementById(`${angerId}_anger_record_place`).value
         const angerBody = document.getElementById(`${angerId}_anger_record_anger_body`).value
@@ -142,7 +170,13 @@ document.addEventListener('turbolinks:load', function () {
           important
         }
 
-        fetch(`/calendars/${angerDate}/anger_records/${angerId}`, {
+
+        // if (gotAngryOn !== document.getElementById(`js-anger-got-angry-on-${angerId}`).value) {
+
+        // }
+        // debugger
+        // fetch(`/calendars/${gotAngryOn}/anger_records/${angerId}`, {
+        fetch(`/calendars/${angerDate}/anger_records/${angerId}.json`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json'
@@ -212,6 +246,9 @@ document.addEventListener('turbolinks:load', function () {
 
             angerPlaceError.style.display = 'none'
             angerBodyError.style.display = 'none'
+
+            // debugger;
+            // if ()
           })
           .catch((error) => {
             console.log(error.message)

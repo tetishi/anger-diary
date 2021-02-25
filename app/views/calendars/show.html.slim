@@ -7,7 +7,7 @@ section.section
         .notice id='anger_record-#{anger_record.id}'
           = render partial: 'anger_record', locals: { anger_record: anger_record }
           .field.is-grouped.my-5 id='js-two-anger-button-#{anger_record.id}'
-            .control
+            .control#anger-record data-record='#{anger_record.id}'
               button.button.js-anger-edit-button.is-primary.is-size-5 id='#{anger_record.id}' type='button' 編集
             .control
               = link_to '削除', anger_record_path(anger_record), method: :delete, data: { confirm: '本当によろしいですか？' }, remote: true, class: 'button is-danger is-size-5'

@@ -101,6 +101,7 @@ div id='anger-record-form-#{anger_record.id}' style="display: none"
       .control.is-size-4.has-text-weight-bold
         = form.label :got_angry_on
       .control.is-flex
+        / = link_to "#{anger_record.got_angry_on}", edit_anger_record_path(anger_record.got_angry_on, anger_record.id), class: ''
         = form.date_field :got_angry_on
       .control
         #anger_hour.select
@@ -140,5 +141,7 @@ div id='anger-record-form-#{anger_record.id}' style="display: none"
     .field.is-grouped.mt-5 id='js-anger-update-cancel-button-#{anger_record.id}'
       .control#js-anger-update-button data-record='#{anger_record.got_angry_on}'
         button.button.is-primary.is-size-5.anger-update-button id='#{anger_record.id}' type="button" 更新
+      .control#submit-button style="display: none"
+        = form.button type: "submit", class: "button is-primary is-size-5"
       .control
         button.button.is-light.is-size-5.anger-cancel-button id='#{anger_record.id}' type="button" キャンセル

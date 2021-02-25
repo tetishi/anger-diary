@@ -23,15 +23,15 @@ class CalendarsController < ApplicationController
     # @anger_records = current_user.anger_records.where(got_angry_on: params[:date]).sort_by do |anger_record|
     #   anger_record.got_angry_at.strftime("%k")
     # end
-    # binding.pry
+    # # binding.pry
 
     # @anger_record = current_user.anger_records.find_by(got_angry_on: params[:date])
 
-    # binding.pry
+    # # binding.pry
     # if @anger_record.update(anger_record_params)
-    #   render json: @anger_record and return
+    #   redirect_to calendar_url(date: @anger_record.got_angry_on), notice: "怒りの記録が編集されました。"
     # else
-    #   head :bad_request
+    #   render :edit
     # end
 
     if @success_record.update(success_record_params)
@@ -45,7 +45,8 @@ class CalendarsController < ApplicationController
 
       # def anger_record_params
       #   # require
-      #   params.permit(:level, :got_angry_on, :got_angry_at, :place, :anger_body, :changeable, :important)
+      #   params.requier(:anger_record).permit(:level, :got_angry_on, :got_angry_at, :place, :anger_body, :changeable, :important)
+      #   # params.permit(:level, :got_angry_on, :got_angry_at, :place, :anger_body, :changeable, :important)
       #   # params.require(:anger_or_success_data).permit(:level, :got_angry_on, :got_angry_at, :place, :anger_body, :changeable, :important)
       # end
 

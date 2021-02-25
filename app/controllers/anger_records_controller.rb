@@ -32,14 +32,24 @@ class AngerRecordsController < ApplicationController
 
   # PATCH/PUT /anger_records/1
   def update
-    if @anger_record.update(anger_record_params)
-      render json: @anger_record
-      # redirect_to calendar_url(date: @anger_record.got_angry_on), notice: "怒りの記録が編集されました。"
-    else
-      # render :edit
-      head :bad_request
+    respond_to do |format|
+      if @anger_record.update(anger_record_params)
+        format.html { redirect_to calendar_url(date: @anger_record.got_angry_on), notice: "怒りの記録が編集されました。" }
+        format.json { render json: @anger_record }
+      else
+        format.html { render :edit }
+        format.json { head :bad_request }
+      end
     end
   end
+
+  # def json_update
+  #   if @anger_record.update(anger_record_params)
+  #     render json: @anger_record
+  #   else
+  #     head :bad_request
+  #   end
+  # end
 
   def destroy
     @anger_record.destroy
