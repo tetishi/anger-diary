@@ -94,7 +94,6 @@ document.addEventListener('turbolinks:load', function () {
         })
           .then((response) => response.json())
           .then((data) => {
-            console.log(data)
             const angerRecord = document.getElementById(`js-anger-record-${angerId}`)
             const angerLevel = document.getElementById(`js-level-${angerId}`)
             const angerGotAngryOn = document.getElementById(`js-got-angry-on-${angerId}`)
