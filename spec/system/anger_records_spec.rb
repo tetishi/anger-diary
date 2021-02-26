@@ -28,24 +28,50 @@ feature "AngerRecords", js: true, type: :feature do
     click_on "戻る"
   end
 
-  scenario "updating an anger record" do
-    @anger_record = create(:anger_record, user: @user)
-
-    visit calendar_path(@anger_record.got_angry_on)
-    click_on "編集"
-
-    select "6", from: "怒りのレベル"
-    fill_in "怒った日時", with: "2019-12-20"
-    within "#anger_hour" do
-      select "13"
+  context "with an anger record" do
+    background do
+      @anger_record = create(:anger_record, user: @user)
     end
-    fill_in "場所", with: "test test"
-    fill_in "内容", with: "test test test"
-    find("input[name='anger_record[changeable]'][value='はい']").set(true)
-    find("input[name='anger_record[important]'][value='はい']").set(true)
-    click_on "更新する"
 
-    assert_text "怒りの記録が編集されました。"
-    click_on "戻る"
+    scenario "updating an anger record" do
+      visit calendar_path(@anger_record.got_angry_on)
+      click_on "編集"
+
+      select "6", from: "怒りのレベル"
+      fill_in "怒った日時", with: "2019-12-20"
+      within "#anger_hour" do
+        select "13"
+      end
+      fill_in "場所", with: "test test"
+      fill_in "内容", with: "test test test"
+      find("input[name='anger_record[changeable]'][value='はい']").set(true)
+      find("input[name='anger_record[important]'][value='はい']").set(true)
+      click_on "更新する"
+
+      assert_text "怒りの記録が編集されました。"
+      click_on "戻る"
+    end
+
+    scenario "displaying a place error message" do
+      visit calendar_path(@anger_record.got_angry_on)
+      click_on "編集"
+
+      fill_in "場所", with: ""
+      click_on "更新する"
+
+      assert_text "場所を入力してください"
+      click_on "戻る"
+    end
+
+    scenario "displaying a body error message" do
+      visit calendar_path(@anger_record.got_angry_on)
+      click_on "編集"
+
+      fill_in "内容", with: ""
+      click_on "更新する"
+
+      assert_text "内容を入力してください"
+      click_on "戻る"
+    end
   end
 end
