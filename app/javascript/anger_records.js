@@ -119,15 +119,24 @@ document.addEventListener('turbolinks:load', function () {
     })
   }
 
-  const angerId = document.getElementById('anger-record').getAttribute('data-record')
-  const gotAngryOn = document.getElementById(`${angerId}_anger_record_got_angry_on`)
-  if (gotAngryOn && angerId) {
-    gotAngryOn.addEventListener('change', function () {
-      const submitButton = document.getElementById('submit-button')
-      const updateButton = document.getElementById('js-anger-update-button')
+  // const angerId = document.getElementById('anger-record').getAttribute('data-record')
+  // const gotAngryOn = document.getElementById(`${angerId}_anger_record_got_angry_on`)
+  const angerDates = document.querySelectorAll('.anger-date')
+  // if (gotAngryOn && angerId) {
+  if (angerDates) {
+    angerDates.forEach(function (angerDate) {
+    // gotAngryOn.forEach(function (angerDate) {
+      angerDate.addEventListener('change', function () {
+        debugger
+        // const angerId = this.id
+        const angerId = document.getElementById('anger-record').getAttribute('data-record')
+        const submitButton = document.getElementById(`submit-button-${angerId}`)
+        const updateButton = document.getElementById('js-anger-update-button')
 
-      submitButton.style.display = ''
-      updateButton.style.display = 'none'
+        // debugger
+        submitButton.style.display = ''
+        updateButton.style.display = 'none'
+      })
     })
   }
 
