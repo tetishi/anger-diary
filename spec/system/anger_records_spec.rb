@@ -20,12 +20,12 @@ feature "AngerRecords", js: true, type: :feature do
     end
     fill_in "場所", with: @anger_record.place
     fill_in "内容", with: @anger_record.anger_body
-    find("input[name='anger_record[changeable]'][value='Yes']").set(@anger_record.changeable)
-    find("input[name='anger_record[important]'][value='Yes']").set(@anger_record.important)
+    find("input[name='anger_record[changeable]'][value='はい']").set(@anger_record.changeable)
+    find("input[name='anger_record[important]'][value='はい']").set(@anger_record.important)
     click_on "登録する"
 
     assert_text "怒りの記録が作成されました。"
-    click_on "OK"
+    click_on "戻る"
   end
 
   scenario "updating an anger record" do
@@ -41,8 +41,8 @@ feature "AngerRecords", js: true, type: :feature do
     end
     fill_in "場所", with: "test test"
     fill_in "内容", with: "test test test"
-    find("input[name='anger_record[changeable]'][value='Yes']").set(true)
-    find("input[name='anger_record[important]'][value='Yes']").set(true)
+    find("input[name='anger_record[changeable]'][value='はい']").set(true)
+    find("input[name='anger_record[important]'][value='はい']").set(true)
     click_on "更新する"
 
     assert_text "怒りの記録が編集されました。"
