@@ -17,24 +17,7 @@ feature "SuccessRecords", js: true, type: :feature do
     click_on "登録する"
 
     assert_text "今日出来たことが作成されました。"
-    click_on "OK"
-  end
-
-  scenario "editing a success record after creating it" do
-    @success_record = build(:success_record, user: @user)
-
-    visit root_path
-    click_on "今日出来たことを記録する", match: :first
-    fill_in "今日出来たこと", with: @success_record.success_body
-    click_on "登録する"
-
-    assert_text "今日出来たことが作成されました。"
-    click_on "編集"
-    fill_in "内容", with: "test"
-    click_on "更新"
-
-    expect(page).to have_content "test"
-    click_on "OK"
+    click_on "戻る"
   end
 
   context "with a success record" do

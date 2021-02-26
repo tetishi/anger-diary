@@ -75,6 +75,7 @@ document.addEventListener('turbolinks:load', function () {
   const submitUpdateButton = document.querySelector('.submit-update-button')
   if (submitUpdateButton) {
     submitUpdateButton.addEventListener('click', function () {
+      const successId = this.id
       const successRecordDate = document.getElementById('success-record').getAttribute('data-record')
       const textField = document.getElementById(`js-textarea-body-${successRecordDate}`)
       const body = textField.value
@@ -83,7 +84,7 @@ document.addEventListener('turbolinks:load', function () {
         success_body: body
       }
 
-      fetch(`/calendars/${successRecordDate}`, {
+      fetch(`/calendars/${successRecordDate}/success_records/${successId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'

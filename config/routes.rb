@@ -10,9 +10,10 @@ Rails.application.routes.draw do
     root "secret#index", as: :authenticated_root
   end
   resources :anger_records, except: [:index, :show, :edit]
-  resources :success_records, except: [:index, :edit]
-  resources :calendars, only: [:index, :show, :update], param: :date do
+  resources :success_records, except: [:index, :show, :edit]
+  resources :calendars, only: [:index, :show], param: :date do
     resources :anger_records, only: :update
+    resources :success_records, only: :update
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

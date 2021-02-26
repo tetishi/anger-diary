@@ -10,6 +10,6 @@ p.has-text-danger#js-success-record-post-error style="display: none"
       = success_record.success_body
 .field.is-grouped#js-success-update-cancel-button style="display: none"
   .control
-    button.button.submit-update-button.is-primary.is-size-5 type="button" 更新
+    button.button.submit-update-button.is-primary.is-size-5 id='#{success_record.id}' type="button" 更新
   .control
     button.button.is-light.is-size-5#success-cancel-button type="button" キャンセル
