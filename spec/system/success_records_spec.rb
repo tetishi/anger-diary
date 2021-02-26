@@ -30,7 +30,7 @@ feature "SuccessRecords", js: true, type: :feature do
       click_on "編集"
 
       fill_in "出来たこと", with: "test test"
-      click_on "更新"
+      click_on "更新する"
 
       assert_text "出来たことが編集されました。"
       click_on "戻る"
@@ -41,7 +41,7 @@ feature "SuccessRecords", js: true, type: :feature do
       click_on "編集"
 
       fill_in "出来たこと", with: ""
-      click_on "更新"
+      click_on "更新する"
 
       assert_text "出来たことを入力してください"
       click_on "戻る"
