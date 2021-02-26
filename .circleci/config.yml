@@ -8,12 +8,12 @@ jobs:
           BUNDLE_PATH: vendor/bundle
           RAILS_ENV: test
           PGHOST: 127.0.0.1
-          PGUSER: user
+          PGUSER: tetsuroishida
       - image: circleci/postgres:12.2
         environment:
-          POSTGRES_USER: user
+          POSTGRES_USER: tetsuroishida
           POSTGRES_HOST_AUTH_METHOD: trust
-          POSTGRES_DB: user_test
+          POSTGRES_DB: anger_diary_test
 
     steps:
       - checkout
