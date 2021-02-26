@@ -1,23 +1,9 @@
-/ = form_with(model: anger_record, namespace: anger_record.id) do |form|
-/   - if anger_record.errors.any?
-/     #error_explanation
-/       h2
-/         = pluralize(anger_record.errors.count, "error")
-/         |  prohibited this anger_record from being saved:
-/       ul
-/         - anger_record.errors.full_messages.each do |message|
-/           li
-/             = message
 div id='js-anger-record-#{anger_record.id}'
   .field.is-grouped
     label.control.is-size-4.has-text-weight-bold for='js-level-#{anger_record.id}'
       | 怒りのレベル:
     .control.is-size-4 id='js-anger-level-#{anger_record.id}'
       = anger_record.level
-    / .field id='anger-record-form-level-#{anger_record.id}' style="display: none"
-    /   .control
-    /     .select
-    /       = form.select :level, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]]
   .field.is-grouped
     label.control.is-size-4.has-text-weight-bold for='js-got-angry-on-#{anger_record.id}'
       | 怒った日時:
@@ -27,60 +13,26 @@ div id='js-anger-record-#{anger_record.id}'
       .control.is-size-4 id='js-anger-got-angry-at-#{anger_record.id}'
         = anger_record.got_angry_at.strftime('%k')
         | 時ごろ
-    / .field.is-horizontal id='anger-record-form-date-#{anger_record.id}' style="display: none"
-    /   = form.date_field :got_angry_on
-    /   .control
-    /     #anger_hour.select
-    /       = form.time_select :got_angry_at, discard_minute: true, default: { hour: 0 }
-    /   .columns.is-vcentered
-    /     p.column
-    /       | 時ごろ
-  / p.has-text-danger#js-anger-place-error style="display: none"
-  /   | 場所を入力してください
   .field.is-grouped
     label.control.is-size-4.has-text-weight-bold for='js-place-#{anger_record.id}'
       | 場所:
     .control.is-size-4 id='js-anger-place-#{anger_record.id}'
       = anger_record.place
-    / .field id='anger-record-form-place-#{anger_record.id}' style="display: none; flex-grow: 1"
-    /   input.input id='js-place-#{anger_record.id}' value="#{anger_record.place}"
-  / p.has-text-danger#js-anger-body-error style="display: none"
-  /   | 内容を入力してください
   .field.is-grouped
     label.control.is-size-4.has-text-weight-bold for='js-body-#{anger_record.id}'
       | 内容:
     .control.is-size-4 id='js-anger-body-#{anger_record.id}'
       = anger_record.anger_body
-    / .field id='anger-record-form-body-#{anger_record.id}' style="display: none; flex-grow: 1"
-    /   textarea.textarea id='js-body-#{anger_record.id}'
-    /     = anger_record.anger_body
   .field.is-grouped
     label.control.is-size-4.has-text-weight-bold for='js-anger-changeable-#{anger_record.id}'
       | 変えらる内容か:
     .control.is-size-4 id='js-anger-changeable-#{anger_record.id}'
       = anger_record.changeable
-    / .field.columns.is-mobile id='anger-record-form-changeable-#{anger_record.id}' style="display: none"
-    /   .column
-    /     = form.radio_button :changeable, "はい", class: "radio"
-    /     | はい
-    /     = form.radio_button :changeable, "いいえ", class: "radio"
-    /     | いいえ
   .field.is-grouped
     label.control.is-size-4.has-text-weight-bold for='js-anger-important-#{anger_record.id}'
       | 重要な内容か:
     .control.is-size-4 id='js-anger-important-#{anger_record.id}'
       = anger_record.important
-    / .field.columns.is-mobile id='anger-record-form-important-#{anger_record.id}' style="display: none"
-    /   .column
-    /     = form.radio_button :important, "はい", class: "radio"
-    /     | はい
-    /     = form.radio_button :important, "いいえ", class: "radio"
-    /     | いいえ
-  / .field.is-grouped.mt-5 id='js-anger-update-cancel-button-#{anger_record.id}' style="display: none"
-  /   .control#js-anger-update-button data-record='#{anger_record.got_angry_on}'
-  /     button.button.is-primary.is-size-5.anger-update-button id='#{anger_record.id}' type="button" 更新
-  /   .control
-  /     button.button.is-light.is-size-5.anger-cancel-button id='#{anger_record.id}' type="button" キャンセル
 div id='anger-record-form-#{anger_record.id}' style="display: none"
   = form_with(model: anger_record, namespace: anger_record.id.to_s) do |form|
     - if anger_record.errors.any?
