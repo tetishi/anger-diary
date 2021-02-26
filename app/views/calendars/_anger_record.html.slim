@@ -59,14 +59,14 @@ div id='anger-record-form-#{anger_record.id}' style="display: none"
           = form.time_select :got_angry_at, discard_minute: true, default: { hour: 0 }
       .control.is-size-4
         | 時ごろ
-    p.has-text-danger#js-anger-place-error style="display: none"
+    p.has-text-danger id='js-place-error-#{anger_record.id}' style="display: none"
       | 場所を入力してください
     .field.is-grouped
       .control.is-size-4.has-text-weight-bold
         = form.label :place
       .control style="flex-grow: 1"
         = form.text_field :place, class: "input"
-    p.has-text-danger#js-anger-body-error style="display: none"
+    p.has-text-danger id='js-body-error-#{anger_record.id}' style="display: none"
       | 内容を入力してください
     .field.is-grouped
       .control.is-size-4.has-text-weight-bold

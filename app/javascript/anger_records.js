@@ -23,14 +23,14 @@ document.addEventListener('turbolinks:load', function () {
         const angerRecord = document.getElementById(`js-anger-record-${angerId}`)
         const twoAngerButton = document.getElementById(`js-two-anger-button-${angerId}`)
         const angerRecordForm = document.getElementById(`anger-record-form-${angerId}`)
-        const angerPlaceError = document.getElementById('js-anger-place-error')
-        const angerBodyError = document.getElementById('js-anger-body-error')
+        const placeError = document.getElementById(`js-place-error-${angerId}`)
+        const bodyError = document.getElementById(`js-body-error-${angerId}`)
 
         angerRecord.style.display = ''
         twoAngerButton.style.display = ''
         angerRecordForm.style.display = 'none'
-        angerPlaceError.style.display = 'none'
-        angerBodyError.style.display = 'none'
+        placeError.style.display = 'none'
+        bodyError.style.display = 'none'
       })
     })
   }
@@ -59,7 +59,7 @@ document.addEventListener('turbolinks:load', function () {
         const gotAngryOn = document.getElementById(`${angerId}_anger_record_got_angry_on`).value
         const gotAngryAt = document.getElementById(`${angerId}_anger_record_got_angry_at_4i`).value
         const place = document.getElementById(`${angerId}_anger_record_place`).value
-        const angerBody = document.getElementById(`${angerId}_anger_record_anger_body`).value
+        const body = document.getElementById(`${angerId}_anger_record_anger_body`).value
         let changeable
         if (document.getElementById(`${angerId}_anger_record_changeable_はい`).checked) {
           changeable = document.getElementById(`${angerId}_anger_record_changeable_はい`).value
@@ -80,7 +80,7 @@ document.addEventListener('turbolinks:load', function () {
           got_anger_on: gotAngryOn,
           got_angry_at: gotAngryAt,
           place,
-          anger_body: angerBody,
+          anger_body: body,
           changeable,
           important
         }
@@ -95,43 +95,42 @@ document.addEventListener('turbolinks:load', function () {
           .then((response) => response.json())
           .then((data) => {
             console.log(data)
-            const angerId = this.id
             const angerRecord = document.getElementById(`js-anger-record-${angerId}`)
             const angerLevel = document.getElementById(`js-anger-level-${angerId}`)
-            const gotAngryOn = document.getElementById(`js-anger-got-angry-on-${angerId}`)
-            const gotAngryAt = document.getElementById(`js-anger-got-angry-at-${angerId}`)
+            const angerGotAngryOn = document.getElementById(`js-anger-got-angry-on-${angerId}`)
+            const angerGotAngryAt = document.getElementById(`js-anger-got-angry-at-${angerId}`)
             const angerPlace = document.getElementById(`js-anger-place-${angerId}`)
             const angerBody = document.getElementById(`js-anger-body-${angerId}`)
             const angerChangeable = document.getElementById(`js-anger-changeable-${angerId}`)
             const angerImportant = document.getElementById(`js-anger-important-${angerId}`)
             const twoAngerButton = document.getElementById(`js-two-anger-button-${angerId}`)
             const angerRecordForm = document.getElementById(`anger-record-form-${angerId}`)
-            const angerPlaceError = document.getElementById('js-anger-place-error')
-            const angerBodyError = document.getElementById('js-anger-body-error')
+            const placeError = document.getElementById(`js-place-error-${angerId}`)
+            const bodyError = document.getElementById(`js-body-error-${angerId}`)
 
             angerRecord.style.display = ''
             angerLevel.textContent = data.level
-            gotAngryOn.textContent = data.got_angry_on
-            gotAngryAt.textContent = new Date(data.got_angry_at).getHours()
+            angerGotAngryOn.textContent = data.got_angry_on
+            angerGotAngryAt.textContent = new Date(data.got_angry_at).getHours()
             angerPlace.textContent = data.place
             angerBody.textContent = data.anger_body
             angerChangeable.textContent = data.changeable
             angerImportant.textContent = data.important
             twoAngerButton.style.display = ''
             angerRecordForm.style.display = 'none'
-            angerPlaceError.style.display = 'none'
-            angerBodyError.style.display = 'none'
+            placeError.style.display = 'none'
+            bodyError.style.display = 'none'
           })
           .catch((error) => {
             console.log(error.message)
-            const angerPlaceError = document.getElementById('js-anger-place-error')
-            const angerBodyError = document.getElementById('js-anger-body-error')
+            const placeError = document.getElementById(`js-place-error-${angerId}`)
+            const bodyError = document.getElementById(`js-body-error-${angerId}`)
 
             if (place === '') {
-              angerPlaceError.style.display = ''
+              placeError.style.display = ''
             }
-            if (angerBody === '') {
-              angerBodyError.style.display = ''
+            if (body === '') {
+              bodyError.style.display = ''
             }
           })
       })
