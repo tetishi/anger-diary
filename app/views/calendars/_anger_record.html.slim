@@ -52,10 +52,8 @@ div id='anger-record-form-#{anger_record.id}' style="display: none"
     .field.is-grouped
       .control.is-size-4.has-text-weight-bold
         = form.label :got_angry_on
-      .control.is-flex#anger-record data-record='#{@anger_record.id}'
-        / = link_to "#{anger_record.got_angry_on}", edit_anger_record_path(anger_record.got_angry_on, anger_record.id), class: ''
+      .control.is-flex
         = form.date_field :got_angry_on, class: "anger-date"
-        / = form.id でとってくるのはどう？
       .control
         #anger_hour.select
           = form.time_select :got_angry_at, discard_minute: true, default: { hour: 0 }
@@ -93,7 +91,7 @@ div id='anger-record-form-#{anger_record.id}' style="display: none"
         | いいえ
     .field.is-grouped.my-5#js-anger-button-area data-record='#{anger_record.got_angry_on}'
       .control id='js_update_button_#{anger_record.id}_anger_record_got_angry_on'
-        button.button.is-primary.is-size-5.anger-update-button id='#{anger_record.id}' type="button" 更新
+        button.button.is-primary.is-size-5.anger-update-button id='#{anger_record.id}' type="button" 更新する
       .control id='js_submit_button_#{anger_record.id}_anger_record_got_angry_on' style="display: none"
         = form.button type: "submit", class: "button is-primary is-size-5"
       .control

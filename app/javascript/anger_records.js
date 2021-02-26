@@ -39,13 +39,10 @@ document.addEventListener('turbolinks:load', function () {
   if (angerDates) {
     angerDates.forEach(function (angerDate) {
       angerDate.addEventListener('change', function () {
-        // debugger
         const angerId = this.id
-        // const angerId = document.getElementById('anger-record').getAttribute('data-record')
         const submitButton = document.getElementById(`js_submit_button_${angerId}`)
         const updateButton = document.getElementById(`js_update_button_${angerId}`)
 
-        // debugger
         submitButton.style.display = ''
         updateButton.style.display = 'none'
       })
