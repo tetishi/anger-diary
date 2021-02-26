@@ -35,19 +35,15 @@ document.addEventListener('turbolinks:load', function () {
     })
   }
 
-  // const angerId = document.getElementById('anger-record').getAttribute('data-record')
-  // const gotAngryOn = document.getElementById(`${angerId}_anger_record_got_angry_on`)
   const angerDates = document.querySelectorAll('.anger-date')
-  // if (gotAngryOn && angerId) {
   if (angerDates) {
     angerDates.forEach(function (angerDate) {
-    // gotAngryOn.forEach(function (angerDate) {
       angerDate.addEventListener('change', function () {
         // debugger
         const angerId = this.id
         // const angerId = document.getElementById('anger-record').getAttribute('data-record')
-        const submitButton = document.getElementById(`submit-button-${angerId}`)
-        const updateButton = document.getElementById('js-anger-update-button')
+        const submitButton = document.getElementById(`js_submit_button_${angerId}`)
+        const updateButton = document.getElementById(`js_update_button_${angerId}`)
 
         // debugger
         submitButton.style.display = ''
@@ -61,7 +57,7 @@ document.addEventListener('turbolinks:load', function () {
     angerUpdateButton.forEach(function (updateButton) {
       updateButton.addEventListener('click', function () {
         const angerId = this.id
-        const angerDate = document.getElementById('js-anger-update-button').getAttribute('data-record')
+        const angerDate = document.getElementById('js-anger-button-area').getAttribute('data-record')
         const level = document.getElementById(`${angerId}_anger_record_level`).value
         const gotAngryOn = document.getElementById(`${angerId}_anger_record_got_angry_on`).value
         const gotAngryAt = document.getElementById(`${angerId}_anger_record_got_angry_at_4i`).value
