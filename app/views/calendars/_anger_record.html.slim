@@ -139,7 +139,7 @@ div id='anger-record-form-#{anger_record.id}' style="display: none"
         | はい
         = form.radio_button :important, "いいえ", class: "radio"
         | いいえ
-    .field.is-grouped.mt-5 id='js-anger-update-cancel-button-#{anger_record.id}'
+    .field.is-grouped.my-5 id='js-anger-update-cancel-button-#{anger_record.id}'
       .control#js-anger-update-button data-record='#{anger_record.got_angry_on}'
         button.button.is-primary.is-size-5.anger-update-button id='#{anger_record.id}' type="button" 更新
       .control id='submit-button-#{anger_record.id}_anger_record_got_angry_on' style="display: none"
