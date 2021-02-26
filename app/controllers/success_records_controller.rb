@@ -2,12 +2,8 @@
 
 class SuccessRecordsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_success_record, only: [:show, :update, :destroy]
+  before_action :set_success_record, only: [:update, :destroy]
   before_action :authenticate_user!, only: [:new, :create]
-
-  # GET /success_records/1
-  def show
-  end
 
   # GET /success_records/new
   def new
@@ -21,7 +17,7 @@ class SuccessRecordsController < ApplicationController
     @success_record.user = current_user
 
     if @success_record.save
-      redirect_to @success_record, notice: "今日出来たことが作成されました。"
+      redirect_to calendar_url(date: @success_record.succeeded_on), notice: "今日出来たことが作成されました。"
     else
       render :new
     end
