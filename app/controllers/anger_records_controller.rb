@@ -2,20 +2,12 @@
 
 class AngerRecordsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_anger_record, only: [:show, :edit, :update, :destroy]
+  before_action :set_anger_record, only: [:update, :destroy]
   before_action :authenticate_user!, only: [:new, :create]
-
-  # GET /anger_records/1
-  def show
-  end
 
   # GET /anger_records/new
   def new
     @anger_record = AngerRecord.new
-  end
-
-  # GET /anger_records/1/edit
-  def edit
   end
 
   # POST /anger_records
@@ -24,7 +16,7 @@ class AngerRecordsController < ApplicationController
     @anger_record.user = current_user
 
     if @anger_record.save
-      redirect_to @anger_record, notice: "怒りの記録が作成されました。"
+      redirect_to calendar_url(date: @anger_record.got_angry_on), notice: "怒りの記録が作成されました。"
     else
       render :new
     end
