@@ -5,10 +5,6 @@ class SuccessRecordsController < ApplicationController
   before_action :set_success_record, only: [:update, :destroy]
   before_action :authenticate_user!, only: [:new, :create]
 
-  # GET /success_records/1
-  # def show
-  # end
-
   # GET /success_records/new
   def new
     @success_record = SuccessRecord.new

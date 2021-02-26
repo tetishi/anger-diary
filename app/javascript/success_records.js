@@ -31,47 +31,6 @@ document.addEventListener('turbolinks:load', function () {
     })
   }
 
-  const idSubmitUpdateButton = document.querySelector('.id-submit-update-button')
-  if (idSubmitUpdateButton) {
-    idSubmitUpdateButton.addEventListener('click', function () {
-      const successRecordId = document.getElementById('id-success-record').getAttribute('data-record')
-      const textField = document.getElementById(`js-textarea-body-${successRecordId}`)
-      const body = textField.value
-
-      const bodyData = {
-        success_body: body
-      }
-
-      fetch(`/success_records/${successRecordId}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(bodyData)
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          const successLabelArea = document.getElementById('js-success-label')
-          const twoSuccessButton = document.getElementById('js-two-success-button')
-          const successTextArea = document.getElementById('js-success-textarea')
-          const successUpdateCancelButton = document.getElementById('js-success-update-cancel-button')
-          const successRecordError = document.getElementById('js-success-record-post-error')
-
-          successLabelArea.style.display = ''
-          successLabelArea.textContent = data.success_body
-          twoSuccessButton.style.display = ''
-          successTextArea.style.display = 'none'
-          successUpdateCancelButton.style.display = 'none'
-          successRecordError.style.display = 'none'
-        })
-        .catch((error) => {
-          console.log(error.message)
-          const successRecordError = document.getElementById('js-success-record-post-error')
-          successRecordError.style.display = ''
-        })
-    })
-  }
-
   const submitUpdateButton = document.querySelector('.submit-update-button')
   if (submitUpdateButton) {
     submitUpdateButton.addEventListener('click', function () {
