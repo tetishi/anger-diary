@@ -106,6 +106,7 @@ document.addEventListener('turbolinks:load', function () {
             const angerRecordForm = document.getElementById(`anger-record-form-${angerId}`)
             const placeError = document.getElementById(`js-place-error-${angerId}`)
             const bodyError = document.getElementById(`js-body-error-${angerId}`)
+            const notice = document.querySelector('.notice')
 
             angerRecord.style.display = ''
             angerLevel.textContent = data.level
@@ -119,6 +120,7 @@ document.addEventListener('turbolinks:load', function () {
             angerRecordForm.style.display = 'none'
             placeError.style.display = 'none'
             bodyError.style.display = 'none'
+            notice.innerHTML = '<div>怒りの記録が編集されました。</div>'
           })
           .catch((error) => {
             console.log(error.message)
