@@ -35,14 +35,6 @@ class AngerRecordsController < ApplicationController
     end
   end
 
-  # def json_update
-  #   if @anger_record.update(anger_record_params)
-  #     render json: @anger_record
-  #   else
-  #     head :bad_request
-  #   end
-  # end
-
   def destroy
     @anger_record.destroy
     render status: 200, actions: "destroy"

@@ -2,36 +2,36 @@ div id='js-anger-record-#{anger_record.id}'
   .field.is-grouped
     label.control.is-size-4.has-text-weight-bold for='js-level-#{anger_record.id}'
       | 怒りのレベル:
-    .control.is-size-4 id='js-anger-level-#{anger_record.id}'
+    .control.is-size-4 id='js-level-#{anger_record.id}'
       = anger_record.level
   .field.is-grouped
     label.control.is-size-4.has-text-weight-bold for='js-got-angry-on-#{anger_record.id}'
       | 怒った日時:
     .field.is-grouped id='js-anger-date-#{anger_record.id}'
-      .control.is-size-4 id='js-anger-got-angry-on-#{anger_record.id}'
+      .control.is-size-4 id='js-got-angry-on-#{anger_record.id}'
         ==> "#{anger_record.got_angry_on}"
-      .control.is-size-4 id='js-anger-got-angry-at-#{anger_record.id}'
+      .control.is-size-4 id='js-got-angry-at-#{anger_record.id}'
         = anger_record.got_angry_at.strftime('%k')
         | 時ごろ
   .field.is-grouped
     label.control.is-size-4.has-text-weight-bold for='js-place-#{anger_record.id}'
       | 場所:
-    .control.is-size-4 id='js-anger-place-#{anger_record.id}'
+    .control.is-size-4 id='js-place-#{anger_record.id}'
       = anger_record.place
   .field.is-grouped
     label.control.is-size-4.has-text-weight-bold for='js-body-#{anger_record.id}'
       | 内容:
-    .control.is-size-4 id='js-anger-body-#{anger_record.id}'
+    .control.is-size-4 id='js-body-#{anger_record.id}'
       = anger_record.anger_body
   .field.is-grouped
-    label.control.is-size-4.has-text-weight-bold for='js-anger-changeable-#{anger_record.id}'
+    label.control.is-size-4.has-text-weight-bold for='js-changeable-#{anger_record.id}'
       | 変えらる内容か:
-    .control.is-size-4 id='js-anger-changeable-#{anger_record.id}'
+    .control.is-size-4 id='js-changeable-#{anger_record.id}'
       = anger_record.changeable
   .field.is-grouped
-    label.control.is-size-4.has-text-weight-bold for='js-anger-important-#{anger_record.id}'
+    label.control.is-size-4.has-text-weight-bold for='js-important-#{anger_record.id}'
       | 重要な内容か:
-    .control.is-size-4 id='js-anger-important-#{anger_record.id}'
+    .control.is-size-4 id='js-important-#{anger_record.id}'
       = anger_record.important
 div id='anger-record-form-#{anger_record.id}' style="display: none"
   = form_with(model: anger_record, namespace: anger_record.id.to_s) do |form|
