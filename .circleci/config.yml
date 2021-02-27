@@ -1,0 +1,97 @@
+version: 2.1
+
+executors:
+  default:
+    docker:
+      - image: circleci/ruby:2.6.5-node-browsers
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          PGHOST: 127.0.0.1
+          PGUSER: user
+          RAILS_ENV: test
+      - image: circleci/postgres:12-alpine
+        environment:
+          POSTGRES_USER: user
+          POSTGRES_DB: anger_diary
+          POSTGRES_PASSWORD: ""
+
+commands:
+  setup:
+    steps:
+      - checkout
+
+      - run:
+          name: Update bundler
+          command: gem update bundler
+      
+      - run:
+          name: Which bundler?
+          command: bundle -v
+
+      - restore_cache:
+          keys:
+            - rails-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - rails-bundle-v2-
+
+      - run:
+          name: Bundle install
+          command: bundle check --path vendor/bundle || bundle install --deployment
+
+      - save_cache:
+          key: rails-bundle-v2-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - restore_cache:
+          keys:
+            - rails-yarn-{{ checksum "yarn.lock" }}
+            - rails-yarn-
+
+      - run:
+          name: Yarn install
+          command: yarn install --cache-folder ~/.cache/yarn
+
+      - save_cache:
+          key: rails-yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
+      - run:
+          name: rubocop
+          command: bundle exec rubocop -c .rubocop.yml
+
+      - run:
+          name: Lint
+          command: |
+            bundle exec slim-lint app/views -c .slim-lint.yml
+            bin/yarn run lint:javascript
+
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      - run:
+          name: Create DB
+          command: bin/rails db:create
+
+      - run:
+          name: Database setup
+          command: bin/rails db:schema:load --trace
+
+jobs:
+  test:
+    executor: default
+    steps:
+      - checkout
+      - setup
+
+      - run:
+          name: Run test
+          command: bin/rspec
+
+workflows:
+  test:
+    jobs:
+      - test
