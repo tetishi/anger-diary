@@ -63,6 +63,10 @@ commands:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       - run:
+          name: Create DB
+          command: bin/rails db:create
+
+      - run:
           name: Database setup
           command: bin/rails db:schema:load --trace
 
