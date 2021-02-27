@@ -32,29 +32,29 @@ commands:
 
       - restore_cache:
           keys:
-            - rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
-            - rails-demo-bundle-v2-
+            - rails-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - rails-bundle-v2-
 
       - run:
           name: Bundle install
           command: bundle check --path vendor/bundle || bundle install --deployment
 
       - save_cache:
-          key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+          key: rails-bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
 
       - restore_cache:
           keys:
-            - rails-demo-yarn-{{ checksum "yarn.lock" }}
-            - rails-demo-yarn-
+            - rails-yarn-{{ checksum "yarn.lock" }}
+            - rails-yarn-
 
       - run:
           name: Yarn install
           command: yarn install --cache-folder ~/.cache/yarn
 
       - save_cache:
-          key: rails-demo-yarn-{{ checksum "yarn.lock" }}
+          key: rails-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
 
