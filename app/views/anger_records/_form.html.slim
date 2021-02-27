@@ -1,10 +1,6 @@
 = form_with(model: anger_record, local: true) do |form|
   - if anger_record.errors.any?
     .notification.is-danger.is-light#error_explanation
-      / h2
-      /   |  以下の
-      /   = pluralize(anger_record.errors.count, "件のエラーが発生したため")
-      /   |  怒りの記録は登録されませんでした。
       ul.pt-4
         - anger_record.errors.full_messages.each do |message|
           li
