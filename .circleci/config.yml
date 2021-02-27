@@ -58,7 +58,7 @@ commands:
           paths:
             - ~/.cache/yarn
 
-       - run:
+      - run:
           name: rubocop
           command: bundle exec rubocop -c .rubocop.yml
 
