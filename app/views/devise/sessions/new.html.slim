@@ -20,10 +20,6 @@ section.section
           = f.password_field :password, autocomplete: "current-password", class: "input"
           span.icon.is-small.is-left
             i.fas.fa-lock
-      - if devise_mapping.rememberable?
-        .field
-          = f.check_box :remember_me, class: "checkbox"
-          = f.label :remember_me
       .actions
         = f.submit t('.sign_in'), class: "button is-primary is-size-5"
     = render "devise/shared/links"
