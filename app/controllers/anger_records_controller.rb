@@ -26,7 +26,7 @@ class AngerRecordsController < ApplicationController
   def update
     respond_to do |format|
       if @anger_record.update(anger_record_params)
-        format.html { redirect_to calendar_url(date: @anger_record.got_angry_on), notice: "怒りの記録が編集されました。" }
+        format.html { redirect_to calendar_url(date: @anger_record.got_angry_on) }
         format.json { render json: @anger_record }
       else
         format.html { render :edit }

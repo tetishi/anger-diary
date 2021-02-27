@@ -24,7 +24,7 @@ feature "Calendars", js: true, type: :feature do
         click_on "削除", match: :first
       end
 
-      assert_text "怒りの記録が削除されました。"
+      expect(page).to_not have_link "削除"
     end
   end
 
@@ -39,7 +39,7 @@ feature "Calendars", js: true, type: :feature do
         click_on "削除", match: :first
       end
 
-      assert_text "今日出来たことを削除しました。"
+      expect(page).to_not have_link "削除"
     end
   end
 end
