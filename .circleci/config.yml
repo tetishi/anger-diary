@@ -58,6 +58,16 @@ commands:
           paths:
             - ~/.cache/yarn
 
+       - run:
+          name: rubocop
+          command: bundle exec rubocop -c .rubocop.yml
+
+      - run:
+          name: Lint
+          command: |
+            bundle exec slim-lint app/views -c .slim-lint.yml
+            bin/yarn run lint:javascript
+
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
