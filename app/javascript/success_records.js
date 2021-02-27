@@ -57,7 +57,8 @@ document.addEventListener('turbolinks:load', function () {
           const successTextArea = document.getElementById('js-success-textarea')
           const successUpdateCancelButton = document.getElementById('js-success-update-cancel-button')
           const successRecordError = document.getElementById('js-success-record-post-error')
-          const successNotice = document.querySelector('.notice')
+          // const successNotice = document.querySelector('.js-notice')
+          // const notice = document.querySelector('.notice')
 
           successLabelArea.style.display = ''
           successLabelArea.textContent = data.success_body
@@ -65,7 +66,12 @@ document.addEventListener('turbolinks:load', function () {
           successTextArea.style.display = 'none'
           successUpdateCancelButton.style.display = 'none'
           successRecordError.style.display = 'none'
-          successNotice.innerHTML = '<div>出来たことが編集されました。</div>'
+
+          // if (notice) {
+          //   notice.style.display = 'none'
+          // }
+          // successNotice.style.display = ''
+          // successNotice.innerHTML = '<div>出来たことが編集されました。</div>'
         })
         .catch((error) => {
           console.log(error.message)
