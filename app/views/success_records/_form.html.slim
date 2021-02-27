@@ -1,9 +1,6 @@
 = form_with(model: success_record, local: true) do |form|
   - if success_record.errors.any?
-    #error_explanation
-      h2
-        = pluralize(success_record.errors.count, "error")
-        |  prohibited this anger_record from being saved:
+    .notification.is-danger.is-light#error_explanation
       ul
         - success_record.errors.full_messages.each do |message|
           li

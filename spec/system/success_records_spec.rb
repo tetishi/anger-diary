@@ -32,7 +32,7 @@ feature "SuccessRecords", js: true, type: :feature do
       fill_in "出来たこと", with: "test test"
       click_on "更新する"
 
-      assert_text "出来たことが編集されました。"
+      expect(page).to have_content "test test"
       click_on "戻る"
     end
 

@@ -34,10 +34,12 @@ html
                   = link_to '新規登録', new_user_registration_path
                 .button
                   = link_to 'ログイン', new_user_session_path
-    .notice
-      = notice
-    .alert
-      = alert
+    - if notice.present?
+      .notice.notification.is-success.is-light
+        = notice
+    - if alert.present?
+      .alert.notification.is-danger.is-light
+        = alert
     = yield
   javascript:
     for (const burger of document.getElementsByClassName('navbar-burger')) {

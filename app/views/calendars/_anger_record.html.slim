@@ -35,15 +35,6 @@ div id='js-anger-record-#{anger_record.id}'
       = anger_record.important
 div id='anger-record-form-#{anger_record.id}' style="display: none"
   = form_with(model: anger_record, namespace: anger_record.id.to_s) do |form|
-    - if anger_record.errors.any?
-      #error_explanation
-        h2
-          = pluralize(anger_record.errors.count, "error")
-          |  prohibited this anger_record from being saved:
-        ul
-          - anger_record.errors.full_messages.each do |message|
-            li
-              = message
     .field.is-grouped
       .control.is-size-4.has-text-weight-bold
         = form.label :level

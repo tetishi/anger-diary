@@ -48,7 +48,7 @@ feature "AngerRecords", js: true, type: :feature do
       find("input[name='anger_record[important]'][value='はい']").set(true)
       click_on "更新する"
 
-      assert_text "怒りの記録が編集されました。"
+      expect(page).to have_content "test test test"
       click_on "戻る"
     end
 

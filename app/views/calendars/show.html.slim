@@ -4,7 +4,7 @@ section.section
       .is-size-2.is-size-3-touch.is-bold.media
         | #{@anger_record.got_angry_on}
       - @anger_records.each do |anger_record|
-        .notice id='anger_record-#{anger_record.id}'
+        div id='anger_record-#{anger_record.id}'
           = render partial: 'anger_record', locals: { anger_record: anger_record }
           .field.is-grouped.my-5 id='js-two-anger-button-#{anger_record.id}'
             .control
@@ -19,7 +19,7 @@ section.section
       .is-size-2.is-size-3-touch.is-bold.media
         = @success_record.succeeded_on
     - if @success_record.present?
-      .notice id='success_record-#{@success_record.id}'
+      div id='success_record-#{@success_record.id}'
         = render partial: 'success_record', locals: { success_record: @success_record }
         .field.is-grouped.mt-5#js-two-success-button
           .control#success-record data-record='#{@success_record.succeeded_on}'
