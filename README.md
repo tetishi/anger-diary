@@ -1,9 +1,11 @@
+[![tetishi](https://circleci.com/gh/tetishi/anger-diary.svg?style=svg)](https://app.circleci.com/pipelines/github/tetishi/anger-diary?branch=master)
+
 # アンガーダイアリー
 ## アンガーダイアリーとは
 アンガーダイアリーとは日々のイラッとしたことと出来たことを記録できるアプリです。
 
 ## 目的
-イラッとした時にその内容を記録することで、思考が整理され、冷静になることができます。記録を続けていくと自分の怒りの傾向を知ることができます。傾向がわかると自分の怒りに対して事前に対策をすることができ、その結果、精神を安定させる助けになります。
+イラッとした時にその内容を記録することで、思考が整理され、冷静になることができます。記録を続けていくと自分の怒りの傾向を知ることができます。そして、出来たことを記録することにより自己肯定感を高め、イライラしにくい体質に改善していくことができます。
 
 # サイトリンク
 https://anger-diary.herokuapp.com
@@ -16,6 +18,7 @@ https://anger-diary.herokuapp.com
 * Bluma
 * Slim
 * Heroku
+* CircleCI
 * GitHub
 
 # インストール
