@@ -1,91 +1,134 @@
 div id='js-anger-record-#{anger_record.id}'
-  .field.is-grouped
-    label.control.is-size-4.has-text-weight-bold for='js-level-#{anger_record.id}'
-      | 怒りのレベル:
-    .control.is-size-4 id='js-level-#{anger_record.id}'
-      = anger_record.level
-  .field.is-grouped
-    label.control.is-size-4.has-text-weight-bold for='js-got-angry-on-#{anger_record.id}'
-      | 怒った日時:
-    .field.is-grouped
-      .control.is-size-4 id='js-got-angry-on-#{anger_record.id}'
-        ==> "#{anger_record.got_angry_on}"
-      .control.is-size-4 id='js-got-angry-at-#{anger_record.id}'
-        = anger_record.got_angry_at.strftime('%k')
-        | 時ごろ
-  .field.is-grouped
-    label.control.is-size-4.has-text-weight-bold for='js-place-#{anger_record.id}'
-      | 場所:
-    .control.is-size-4 id='js-place-#{anger_record.id}'
-      = anger_record.place
-  .field.is-grouped
-    label.control.is-size-4.has-text-weight-bold for='js-body-#{anger_record.id}'
-      | 内容:
-    .control.is-size-4 id='js-body-#{anger_record.id}'
-      = anger_record.anger_body
-  .field.is-grouped
-    label.control.is-size-4.has-text-weight-bold for='js-changeable-#{anger_record.id}'
-      | 変えらる内容か:
-    .control.is-size-4 id='js-changeable-#{anger_record.id}'
-      = anger_record.changeable
-  .field.is-grouped
-    label.control.is-size-4.has-text-weight-bold for='js-important-#{anger_record.id}'
-      | 重要な内容か:
-    .control.is-size-4 id='js-important-#{anger_record.id}'
-      = anger_record.important
+  .field.is-horizontal
+    .field-label
+      label.label.is-size-4.has-text-weight-bold for='js-level-#{anger_record.id}'
+        | 怒りのレベル
+    .field-body
+      .control.is-size-4 id='js-level-#{anger_record.id}'
+        = anger_record.level
+
+  .field.is-horizontal
+    .field-label
+      label.label.is-size-4.has-text-weight-bold for='js-got-angry-on-#{anger_record.id}'
+        | 怒った日時
+    .field-body
+      .field.is-grouped
+        .control.is-size-4 id='js-got-angry-on-#{anger_record.id}'
+          ==> "#{anger_record.got_angry_on}"
+        .control.is-size-4 id='js-got-angry-at-#{anger_record.id}'
+          = anger_record.got_angry_at.strftime('%k')
+          | 時ごろ
+
+  .field.is-horizontal
+    .field-label
+      label.label.is-size-4.has-text-weight-bold for='js-place-#{anger_record.id}'
+        | 場所
+    .field-body
+      .is-size-4 id='js-place-#{anger_record.id}'
+        = anger_record.place
+
+  .field.is-horizontal
+    .field-label
+      label.label.is-size-4.has-text-weight-bold for='js-body-#{anger_record.id}'
+        | 内容
+    .field-body
+      .is-size-4.record-body id='js-body-#{anger_record.id}'
+        = anger_record.anger_body
+
+  .field.is-horizontal
+    .field-label
+      label.label.is-size-4.has-text-weight-bold for='js-changeable-#{anger_record.id}'
+        | 変えらる内容か
+    .field-body
+      .is-size-4 id='js-changeable-#{anger_record.id}'
+        = anger_record.changeable
+
+  .field.is-horizontal
+    .field-label
+      label.label.is-size-4.has-text-weight-bold for='js-important-#{anger_record.id}'
+        | 重要な内容か
+    .field-body
+      .is-size-4 id='js-important-#{anger_record.id}'
+        = anger_record.important
+
 div id='anger-record-form-#{anger_record.id}' style="display: none"
   = form_with(model: anger_record, namespace: anger_record.id.to_s) do |form|
-  
-    .field
-      .control.is-size-4.has-text-weight-bold
-        = form.label :level
-      .control.select
-        = form.select :level, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]]
-    .field
-      .control.is-size-4.has-text-weight-bold
-        = form.label :got_angry_on
-      .field
-        .control.is-flex
-          = form.date_field :got_angry_on, class: "anger-date"
-        .control
-          #anger_hour.select
-            = form.time_select :got_angry_at, discard_minute: true, default: { hour: 0 }
-        .control.is-size-4
-          | 時ごろ
-    p.has-text-danger id='js-place-error-#{anger_record.id}' style="display: none"
-      | 場所を入力してください
-    .field
-      .control.is-size-4.has-text-weight-bold
-        = form.label :place
-      .control style="flex-grow: 1"
-        = form.text_field :place, class: "input"
-    p.has-text-danger id='js-body-error-#{anger_record.id}' style="display: none"
-      | 内容を入力してください
-    .field
-      .control.is-size-4.has-text-weight-bold
-        = form.label :anger_body
-      .control style="flex-grow: 1"
-        = form.text_area :anger_body, class: "textarea"
-    .field
-      .control.is-size-4.has-text-weight-bold
-        = form.label :changeable
-      .control.is-size-4
-        = form.radio_button :changeable, "はい", class: "radio"
-        | はい
-        = form.radio_button :changeable, "いいえ", class: "radio"
-        | いいえ
-    .field
-      .control.is-size-4.has-text-weight-bold
-        = form.label :important
-      .control.is-size-4
-        = form.radio_button :important, "はい", class: "radio"
-        | はい
-        = form.radio_button :important, "いいえ", class: "radio"
-        | いいえ
-    .field.is-grouped.my-5#js-anger-button-area data-record='#{anger_record.got_angry_on}'
-      .control id='js_update_button_#{anger_record.id}_anger_record_got_angry_on'
-        button.button.is-primary.is-size-5.anger-update-button id='#{anger_record.id}' type="button" 更新する
-      .control id='js_submit_button_#{anger_record.id}_anger_record_got_angry_on' style="display: none"
-        = form.button type: "submit", class: "button is-primary is-size-5"
-      .control
-        button.button.is-light.is-size-5.anger-cancel-button id='#{anger_record.id}' type="button" キャンセル
+    .field.is-horizontal
+      .field-label
+        label.label.is-size-4.has-text-weight-bold
+          = form.label :level
+      .field-body
+        .field
+          .control.select
+            = form.select :level, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]]
+
+    .field.is-horizontal
+      .field-label
+        label.label.is-size-4.has-text-weight-bold
+          = form.label :got_angry_on
+      .field-body
+        .field.is-grouped
+          .control.is-flex
+            = form.date_field :got_angry_on, class: "anger-date"
+          .control
+            #anger_hour.select
+              = form.time_select :got_angry_at, discard_minute: true, default: { hour: 0 }
+          .control.is-size-4
+            | 時ごろ
+
+    .field.is-horizontal
+      .field-label
+        label.label.is-size-4.has-text-weight-bold
+          = form.label :place
+      .field-body
+        .field
+          .control
+            p.has-text-danger id='js-place-error-#{anger_record.id}' style="display: none"
+              | 場所を入力してください
+          .control style="flex-grow: 1"
+            = form.text_field :place, class: "input"
+
+      .field.is-horizontal
+        .field-label
+          label.label.is-size-4.has-text-weight-bold
+            = form.label :anger_body
+        .field-body
+          .field
+            .control
+              p.has-text-danger id='js-body-error-#{anger_record.id}' style="display: none"
+                | 内容を入力してください
+            .control style="flex-grow: 1"
+              = form.text_area :anger_body, class: "textarea"
+
+      .field.is-horizontal
+        .field-label
+          label.label.is-size-4.has-text-weight-bold
+            = form.label :changeable
+        .field-body
+          .control.is-size-4
+            = form.radio_button :changeable, "はい", class: "radio"
+            | はい
+            = form.radio_button :changeable, "いいえ", class: "radio"
+            | いいえ
+
+      .field.is-horizontal
+        .field-label
+          label.label.is-size-4.has-text-weight-bold
+            = form.label :important
+        .field-body
+          .control.is-size-4
+            = form.radio_button :important, "はい", class: "radio"
+            | はい
+            = form.radio_button :important, "いいえ", class: "radio"
+            | いいえ
+
+      .field.is-horizontal
+        .field-label
+        .field-body
+          .field.is-grouped.my-5#js-anger-button-area data-record='#{anger_record.got_angry_on}'
+            .control id='js_update_button_#{anger_record.id}_anger_record_got_angry_on'
+              button.button.is-primary.is-size-5.anger-update-button id='#{anger_record.id}' type="button" 更新する
+            .control id='js_submit_button_#{anger_record.id}_anger_record_got_angry_on' style="display: none"
+              = form.button type: "submit", class: "button is-primary is-size-5"
+            .control
+              button.button.is-light.is-size-5.anger-cancel-button id='#{anger_record.id}' type="button" キャンセル

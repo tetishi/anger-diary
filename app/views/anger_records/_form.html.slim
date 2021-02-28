@@ -12,7 +12,7 @@
         = form.select :level, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]]
   .field
     = form.label :got_angry_on
-    .field.is-flex
+    .field.is-grouped
       = form.date_field :got_angry_on
       .control
         #anger_hour.select

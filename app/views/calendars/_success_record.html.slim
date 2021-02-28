@@ -3,7 +3,7 @@ p.has-text-danger#js-success-record-post-error style="display: none"
 .field.is-grouped
   label.control.is-size-4.has-text-weight-bold for='js-textarea-body-#{@success_record.succeeded_on}'
     | 出来たこと:
-  spam.is-size-4#js-success-label
+  spam.is-size-4.record-body#js-success-label
     = success_record.success_body
   .field#js-success-textarea style="display: none; flex-grow: 1"
     textarea.textarea.is-size-4 id='js-textarea-body-#{@success_record.succeeded_on}'
