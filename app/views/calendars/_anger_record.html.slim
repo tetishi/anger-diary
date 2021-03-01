@@ -66,7 +66,7 @@ div id='anger-record-form-#{anger_record.id}' style="display: none"
         label.label.is-size-4.has-text-weight-bold
           = form.label :got_angry_on
       .field-body
-        .field.is-grouped
+        .field.is-grouped.is-grouped-multiline
           .control.is-flex
             = form.date_field :got_angry_on, class: "anger-date"
           .control
