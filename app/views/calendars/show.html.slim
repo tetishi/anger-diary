@@ -1,30 +1,46 @@
+section.hero.is-primary
+  .hero-body
+    .container
+      h1.title
+        - if @anger_record.present?
+          | #{@anger_record.got_angry_on}
+        - elsif @success_record.present?
+          | #{@success_record.succeeded_on}
+
 section.section
   .container.is-size-4.is-size-5-touch
     - if @anger_record.present?
-      .is-size-2.is-size-3-touch.is-bold.media
-        | #{@anger_record.got_angry_on}
       - @anger_records.each do |anger_record|
         div id='anger_record-#{anger_record.id}'
           = render partial: 'anger_record', locals: { anger_record: anger_record }
-          .field.is-grouped.my-5 id='js-two-anger-button-#{anger_record.id}'
-            .control
-              button.button.js-anger-edit-button.is-primary.is-size-5 id='#{anger_record.id}' type='button' 編集
-            .control
-              = link_to '削除', anger_record_path(anger_record), method: :delete, data: { confirm: '本当によろしいですか？' }, remote: true, class: 'button is-danger is-size-5'
+          .field.is-horizontal
+            .field-label
+            .field-body
+              .field.is-grouped.my-5 id='js-two-anger-button-#{anger_record.id}'
+                .control
+                  button.button.js-anger-edit-button.is-primary.is-size-5 id='#{anger_record.id}' type='button' 編集
+                .control
+                  = link_to '削除', anger_record_path(anger_record), method: :delete, data: { confirm: '本当によろしいですか？' }, remote: true, class: 'button is-danger is-size-5'
     - if @anger_record.present? && @success_record.nil?
-      div
-        = link_to '戻る', calendars_path, class: 'button is-size-5'
+      .field.is-horizontal
+        .field-label
+        .field-body
+          = link_to '戻る', calendars_path, class: 'button is-size-5'
 
-    - if @success_record.present? && @success_record.nil?
-      .is-size-2.is-size-3-touch.is-bold.media
-        = @success_record.succeeded_on
     - if @success_record.present?
       div id='success_record-#{@success_record.id}'
         = render partial: 'success_record', locals: { success_record: @success_record }
-        .field.is-grouped.mt-5#js-two-success-button
-          .control#success-record data-record='#{@success_record.succeeded_on}'
-            button.js-success-edit-button.button.is-primary.is-size-5 type='button' 編集
-          .control
-            = link_to '削除', success_record_path(@success_record), method: :delete, data: { confirm: '本当によろしいですか？' }, remote: true, class: 'button is-danger is-size-5'
-      .my-4
-        = link_to '戻る', calendars_path, class: 'button is-size-5'
+        .field.is-horizontal
+          .field-label
+          .field-body
+            .field.is-grouped.mt-5#js-two-success-button
+              .control#success-record data-record='#{@success_record.succeeded_on}'
+                button.js-success-edit-button.button.is-primary.is-size-5 type='button' 編集
+              .control
+                = link_to '削除', success_record_path(@success_record), method: :delete, data: { confirm: '本当によろしいですか？' }, remote: true, class: 'button is-danger is-size-5'
+
+        .field.is-horizontal
+          .field-label
+          .field-body
+            .my-4
+              = link_to '戻る', calendars_path, class: 'button is-size-5'
