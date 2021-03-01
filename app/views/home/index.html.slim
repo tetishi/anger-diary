@@ -16,7 +16,7 @@ section.hero.is-medium
             .columns.is-centered.mt-1
               .column.is-narrow
                 - if current_user.present? && current_user.success_records.where(succeeded_on: Date.today).present?
-                  button.button.is-primary.is-light.is-size-5.is-fullwidth type="button" onclick="alert('すでに今日出来たことが登録されています。')"
+                  button.button.is-primary.is-light.is-size-5 type="button" onclick="alert('すでに今日出来たことが登録されています。')"
                     = link_to '今日出来たことを記録する', root_path
                 - else
                   button.button.is-primary.is-light.is-size-5
