@@ -16,8 +16,7 @@ div id='js-anger-record-#{anger_record.id}'
         .control.is-size-4 id='js-got-angry-on-#{anger_record.id}'
           ==> "#{anger_record.got_angry_on}"
         .control.is-size-4 id='js-got-angry-at-#{anger_record.id}'
-          = anger_record.got_angry_at.strftime('%k')
-          | 時ごろ
+          | #{anger_record.got_angry_at.strftime('%k')}時ごろ
 
   .field.is-horizontal
     .field-label

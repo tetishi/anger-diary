@@ -110,7 +110,7 @@ document.addEventListener('turbolinks:load', function () {
             angerRecord.style.display = ''
             angerLevel.textContent = data.level
             angerGotAngryOn.textContent = data.got_angry_on
-            angerGotAngryAt.textContent = new Date(data.got_angry_at).getHours()
+            angerGotAngryAt.textContent = `${new Date(data.got_angry_at).getHours()}時ごろ`
             angerPlace.textContent = data.place
             angerBody.textContent = data.anger_body
             angerChangeable.textContent = data.changeable
