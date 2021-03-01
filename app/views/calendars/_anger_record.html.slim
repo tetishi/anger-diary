@@ -84,7 +84,7 @@ div id='anger-record-form-#{anger_record.id}' style="display: none"
           .control
             p.has-text-danger id='js-place-error-#{anger_record.id}' style="display: none"
               | 場所を入力してください
-          .control style="flex-grow: 1"
+          .control
             = form.text_field :place, class: "input"
 
     .field.is-horizontal
@@ -96,7 +96,7 @@ div id='anger-record-form-#{anger_record.id}' style="display: none"
           .control
             p.has-text-danger id='js-body-error-#{anger_record.id}' style="display: none"
               | 内容を入力してください
-          .control style="flex-grow: 1"
+          .control
             = form.text_area :anger_body, class: "textarea"
 
     .field.is-horizontal
@@ -121,9 +121,6 @@ div id='anger-record-form-#{anger_record.id}' style="display: none"
           = form.radio_button :important, "いいえ", class: "radio"
           | いいえ
 
-    / .field.is-horizontal
-    /   .field-label
-    /   .field-body
     .field.is-grouped.my-5#js-anger-button-area data-record='#{anger_record.got_angry_on}'
       .control id='js_update_button_#{anger_record.id}_anger_record_got_angry_on'
         button.button.is-primary.is-size-5.anger-update-button id='#{anger_record.id}' type="button" 更新する

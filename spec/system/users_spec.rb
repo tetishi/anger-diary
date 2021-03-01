@@ -29,7 +29,7 @@ feature "Users", js: true, type: :feature do
       expect(page).to have_content "本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。"
 
       visit new_user_registration_path
-      click_on "アカウント確認のメールを受け取っていませんか?"
+      click_on "本人確認のメールを受け取っていない"
 
       fill_in "Eメール", with: @user.email
       click_on "アカウント確認メール再送"
@@ -84,7 +84,7 @@ feature "Users", js: true, type: :feature do
       expect(page).to have_content "ログアウトしました。"
 
       visit new_user_session_path
-      click_on "パスワードを忘れましたか?"
+      click_on "パスワードを忘れた"
 
       fill_in "Eメール", with: @login_user.email
       click_on "パスワードの再設定方法を送信する"
