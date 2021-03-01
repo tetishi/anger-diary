@@ -121,10 +121,13 @@ div id='anger-record-form-#{anger_record.id}' style="display: none"
           = form.radio_button :important, "いいえ", class: "radio"
           | いいえ
 
-    .field.is-grouped.my-5#js-anger-button-area data-record='#{anger_record.got_angry_on}'
-      .control id='js_update_button_#{anger_record.id}_anger_record_got_angry_on'
-        button.button.is-primary.is-size-5.anger-update-button id='#{anger_record.id}' type="button" 更新する
-      .control id='js_submit_button_#{anger_record.id}_anger_record_got_angry_on' style="display: none"
-        = form.button type: "submit", class: "button is-primary is-size-5"
-      .control
-        button.button.is-light.is-size-5.anger-cancel-button id='#{anger_record.id}' type="button" キャンセル
+    .field.is-horizontal
+      .field-label
+      .field-body
+        .field.is-grouped.my-5#js-anger-button-area data-record='#{anger_record.got_angry_on}'
+          .control id='js_update_button_#{anger_record.id}_anger_record_got_angry_on'
+            button.button.is-primary.is-size-5.anger-update-button id='#{anger_record.id}' type="button" 更新する
+          .control id='js_submit_button_#{anger_record.id}_anger_record_got_angry_on' style="display: none"
+            = form.button type: "submit", class: "button is-primary is-size-5"
+          .control
+            button.button.is-light.is-size-5.anger-cancel-button id='#{anger_record.id}' type="button" キャンセル
