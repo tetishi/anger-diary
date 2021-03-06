@@ -2,6 +2,9 @@
 
 Rails.application.routes.draw do
   root "home#index"
+
+  get "tos", to: "home#tos"
+
   devise_for :users, controllers: {
     omniauth_callbacks: "users/omniauth_callbacks",
     registrations: "users/registrations",
