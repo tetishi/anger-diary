@@ -12,4 +12,9 @@ feature "Home", js: true, type: :feature do
     visit tos_path
     expect(page).to have_selector "h1", text: "利用規約"
   end
+
+  scenario "visiting policy page" do
+    visit policy_path
+    expect(page).to have_selector "h1", text: "プライバシーポリシー"
+  end
 end

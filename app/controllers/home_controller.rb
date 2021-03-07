@@ -6,4 +6,7 @@ class HomeController < ApplicationController
 
   def tos
   end
+
+  def policy
+  end
 end
