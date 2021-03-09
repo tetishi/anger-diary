@@ -1,13 +1,17 @@
 .simple-calendar
-  .calendar-heading.is-size-4.level.is-mobile
-    = link_to calendar.url_for_previous_view, class: 'level-item' do
-      i.fas.fa-angle-left.fa-2x
-    span.calendar-title.level-item
-      = start_date.year
-      span 年
-      = t('date.month_names')[start_date.month]
-    = link_to calendar.url_for_next_view, class: 'level-item' do
-      i.fas.fa-angle-right.fa-2x
+  section.hero.is-primary
+    .hero-body
+      .container
+        h1.title.is-size-3.is-size-4-touch
+          .calendar-heading.level.is-mobile
+            = link_to calendar.url_for_previous_view, class: 'level-item' do
+              i.fas.fa-angle-left.fa-2x
+            span.calendar-title.level-item
+              = start_date.year
+              span 年
+              = t('date.month_names')[start_date.month]
+            = link_to calendar.url_for_next_view, class: 'level-item' do
+              i.fas.fa-angle-right.fa-2x
   table.table.table-striped
     thead
       tr
