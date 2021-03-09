@@ -1,17 +1,5 @@
 = month_calendar do |date|
   - if @record_dates.include?(date.to_s)
-    / = link_to date.day, calendar_path(date), class: "dates"　クエリパラメータのURLへのリンクを書くのかも
-    / .is-italic.has-text-weight-bold.data-json data-json=date.to_json
-    = date.day
-    div
-      i.fas.fa-book.dates title=date
-    / .has-text-light
-    /   = date
+    = link_to date.day, calendar_path(date)
   - else
     = date.day
-
-section.section
-  .container.is-size-4.is-size-5-touch
-    div.is-size-2.is-size-3-touch.is-bold.media
-      div.notice
-        div.records
