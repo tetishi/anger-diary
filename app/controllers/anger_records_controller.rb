@@ -36,7 +36,6 @@ class AngerRecordsController < ApplicationController
   end
 
   def destroy
-    # 以下の２行は必要じゃないかも？
     @anger_record.destroy
     render status: 200, actions: "destroy"
   end
