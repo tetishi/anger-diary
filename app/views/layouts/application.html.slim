@@ -13,9 +13,9 @@ html
     header.navbar
       .navbar-brand
         span.navbar-item
-          a href='/'
-            i.fas.fa-book
-              |  アンガーダイアリー
+          = link_to root_path, class: "is-flex is-size-5 is-size-6-touch"
+            = image_tag 'favicon.ico'
+            |  アンガーダイアリー
         a.navbar-burger aria-expanded="false" aria-label="menu" data-target="navbarHome" role="button"
           span aria-hidden="true"
           span aria-hidden="true"
