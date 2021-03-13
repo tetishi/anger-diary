@@ -41,12 +41,13 @@ html
       .alert.notification.is-danger.is-light
         = alert
     = yield
-  javascript:
-    for (const burger of document.getElementsByClassName('navbar-burger')) {
-      const menuId = burger.dataset.target;
-      const menu = document.getElementById(menuId);
-      burger.addEventListener('click', e => {
-        burger.classList.toggle('is-active');
-        menu.classList.toggle('is-active');
-      });
-    }
+    script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"
+    javascript:
+      for (const burger of document.getElementsByClassName('navbar-burger')) {
+        const menuId = burger.dataset.target;
+        const menu = document.getElementById(menuId);
+        burger.addEventListener('click', e => {
+          burger.classList.toggle('is-active');
+          menu.classList.toggle('is-active');
+        });
+      }
