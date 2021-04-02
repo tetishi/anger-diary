@@ -35,7 +35,7 @@ section.section
           .field-body
             .field.is-grouped.mt-5#js-two-success-button
               .control#success-record data-record='#{@success_record.succeeded_on}'
-                button.js-success-edit-button.button.is-primary.is-size-5 type='button' 編集
+                button.js-success-edit-button.button.is-primary.is-size-5 v-on:click='successEditButton' type='button' 編集
               .control
                 = link_to '削除', success_record_path(@success_record), method: :delete, data: { confirm: '本当によろしいですか？' }, remote: true, class: 'button is-danger is-size-5'
 

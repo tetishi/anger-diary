@@ -1,3 +1,15 @@
+new Vue({
+  el: '#app',
+  data: {
+
+  },
+  methods: {
+    successEditButton() {
+
+    }
+  }
+})
+
 document.addEventListener('turbolinks:load', function () {
   const successEditButton = document.querySelector('.js-success-edit-button')
   if (successEditButton) {
