@@ -2,12 +2,11 @@ document.addEventListener('turbolinks:load', function () {
   const app = new Vue({
     el: '#app',
     data: {
-      testVal: 'Hello World',
-      successLabel: true
+      successLabel: 0
     },
     methods: {
       successEditButton() {
-        this.successLabel = !this.successLabel
+        this.successLabel++
       }
     }
   })
