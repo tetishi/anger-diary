@@ -33,6 +33,8 @@ section.section
         .field.is-horizontal
           .field-label
           .field-body
+            id#app
+              p = "{{ testVal }}"
             .field.is-grouped.mt-5#js-two-success-button
               .control#success-record data-record='#{@success_record.succeeded_on}'
                 button.js-success-edit-button.button.is-primary.is-size-5 v-on:click='successEditButton' type='button' 編集

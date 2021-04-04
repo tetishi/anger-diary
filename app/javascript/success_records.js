@@ -1,13 +1,16 @@
-new Vue({
-  el: '#app',
-  data: {
-    successLabel: true
-  },
-  methods: {
-    successEditButton() {
-      this.successLabel = !this.successLabel;
+document.addEventListener('turbolinks:load', function () {
+  const app = new Vue({
+    el: '#app',
+    data: {
+      testVal: 'Hello World',
+      successLabel: true
+    },
+    methods: {
+      successEditButton() {
+        this.successLabel = !this.successLabel
+      }
     }
-  }
+  })
 })
 
 // document.addEventListener('turbolinks:load', function () {
