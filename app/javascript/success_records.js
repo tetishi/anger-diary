@@ -2,11 +2,11 @@ document.addEventListener('turbolinks:load', function () {
   const app = new Vue({
     el: '#app',
     data: {
-      successLabel: 0
+      successLabel: true
     },
     methods: {
       successEditButton() {
-        this.successLabel++
+        this.successLabel = !this.successLabel
       }
     }
   })
