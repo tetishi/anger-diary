@@ -1,12 +1,13 @@
+Vue.config.devtools = true
 document.addEventListener('turbolinks:load', function () {
   const app = new Vue({
     el: '#app',
     data: {
-      successLabel: true
+      isVisible: true
     },
     methods: {
       successEditButton() {
-        this.successLabel = !this.successLabel
+        this.isVisible = !this.isVisible
       }
     }
   })

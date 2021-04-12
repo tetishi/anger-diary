@@ -7,8 +7,9 @@
       .control
         p.has-text-danger#js-success-record-post-error style="display: none"
           | 出来たことを入力してください
-      .control
-        spam.is-size-4.record-body#js-success-label v-bind:class='{active:isActive}'
+      .control v-show="isVisible"
+        / = binding.pry
+        spam.is-size-4.record-body#js-success-label
           = success_record.success_body
       .control
         #js-success-textarea style="display: none"
